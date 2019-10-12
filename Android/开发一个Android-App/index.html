@@ -1,0 +1,3000 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  <title>开发一个Android App | Mingfung&#39;s Blog</title>
+  <meta name="keywords" content=" MVP , Adapter , Activity , Fragment , Layout , Res , Realm , AIDL , AsyncTask , Thread , Handler ">
+  <meta name="description" content="开发一个Android App | Mingfung&#39;s Blog">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="description" content="关于iOS码农一枚">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Mingfung&#39;s Blog">
+<meta property="og:url" content="http://blog.ifungfay.com/about/index.html">
+<meta property="og:site_name" content="Mingfung&#39;s Blog">
+<meta property="og:description" content="关于iOS码农一枚">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-10-12T14:30:09.446Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Mingfung&#39;s Blog">
+<meta name="twitter:description" content="关于iOS码农一枚">
+
+
+<link rel="icon" href="/img/avatar.jpg">
+
+<link href="/css/style.css?v=1.0.1" rel="stylesheet">
+
+<link href="/css/hl_theme/zenbum.css?v=1.0.1" rel="stylesheet">
+
+<link href="//cdn.bootcss.com/animate.css/3.5.2/animate.min.css" rel="stylesheet">
+<link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+<script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="/js/jquery.autocomplete.min.js?v=1.0.1"></script>
+
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
+
+<script src="//cdn.bootcss.com/nprogress/0.2.0/nprogress.min.js"></script>
+
+
+
+<script src="/js/iconfont.js?v=1.0.1"></script>
+<!--鼠标点击爱心动画-->
+<script type="text/javascript" src="/js/clicklove.js"></script>
+</head>
+<div style="display: none">
+  <input class="theme_disqus_on" value="false">
+  <input class="theme_preload_comment" value="true">
+  <input class="theme_blog_path" value>
+</div>
+
+<body>
+<aside class="nav">
+    <div class="nav-left">
+        <a href="/" class="avatar_target">
+    <img class="avatar" src="/img/avatar.jpg" />
+</a>
+<div class="author">
+    <span>Mingfung</span>
+</div>
+
+<div class="icon">
+    
+        
+        <a title="rss" href="/atom.xml" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-rss"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+        <a title="github" href="https://github.com/leo9763" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-github"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+        <a title="facebook" href="https://www.facebook.com/ming.fung.liu.nero" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-facebook"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+    
+        
+    
+        
+        <a title="instagram" href="https://www.instagram.com/mingfungliu/" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-instagram"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+    
+        
+        <a title="weibo" href="https://weibo.com/neross" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-weibo"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+        <a title="jianshu" href="https://www.jianshu.com/u/007c5818ec78" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-jianshu"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+        <a title="zhihu" href="zhihu.com/people/mingfungliu" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-zhihu"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+    
+        
+    
+        
+        <a title="juejin" href="https://juejin.im/user/5b6b9b37f265da0f9f4e8df3" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-juejin"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+        <a title="email" href="mailto:mingfungliu@gmail.com" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-email"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+        <a title="qq" href="http://wpa.qq.com/msgrd?v=3&uin=52360086&site=qq&menu=yes" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-qq"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+    
+        
+    
+</div>
+
+
+
+<a class="more-menus">更多菜单</a>
+
+
+<ul>
+    <li><div class="all active">全部文章<small>(43)</small></div></li>
+    
+        
+            
+            <li><div data-rel="iOS">iOS<small>(6)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="Android">Android<small>(3)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="前端">前端<small>(4)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="工具">工具<small>(4)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="后端">后端<small>(12)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="管理">管理<small>(1)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="设计模式">设计模式<small>(7)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="系统">系统<small>(1)</small></div>
+                
+            </li>
+            
+        
+    
+</ul>
+<div class="left-bottom">
+    <div class="menus">
+    
+    
+    <a class="dynamic-menu site_url"   href="/404.html">宝贝回家</a>
+    
+    
+    
+    </div>
+    <div><a class="about  hasFriend  site_url"  href="/about">关于</a><a style="width: 50%"  class="friends">友链</a></div>
+</div>
+<input type="hidden" id="yelog_site_posts_number" value="43">
+
+<div style="display: none">
+    <span id="busuanzi_value_site_uv"></span>
+    <span id="busuanzi_value_site_pv"></span>
+</div>
+
+    </div>
+    <div class="nav-right">
+        <div class="friends-area">
+    <div class="friends-title">
+        友情链接
+        <i class="back-title-list"></i>
+    </div>
+    <div class="friends-content">
+        <ul>
+            
+            <li><a target="_blank" href="http://www.ifungfay.com">雪月风飞</a></li>
+            
+        </ul>
+    </div>
+</div>
+        <div class="title-list">
+    <form onkeydown="if(event.keyCode==13){return false;}">
+        <input class="search" type="text" placeholder="Search..." autocomplete="off"id="local-search-input" >
+        <i class="cross"></i>
+        <span>
+            <label for="tagswitch">Tags:</label>
+            <input id="tagswitch" type="checkbox" style="display: none" />
+            <i id="tagsWitchIcon"></i>
+        </span>
+    </form>
+    <div class="tags-list">
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">JSPatch</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">JavaScriptCore</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">property</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">dynamic</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">sythesize</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">nonatomic</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color1">iOS11</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">Xcode9</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">iPhoneX</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">TLS</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">SSL</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color1">HTTPS</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">ATS</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">Java</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">Android</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">AndroidStudio</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">adb</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">反编译</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">Gradle</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">Module</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">ProGuard</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">Native</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">JNI</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">NDK</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">AAR</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">JAR</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">html</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">bootstrap</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">css</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">Flutter</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">iOS</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">Dart</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">Git</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">command</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">Mac</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">question</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">PyCharm</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">Django</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">Python</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">Anaconda</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">Qgis</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color1">vapor</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color1">swift</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">heroku</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color1">cloud</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">crypto</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">console</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">terminal</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">database</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color1">postgreSQL</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">network</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">http</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">webSocket</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">encoded</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">leaf</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">view</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">session</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color1">token</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">verification</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">越狱</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">逆向</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">工具</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">安全</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">CGI</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">Servlet</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">容器</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">Docker</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">Manager</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color1">Model</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">Role</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">Target</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">JSON</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">Objective-C</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">jekyll</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">github</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">blog</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">Jenkins</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">CI</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">Test</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">Ubuntu</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">服务器</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">Web App</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color1">nginx</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color1">supervisor</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">fabric</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">python</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color1">mysql</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">设计模式</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">tool</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color1">skill</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">MVP</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">Adapter</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">Activity</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">Fragment</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">Layout</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">Res</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color1">Realm</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">AIDL</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">AsyncTask</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">Thread</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">Handler</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">link</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">register</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">assembly</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">library</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">static</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">memory</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">runtime</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">interrupt</a>
+    </li>
+    
+    <div class="clearfix"></div>
+</div>
+
+    
+    <nav id="title-list-nav">
+        
+        <a  class=""
+           href="/uncategorized/ATS详解/"
+           data-tag="TLS,SSL,HTTPS,ATS"
+           data-author="" >
+            <span class="post-title" title="ATS详解">ATS详解</span>
+            <span class="post-date" title="2017-07-22 15:57:55">2017/07/22</span>
+        </a>
+        
+        <a  class="Android "
+           href="/Android/Android原理入门/"
+           data-tag="Java,Android"
+           data-author="" >
+            <span class="post-title" title="Android原理入门">Android原理入门</span>
+            <span class="post-date" title="2019-08-14 00:22:11">2019/08/14</span>
+        </a>
+        
+        <a  class=""
+           href="/uncategorized/Android技巧入门/"
+           data-tag="AndroidStudio,adb,反编译"
+           data-author="" >
+            <span class="post-title" title="Android技巧入门">Android技巧入门</span>
+            <span class="post-date" title="2019-08-14 00:22:37">2019/08/14</span>
+        </a>
+        
+        <a  class="Android "
+           href="/Android/Android工程入门/"
+           data-tag="Gradle,Module,ProGuard,Native,JNI,NDK,AAR,JAR"
+           data-author="" >
+            <span class="post-title" title="Android工程入门">Android工程入门</span>
+            <span class="post-date" title="2019-02-24 13:44:00">2019/02/24</span>
+        </a>
+        
+        <a  class="前端 "
+           href="/前端/Bootstrap手册/"
+           data-tag="html,bootstrap,css"
+           data-author="" >
+            <span class="post-title" title="Bootstrap手册">Bootstrap手册</span>
+            <span class="post-date" title="2018-09-08 23:06:00">2018/09/08</span>
+        </a>
+        
+        <a  class="前端 "
+           href="/前端/Flutter开发（介绍篇）/"
+           data-tag="Android,Flutter,iOS,Dart"
+           data-author="" >
+            <span class="post-title" title="Flutter开发（介绍篇）">Flutter开发（介绍篇）</span>
+            <span class="post-date" title="2019-01-09 21:24:00">2019/01/09</span>
+        </a>
+        
+        <a  class="前端 "
+           href="/前端/Flutter开发（实践篇）/"
+           data-tag="Android,Flutter,iOS,Dart"
+           data-author="" >
+            <span class="post-title" title="Flutter开发（实践篇）">Flutter开发（实践篇）</span>
+            <span class="post-date" title="2019-01-09 23:06:00">2019/01/09</span>
+        </a>
+        
+        <a  class="工具 "
+           href="/工具/Git手册/"
+           data-tag="Git"
+           data-author="" >
+            <span class="post-title" title="Git手册">Git手册</span>
+            <span class="post-date" title="2019-01-28 21:35:00">2019/01/28</span>
+        </a>
+        
+        <a  class="工具 "
+           href="/工具/Mac命令行工具及其问题收录/"
+           data-tag="command,Mac,question"
+           data-author="" >
+            <span class="post-title" title="Mac命令行工具及其问题收录">Mac命令行工具及其问题收录</span>
+            <span class="post-date" title="2018-02-22 17:10:00">2018/02/22</span>
+        </a>
+        
+        <a  class="后端 "
+           href="/后端/Python的使用环境配置/"
+           data-tag="PyCharm,Django,Python,Anaconda,Qgis"
+           data-author="" >
+            <span class="post-title" title="Python的使用环境配置">Python的使用环境配置</span>
+            <span class="post-date" title="2018-05-24 19:30:00">2018/05/24</span>
+        </a>
+        
+        <a  class="后端 "
+           href="/后端/Vapor之初体验/"
+           data-tag="vapor,swift,heroku"
+           data-author="" >
+            <span class="post-title" title="Vapor之初体验">Vapor之初体验</span>
+            <span class="post-date" title="2018-01-05 21:49:00">2018/01/05</span>
+        </a>
+        
+        <a  class="后端 "
+           href="/后端/Vapor的部署/"
+           data-tag="vapor,swift,heroku,cloud"
+           data-author="" >
+            <span class="post-title" title="Vapor的部署">Vapor的部署</span>
+            <span class="post-date" title="2018-08-13 23:34:00">2018/08/13</span>
+        </a>
+        
+        <a  class="后端 "
+           href="/后端/Vapor（一）基础篇/"
+           data-tag="vapor,swift"
+           data-author="" >
+            <span class="post-title" title="Vapor（一）基础篇">Vapor（一）基础篇</span>
+            <span class="post-date" title="2018-08-13 23:34:00">2018/08/13</span>
+        </a>
+        
+        <a  class="后端 "
+           href="/后端/Vapor（七）工具篇/"
+           data-tag="command,vapor,swift,crypto,console,terminal"
+           data-author="" >
+            <span class="post-title" title="Vapor（七）工具篇">Vapor（七）工具篇</span>
+            <span class="post-date" title="2018-08-21 23:02:00">2018/08/21</span>
+        </a>
+        
+        <a  class="后端 "
+           href="/后端/Vapor（三）数据库篇/"
+           data-tag="vapor,swift,database,postgreSQL"
+           data-author="" >
+            <span class="post-title" title="Vapor（三）数据库篇">Vapor（三）数据库篇</span>
+            <span class="post-date" title="2018-08-15 21:33:00">2018/08/15</span>
+        </a>
+        
+        <a  class="后端 "
+           href="/后端/Vapor（二）进阶篇/"
+           data-tag="vapor,swift"
+           data-author="" >
+            <span class="post-title" title="Vapor（二）进阶篇">Vapor（二）进阶篇</span>
+            <span class="post-date" title="2018-08-14 21:20:00">2018/08/14</span>
+        </a>
+        
+        <a  class="后端 "
+           href="/后端/Vapor（五）网络篇/"
+           data-tag="vapor,swift,network,http,webSocket,encoded"
+           data-author="" >
+            <span class="post-title" title="Vapor（五）网络篇">Vapor（五）网络篇</span>
+            <span class="post-date" title="2018-08-17 20:30:00">2018/08/17</span>
+        </a>
+        
+        <a  class="后端 "
+           href="/后端/Vapor（六）视图篇/"
+           data-tag="vapor,swift,leaf,view"
+           data-author="" >
+            <span class="post-title" title="Vapor（六）视图篇">Vapor（六）视图篇</span>
+            <span class="post-date" title="2018-08-20 21:56:00">2018/08/20</span>
+        </a>
+        
+        <a  class="后端 "
+           href="/后端/Vapor（四）验证篇/"
+           data-tag="vapor,swift,session,token,verification"
+           data-author="" >
+            <span class="post-title" title="Vapor（四）验证篇">Vapor（四）验证篇</span>
+            <span class="post-date" title="2018-08-16 19:06:00">2018/08/16</span>
+        </a>
+        
+        <a  class=""
+           href="/uncategorized/hello-world/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Hello World">Hello World</span>
+            <span class="post-date" title="2018-01-07 14:45:35">2018/01/07</span>
+        </a>
+        
+        <a  class="iOS "
+           href="/iOS/iOS逆向（一）越狱篇/"
+           data-tag="iOS,越狱"
+           data-author="" >
+            <span class="post-title" title="iOS逆向（一）越狱篇">iOS逆向（一）越狱篇</span>
+            <span class="post-date" title="2018-09-13 22:39:01">2018/09/13</span>
+        </a>
+        
+        <a  class="iOS "
+           href="/iOS/iOS逆向（二）工具篇/"
+           data-tag="iOS,逆向,工具"
+           data-author="" >
+            <span class="post-title" title="iOS逆向（二）工具篇">iOS逆向（二）工具篇</span>
+            <span class="post-date" title="2018-09-13 22:39:02">2018/09/13</span>
+        </a>
+        
+        <a  class="iOS "
+           href="/iOS/iOS逆向（三）分析篇/"
+           data-tag="iOS,逆向"
+           data-author="" >
+            <span class="post-title" title="iOS逆向（三）分析篇">iOS逆向（三）分析篇</span>
+            <span class="post-date" title="2018-09-13 22:39:03">2018/09/13</span>
+        </a>
+        
+        <a  class="iOS "
+           href="/iOS/iOS逆向（五）总结篇/"
+           data-tag="iOS,逆向,安全"
+           data-author="" >
+            <span class="post-title" title="iOS逆向（五）总结篇">iOS逆向（五）总结篇</span>
+            <span class="post-date" title="2018-09-13 22:39:05">2018/09/13</span>
+        </a>
+        
+        <a  class="iOS "
+           href="/iOS/iOS逆向（四）实战篇/"
+           data-tag="iOS,逆向"
+           data-author="" >
+            <span class="post-title" title="iOS逆向（四）实战篇">iOS逆向（四）实战篇</span>
+            <span class="post-date" title="2018-09-13 22:39:04">2018/09/13</span>
+        </a>
+        
+        <a  class="后端 "
+           href="/后端/后端服务器概念了解下/"
+           data-tag="CGI,Servlet,容器,Docker"
+           data-author="" >
+            <span class="post-title" title="后端服务器概念了解下">后端服务器概念了解下</span>
+            <span class="post-date" title="2019-02-21 20:30:00">2019/02/21</span>
+        </a>
+        
+        <a  class=""
+           href="/uncategorized/利用Firebase实现的推送功能系统/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="利用Firebase实现的推送功能系统">利用Firebase实现的推送功能系统</span>
+            <span class="post-date" title="2018-01-17 19:33:41">2018/01/17</span>
+        </a>
+        
+        <a  class="管理 "
+           href="/管理/团队管理实践/"
+           data-tag="Manager,Model,Role,Target"
+           data-author="" >
+            <span class="post-title" title="团队管理实践">团队管理实践</span>
+            <span class="post-date" title="2019-02-23 23:50:00">2019/02/23</span>
+        </a>
+        
+        <a  class="iOS "
+           href="/iOS/处理服务端API返回JSON的总结/"
+           data-tag="iOS,JSON,Objective-C"
+           data-author="" >
+            <span class="post-title" title="处理服务端API返回JSON的总结">处理服务端API返回JSON的总结</span>
+            <span class="post-date" title="2018-01-09 14:35:00">2018/01/09</span>
+        </a>
+        
+        <a  class="前端 "
+           href="/前端/搭建Hexo博客/"
+           data-tag="jekyll,github,blog"
+           data-author="" >
+            <span class="post-title" title="搭建Hexo博客">搭建Hexo博客</span>
+            <span class="post-date" title="2017-07-18 21:50:14">2017/07/18</span>
+        </a>
+        
+        <a  class=""
+           href="/uncategorized/搭建Jekins/"
+           data-tag="Jenkins,CI,Test"
+           data-author="" >
+            <span class="post-title" title="搭建Jekins">搭建Jekins</span>
+            <span class="post-date" title="2017-08-26 22:59:36">2017/08/26</span>
+        </a>
+        
+        <a  class="工具 "
+           href="/工具/搭建博客图床/"
+           data-tag="blog"
+           data-author="" >
+            <span class="post-title" title="搭建博客图床">搭建博客图床</span>
+            <span class="post-date" title="2019-03-21 12:39:00">2019/03/21</span>
+        </a>
+        
+        <a  class="后端 "
+           href="/后端/搭建服务器/"
+           data-tag="Ubuntu,服务器,Web App,nginx,supervisor,fabric,python,mysql"
+           data-author="" >
+            <span class="post-title" title="搭建服务器">搭建服务器</span>
+            <span class="post-date" title="2019-04-06 00:00:00">2019/04/06</span>
+        </a>
+        
+        <a  class="设计模式 "
+           href="/设计模式/设计模式（一）策略模式 & 模板方法模式/"
+           data-tag="设计模式"
+           data-author="" >
+            <span class="post-title" title="设计模式（一）策略模式 &amp; 模板方法模式">设计模式（一）策略模式 &amp; 模板方法模式</span>
+            <span class="post-date" title="2019-01-13 23:41:00">2019/01/13</span>
+        </a>
+        
+        <a  class="工具 "
+           href="/工具/效率工具及技巧收录/"
+           data-tag="tool,skill"
+           data-author="" >
+            <span class="post-title" title="效率工具及技巧收录">效率工具及技巧收录</span>
+            <span class="post-date" title="2019-02-23 22:05:00">2019/02/23</span>
+        </a>
+        
+        <a  class="设计模式 "
+           href="/设计模式/设计模式（七）小总结/"
+           data-tag="设计模式"
+           data-author="" >
+            <span class="post-title" title="设计模式（七）小总结">设计模式（七）小总结</span>
+            <span class="post-date" title="2019-02-12 14:45:00">2019/02/12</span>
+        </a>
+        
+        <a  class="设计模式 "
+           href="/设计模式/设计模式（三）适配器模式 & 外观模式/"
+           data-tag="设计模式"
+           data-author="" >
+            <span class="post-title" title="设计模式（三）适配器模式 &amp; 外观模式">设计模式（三）适配器模式 &amp; 外观模式</span>
+            <span class="post-date" title="2019-02-11 15:10:00">2019/02/11</span>
+        </a>
+        
+        <a  class="设计模式 "
+           href="/设计模式/设计模式（二）迭代器模式 & 组合模式/"
+           data-tag="设计模式"
+           data-author="" >
+            <span class="post-title" title="设计模式（二）迭代器模式 &amp; 组合模式">设计模式（二）迭代器模式 &amp; 组合模式</span>
+            <span class="post-date" title="2019-02-11 09:59:00">2019/02/11</span>
+        </a>
+        
+        <a  class="设计模式 "
+           href="/设计模式/设计模式（五）工厂模式 & 装饰者模式/"
+           data-tag="设计模式"
+           data-author="" >
+            <span class="post-title" title="设计模式（五）工厂模式 &amp; 装饰者模式">设计模式（五）工厂模式 &amp; 装饰者模式</span>
+            <span class="post-date" title="2019-02-12 11:54:00">2019/02/12</span>
+        </a>
+        
+        <a  class="设计模式 "
+           href="/设计模式/设计模式（六）命令模式 & 观察者模式/"
+           data-tag="设计模式"
+           data-author="" >
+            <span class="post-title" title="设计模式（六）命令模式 &amp; 观察者模式">设计模式（六）命令模式 &amp; 观察者模式</span>
+            <span class="post-date" title="2019-02-12 14:28:00">2019/02/12</span>
+        </a>
+        
+        <a  class="设计模式 "
+           href="/设计模式/设计模式（四）状态模式 & 代理模式/"
+           data-tag="设计模式"
+           data-author="" >
+            <span class="post-title" title="设计模式（四）状态模式 &amp; 代理模式">设计模式（四）状态模式 &amp; 代理模式</span>
+            <span class="post-date" title="2019-02-12 13:12:00">2019/02/12</span>
+        </a>
+        
+        <a  class="Android "
+           href="/Android/开发一个Android-App/"
+           data-tag="MVP,Adapter,Activity,Fragment,Layout,Res,Realm,AIDL,AsyncTask,Thread,Handler"
+           data-author="" >
+            <span class="post-title" title="开发一个Android App">开发一个Android App</span>
+            <span class="post-date" title="2019-10-05 16:11:04">2019/10/05</span>
+        </a>
+        
+        <a  class="系统 "
+           href="/系统/链接、装载、库/"
+           data-tag="dynamic,link,register,assembly,library,static,memory,runtime,interrupt"
+           data-author="" >
+            <span class="post-title" title="链接、装载、库">链接、装载、库</span>
+            <span class="post-date" title="2019-06-05 08:53:00">2019/06/05</span>
+        </a>
+        
+    </nav>
+</div>
+    </div>
+    <div class="hide-list">
+        <div class="semicircle">
+            <div class="brackets first"><</div>
+            <div class="brackets">&gt;</div>
+        </div>
+    </div>
+</aside>
+<div class="post">
+    <div class="pjax">
+        <article id="post-开发一个Android-App" class="article article-type-post" itemscope itemprop="blogPost">
+    
+        <h1 class="article-title">开发一个Android App</h1>
+    
+    <div class="article-meta">
+        
+        
+        
+        <span class="book">
+            
+                <a href="javascript:" data-rel="Android">Android</a>
+            
+        </span>
+        
+        
+        <span class="tag">
+            
+            <a href="javascript:" class="color4">MVP</a>
+            
+            <a href="javascript:" class="color3">Adapter</a>
+            
+            <a href="javascript:" class="color4">Activity</a>
+            
+            <a href="javascript:" class="color4">Fragment</a>
+            
+            <a href="javascript:" class="color2">Layout</a>
+            
+            <a href="javascript:" class="color4">Res</a>
+            
+            <a href="javascript:" class="color1">Realm</a>
+            
+            <a href="javascript:" class="color5">AIDL</a>
+            
+            <a href="javascript:" class="color5">AsyncTask</a>
+            
+            <a href="javascript:" class="color2">Thread</a>
+            
+            <a href="javascript:" class="color3">Handler</a>
+            
+        </span>
+        
+    </div>
+    <div class="article-meta">
+        
+        创建时间:<time class="date" title='更新时间: 2019-10-11 12:46:59'>2019-10-05 16:11</time>
+        
+    </div>
+    <div class="article-meta">
+        
+        
+        <span id="busuanzi_container_page_pv">
+            阅读:<span id="busuanzi_value_page_pv">
+                <span class="count-comment">
+                    <span class="spinner">
+                      <div class="cube1"></div>
+                      <div class="cube2"></div>
+                    </span>
+                </span>
+            </span>
+        </span>
+        
+        
+    </div>
+    
+    <div class="toc-ref">
+    
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Android应用构成"><span class="toc-text">Android应用构成</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#应用配置文件-AndroidManifest"><span class="toc-text">应用配置文件 AndroidManifest</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#UI"><span class="toc-text">UI</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#控制器-Activity"><span class="toc-text">控制器 Activity</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#片段-Fragment"><span class="toc-text">片段 Fragment</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#视图-View"><span class="toc-text">视图 View</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ToolBar"><span class="toc-text">ToolBar</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ListView"><span class="toc-text">ListView</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#RecyclerView"><span class="toc-text">RecyclerView</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#其它集合View"><span class="toc-text">其它集合View</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#控件"><span class="toc-text">控件</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#监听者-Listener"><span class="toc-text">监听者 Listener</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#资源"><span class="toc-text">资源</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#res"><span class="toc-text">res</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#assets"><span class="toc-text">assets</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#模型-Model"><span class="toc-text">模型 Model</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#适配器-Adapter"><span class="toc-text">适配器 Adapter</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#跨应用通信-AIDL"><span class="toc-text">跨应用通信 AIDL</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#多线程"><span class="toc-text">多线程</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#AsyncTask"><span class="toc-text">AsyncTask</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Thread-Handler"><span class="toc-text">Thread + Handler</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#打包"><span class="toc-text">打包</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Apk"><span class="toc-text">Apk</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#jar"><span class="toc-text">jar</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#arr"><span class="toc-text">arr</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#设计模式"><span class="toc-text">设计模式</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#MVP"><span class="toc-text">MVP</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#MVVM"><span class="toc-text">MVVM</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#总结"><span class="toc-text">总结</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#参考"><span class="toc-text">参考</span></a></li></ol>
+    
+<style>
+    .left-col .switch-btn,
+    .left-col .switch-area {
+        display: none;
+    }
+    .toc-level-3 i,
+    .toc-level-3 ol {
+        display: none !important;
+    }
+</style>
+</div>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>从0到1，搭建一个简单的Android App。中间会夹着某些知识点的全量内容，方便下次开发时直接在这里根据自己当时的总结翻找回顾（官方的文档其实也已经很全很方便翻阅）。因为本人是iOS开发出身，所以中间也会夹着些和iOS相似概念的类比，举一反三地思考，加强记忆。</p>
+<a id="more"></a>
+
+<h1 id="Android应用构成"><a href="#Android应用构成" class="headerlink" title="Android应用构成"></a>Android应用构成</h1><p><img src="http://qiniu.ifungfay.com/mweb/android_app_structure.png2019%2009%2027" alt="android_app_structure"></p>
+<p>主干</p>
+<ul>
+<li>AndroidManifest：应用的配置，系统需要根据里面的内容运行APP的代码，显示界面；</li>
+<li>Activity：可以理解为一个视图控制器，在MVC模式下充当C这样的角色；</li>
+<li>Fragment：表示Activity 中的片段，可组合或重复使用，具有它自己的生命周期和输入事件；</li>
+<li>Service：在后台执行长时间运行操作而不提供界面的服务；</li>
+<li>ContentProvider：内容提供者，在进程间进行数据交互和共享，即跨进程通信</li>
+<li>BoardcastReceiver：广播接收器，是一个全局的监听器，监听接收应用发出的广播消息，并做出响应</li>
+</ul>
+<p>四肢</p>
+<ul>
+<li>View：Android里的图形界面都是由View和ViewGroup以及他们的子类构成的，或可直接将XML布局看作是View；</li>
+<li>Adapter：也可以看作是另一个控制器，介于Activity和View之间，配合集合性的View使用；</li>
+<li>Model：是指应用逻辑层（也叫领域层）的对象，如 Account、Order 等等，这些对象是应用程序中的一些核心对象，负责应用的逻辑计算，有许多与业务逻辑有关的方法或操作。仅仅只有getter、setter的用来传递数据的对象，只能叫Value Object，并不是真正的Model层；</li>
+<li>AsyncTask：轻量级异步类，实现多线程、工作线程与主线程（UI线程）之间的通信；</li>
+</ul>
+<p>衣服（Res）</p>
+<ul>
+<li>layout：页面的布局</li>
+<li>values：存放属性值，例如颜色、间隔、本地化</li>
+<li>drawable：存放图片</li>
+<li>xml：存放自定义的配置</li>
+<li>anim：动画效果</li>
+<li>mipmap：存放icon和launch图</li>
+<li>menu：菜单选项</li>
+</ul>
+<p>内脏</p>
+<ul>
+<li>aar：含资源的库包集合</li>
+<li>jar：纯代码库包</li>
+<li>module：源码级的Library，在同一个工程中供主项目Module去引用依赖</li>
+</ul>
+<h1 id="应用配置文件-AndroidManifest"><a href="#应用配置文件-AndroidManifest" class="headerlink" title="应用配置文件 AndroidManifest"></a>应用配置文件 AndroidManifest</h1><p>具体包含的内容有：</p>
+<ul>
+<li>为应用的 Java 软件包命名；</li>
+<li>描述应用的各个组件，包括构成应用的 Activity、服务、广播接收器和内容提供程序。它还为实现每个组件的类命名并发布其功能，例如它们可以处理的 Intent 消息。这些声明向 Android 系统告知有关组件以及可以启动这些组件的条件的信息；</li>
+<li>确定托管应用组件的进程；</li>
+<li>声明应用必须具备哪些权限才能访问 API 中受保护的部分并与其他应用交互。还声明其他应用与该应用组件交互所需具备的权限；</li>
+<li>列出 Instrumentation类，这些类可在应用运行时提供分析和其他信息。这些声明只会在应用处于开发阶段时出现在清单中，在应用发布之前将移除；</li>
+<li>声明应用所需的最低 Android API 级别；（在build.gradle也能指定）</li>
+<li>列出应用必须链接到的库。（3.0的AS之后由build.gradle指定）</li>
+</ul>
+<p>它就好比iOS中的Info.plist，包含各种应用运行前或运行时所需的配置项</p>
+<p>在<code>&lt;manifest&gt;</code>此元素的属性中：</p>
+<ul>
+<li>package表示应用的包名；</li>
+<li>android:versionName表示商店上给用户所看的版本号；</li>
+<li>android:versionCode表示开发者内部的版本号，一般作为标识每次生成的包的号码；</li>
+</ul>
+<p><code>&lt;manifest&gt;</code>中的元素</p>
+<ul>
+<li><code>&lt;uses-feature&gt;</code> 将APP所依赖的硬件或者软件条件进行声明，需在单独的<code>&lt;uses-feature&gt;</code>元素中指定每个功能；<ul>
+<li>android:name 指定的功能名。</li>
+<li>android:required 是否必须功能。</li>
+<li>android:glEsVersion 需要的Opengl ES版本。</li>
+</ul>
+</li>
+<li><code>&lt;uses-permission&gt;</code> 声明需要使用的权限，一般只设置 android:name= 属性，可选的权限有<ul>
+<li>android.permission.INTERNET</li>
+<li>android.permission.WRITE_EXTERNAL_STORAGE</li>
+</ul>
+</li>
+<li><code>&lt;application&gt;</code> 描述应用的配置，包含多个子元素来描述应用中的组件；<ul>
+<li>android:allowBackup 是否允许APP加入到备份还原的结构中。</li>
+<li>android:fullBackupContent 是否支持RTL（Right To Left）布局，targetSdkVersion在17以上起效。</li>
+<li>android:icon APP的图标，一般就使用mipmap(-hdpi)下对应的ic_launche图片。</li>
+<li>android:label 用户可读的标签，标签必须设置成一个字符串资源的引用，使其为可配置可定位。</li>
+<li>android:theme 应用使用的主题，指向style资源的引用，各个activity也可以用自己的theme属性设置自己的主题。</li>
+<li>android:name Application子类的全名，需包括其整体路径，当应用启动时，这个类的实例被第一个创建，这个属性是可选配置。</li>
+</ul>
+</li>
+<li><code>&lt;activity&gt;</code> 是<code>&lt;application&gt;</code>中的元素，声明一个实现应用可视化界面的Activity，任何未在该处声明的Activity对系统都不可见，并且永远不会被执行；<ul>
+<li>android:name activity的名称，如果第一个字符是点，就需要加上包名。</li>
+<li>android:label 同application</li>
+<li>android:configChanges 在运行时发生配置更改时，默认情况下会关闭 Activity 然后将其重新启动，但使用该属性声明配置将阻止 Activity 重新启动，并保持运行状态，系统会调用其 onConfigurationChanged()方法。<ul>
+<li>orientation 设备旋转</li>
+<li>keyboardHidden 键盘显隐</li>
+</ul>
+</li>
+<li>android:launchMode 如何启动Activity的指令，一共有四种指令，默认情况下是standard。<ul>
+<li>standard 可以多次实例化，遵循元素进栈出栈的特性，可位于Activity堆栈中的任何位置。</li>
+<li>singleTop 可以多次实例化，但如果要开启的activity在任务栈的顶部已经存在，就不会创建新的实例，而是调用 onNewIntent() 方法。避免栈顶的activity被重复的创建。 </li>
+<li>singleTask 单一实例模式，如果要激活的activity，在任务栈里面已经存在，就不会创建新的activity，而是复用这个已经存在的activity，调用 onNewIntent() 方法，并且清空这个activity任务栈上面所有的activity。</li>
+<li>singleInstance 单一实例模式，整个手机操作系统里面只有一个实例存在，不同的应用去打开这个activity共享公用的同一个activity，运行在自己独立的任务栈里面，并且任务栈里面只有它一个实例存在。</li>
+</ul>
+</li>
+<li>android:theme 同application的theme</li>
+</ul>
+</li>
+<li><code>&lt;meta-data&gt;</code>一般是<code>&lt;activity&gt;</code>中的元素，是一个name-value对，提供给其父组件，数据会被组成一个Bundle对象，可以通过PackageItemInfo.metaData字段使用；<ul>
+<li>android:name</li>
+<li>android:resource</li>
+<li>android:value</li>
+</ul>
+</li>
+<li><code>&lt;intent-filter&gt;</code>一般也是<code>&lt;activity&gt;</code>中的元素，指明activity可以以什么样的意图(intent)启动，其子元素包括<ul>
+<li><code>&lt;action&gt;</code>元素，表示activity作为一个什么动作启动，android.intent.action.MAIN表示作为主activity启动</li>
+<li><code>&lt;category&gt;</code>元素，表示action元素的额外类别信息，android.intent.category.LAUNCHER表示这个activity为当前应用程序优先级最高的Activity。</li>
+</ul>
+</li>
+</ul>
+<p>示例：</p>
+<pre><code class="hljs xml">&lt;?xml version="1.0" encoding="utf-8"?&gt;
+<span class="hljs-tag">&lt;<span class="hljs-name">manifest</span> <span class="hljs-attr">xmlns:android</span>=<span class="hljs-string">"http://schemas.android.com/apk/res/android"</span>
+    <span class="hljs-attr">package</span>=<span class="hljs-string">"com.test.app"</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">uses-permission</span> <span class="hljs-attr">android:name</span>=<span class="hljs-string">"android.permission.INTERNET"</span>/&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">uses-permission</span> <span class="hljs-attr">android:name</span>=<span class="hljs-string">"android.permission.WRITE_EXTERNAL_STORAGE"</span>/&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">application</span>
+        <span class="hljs-attr">android:name</span>=<span class="hljs-string">"com.test.app.TestApplication"</span>
+        <span class="hljs-attr">android:networkSecurityConfig</span>=<span class="hljs-string">"@xml/network_security_config"</span>
+        <span class="hljs-attr">android:allowBackup</span>=<span class="hljs-string">"true"</span>
+        <span class="hljs-attr">android:icon</span>=<span class="hljs-string">"@mipmap/ic_launcher"</span>
+        <span class="hljs-attr">android:roundIcon</span>=<span class="hljs-string">"@mipmap/ic_launcher_round"</span>
+        <span class="hljs-attr">android:supportsRtl</span>=<span class="hljs-string">"true"</span>
+        <span class="hljs-attr">android:theme</span>=<span class="hljs-string">"@style/AppTheme"</span>&gt;</span>
+        
+        <span class="hljs-tag">&lt;<span class="hljs-name">service</span>
+            <span class="hljs-attr">android:name</span>=<span class="hljs-string">"com.test.app.service.TestAidlService"</span>
+            <span class="hljs-attr">android:exported</span>=<span class="hljs-string">"true"</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">intent-filter</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">action</span> <span class="hljs-attr">android:name</span>=<span class="hljs-string">"com.test.app.service.TestAidlService"</span>/&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">category</span> <span class="hljs-attr">android:name</span>=<span class="hljs-string">"android.intent.category.DEFAULT"</span>/&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">intent-filter</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">service</span>&gt;</span>
+        
+        <span class="hljs-tag">&lt;<span class="hljs-name">activity</span>
+            <span class="hljs-attr">android:name</span>=<span class="hljs-string">"com.test.app.activity.MainActivity"</span>
+            <span class="hljs-attr">android:theme</span>=<span class="hljs-string">"@style/AppTheme.NoActionBar"</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">intent-filter</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">action</span> <span class="hljs-attr">android:name</span>=<span class="hljs-string">"android.intent.action.MAIN"</span> /&gt;</span>
+
+                <span class="hljs-tag">&lt;<span class="hljs-name">category</span> <span class="hljs-attr">android:name</span>=<span class="hljs-string">"android.intent.category.LAUNCHER"</span> /&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">intent-filter</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">activity</span>&gt;</span>
+
+        <span class="hljs-tag">&lt;<span class="hljs-name">activity</span> <span class="hljs-attr">android:name</span>=<span class="hljs-string">"com.test.app.activity.DetailActivity"</span>
+            <span class="hljs-attr">android:parentActivityName</span>=<span class="hljs-string">"com.efn.testapp.activity.MainActivity"</span>
+            <span class="hljs-attr">android:theme</span>=<span class="hljs-string">"@style/AppTheme.NoActionBar"</span> &gt;</span>
+            <span class="hljs-comment">&lt;!-- The meta-data tag is required if you support API level 15 and lower --&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">meta-data</span>
+                <span class="hljs-attr">android:name</span>=<span class="hljs-string">"android.support.PARENT_ACTIVITY"</span>
+                <span class="hljs-attr">android:value</span>=<span class="hljs-string">"com.test.app.activity.MainActivity"</span> /&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">activity</span>&gt;</span>
+
+        <span class="hljs-tag">&lt;<span class="hljs-name">provider</span>
+            <span class="hljs-attr">android:name</span>=<span class="hljs-string">"android.support.v4.content.FileProvider"</span>
+            <span class="hljs-attr">android:authorities</span>=<span class="hljs-string">"com.efn.testapp.fileprovider"</span>
+            <span class="hljs-attr">android:exported</span>=<span class="hljs-string">"false"</span>
+            <span class="hljs-attr">android:grantUriPermissions</span>=<span class="hljs-string">"true"</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">meta-data</span>
+                <span class="hljs-attr">android:name</span>=<span class="hljs-string">"android.support.FILE_PROVIDER_PATHS"</span>
+                <span class="hljs-attr">android:resource</span>=<span class="hljs-string">"@xml/file_provider"</span>/&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">provider</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">application</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">manifest</span>&gt;</span></code></pre>
+
+<h1 id="UI"><a href="#UI" class="headerlink" title="UI"></a>UI</h1><h2 id="控制器-Activity"><a href="#控制器-Activity" class="headerlink" title="控制器 Activity"></a>控制器 Activity</h2><p><a href="https://developer.android.com/guide/components/activities/?hl=zh-CN" target="_blank" rel="noopener">官方文档</a></p>
+<p>Android中的Activity，在MVC中就可以直接看作是C，即Controler，与iOS的ViewControler的定位一致。但MVP或MVVM中，可能就需要改视为V，即View更多一些，因为它的业务逻辑会进一步被分化到Presenter或者ViewModel上，只是保留简单地管理View的部分，下面在设计模式一节再详谈。</p>
+<p>开发Activity的基本步骤：</p>
+<ul>
+<li>创建Activity，最主要的是实现onCreate()，初始化 Activity 的必需组件，其它生命周期的方法可以按需要实现 <a href="https://developer.android.com/guide/components/activities/?hl=zh-CN#Lifecycle" target="_blank" rel="noopener">官方文档</a>；<ul>
+<li>onCreate 创建</li>
+<li>onStart 即将可见</li>
+<li>onResume 已经可见</li>
+<li>onPause 聚焦在其他activity上</li>
+<li>onStop 不再可见</li>
+<li>onDestroy 准备销毁</li>
+</ul>
+</li>
+<li>在onCreate()中必须调用 setContentView() ，传递布局的资源ID以定义Activity用户界面的布局。</li>
+<li>在清单文件中声明 Activity，指定你要的意图过滤器intent-fliter</li>
+<li>启动Activity<ul>
+<li>创建意图 Intent对象，传入将要打开的子Activity的class</li>
+<li>不需要回调的调用 startActivity()</li>
+<li>需要回调的调用 startActivityForResult()，并实现 onActivityResult()，通过requestCode参数标识来源，resultCode参数标识处理结果</li>
+<li>需要额外参数的，对intent调用 putExtra(“key”, “value”)进行设置</li>
+</ul>
+</li>
+<li>结束Activity<ul>
+<li>finish() 结束当前Activity</li>
+<li>finishActivity() 结束之前启动的另一个Activity</li>
+</ul>
+</li>
+</ul>
+<p>在startActivity()或finish()后调用overridePendingTransition()，传入进入动画和退出动画的资源ID，即可自定义启动Activity的动画效果。</p>
+<p>Activity一般继承<code>AppCompatActivity</code>就能带有ActionBar（AS中创建Activity是默认继承它的），也就是iOS中的NavigationBar。为了可以兼容旧版的actionBar，support v7提供的ActionBarActivity（其实就是一个AppCompatActivity的空继承）。</p>
+<p>在被打开的Activity中，如果是使用自定义toolbar，且不用兼容旧系统的actionBar，则可以这样指定标题和后退按钮</p>
+<pre><code class="hljs java">Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+setTitle(<span class="hljs-string">"xx"</span>);
+toolbar.setTitleTextColor(Color.BLACK);
+toolbar.setNavigationIcon(R.drawable.ic_toolbar_back);</code></pre>
+
+<p>若是自定义的toolbar但不需要兼容actionBar，则需要先将布局中自定义的toolbar设定为actionBar，并关闭相关的自定义属性</p>
+<pre><code class="hljs java">Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+setSupportActionBar(toolbar); <span class="hljs-comment">//为了兼容旧版本上的actionBar（Toolbar是新的代替工具）</span>
+ActionBar actionBar =  getSupportActionBar();
+<span class="hljs-keyword">if</span>(actionBar != <span class="hljs-keyword">null</span>) &#123;
+    <span class="hljs-comment">//actionBar.hide(); </span>
+    actionBar.setHomeButtonEnabled(<span class="hljs-keyword">false</span>);
+    actionBar.setDisplayShowHomeEnabled(<span class="hljs-keyword">false</span>);
+    actionBar.setDisplayShowTitleEnabled(<span class="hljs-keyword">false</span>);
+&#125;
+
+TextView titleView = findViewById(R.id.detail_main_title);
+titleView.setText(title + <span class="hljs-string">"详情"</span>);
+
+Button backButton = findViewById(R.id.detail_main_back_btn);
+backButton.setOnClickListener(<span class="hljs-keyword">new</span> View.OnClickListener() &#123;
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onClick</span><span class="hljs-params">(View v)</span> </span>&#123;
+        DetailActivity.<span class="hljs-keyword">this</span>.finish(); 
+        overridePendingTransition(R.anim.anim_back_in, R.anim.anim_back_out);
+    &#125;
+&#125;);</code></pre>
+
+<h2 id="片段-Fragment"><a href="#片段-Fragment" class="headerlink" title="片段 Fragment"></a>片段 Fragment</h2><p><a href="https://developer.android.com/guide/components/fragments?hl=zh-CN" target="_blank" rel="noopener">官方文档</a></p>
+<p>可以在一个 Activity 中组合多个片段，从而构建多窗格界面，并在多个 Activity 中重复使用某个片段。</p>
+<p>片段必须始终托管在 Activity 中，其生命周期直接受宿主 Activity 生命周期的影响。Fragment的生命周期如下：</p>
+<ul>
+<li>onAttach/onDettach</li>
+<li>onCreate/onDestroy</li>
+<li>onCreateView/onDestroyView</li>
+<li>onActivityCreate</li>
+<li>onStart/onStop</li>
+<li>onResume/onPause</li>
+</ul>
+<p>当您将片段作为 Activity 布局的一部分添加时，其位于 Activity 视图层次结构的某个 ViewGroup 中，并且片段会定义其自己的视图布局。您可以通过在 Activity 的布局文件中声明片段，将其作为 <fragment> 元素插入您的 Activity 布局，或者通过将其添加到某个现有的 ViewGroup，利用应用代码将其插入布局。</fragment></p>
+<p>开发Fragment</p>
+<p>如果是普通的Fragment，可以通过onCreateView()返回布局的根视图（View）</p>
+<pre><code class="hljs java"><span class="hljs-meta">@Override</span>
+<span class="hljs-function"><span class="hljs-keyword">public</span> View <span class="hljs-title">onCreateView</span><span class="hljs-params">(LayoutInflater inflater, ViewGroup container,
+                         Bundle savedInstanceState)</span> </span>&#123;
+    <span class="hljs-comment">// Inflate the layout for this fragment</span>
+    <span class="hljs-keyword">return</span> inflater.inflate(R.layout.example_fragment, container, <span class="hljs-keyword">false</span>);
+&#125;</code></pre>
+
+<ul>
+<li>inflater参数可利用来加载布局（有点像Activity中的setContentView()）</li>
+<li>container参数是片段布局将插入到的父级ViewGroup（来自Activity）</li>
+<li>savedInstanceState参数是在恢复片段时，提供上一片段实例相关数据的Bundle</li>
+<li>inflate()但最后一个布尔型参数，指示是否应在扩展期间将扩展布局附加至 ViewGroup（第二个参数）的布尔值。</li>
+<li>getArguments()获取传递进来的其它参数</li>
+<li>getView()获取当前的ViewGroup</li>
+</ul>
+<p>如果是<code>DialogFragment</code>，则需要重写onCreateDialog()，并返回一个自定义的Dialog（否则父类默认会返回一个空白的Dialog），示例：</p>
+<pre><code class="hljs java"><span class="hljs-meta">@Override</span>
+<span class="hljs-function"><span class="hljs-keyword">public</span> Dialog <span class="hljs-title">onCreateDialog</span><span class="hljs-params">(@Nullable Bundle savedInstanceState)</span> </span>&#123;
+
+    Dialog alertDialog = <span class="hljs-keyword">new</span> Dialog(getContext());
+    alertDialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+    View customView = initView(<span class="hljs-keyword">null</span>, <span class="hljs-keyword">null</span>);
+    alertDialog.setContentView(customView);
+    alertDialog.setCanceledOnTouchOutside(<span class="hljs-keyword">true</span>);
+    alertDialog.getWindow().setBackgroundDrawable(<span class="hljs-keyword">new</span> ColorDrawable(Color.TRANSPARENT));
+
+    WindowManager.LayoutParams windowParams = alertDialog.getWindow().getAttributes();
+    windowParams.width = (<span class="hljs-keyword">int</span>) (getResources().getDisplayMetrics().widthPixels -
+            getResources().getDisplayMetrics().density * <span class="hljs-number">40</span>);
+    windowParams.height = (<span class="hljs-keyword">int</span>) (getResources().getDisplayMetrics().heightPixels -
+            getResources().getDisplayMetrics().density * <span class="hljs-number">100</span>);
+    alertDialog.getWindow().setAttributes(windowParams);
+
+    <span class="hljs-keyword">return</span> alertDialog;
+&#125;
+
+<span class="hljs-comment">//initView()</span>
+···
+<span class="hljs-keyword">if</span> (inflater == <span class="hljs-keyword">null</span>) &#123;
+    view = LayoutInflater.from(getContext()).inflate(R.layout.detail_advise_main, container);
+&#125; <span class="hljs-keyword">else</span> &#123;
+    view = inflater.inflate(R.layout.detail_advise_main, container, <span class="hljs-keyword">false</span>);
+&#125;
+··· <span class="hljs-comment">//在view上设置控件</span></code></pre>
+
+<p>效果如下图<br><img src="http://qiniu.ifungfay.com/mweb/Xnip2019-10-04_09-40-53.jpg2019%2010%2004" alt="DialogFragment效果" width="250"></p>
+<p><code>ListFragment</code>暂时没用到，但原理基本一致。</p>
+<p>在Activity的布局中插入片段，将片段当作视图来为其指定布局属性，创建此Activity布局时，系统会将布局中指定的每个片段实例化，并为每个片段调用onCreateView()方法，以检索每个片段的布局。这个实现比较简单，不细说。</p>
+<p>通过编程方式展示，用于运行时，只需指定要将片段放入哪个ViewGroup，示例</p>
+<pre><code class="hljs java">FragmentManager fragmentManager = getSupportFragmentManager();
+FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+ExampleFragment fragment = <span class="hljs-keyword">new</span> ExampleFragment();
+fragmentTransaction.add(R.id.fragment_container, fragment); <span class="hljs-comment">//还有replace()、remove()、addToBackStack()这些事务操作更改方法</span>
+fragmentTransaction.commit();</code></pre>
+
+<p>运行时的编程也有第二种方式展示Fragment</p>
+<pre><code class="hljs java">DetailAdviseFragment fragment = <span class="hljs-keyword">new</span> DetailAdviseFragment(); <span class="hljs-comment">//此处为一个DialogFragment</span>
+fragment.setOnPressButtonListener(DetailActivity.<span class="hljs-keyword">this</span>);
+Bundle bundle = <span class="hljs-keyword">new</span> Bundle();
+bundle.putString(<span class="hljs-string">"advise"</span>, <span class="hljs-string">"something"</span>);
+fragment.setArguments(bundle); <span class="hljs-comment">//设置Fragment的参数</span>
+fragment.show(getSupportFragmentManager(), <span class="hljs-string">"detailAdviseFragment"</span>);</code></pre>
+
+<p>与Activity通信的话，正向就是通过<code>FragmentManager</code>的findFragmentById找出fragment，反向就是通过Fragment定义接口，Activiyt实现接口（下面的监听者一节再介绍这样的接口实现）</p>
+<p>最后，说一个使用频率应该颇高的示例，利用Fragment实现多标签切换的效果。</p>
+<p>先定义一个Activity，组织一个<code>ViewPager</code>和两个数据源，数据源包括作为单个标签主体的Fragment的列表和标签标题的列表。</p>
+<pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MyActivity</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">AppCompatActivity</span> </span>&#123;
+
+    ViewPager mViewPager;
+    List&lt;Fragment&gt; mFragmentList;
+    String[] mTitles = <span class="hljs-keyword">new</span> String[]&#123;<span class="hljs-string">"标签1"</span>,<span class="hljs-string">"标签2"</span>&#125;;
+    
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">protected</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onCreate</span><span class="hljs-params">(@Nullable Bundle savedInstanceState)</span> </span>&#123;
+        ··· <span class="hljs-comment">//find view</span>
+        mFragmentList = <span class="hljs-keyword">new</span> ArrayList&lt;Fragment&gt;();
+        mFragmentList.add(MyFirstFragment.getInstance(network));
+        mFragmentList.add(MySecondFragment.getInstance(network));
+        MyFragmentPagerAdapter adapter = <span class="hljs-keyword">new</span> MyFragmentPagerAdapter(getSupportFragmentManager(), mFragmentList, mTitles);
+        mViewPager.setAdapter(adapter);
+        mTabLayout.setupWithViewPager(mViewPager);
+        ···
+    &#125;
+&#125;</code></pre>
+
+<p>布局</p>
+<pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">LinearLayout</span>
+    ···&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">android.support.design.widget.TabLayout</span>
+        ···
+        <span class="hljs-attr">app:tabIndicatorColor</span>=<span class="hljs-string">"@color/colorBlue"</span>
+        <span class="hljs-attr">app:tabIndicatorHeight</span>=<span class="hljs-string">"5dp"</span>
+        <span class="hljs-attr">app:tabSelectedTextColor</span>=<span class="hljs-string">"@color/colorBlue"</span>
+        <span class="hljs-attr">app:tabTextColor</span>=<span class="hljs-string">"@color/colorDark"</span> /&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">android.support.v4.view.ViewPager</span>
+        ···/&gt;</span>
+
+<span class="hljs-tag">&lt;/<span class="hljs-name">LinearLayout</span>&gt;</span></code></pre>
+
+<p>其次<code>ViewPager</code>和数据源之间，需要一个适配器才能进行工作，系统已经准备好了这种功能的适配器<code>FragmentPagerAdapter</code>，继承它自定义自己的数据逻辑</p>
+<pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MyFragmentPagerAdapter</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">FragmentPagerAdapter</span> </span>&#123;
+    <span class="hljs-keyword">private</span> List&lt;Fragment&gt; mFragmentList;
+    <span class="hljs-keyword">private</span> String[] mTitles;
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">MyFragmentPagerAdapter</span><span class="hljs-params">(FragmentManager fm, List&lt;Fragment&gt; fragmentList, String[] titles)</span> </span>&#123;
+        <span class="hljs-keyword">super</span>(fm);
+        <span class="hljs-keyword">this</span>.mFragmentList = fragmentList;
+        <span class="hljs-keyword">this</span>.mTitles = titles;
+    &#125;
+
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> Fragment <span class="hljs-title">getItem</span><span class="hljs-params">(<span class="hljs-keyword">int</span> i)</span> </span>&#123;
+        <span class="hljs-keyword">return</span> mFragmentList.size()&gt;<span class="hljs-number">0</span> ? mFragmentList.get(i) : <span class="hljs-keyword">null</span>;
+    &#125;
+
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-title">getCount</span><span class="hljs-params">()</span> </span>&#123;
+        <span class="hljs-keyword">return</span> mFragmentList.size();
+    &#125;
+
+    <span class="hljs-meta">@Nullable</span>
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> CharSequence <span class="hljs-title">getPageTitle</span><span class="hljs-params">(<span class="hljs-keyword">int</span> position)</span> </span>&#123;
+        <span class="hljs-keyword">return</span> mTitles[position];
+    &#125;
+&#125;</code></pre>
+
+<p>最后就是定义Fragment，这里采用单例的方式，提供数据输入口刷新页面内容，假如整个App里面只有一处展示到这个ViewPager，且使用频率又较高，那使用这种方式有一定的好处。</p>
+<pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MyFirstFragment</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Fragment</span> </span>&#123;
+
+    <span class="hljs-keyword">public</span> DataModel mDataModel;
+
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> MyFirstFragment mFragment;
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> MyFirstFragment <span class="hljs-title">getInstance</span><span class="hljs-params">(DataModel model)</span> </span>&#123;
+        <span class="hljs-keyword">if</span> (mFragment == <span class="hljs-keyword">null</span>) &#123;
+            mFragment = <span class="hljs-keyword">new</span> MyFirstFragment();
+        &#125;
+        mFragment.mDataModel = model;
+        <span class="hljs-keyword">return</span> mFragment;
+    &#125;
+
+    <span class="hljs-meta">@Nullable</span>
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> View <span class="hljs-title">onCreateView</span><span class="hljs-params">(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState)</span> </span>&#123;
+        <span class="hljs-keyword">super</span>.onCreateView(inflater, container, savedInstanceState);
+        View view = inflater.inflate(R.layout.my_first_fragment_layout, container, <span class="hljs-keyword">false</span>);
+        <span class="hljs-keyword">return</span> view;
+    &#125;
+
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onResume</span><span class="hljs-params">()</span> </span>&#123;
+        <span class="hljs-keyword">super</span>.onResume();
+        View view = getView();
+        ···<span class="hljs-comment">//find view ，setup view</span>
+    &#125;
+&#125;</code></pre>
+
+<p>这就完成了一个标签切换功能，效果如下</p>
+<p>效果如下图<br><img src="http://qiniu.ifungfay.com/mweb/Xnip2019-10-04_09-29-56.jpg2019%2010%2004" alt="FragmentPager效果" width="250"></p>
+<h2 id="视图-View"><a href="#视图-View" class="headerlink" title="视图 View"></a>视图 View</h2><p><a href="https://developer.android.com/guide/topics/ui/declaring-layout?hl=zh-CN" target="_blank" rel="noopener">布局-官方文档</a></p>
+<p>每个ViewGroup都是看不见的用于组织子View的容器，而它的子View可能是输入控件，又或者在UI上绘制某块区域的小部件。</p>
+<ul>
+<li>View：所有可视化控件的父类，提供组件描绘和事件处理方法，例如<code>Button</code>、<code>TextView</code>等；</li>
+<li>ViewGroup：View类的子类，可拥有子控件，可以看作是容器，例如各种<code>Layout</code>类。</li>
+</ul>
+<p>Android UI中的控件都是按照这种层次树的结构堆叠得，而创建UI布局的方式有两种，自己在Java里写代码或者通过XML定义布局，后者显得更加方便和容易理解！ </p>
+<p>UI布局的层次结构图如下<br><img src="http://qiniu.ifungfay.com/mweb/viewgroup_2x.png2019%2010%2004" alt="viewgroup_2x"></p>
+<p>当App加载上述的布局资源时，Android会将布局中的每个节点进行实例化成一个个（类名对应元素名称的）对象。可以为这些对象定义一些额外的行为，查询对象的状态，或者修改布局。</p>
+<p>容器类有</p>
+<ul>
+<li>FrameLayout 框架布局，所有的控件都会默认出现在视图的左上角<ul>
+<li>layout_gravity（可设值：center、top、bottom、left、right、right|bottom）</li>
+</ul>
+</li>
+<li>LinearLayout 线性布局<ul>
+<li>layout_weight</li>
+<li>orientation：布局方向（可设值：horizontal/vertical）</li>
+<li>divider：分割线的样式</li>
+<li>showDividers：加分割线的位置（可设值：middle/end/beginning/none）</li>
+</ul>
+</li>
+<li>AbsoluteLayoit 绝对布局，为了布局的适配，基本不使用此种布局。</li>
+<li>RelativeLayout 相对布局，有子控件相对于父容器的布局，也有子控件直接相对的布局<ul>
+<li>layout_above：（属性值为ID的引用名）</li>
+<li>layout_alignLeft/Top/Right/Bottom</li>
+<li>layout_alignParentLeft/etc.</li>
+<li>layout_toLeftOf/etc.</li>
+<li>layout_alignBaseLine</li>
+<li>layout_centerInParent</li>
+</ul>
+</li>
+<li>TableLayout 表格布局，将子元素的位置分配到行或者列中，一个TableLayout由许多的TableRow组成</li>
+<li>ConstraintLayout 约束性布局</li>
+<li>CoordinatorLayout 协调布局<ul>
+<li>layout_behavior</li>
+</ul>
+</li>
+<li>PercentFrameLayout</li>
+<li>PercentRelativeLayout</li>
+<li>GridLayout</li>
+</ul>
+<p>各种容器概括图<br><img src="http://qiniu.ifungfay.com/mweb/1_wyeYIFdYPsES5b-mlbdaPg.png2019%2010%2004" alt="1_wyeYIFdYPsES5b-mlbdaPg"></p>
+<p>基本的属性有</p>
+<ul>
+<li>layout_width/height：（可设值：match_parent/wrap_content/XXdp，配合weight使用时注意设为0dip）   </li>
+<li>layout_centerHrizontal/centerVertical/centerInparent：是否水平/垂直/相对父元素居中</li>
+<li>layout_margin</li>
+<li>layout_marginLeft/Top/Right/Bottom/Start/End（4.2版本开始应使用Start和End分别代替Left和Right，系统能根据用户所设置的语言，例如需要从右到左排序的阿拉伯语，自行控制这个padding的位置，使用Start就可以交由系统处理，若还使用Left就有失偏颇，除非要兼容旧的系统版本则需要一并设置上）</li>
+<li>layout_padding</li>
+<li>layout_paddingLeft/Top/Right/Bottom/Start/End</li>
+<li>addStatesFromChildren：布尔值，viewgroup的drawable属性是否把它的子类的drawable的state包含进来。</li>
+<li>tag</li>
+<li>descendantFocusability：当一个为view获取焦点时，定义viewGroup和其子控件两者之间的关系，可设值：<ul>
+<li>beforeDescendants：viewgroup会优先其子类控件而获取到焦点</li>
+<li>afterDescendants：viewgroup只有当其子类控件不需要获取焦点时才获取焦点</li>
+<li>blocksDescendants：viewgroup会覆盖子类控件而直接获得焦点（一般在ListView的自定义Item布局的根布局加上使用此值，能解决因子控件将焦点获取而导致点击item时变化的是子控件但item本身的点击没有响应的问题。）</li>
+</ul>
+</li>
+<li>splitMotionEvents：布尔值，定义布局是否传递touch事件到子布局  </li>
+<li>layoutMode：（可设值：clipBounds剪辑子控件的边界/opticalBounds可视的子控件边界）</li>
+<li>background：本元素的背景</li>
+<li>foreground：设置布局的前景图，前景图不会被子元素覆盖  </li>
+<li>foregroundGravity：设置布局前景图的位置  </li>
+<li>foregroundInsidePadding</li>
+<li>scrollX/Y：最初的水平/竖直滚动的偏移，以像素为单位</li>
+<li>focusable：布尔值，是否能获得焦点（按键）  </li>
+<li>focusableInTouchMode：布尔值，是否可以通过touch获取到焦点</li>
+<li>fitsSystemWindows：布尔值，布局调整时是否考虑系统窗口(如状态栏)</li>
+<li>fadeScrollbars：布尔值，滚动条是否自动隐藏  </li>
+<li>fadingEdge：设置拉滚动条时，边框渐变的方向（可设值：none边框颜色不变、horizontal水平方向颜色变淡、vertical垂直方向颜色变淡）。  </li>
+<li>fadingEdgeLength：滚动条渐变长度  </li>
+<li>filterTouchesWhenObscured：布尔值，所在窗口被其它可见窗口遮住时，是否过滤触摸事件  </li>
+<li>visibility：是否可见（可设值：gone/visible/invisible虽不可见，但占据布局位置)  </li>
+<li>scrollbars：设置滚动条（可设值：none/horizontal/vertical） </li>
+<li>scrollbarStyle：可设值：<ul>
+<li>outsideInset：ScrollBar显示在视图(view)的边缘,增加了view的padding. 如果可能的话,该ScrollBar仅仅覆盖这个view的背景.                             </li>
+<li>insideInset：该ScrollBar显示在padding区域里面,增加了控件的padding区域,该ScrollBar不会和视图的内容重叠.                                                   </li>
+<li>outsideOverlay：该ScrollBar显示在视图(view)的边缘,不增加view的padding,该ScrollBar将被半透明覆盖                                                      </li>
+<li>insideOverlay：该ScrollBar显示在内容区域里面,不会增加了控件的padding区域,该ScrollBar以半透明的样式覆盖在视图(view)的内容                      </li>
+</ul>
+</li>
+<li>isScrollContainer：布尔值，设置当前View是否为滚动容器（是否可以为输入法腾出空间而隐藏）  </li>
+<li>scrollbarFadeDuration：褪色时间  </li>
+<li>scrollbarDefaultDelayBeforeFade：设置滚动条N毫秒后开始淡化，以毫秒为单位。  </li>
+<li>scrollbarSize：设置滚动条大小  </li>
+<li>scrollbarThumbHorizontal/Vertical：设置水平/垂直滚动条的drawable  </li>
+<li>scrollbarTrackHorizontal/Vertical：设置水平/垂直滚动条背景（轨迹）的drawable  </li>
+<li>scrollbarAlwaysDrawHorizontalTrack/VerticalTrack：布尔值，设置水平滚动条是否含有轨道  </li>
+<li>scrollbarAlwaysDraw：布尔值，设置垂直滚动条是否含有轨道  </li>
+<li>requiresFadingEdge：定义褪色时滚动边缘（可设值：none/horizontal/vertical）</li>
+<li>nextFocusLeft/Right/Up/Down/Forward：Up键按下之后，哪一个控件获得焦点（被选中）   </li>
+<li>clickable：布尔值  </li>
+<li>longClickable：布尔值</li>
+<li>saveEnabled：布尔值，设置是否在窗口冻结时（如旋转屏幕）保存View的数据  </li>
+<li>drawingCacheQuality：设置绘图缓存质量（可设值：auto/low/hight）</li>
+<li>keepScreenOn：布尔值，View在可见的情况下是否保持唤醒状态  </li>
+<li>duplicateParentState：布尔值，如果设置此属性，将直接从父容器中获取绘图状态（光标，按下等）。 注意根据目前测试情况仅仅是获取绘图状态，而没有获取事件，也就是你点一下LinearLayout时Button有被点击的效果，但是不执行点击事件。  </li>
+<li>minHeight/Width</li>
+<li>soundEffectsEnabled：布尔值，设置点击或触摸时是否有声音效果  </li>
+<li>hapticFeedbackEnabled：布尔值，实现单击某个视图，系统提供一个触力反馈（震动一下）  </li>
+<li>contentDescription：图片不可见时的文字描述（盲人）   </li>
+<li>onClick：触发方法</li>
+<li>overScrollMode：滚动到边界时的效果（可设值：ifContentScrolls/always/never）</li>
+<li>alpha：透明度，小数表示占比</li>
+<li>translationX/Y：X/Y轴的偏移距离  </li>
+<li>transformPivotX/Y：从某点的X/Y轴偏移距离  </li>
+<li>rotation：旋转（X和Y轴同时） </li>
+<li>rotationX/Y   </li>
+<li>scaleX/Y：设置X/Y轴缩放比例   </li>
+<li>verticalScrollbarPosition：设置垂直滚动条的位置（可设值：defaultPosition/left/right）</li>
+<li>layerType：绘图是否开启硬件加速（可设值：none/hardware/software）</li>
+<li>layoutDirection：定义布局图纸的方向  </li>
+<li>textDirection：文字排列方向</li>
+<li>textAlignment：文字对齐方式（可设值：inherit/…）</li>
+<li>importantForAccessibility：设置可达性的重要行（可设值：noHideDescendants/…）</li>
+<li>accessibilityLiveRegion：   </li>
+<li>labelFor：添加标签  </li>
+<li>measureAllChildren：布尔值，测量时是否考虑所有所有子控件，不考虑则按是否显示来测量</li>
+<li>animateLayoutChanges：布尔值，添加默认布局动画  </li>
+<li>clipChildren：布尔值，子控件是否要在它应有的边界内进行绘制 </li>
+<li>clipToPadding：布尔值，ViewGroup是否允许在padding中绘制（配合clipChildren适合做放大等的点击特效，不用去更改布局，只需加入这两个属相并引入动画效果即可实现）</li>
+<li>layoutAnimation：设置layout动画  </li>
+<li>animationCache：定义子布局也有动画效果</li>
+<li>persistentDrawingCache</li>
+<li>alwaysDrawnWithCache：定义子布局是否应用绘图的高速缓存</li>
+</ul>
+<p>拿最强大的ConstraintLayout举例</p>
+<pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">android.support.constraint.ConstraintLayout</span>
+    <span class="hljs-attr">android:layout_width</span>=<span class="hljs-string">"match_parent"</span>
+    <span class="hljs-attr">android:layout_height</span>=<span class="hljs-string">"match_parent"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">Button</span>
+        <span class="hljs-attr">android:id</span>=<span class="hljs-string">"@+id/login_btn"</span>
+        <span class="hljs-attr">...</span>
+        <span class="hljs-attr">app:layout_constraintTop_toTopOf</span>=<span class="hljs-string">"parent"</span>
+        <span class="hljs-attr">app:layout_constraintLeft_toLeftOf</span>=<span class="hljs-string">"parent"</span>
+        <span class="hljs-attr">app:layout_constraintRight_toRightOf</span>=<span class="hljs-string">"parent"</span>
+        <span class="hljs-attr">app:layout_constraintBottom_toBottomOf</span>=<span class="hljs-string">"parent"</span> /&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">EditText</span>
+        <span class="hljs-attr">android:id</span>=<span class="hljs-string">"@+id/password_textview"</span>
+        <span class="hljs-attr">...</span>
+        <span class="hljs-attr">app:layout_constraintVertical_bias</span>=<span class="hljs-string">"0.5"</span>
+        <span class="hljs-attr">app:layout_constraintBottom_toTopOf</span>=<span class="hljs-string">"@+id/login_btn"</span>
+        <span class="hljs-attr">app:layout_constraintTop_toTopOf</span>=<span class="hljs-string">"@id/accoutn_textview"</span>
+        <span class="hljs-attr">app:layout_constraintLeft_toLeftOf</span>=<span class="hljs-string">"parent"</span>
+        <span class="hljs-attr">app:layout_constraintRight_toRightOf</span>=<span class="hljs-string">"parent"</span>/&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">EditText</span>
+        <span class="hljs-attr">android:id</span>=<span class="hljs-string">"@+id/accoutn_textview"</span>
+        <span class="hljs-attr">...</span>
+        <span class="hljs-attr">app:layout_constraintVertical_bias</span>=<span class="hljs-string">"0.8"</span>
+        <span class="hljs-attr">app:layout_constraintBottom_toTopOf</span>=<span class="hljs-string">"@+id/password_textview"</span>
+        <span class="hljs-attr">app:layout_constraintTop_toTopOf</span>=<span class="hljs-string">"parent"</span>
+        <span class="hljs-attr">app:layout_constraintLeft_toLeftOf</span>=<span class="hljs-string">"parent"</span>
+        <span class="hljs-attr">app:layout_constraintRight_toRightOf</span>=<span class="hljs-string">"parent"</span> /&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">TextView</span>
+        <span class="hljs-attr">android:id</span>=<span class="hljs-string">"@+id/separate_line"</span>
+        <span class="hljs-attr">...</span>
+        <span class="hljs-attr">app:layout_constraintVertical_bias</span>=<span class="hljs-string">"0.2"</span>
+        <span class="hljs-attr">app:layout_constraintTop_toBottomOf</span>=<span class="hljs-string">"@+id/login_btn"</span>
+        <span class="hljs-attr">app:layout_constraintBottom_toBottomOf</span>=<span class="hljs-string">"parent"</span>
+        <span class="hljs-attr">app:layout_constraintLeft_toLeftOf</span>=<span class="hljs-string">"parent"</span>
+        <span class="hljs-attr">app:layout_constraintRight_toRightOf</span>=<span class="hljs-string">"parent"</span> /&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">Button</span>
+        <span class="hljs-attr">android:id</span>=<span class="hljs-string">"@+id/guest_btn"</span>
+        <span class="hljs-attr">...</span>
+        <span class="hljs-attr">app:layout_constraintHorizontal_bias</span>=<span class="hljs-string">"0.3"</span>
+        <span class="hljs-attr">app:layout_constraintVertical_bias</span>=<span class="hljs-string">"0.2"</span>
+        <span class="hljs-attr">app:layout_constraintTop_toBottomOf</span>=<span class="hljs-string">"@+id/separate_line"</span>
+        <span class="hljs-attr">app:layout_constraintLeft_toLeftOf</span>=<span class="hljs-string">"parent"</span>
+        <span class="hljs-attr">app:layout_constraintRight_toRightOf</span>=<span class="hljs-string">"parent"</span>
+        <span class="hljs-attr">app:layout_constraintBottom_toBottomOf</span>=<span class="hljs-string">"parent"</span>/&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">android.support.constraint.ConstraintLayout</span>&gt;</span></code></pre>
+
+<p>在Activity中使用以下方法应用布局，当然也可以在运行时用代码</p>
+<pre><code>setContentView(R.layout.main_layout);</code></pre><p>找到布局后接着使用以下方法根据资源ID获取布局中的视图</p>
+<pre><code>Button myButton = (Button) findViewById(R.id.my_button);</code></pre><h2 id="ToolBar"><a href="#ToolBar" class="headerlink" title="ToolBar"></a>ToolBar</h2><p>自定义示例（不能用android:style，只能用android:theme）</p>
+<pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">android.support.design.widget.AppBarLayout</span>
+    <span class="hljs-attr">xmlns:android</span>=<span class="hljs-string">"http://schemas.android.com/apk/res/android"</span>
+    <span class="hljs-attr">xmlns:app</span>=<span class="hljs-string">"http://schemas.android.com/apk/res-auto"</span>
+    <span class="hljs-attr">android:layout_width</span>=<span class="hljs-string">"match_parent"</span>
+    <span class="hljs-attr">android:layout_height</span>=<span class="hljs-string">"wrap_content"</span>
+    <span class="hljs-attr">android:theme</span>=<span class="hljs-string">"@style/AppTheme.AppBarOverlay"</span> &gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">android.support.v7.widget.Toolbar</span>
+        <span class="hljs-attr">android:id</span>=<span class="hljs-string">"@+id/toolbar"</span>
+        <span class="hljs-attr">android:layout_width</span>=<span class="hljs-string">"match_parent"</span>
+        <span class="hljs-attr">android:layout_height</span>=<span class="hljs-string">"?attr/actionBarSize"</span>
+        <span class="hljs-attr">android:background</span>=<span class="hljs-string">"?attr/colorPrimary"</span>
+        <span class="hljs-attr">app:contentInsetEnd</span>=<span class="hljs-string">"0dp"</span>
+        <span class="hljs-attr">app:contentInsetLeft</span>=<span class="hljs-string">"0dp"</span>
+        <span class="hljs-attr">app:contentInsetRight</span>=<span class="hljs-string">"0dp"</span>
+        <span class="hljs-attr">app:contentInsetStart</span>=<span class="hljs-string">"0dp"</span>
+        <span class="hljs-attr">app:popupTheme</span>=<span class="hljs-string">"@style/AppTheme.PopupOverlay"</span>&gt;</span>
+
+        <span class="hljs-tag">&lt;<span class="hljs-name">LinearLayout</span>
+            <span class="hljs-attr">android:layout_width</span>=<span class="hljs-string">"wrap_content"</span>
+            <span class="hljs-attr">android:layout_height</span>=<span class="hljs-string">"wrap_content"</span>
+            <span class="hljs-attr">android:orientation</span>=<span class="hljs-string">"vertical"</span>
+            <span class="hljs-attr">android:layout_gravity</span>=<span class="hljs-string">"center"</span>&gt;</span>
+
+            <span class="hljs-tag">&lt;<span class="hljs-name">TextView</span>
+                <span class="hljs-attr">android:id</span>=<span class="hljs-string">"@+id/toolbar_title"</span>
+                <span class="hljs-attr">android:layout_width</span>=<span class="hljs-string">"match_parent"</span>
+                <span class="hljs-attr">android:layout_height</span>=<span class="hljs-string">"match_parent"</span>
+                <span class="hljs-attr">android:layout_weight</span>=<span class="hljs-string">"2"</span>
+                <span class="hljs-attr">android:textAlignment</span>=<span class="hljs-string">"center"</span>
+                <span class="hljs-attr">android:textColor</span>=<span class="hljs-string">"@color/colorBlack"</span>
+                <span class="hljs-attr">android:gravity</span>=<span class="hljs-string">"center"</span> /&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">TextView</span>
+                <span class="hljs-attr">android:id</span>=<span class="hljs-string">"@+id/toolbar_subtitle"</span>
+                <span class="hljs-attr">android:layout_width</span>=<span class="hljs-string">"match_parent"</span>
+                <span class="hljs-attr">android:layout_height</span>=<span class="hljs-string">"match_parent"</span>
+                <span class="hljs-attr">android:layout_weight</span>=<span class="hljs-string">"1"</span>
+                <span class="hljs-attr">android:textAlignment</span>=<span class="hljs-string">"center"</span>
+                <span class="hljs-attr">android:textColor</span>=<span class="hljs-string">"@color/colorDark"</span>
+                <span class="hljs-attr">android:layout_gravity</span>=<span class="hljs-string">"center"</span>/&gt;</span>
+
+        <span class="hljs-tag">&lt;/<span class="hljs-name">LinearLayout</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">android.support.v7.widget.Toolbar</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">android.support.design.widget.AppBarLayout</span>&gt;</span></code></pre>
+
+<h2 id="ListView"><a href="#ListView" class="headerlink" title="ListView"></a>ListView</h2><p>其实ListView本身没多少内容需要讲，其主要得依靠一个扩展(继承)于<code>BaseAdapter</code>的适配器，来获取数据源的Item数、Item标识、Item视图</p>
+<pre><code class="hljs java">mMyAdapter = <span class="hljs-keyword">new</span> MyAdapter(<span class="hljs-keyword">this</span>, R.layout.list_item, datas);
+mListView = (ListView) findViewById(R.id.list);
+mListView.setAdapter(mMyAdapter);<span class="hljs-comment">//不能赋null</span>
+mListView.setOnItemClickListener(<span class="hljs-keyword">new</span> AdapterView.OnItemClickListener() &#123;
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onItemClick</span><span class="hljs-params">(AdapterView&lt;?&gt; parent, View view, <span class="hljs-keyword">int</span> position, <span class="hljs-keyword">long</span> id)</span> </span>&#123;
+        updateData(mMyAdapter.getItem(position));
+    &#125;
+&#125;);
+
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MyAdapter</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">ArrayAdapter</span>&lt;<span class="hljs-title">GameInterface</span>&gt; </span>&#123;
+    <span class="hljs-keyword">private</span> ArrayList&lt;ModelInterface&gt; mDatas;
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">int</span> resourceId;
+    <span class="hljs-keyword">private</span> Context context;
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">MyAdapter</span><span class="hljs-params">(Context context, <span class="hljs-keyword">int</span> resourceId, ArrayList&lt;ModelInterface&gt; objects)</span> </span>&#123;
+        <span class="hljs-keyword">super</span>(context, resourceId, objects);
+        <span class="hljs-keyword">this</span>.mDatas = objects;
+        <span class="hljs-keyword">this</span>.resourceId = resourceId;
+        <span class="hljs-keyword">this</span>.context = context;
+    &#125;
+
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-title">getCount</span><span class="hljs-params">()</span> </span>&#123;
+        <span class="hljs-keyword">return</span> mDatas == <span class="hljs-keyword">null</span> ? <span class="hljs-number">0</span> : mDatas.size();
+    &#125;
+
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> GameInterface <span class="hljs-title">getItem</span><span class="hljs-params">(<span class="hljs-keyword">int</span> position)</span> </span>&#123;
+        <span class="hljs-keyword">if</span> (mDatas == <span class="hljs-keyword">null</span> || mDatas.size() &lt;= position)&#123;
+            <span class="hljs-keyword">return</span> <span class="hljs-keyword">null</span>;
+        &#125;
+        <span class="hljs-keyword">return</span> mDatas.get(position);
+    &#125;
+
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">long</span> <span class="hljs-title">getItemId</span><span class="hljs-params">(<span class="hljs-keyword">int</span> position)</span> </span>&#123;
+        <span class="hljs-keyword">return</span> position;
+    &#125;
+
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> View <span class="hljs-title">getView</span><span class="hljs-params">(<span class="hljs-keyword">int</span> position, View convertView, ViewGroup parent)</span> </span>&#123;
+        ModelInterface game = (ModelInterface) getItem(position);
+
+        View view;
+        ViewHolder viewHolder;
+
+        <span class="hljs-keyword">if</span> (convertView == <span class="hljs-keyword">null</span>) &#123;
+            view = LayoutInflater.from(getContext()).inflate(resourceId, <span class="hljs-keyword">null</span>);
+            viewHolder = <span class="hljs-keyword">new</span> ViewHolder();
+            viewHolder.titleView = (TextView) view.findViewById(R.id.title_view);
+            viewHolder.contentView = (TextView) view.findViewById(R.id.content_view);
+            view.setTag(viewHolder); <span class="hljs-comment">//缓存</span>
+        &#125; <span class="hljs-keyword">else</span> &#123;
+            view = convertView;
+            viewHolder = (ViewHolder) view.getTag();
+        &#125;
+
+        viewHolder.titleView.setText(<span class="hljs-string">"title"</span>);
+        viewHolder.contentView.setText(<span class="hljs-string">"content"</span>);
+        <span class="hljs-keyword">return</span> view;
+    &#125;
+
+    <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ViewHolder</span> </span>&#123;
+        TextView titleView;
+        TextView contentView;
+    &#125;
+&#125;</code></pre>
+
+<h2 id="RecyclerView"><a href="#RecyclerView" class="headerlink" title="RecyclerView"></a>RecyclerView</h2><p>对比ListView，RecyclerView可以理解为一个加强版的ListView，它更灵活、自定义更容易，回收机制也更完善、性能更好、滑动更流畅。灵活体现在RecyclerView所细分的各司其职的对象</p>
+<ul>
+<li>LayoutManager  //布局管理器<ul>
+<li>ListView</li>
+<li>GridView</li>
+<li>瀑布流</li>
+</ul>
+</li>
+<li>Adapter        //适配器</li>
+<li>ItemAnimator   //Item的动画</li>
+<li>ItemDecoration //Item的分割</li>
+</ul>
+<p>其次RecycleView还提供了：</p>
+<ul>
+<li>提供了局部刷新</li>
+<li>支持嵌套滑动（NestedScrollView或者CoordinatorLayout）</li>
+<li>把点击事件的控制权完全的交给开发者，避免了Item与其内的控件点击事件的冲突</li>
+</ul>
+<p>创建一个最普通的RecyclerView示例</p>
+<pre><code class="hljs java">mMyRecyclerView = findViewById(R.id.my_recyclerview);
+mMyAdapter = <span class="hljs-keyword">new</span> MyAdapter(<span class="hljs-keyword">this</span>);
+mMyAdapter.setOnItemClickListener(<span class="hljs-keyword">this</span>);
+
+<span class="hljs-comment">// 创建RecyclerView的布局管理器</span>
+LinearLayoutManager layoutManager = <span class="hljs-keyword">new</span> LinearLayoutManager(<span class="hljs-keyword">this</span>, LinearLayoutManager.VERTICAL, <span class="hljs-keyword">false</span>);
+mMyRecyclerView.setLayoutManager(layoutManager);
+
+mMyRecyclerView.setAdapter(mMyAdapter);
+
+<span class="hljs-comment">// 创建Item分割样式</span>
+DividerItemDecoration dividerItemDecoration = <span class="hljs-keyword">new</span> DividerItemDecoration(<span class="hljs-keyword">this</span>, DividerItemDecoration.VERTICAL);
+dividerItemDecoration.setDrawable(getResources().getDrawable(R.drawable.inset_recyclerview_divider));
+mMyRecyclerView.addItemDecoration(dividerItemDecoration);
+
+<span class="hljs-comment">// 创建（默认）Item动画效果</span>
+mMyRecyclerView.setItemAnimator(<span class="hljs-keyword">new</span> DefaultItemAnimator());
+
+<span class="hljs-comment">/// RecyclerView Adapter</span>
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MyAdapter</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">RecyclerView</span>.<span class="hljs-title">Adapter</span> &lt;<span class="hljs-title">MyAdapter</span>.<span class="hljs-title">ViewHolder</span>&gt; </span>&#123;
+
+    <span class="hljs-keyword">private</span> LayoutInflater mLayoutInflater;
+    <span class="hljs-keyword">private</span> Context mContext;
+    <span class="hljs-keyword">private</span> ArrayList&lt;ReportModel&gt; datas;
+    <span class="hljs-keyword">private</span> OnClickItemListener mOnItemClickListener;
+    
+    <span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">OnClickItemListener</span> </span>&#123;
+        <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">onClickItem</span><span class="hljs-params">(Model model)</span></span>;
+    &#125;
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">MyAdapter</span><span class="hljs-params">(Context context)</span> </span>&#123;
+        <span class="hljs-keyword">this</span>.mLayoutInflater = LayoutInflater.from(context);
+        <span class="hljs-keyword">this</span>.mContext = context;
+        <span class="hljs-keyword">this</span>.datas = <span class="hljs-keyword">new</span> ArrayList&lt;ReportModel&gt;();
+    &#125;
+
+    <span class="hljs-meta">@NonNull</span>
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> MyViewHolder <span class="hljs-title">onCreateViewHolder</span><span class="hljs-params">(@NonNull ViewGroup viewGroup, <span class="hljs-keyword">int</span> i)</span> </span>&#123;
+    <span class="hljs-comment">//当Item的ViewHolder复用池中不够显示数量时需创建ViewHolder的方法进行回调式的封装（对应着需显示的View，而View由RecyclerView内部创建）</span>
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> MyViewHolder(mLayoutInflater.inflate(R.layout.list_item , viewGroup, <span class="hljs-keyword">false</span>));
+    &#125;
+
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onBindViewHolder</span><span class="hljs-params">(@NonNull <span class="hljs-keyword">final</span> MyViewHolder viewHolder, <span class="hljs-keyword">int</span> i)</span> </span>&#123;
+    <span class="hljs-comment">//对复用的ViewHolder进行更新，也采用回调式的封装</span>
+        <span class="hljs-keyword">final</span> Model model = (Model)datas.get(i);
+        viewHolder.titleView.setText(<span class="hljs-string">"title"</span>);
+        viewHolder.contentView.setText(<span class="hljs-string">"content"</span>);
+        viewHolder.accountSubTitle.setText(report.getCreatedUser());
+        viewHolder.imageView.setImageResource(R.drawable.item_image);
+        viewHolder.itemLayout.setOnClickListener(<span class="hljs-keyword">new</span> View.OnClickListener() &#123;
+                <span class="hljs-meta">@Override</span>
+                <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onClick</span><span class="hljs-params">(View v)</span> </span>&#123;
+                    mOnItemClickListener.onClickItem(model);
+                &#125;
+            &#125;);
+        &#125;
+    &#125;
+
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-title">getItemCount</span><span class="hljs-params">()</span> </span>&#123;
+        <span class="hljs-keyword">return</span> datas == <span class="hljs-keyword">null</span> ? <span class="hljs-number">0</span> : datas.size();
+    &#125;
+
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MyViewHolder</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">RecyclerView</span>.<span class="hljs-title">ViewHolder</span> </span>&#123;
+
+        <span class="hljs-keyword">public</span> TextView titleView;
+        <span class="hljs-keyword">public</span> TextView contentView;
+        <span class="hljs-keyword">public</span> ImageView imageView;
+        RelativeLayout itemLayout;
+
+        MyViewHolder(View view) &#123;
+            <span class="hljs-keyword">super</span>(view);
+            titleView = view.findViewById(R.id.list_item_title);
+            contentView = view.findViewById(R.id.list_item_content);
+            imageView = view.findViewById(R.id.list_item_iamge);
+            itemLayout = view.findViewById(R.id.list_item_relative_layout);
+        &#125;
+    &#125;
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">setOnItemClickListener</span><span class="hljs-params">(OnClickItemListener listener)</span> </span>&#123;
+        <span class="hljs-keyword">this</span>.mOnItemClickListener = listener;
+    &#125;
+&#125;</code></pre>
+
+<h2 id="其它集合View"><a href="#其它集合View" class="headerlink" title="其它集合View"></a>其它集合View</h2><ul>
+<li>ViewPager（代替以往的Gallery）</li>
+<li>HorizontalScrollView（代替以往的Gallery）</li>
+<li>GridView</li>
+<li>NestedScrollView</li>
+</ul>
+<h2 id="控件"><a href="#控件" class="headerlink" title="控件"></a>控件</h2><ul>
+<li>TextView<br>类似iOS中的UILable</li>
+</ul>
+<pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">TextView</span>
+    <span class="hljs-attr">android:layout_width</span>=<span class="hljs-string">"match_parent"</span>
+    <span class="hljs-attr">android:layout_height</span>=<span class="hljs-string">"match_parent"</span>
+    <span class="hljs-attr">android:background</span>=<span class="hljs-string">"@color/colorBlue"</span>
+    <span class="hljs-attr">android:gravity</span>=<span class="hljs-string">"bottom"</span>
+    <span class="hljs-attr">android:textAlignment</span>=<span class="hljs-string">"center"</span>
+    <span class="hljs-attr">android:padding</span>=<span class="hljs-string">"4dp"</span>
+    <span class="hljs-attr">android:text</span>=<span class="hljs-string">"@string/title"</span>
+    <span class="hljs-attr">android:textColor</span>=<span class="hljs-string">"@color/colorBlack"</span>
+    <span class="hljs-attr">android:textStyle</span>=<span class="hljs-string">"bold"</span> 
+    ···/&gt;</span></code></pre>
+
+<ul>
+<li>EditView<br>类似iOS中UITextField、UITextView</li>
+</ul>
+<pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">EditText</span>
+    <span class="hljs-attr">android:layout_width</span>=<span class="hljs-string">"250dp"</span>
+    <span class="hljs-attr">android:layout_height</span>=<span class="hljs-string">"wrap_content"</span>
+    <span class="hljs-attr">android:gravity</span>=<span class="hljs-string">"center_vertical"</span>
+    <span class="hljs-attr">android:background</span>=<span class="hljs-string">"@android:drawable/edit_text"</span>
+    <span class="hljs-attr">android:imeOptions</span>=<span class="hljs-string">"actionDone"</span>
+    <span class="hljs-attr">android:hint</span>=<span class="hljs-string">"请输入密码"</span>
+    <span class="hljs-attr">android:inputType</span>=<span class="hljs-string">"textPassword"</span>
+    <span class="hljs-attr">android:textColorHint</span>=<span class="hljs-string">"@color/colorDark"</span>
+    ···/&gt;</span>
+//TextView.OnEditorActionListener
+editView.setOnEditorActionListener(this);
+@Override
+public boolean onEditorAction(TextView v, int actionId, KeyEvent event) &#123;
+    Log.d("", "text: "  + v.getText().toString());
+    return false;
+&#125;</code></pre>
+
+<ul>
+<li>Button</li>
+</ul>
+<pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">Button</span>
+    <span class="hljs-attr">android:layout_width</span>=<span class="hljs-string">"wrap_content"</span>
+    <span class="hljs-attr">android:layout_height</span>=<span class="hljs-string">"wrap_content"</span>
+    <span class="hljs-attr">android:text</span>=<span class="hljs-string">"按钮"</span>
+    ···/&gt;</span></code></pre>
+
+<ul>
+<li>ImageView</li>
+</ul>
+<pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">ImageView</span>
+    <span class="hljs-attr">android:layout_width</span>=<span class="hljs-string">"0dp"</span>
+    <span class="hljs-attr">android:layout_height</span>=<span class="hljs-string">"30dp"</span>
+    <span class="hljs-attr">android:src</span>=<span class="hljs-string">"@drawable/ic_image"</span>
+    <span class="hljs-attr">android:gravity</span>=<span class="hljs-string">"center"</span>
+    ···/&gt;</span>
+    
+imageView.setImageResource("R.id.image");</code></pre>
+
+<ul>
+<li>ProgressBar</li>
+</ul>
+<pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">ProgressBar</span>
+    <span class="hljs-attr">android:layout_width</span>=<span class="hljs-string">"wrap_content"</span>
+    <span class="hljs-attr">android:layout_height</span>=<span class="hljs-string">"wrap_content"</span>
+    <span class="hljs-attr">android:layout_gravity</span>=<span class="hljs-string">"center"</span>
+    <span class="hljs-attr">android:visibility</span>=<span class="hljs-string">"gone"</span>/&gt;</span>
+
+progressBar.setVisibility(View.VISIBLE);
+progressBar.setVisibility(View.GONE);</code></pre>
+
+<ul>
+<li>Spinner</li>
+</ul>
+<pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">Spinner</span>
+    <span class="hljs-attr">android:entries</span>=<span class="hljs-string">"@array/distribute_platform"</span>
+    <span class="hljs-attr">android:spinnerMode</span>=<span class="hljs-string">"dialog"</span>
+    <span class="hljs-attr">android:layout_width</span>=<span class="hljs-string">"match_parent"</span>
+    <span class="hljs-attr">android:layout_height</span>=<span class="hljs-string">"0dp"</span>
+    <span class="hljs-attr">android:layout_weight</span>=<span class="hljs-string">"1"</span>
+    <span class="hljs-attr">android:layout_margin</span>=<span class="hljs-string">"5dp"</span>
+    <span class="hljs-attr">android:textColor</span>=<span class="hljs-string">"@color/colorBlack"</span> /&gt;</span>
+    
+<span class="hljs-tag">&lt;<span class="hljs-name">resources</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">string-array</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"distribute_platform"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">item</span>&gt;</span>1<span class="hljs-tag">&lt;/<span class="hljs-name">item</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">item</span>&gt;</span>2<span class="hljs-tag">&lt;/<span class="hljs-name">item</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">item</span>&gt;</span>3<span class="hljs-tag">&lt;/<span class="hljs-name">item</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">string-array</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">resources</span>&gt;</span></code></pre>
+
+<ul>
+<li>SearchView</li>
+</ul>
+<pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">SearchView</span>
+    ···
+    <span class="hljs-attr">android:iconifiedByDefault</span>=<span class="hljs-string">"false"</span>
+    <span class="hljs-attr">android:queryHint</span>=<span class="hljs-string">"请输入gameCode搜索"</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">SearchView</span>&gt;</span>
+
+SearchView mSearchView = findViewById(R.id.search_bar);
+mSearchView.setEnabled(true);
+mSearchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() &#123;
+    // 当点击搜索按钮时触发该方法
+    @Override
+    public boolean onQueryTextSubmit(String query) &#123;
+        // 查询、过滤
+        return true;
+    &#125;
+
+    // 当搜索内容改变时触发该方法
+    @Override
+    public boolean onQueryTextChange(String newText) &#123;
+        if (newText.isEmpty()) &#123;
+            // 刷新界面
+        &#125;
+        return false;
+    &#125;
+&#125;);</code></pre>
+
+<ul>
+<li>Switch</li>
+</ul>
+<pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">Switch</span>
+    <span class="hljs-attr">android:layout_width</span>=<span class="hljs-string">"wrap_content"</span>
+    <span class="hljs-attr">android:layout_height</span>=<span class="hljs-string">"@dimen/test_config_list_item_height"</span>
+    <span class="hljs-attr">android:scaleX</span>=<span class="hljs-string">"2"</span>
+    <span class="hljs-attr">android:scaleY</span>=<span class="hljs-string">"2"</span>
+    <span class="hljs-attr">android:textOff</span>=<span class="hljs-string">""</span>
+    <span class="hljs-attr">android:textOn</span>=<span class="hljs-string">""</span>
+    <span class="hljs-attr">android:gravity</span>=<span class="hljs-string">"center"</span>
+    ···
+     /&gt;</span>
+     
+//CompoundButton.OnCheckedChangeListener
+switch.setChecked(true);
+switch.setOnCheckedChangeListener(this);
+@Override
+public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) &#123;
+    Integer buttonPosition = (Integer) buttonView.getTag(buttonNumber);
+    ···
+&#125;</code></pre>
+
+<h1 id="监听者-Listener"><a href="#监听者-Listener" class="headerlink" title="监听者 Listener"></a>监听者 Listener</h1><p>可以用到监听者的场景包括：</p>
+<ul>
+<li>按钮点击事件的响应</li>
+<li>下级页面的回调方法提供</li>
+<li>列表Item或其子控件的点击事件的响应</li>
+<li>导航栏的Item点击事件的响应</li>
+<li>TextView编辑动作的监听</li>
+</ul>
+<p>其实它就和iOS中的代理模式如出一辙，linstener是去实现<code>Interface</code>的，delegate对象是认领遵循一个<code>Protocol</code>的，它们在概念上的区别是：</p>
+<ul>
+<li>协议，是当委托对象执行某方法中，需要一个遵循某协议的对象帮忙完成该协议中的事情时，就会委托它所持有的delegate属性(代理对象)去执行协议方法</li>
+<li>监听，是当执行某方法的中的主体，认为此时需要告知它所持有的需要知道此刻此情况的监听者的话(因此获取通知的方法是主体所定义)，就会调用listener属性(监听者)去执行接口定义中获取通知的方法</li>
+</ul>
+<p>示例</p>
+<pre><code class="hljs java"><span class="hljs-comment">// demo1</span>
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MySecondActivity</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">AppCompatActivity</span> </span>&#123;
+    
+    <span class="hljs-keyword">public</span> CallbackListener mCallbackListener;
+
+    <span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">CallbackListener</span> </span>&#123;
+        <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">onCallback</span><span class="hljs-params">(Model model)</span></span>;
+    &#125;
+    
+    <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title">doSomething</span><span class="hljs-params">()</span> </span>&#123;
+        ···
+        <span class="hljs-keyword">this</span>.mCallbackListener = <span class="hljs-keyword">this</span>.context;
+        mCallbackListenr.onCallback(data);
+        ···
+    &#125;
+&#125;
+
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MyFirstActivity</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">AppCompatActivity</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">MySecondActivity</span>.<span class="hljs-title">CallbackListener</span> </span>&#123;
+    <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onCallback</span><span class="hljs-params">(Model model)</span> </span>&#123;
+        <span class="hljs-comment">// update</span>
+        ···
+    &#125;
+    
+    <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title">doSomething</span><span class="hljs-params">()</span> </span>&#123;
+        Intent intent = <span class="hljs-keyword">new</span> Intent(<span class="hljs-keyword">this</span>, MySecondActivity.class);
+        startActivity(intent);
+    &#125;
+&#125;
+
+<span class="hljs-comment">// demo2</span>
+Button button = findViewById(R.id.button_id);
+button.setOnClickListener(<span class="hljs-keyword">new</span> View.OnClickListener() &#123; <span class="hljs-comment">//创建一个实现OnClickListener接口的内部匿名类并同时进行实例化new，监听按钮的点击</span>
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onClick</span><span class="hljs-params">(View v)</span> </span>&#123;
+        ···
+    &#125;
+&#125;);</code></pre>
+
+<p>当然，<code>Interface</code>并不仅仅局限于监听者这个概念上，作为解耦、抽象的利器，作用范围非常广，就看怎么去结合你的设计模式去利用，例如对多种同类的模型对象进行抽象，使展示页面与这种种类逻辑解耦，就可以用到接口设计，等等。</p>
+<h1 id="资源"><a href="#资源" class="headerlink" title="资源"></a>资源</h1><p><a href="https://developer.android.com/guide/topics/resources/providing-resources" target="_blank" rel="noopener">资源-官方文档</a></p>
+<p>Android应用的资源，是指代码使用的附加文件和静态内容，例如位图、布局定义、界面字符串、动画说明等，都集中存放于<code>res</code>（src/main/res）和<code>assets</code>文件夹下，这样才能起到资源脱离代码实现外部化，以便单独对其进行维护。</p>
+<p>所有<code>资源ID</code>都在项目的<code>R</code>类中进行定义，该类由aapt工具自动生成，在R类中通过资源类型+资源名称这样的组合来访问资源。例如：</p>
+<pre><code class="hljs java"><span class="hljs-comment">//代码中</span>
+R.string.hello
+
+<span class="hljs-comment">//XML中</span>
+<span class="hljs-meta">@string</span>/hello
+
+<span class="hljs-comment">//格式模板</span>
+[&lt;package_name&gt;.]R.&lt;resource_type&gt;.&lt;resource_name&gt;
+@[&lt;package_name&gt;:]&lt;resource_type&gt;/&lt;resource_name&gt;</code></pre>
+
+<p>同一种资源类型resource_type，还可区分不同的语言和屏幕密度。</p>
+<h2 id="res"><a href="#res" class="headerlink" title="res"></a>res</h2><p>res中包含以下常见的资源类型</p>
+<ul>
+<li>animator：定义属性动画</li>
+<li>drawable：存放位图文件、可绘制对象</li>
+<li>mipmap：启动器的可绘制对象</li>
+<li>layout：定义界面布局</li>
+<li>menu：定义应用菜单</li>
+<li>raw：以原始形式保存的任意文件，运行时通过 Resources.openRawResource() ， 资源ID为R.raw.filename</li>
+<li>values：包含字符串、整型数和颜色等简单值。像控件、字符等的颜色(colors)，间距(dimens)，字符串(strings)，控件样式(style)</li>
+<li>xml：自定义的配置，运行时通过 Resources.getXML() 读取</li>
+<li>font：字体</li>
+</ul>
+<pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">resources</span> <span class="hljs-attr">xmlns:android</span>=<span class="hljs-string">"http://schemas.android.com/apk/res/android"</span>&gt;</span>//导入可引用R类中的资源ID
+    <span class="hljs-tag">&lt;<span class="hljs-name">item</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"ic_menu_camera"</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"drawable"</span>&gt;</span>@android:drawable/ic_menu_camera<span class="hljs-tag">&lt;/<span class="hljs-name">item</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">resources</span>&gt;</span></code></pre>
+
+<p>如果还要引用其它辅助功能的话，布局上则需要带上 xmlns:app=”<a href="http://schemas.android.com/apk/res-auto&quot;" target="_blank" rel="noopener">http://schemas.android.com/apk/res-auto&quot;</a> 和 xmlns:tools=”<a href="http://schemas.android.com/tools&quot;" target="_blank" rel="noopener">http://schemas.android.com/tools&quot;</a> 的声明，不过一般只在Layout上使用较多。</p>
+<h2 id="assets"><a href="#assets" class="headerlink" title="assets"></a>assets</h2><p>assets/中的文件没有资源ID，因此只能使用<code>AssetManager</code>读取这些文件。如需访问原始文件名和文件层次结构，就应考虑将某些资源保存在assets/目录。</p>
+<h1 id="模型-Model"><a href="#模型-Model" class="headerlink" title="模型 Model"></a>模型 Model</h1><p>数据的获取、存储、数据状态变化都将是Model层的任务。而单单描述一个事物对象属性的类，只能称之为Value Object，是模型层的一部分而已。</p>
+<p>先从Model层的架构说起，按Google和Boilerplate的说法，Model层的结构可以分别按如下两图设计</p>
+<p><img src="http://qiniu.ifungfay.com/mweb/Xnip2019-10-04_14-06-23.jpg2019%2010%2004" alt="Xnip2019-10-04_14-06-23"></p>
+<p>Repository层的作用时屏蔽底层细节，使上层不需要知道数据的细节，包括像网络、数据库，内存等等的这些数据的操作细节。</p>
+<p><img src="http://qiniu.ifungfay.com/mweb/Xnip2019-10-04_14-05-44.jpg2019%2010%2004" alt="Xnip2019-10-04_14-05-44"></p>
+<ul>
+<li>View层：处理用户的交互和输入事件，并且触发Presenter中的相应操作。</li>
+<li>Presenter层：Presenters 订阅（subscibe） RxJava的Observables，负责处理订阅周期，处理由DataManager提供的数据，并调用View层中的相应方法展示数据。</li>
+<li>Model层：负责获取、保存、缓存以及修改数据。负责与本地数据库、其他数据存储、restful APIs、以及第三方SDKs的交互。</li>
+<li>DataManager：结合并且转化不同的Helpers类为Rx操作符，向Presenter层提供Observables类型的数据（provide meaningful data to the Presenter），并且同时处理数据的并发操作（group actions that will always happen together.）。这一层也包含实际的Model类，用于定义当前数据架构，也就是不同人所说的Entry，Bean，Pojo等。DataManager就好比上面的Repository</li>
+</ul>
+<p>其次，再说Model层中的Model实体类的实现，包括</p>
+<ul>
+<li>构成方法：自定义构造方法，如果实体比较复杂，可能会用到工厂模式或者是建造者模式</li>
+<li>序列化：比如实现Serializable接口，Parcelable接口。</li>
+<li>Json解析：有时候直接使用的是json数据，比如@SerializedName注解。</li>
+<li>自定义方法：对Model的字段有setter，getter方法，toString的实现，在处理hash的时候，需要实现equals和hashcode方法。</li>
+</ul>
+<p>关于持久化的实现，最近使用过一个出名的持久化第三方库<a href="https://realm.io/" target="_blank" rel="noopener">Realm</a>。Realm是由美国YCombinator孵化的创业团队历时几年打造，它是第一个专门针对移动平台设计的数据库，是一个跨平台的移动数据库引擎，是由核心数据引擎C++打造，拥有独立的数据库存储引擎，可以方便、高效的完成数据库的各种操作。Realm具有开源、简单易用、跨平台、线程安全这些优点，在Mac上有可视化工具Realm Browser辅助。<a href="https://github.com/realm/realm-java" target="_blank" rel="noopener">Java的仓库戳这里👇</a>。</p>
+<p>Realm的使用步骤：</p>
+<ul>
+<li>主工程build.gradle中的dependencies添加 classpath “io.realm:realm-gradle-plugin:x.y.z”，应用Module的build.gradle中apply plugin: ‘realm-android’</li>
+<li>在MainActivity或者自定义的Application的OnCreate()中初始化 Realm.init(this);  </li>
+<li>Model类继承<code>RealmObject</code></li>
+<li>Model的所有属性设置为private并实现对应的getter和setter</li>
+<li>查</li>
+</ul>
+<pre><code class="hljs java">Realm realm = Realm.getDefaultInstance();
+Model model = mRealm.where(Model.class).findFirst();  
+RealmResults&lt;Model&gt; results = realm.where(Model.class).findAll();
+RealmResults&lt;Model&gt; results = realm.where(Model.class).equalTo(<span class="hljs-string">"key"</span>, <span class="hljs-string">"value"</span>).findAll();
+results = results.sort(<span class="hljs-string">"key"</span>, Sort.DESCENDING);
+List&lt;Model&gt; models = realm.copyFromRealm(results);
+<span class="hljs-comment">//除了findAll()，还有sum()、average()、min()、max()、findAllSorted()</span></code></pre>
+
+<ul>
+<li>增</li>
+</ul>
+<pre><code class="hljs java">Realm realm = Realm.getDefaultInstance();
+realm.beginTransaction();
+Model model = realm.createObject(Model.class);
+model.setName(<span class="hljs-string">"Bob"</span>);
+model.setSex(<span class="hljs-string">"male"</span>)
+<span class="hljs-comment">//realm.copyToRealm(model); //可在beginTransaction外先生成好model和设置好属性，再直接使用此方法在beginTransaction中同步到Realm数据库中，最后也需要commitTransaction</span>
+realm.commitTransaction();
+
+<span class="hljs-comment">/* 也可使用内部匿名类的方式创建Transaction
+mRealm.executeTransaction(new Realm.Transaction() &#123;  
+  @Override  
+  public void execute(Realm realm) &#123;  
+      //···
+  &#125;  
+&#125;);  
+*/</span></code></pre>
+
+<ul>
+<li>改</li>
+</ul>
+<pre><code class="hljs java">Realm realm = Realm.getDefaultInstance();
+RealmResults&lt;Model&gt; results = realm.where(Model.class).equalTo(<span class="hljs-string">"name"</span>, <span class="hljs-string">"Bob"</span>).findAll(); <span class="hljs-comment">//查唯一值的条件</span>
+<span class="hljs-keyword">if</span> (result.size() &gt; <span class="hljs-number">0</span>) &#123;
+    realm.beginTransaction();
+    Model model = result.get(<span class="hljs-number">0</span>);
+    model.setSex(<span class="hljs-string">"Female"</span>);
+    realm.commitTransaction();
+&#125;</code></pre>
+
+<ul>
+<li>删</li>
+</ul>
+<pre><code class="hljs java">Realm realm = Realm.getDefaultInstance();
+RealmResults&lt;Model&gt; results = realm.where(Model.class).equalTo(<span class="hljs-string">"key"</span>, <span class="hljs-string">"value"</span>).findAll(); <span class="hljs-comment">//查唯一值的条件</span>
+<span class="hljs-keyword">if</span> (result.size() &gt; <span class="hljs-number">0</span>) &#123;
+    realm.beginTransaction();
+    Model model = result.get(<span class="hljs-number">0</span>);
+    model.deleteFromRealm();
+    <span class="hljs-comment">//results.deleteFirstFromRealm();</span>
+    <span class="hljs-comment">//results.deleteLastFromRealm();</span>
+    <span class="hljs-comment">//results.deleteAllFromRealm()</span>
+    realm.commitTransaction();
+&#125;</code></pre>
+
+<p>网络请求方面，一般会选择使用<a href="https://square.github.io/okhttp/" target="_blank" rel="noopener">okhttp</a>。</p>
+<h1 id="适配器-Adapter"><a href="#适配器-Adapter" class="headerlink" title="适配器 Adapter"></a>适配器 Adapter</h1><p>Adapter是用来帮助填充数据的，将各种数据以合适的形式显示到view上，提供给用户看！</p>
+<p>Adapter和iOS中UITableViewController非常相似，继承<code>BaseAdapter</code>就好比遵循了UITableDelegate和UITableViewDataSource两个协议，为自定义的需要而实现数据源和视图的输出方法。</p>
+<p>Adapter的继承结构图如下<br><img src="http://qiniu.ifungfay.com/mweb/77919389.jpg2019%2010%2004" alt="77919389"></p>
+<p>实际开发中用得最多的其实是<code>BaseAdapter</code>，它是一个抽象类，实现了<code>ListAdapter</code>和<code>SpinnerAdapter</code>两个接口，而这两个接口都是<code>Adapter</code>这个接口的扩展接口。</p>
+<ul>
+<li><code>ListAdapter</code>定义了<ul>
+<li>areAllItemsEnabled() 是否所有Item可选择点击 </li>
+<li>isEnabled() 某一位置上的Item是否可选择点击两个方法</li>
+<li>在<code>BaseAdapter</code>的实现中默认都为true</li>
+</ul>
+</li>
+<li><code>SpinnerAdapter</code>定义了<ul>
+<li>getDropDownView() 返回下拉视图的方法</li>
+<li><code>BaseAdapter</code>的实现中默认是通过调用它自己的getView()返回</li>
+</ul>
+</li>
+<li><code>Adapter</code>定义的方法中，关键且常被重写的方法为<ul>
+<li>getCount() 返回数据的总数</li>
+<li>getItem() 返回某行数据的模型</li>
+<li>getItemId() 返回某行数据的ID，一般就是位置索引</li>
+<li>getView() 返回某行的自定义视图</li>
+</ul>
+</li>
+</ul>
+<p>继承<code>BaseAdapter</code>的开发步骤：</p>
+<ul>
+<li>获取并持有数据源</li>
+<li>实现数据相关的输出方法（getCount、getItem、getItemId）</li>
+<li>定义内部的<code>ViewHolder</code>类，包含每行需显示的控件属性，不同类型行的ViewHolder需分开定义</li>
+<li>实现视图相关的输出方法（getView），第一次创建view时，将对应的ViewHolder对象塞入要返回的view的<code>tag</code>中，同时对ViewHolder对象中的控件设置上数据值；下次获取到view时只需从tag中取出ViewHolder对象更新控件的数据值即可，达到了控件复用的效果。</li>
+</ul>
+<p>另一个使用率较高的就是<code>RecyclerView.Adapter</code>，与<code>BaseAdapter</code>有相似之处，也有不同之处，其具体开发步骤：</p>
+<ul>
+<li>getItemCount() 返回Item的总数，注意判空</li>
+<li>getItemViewType() 返回Item视图的类型</li>
+<li>onCreateViewHolder() 根据上一点的方法返回类型，创建ViewHolder，给Adapter去关联view</li>
+<li>onBindViewHolder() 触发绑定ViewHolder，在这个方法中，我们只需负责更新ViewHolder对象中控件的数据值即可，所以，我们可以为<code>RecyclerView.Adapter</code>指定它的泛型。</li>
+</ul>
+<p>说到<code>RecyclerView.Adapter</code>，有一个比较出名的第三方<code>BaseRecyclerViewAdapter</code>，封装了很多便利的方法供直接调用和省去很多接口的实现，也基本能满足大部分效果的需求，有兴趣可以去额外了解下-<a href="https://github.com/CymChad/BaseRecyclerViewAdapterHelper/blob/master/README-cn.md" target="_blank" rel="noopener">随意门</a>。</p>
+<ul>
+<li>ArrayAdapter：<ul>
+<li>例化时可以使用泛型构造，可在构造函数的第二个参数绑定一个layout，第三个参数绑定数据源（其内部使用此数据源去实现getCount、getItem等方法，无需亲自实现一遍）</li>
+<li>增加了很多和数组相对应的操作，如add()、addAll()、insert()、clear()、remove()、sort()、setNotifyOnChange()（控制以上操作方法执行后是否自动执行notifyDataSetChanged()，当参数为false时则需手动执行。应用场景为当处理的数据量大时，可在处理前设置为false，处理后手动执行notifyDataSetChanged()）</li>
+<li>ArrayAdapter默认期望布局文件里只有一个TextView，实现稍微复杂的TextView可在构造方法中传入指定的Field ID，实现复杂布局时需重写getView()方法。</li>
+<li>ArrayAdapter默认下会调用List中对象的toString()方法去设置TextView</li>
+<li>一个小技巧，当使用固定的数据源时，可在res中直接创建数据源的xml，然后给ListView布局中引用（系统内部创建ArrayAdapter去接收），</li>
+</ul>
+</li>
+</ul>
+<pre><code class="hljs xml">&lt;?xml version="1.0" encoding="utf-8"?&gt;  
+<span class="hljs-tag">&lt;<span class="hljs-name">resources</span>&gt;</span>  
+    <span class="hljs-tag">&lt;<span class="hljs-name">string-array</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"myarray"</span>&gt;</span>  
+    <span class="hljs-tag">&lt;<span class="hljs-name">item</span>&gt;</span>语文<span class="hljs-tag">&lt;/<span class="hljs-name">item</span>&gt;</span>  
+    <span class="hljs-tag">&lt;<span class="hljs-name">item</span>&gt;</span>数学<span class="hljs-tag">&lt;/<span class="hljs-name">item</span>&gt;</span>  
+    <span class="hljs-tag">&lt;<span class="hljs-name">item</span>&gt;</span>英语<span class="hljs-tag">&lt;/<span class="hljs-name">item</span>&gt;</span>  
+    <span class="hljs-tag">&lt;/<span class="hljs-name">string-array</span>&gt;</span>      
+<span class="hljs-tag">&lt;/<span class="hljs-name">resources</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">ListView</span>  
+    <span class="hljs-attr">android:id</span>=<span class="hljs-string">"@id/list_test"</span>  
+    <span class="hljs-attr">android:layout_height</span>=<span class="hljs-string">"match_parent"</span>  
+    <span class="hljs-attr">android:layout_width</span>=<span class="hljs-string">"match_parent"</span>   
+    <span class="hljs-attr">android:entries</span>=<span class="hljs-string">"@array/myarray"</span>/&gt;</span></code></pre>
+
+<ul>
+<li>SimpleAdapter：更方便地套用Item的显示样式</li>
+</ul>
+<pre><code class="hljs java">SimpleAdapter myAdapter = <span class="hljs-keyword">new</span> SimpleAdapter(getApplicationContext(), listitem, R.layout.list_item, <span class="hljs-keyword">new</span> String[]&#123;<span class="hljs-string">"header"</span>, <span class="hljs-string">"name"</span>, <span class="hljs-string">"says"</span>&#125;, <span class="hljs-keyword">new</span> <span class="hljs-keyword">int</span>[]&#123;R.id.header, R.id.name, R.id.says&#125;);</code></pre>
+
+<ul>
+<li>SimpleCursorAdapter：过时的一种类，其实就是存入一个Cursor对象，由其内部利用cursor读取数据，用于在数据库获取简单文本显示的listView。不太推荐使用，直接扩展BaseAdapter，自行读取数据库会更好。</li>
+<li>FragmentPagerAdapter：顾名思义<ul>
+<li>getCount() 返回title或者fragment的总数</li>
+<li>getItem() 返回指定位置的fragment</li>
+<li>getPageTitle() 返回指定位置的title</li>
+</ul>
+</li>
+</ul>
+<p>创建了Adapter后，最后记得设置到ListView或者RecyclerView的adapter属性中去。</p>
+<h1 id="跨应用通信-AIDL"><a href="#跨应用通信-AIDL" class="headerlink" title="跨应用通信 AIDL"></a>跨应用通信 AIDL</h1><p><a href="https://developer.android.com/guide/components/services?hl=zh-cn" target="_blank" rel="noopener">服务-官方文档</a><br><a href="https://developer.android.com/guide/components/aidl.html" target="_blank" rel="noopener">AIDL-官方文档</a></p>
+<p>在开发跨应用通信前，首先必须去了解4大组件之一的服务是什么东西，看完服务的文档，才能理解跨应用的工作原理。</p>
+<p>这里简单概括一下，服务可以分为<code>前台</code>、<code>后台</code>、<code>绑定</code>这三种类型，均需自行创建线程执行操作，否则是在主线程上执行。前台和后台的服务生命周期结束是由调用者或自己所控制，绑定服务则全由发起绑定的应用组件所管理。可以使用<code>Service</code>和<code>IntentService</code>创建服务，前者需自行创建线程执行操作，否则会影响应用性能，后者则由其内部使用工作线程逐一处理所有启动请求。而进程间通信 (IPC)就是利用绑定实现的，一般描述是发起绑定的为<code>客户端</code>，提供服务的为<code>服务端</code>。</p>
+<p>下面再讲述如何使用AIDL（安卓接口定义语言）。</p>
+<p>AIDL是什么，它是可以被利用去所定义的客户端与服务使用进程间通信 (IPC) 相互通信时都认可的编程接口。 </p>
+<p>实现的主要步骤如下：</p>
+<ol>
+<li>使用Java语言在<code>.aidl</code>文件中定义出AIDL接口，然后分别保存在服务和客户端的源码中（src/ 目录），一般是指定一样的具体路径，例如服务的.aidl文件存放于服务项目下的src/main/aidl/com/xx/yy/IXxAidlInterface.aidl，那么客户端的.aidl文件则存放于客户端项目下的同名路径下（作为副本存在，因为客户端也需具有对interface类的访问权限），其中com.xx.yy就是服务所在项目的包名，注意确保两端的aidl文件内容也是一致的。</li>
+<li>编译后，<code>IBinder</code>接口文件–IXxAidlInterface.java文件会被自动生成（与aidl文件名同名），。</li>
+<li>IXxAidlInterface.java里具有一个名为<code>Stub</code>的内部抽象类(继承自Binder并实现IXxAidlInterface)，用它来给服务扩展<code>Binder</code>类并重写实现<code>AIDL</code>接口中的方法。</li>
+<li>最后，服务向客户端公开接口的方式，就是实现<code>Service</code>并重写 onBind() 以返回<code>Stub</code>类，去定义服务的RPC接口。</li>
+<li>RPC是同步调用的，需自行处理多线程工作和保障线程安全（或客户端从单独的线程中调用服务），否则可能会导致客户端出现“Application is Not Responding”的提示，同时异常是不会进行传递。</li>
+<li>客户端实现<code>ServiceConnection</code>，在onServiceConnected()的回调中会接收服务的 onBind() 方法返回的 mBinder 实例，此时需调用IXxAidlInterface.Stub.asInterface(service)以将返回的参数转换成自己的<code>ServiceInterface</code>类型（service即是<code>IBinder</code>），后面就可以使用它来调用服务的接口方法进行通信了。</li>
+<li>客户端触发IPC，调用Context.bindService()，传入我们的<code>ServiceConnection</code>实现（作为连接的回调对象）。</li>
+<li>如果需要在接口中传递对象，则类必须实现<code>Parcelable</code>接口，同时服务和客户端两侧都要有此类可供引用。</li>
+</ol>
+<p>示例：</p>
+<ul>
+<li>定义AIDL的接口</li>
+</ul>
+<pre><code class="hljs java"><span class="hljs-keyword">package</span> com.xx.yy
+<span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">IXxAidlInterface</span> </span>&#123;
+    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">doSomething</span><span class="hljs-params">(String data)</span></span>;
+&#125;</code></pre>
+
+<ul>
+<li>定义服务，实现绑定相关方法</li>
+</ul>
+<pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MyAidlService</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Service</span> </span>&#123;
+
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> IBinder <span class="hljs-title">onBind</span><span class="hljs-params">(Intent intent)</span> </span>&#123;
+        <span class="hljs-comment">// ···</span>
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> MyBinder(); <span class="hljs-comment">//也可以在此直接返回IXxAidlInterface.Stub的匿名内部类的实例，省去定义Binder的类</span>
+    &#125;
+
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">onUnbind</span><span class="hljs-params">(Intent intent)</span> </span>&#123;
+        <span class="hljs-comment">// ···</span>
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">super</span>.onUnbind(intent);
+    &#125;</code></pre>
+
+<ul>
+<li>服务端定义Binder，实现AIDL中的接口方法</li>
+</ul>
+<pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MyBinder</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">IXxAidlInterface</span>.<span class="hljs-title">Stub</span> </span>&#123;
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">doSomething</span><span class="hljs-params">(String data)</span> <span class="hljs-keyword">throws</span> RemoteException </span>&#123;
+        ···
+    &#125;
+&#125;</code></pre>
+
+<ul>
+<li>服务端AndroidManifest中声明Service</li>
+</ul>
+<pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">service</span>
+    <span class="hljs-attr">android:name</span>=<span class="hljs-string">"com.xx.yy.service.MyAidlService"</span>
+    <span class="hljs-attr">android:exported</span>=<span class="hljs-string">"true"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">intent-filter</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">action</span> <span class="hljs-attr">android:name</span>=<span class="hljs-string">"com.xx.yy.service.MyAidlService"</span>/&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">category</span> <span class="hljs-attr">android:name</span>=<span class="hljs-string">"android.intent.category.DEFAULT"</span>/&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">intent-filter</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">service</span>&gt;</span></code></pre>
+
+<ul>
+<li>客户端实现ServiceConnection</li>
+</ul>
+<pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MyServiceConnection</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">ServiceConnection</span> </span>&#123;
+
+    <span class="hljs-keyword">private</span> IXxAidlInterface mService;
+
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onServiceConnected</span><span class="hljs-params">(ComponentName name, IBinder service)</span> </span>&#123;
+        mService = IXxAidlInterface.Stub.asInterface(service);
+    &#125;
+
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onServiceDisconnected</span><span class="hljs-params">(ComponentName name)</span> </span>&#123;
+        mService = <span class="hljs-keyword">null</span>;
+    &#125;
+
+    <span class="hljs-comment">//可以通过返回mService，外面新建类使用其与业务逻辑进行封装</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">doSomething</span><span class="hljs-params">(String data)</span> </span>&#123;
+        mService.doSomething(data);
+    &#125;
+&#125;</code></pre>
+
+<ul>
+<li>客户端触发IPC</li>
+</ul>
+<pre><code class="hljs java">Intent service = <span class="hljs-keyword">new</span> Intent(<span class="hljs-string">"com.xx.yy.service.IXxAidlInterface"</span>);<span class="hljs-comment">//sevice的路径</span>
+service.setPackage(<span class="hljs-string">"com.xx.yy"</span>);
+service.putExtra(<span class="hljs-string">"key"</span>,<span class="hljs-string">"value"</span>);
+List&lt;ResolveInfo&gt; list = context.getPackageManager().queryIntentServices(service, PackageManager.MATCH_DEFAULT_ONLY);
+<span class="hljs-keyword">if</span> (list == <span class="hljs-keyword">null</span> || list.isEmpty() || list.size() == <span class="hljs-number">0</span>)&#123;
+    <span class="hljs-keyword">return</span>;<span class="hljs-comment">//服务(App)不存在</span>
+&#125;
+MyServiceConnection connection = <span class="hljs-keyword">new</span> MyServiceConnection();
+<span class="hljs-keyword">if</span>(connection != <span class="hljs-keyword">null</span>) &#123;
+    <span class="hljs-keyword">try</span> &#123;
+        context.bindService(service, connection, Context.BIND_AUTO_CREATE);
+    &#125; <span class="hljs-keyword">catch</span> (Exception e) &#123;
+        e.printStackTrace();
+    &#125;
+&#125;</code></pre>
+
+<h1 id="多线程"><a href="#多线程" class="headerlink" title="多线程"></a>多线程</h1><h2 id="AsyncTask"><a href="#AsyncTask" class="headerlink" title="AsyncTask"></a>AsyncTask</h2><p>AsyncTask是用来实现工作线程与主线程（UI线程）之间通信</p>
+<p>使用步骤</p>
+<ul>
+<li>创建AsyncTask子类并根据需求实现核心方法</li>
+<li>创建AsyncTask子类的实例对象</li>
+<li>手动调用实例对象的execute()从而执行异步线程任务</li>
+</ul>
+<pre><code class="hljs java"><span class="hljs-keyword">private</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MyTask</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">AsyncTask</span>&lt;<span class="hljs-title">Params</span>, <span class="hljs-title">Progress</span>, <span class="hljs-title">Result</span>&gt; </span>&#123;
+    ....
+
+    <span class="hljs-comment">//执行异步线程前的回调，处理UI的初始化，是在主线程中回调的</span>
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">protected</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onPreExecute</span><span class="hljs-params">()</span> </span>&#123; 
+        ...
+    &#125;
+
+    <span class="hljs-comment">//执行异步线程任务</span>
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">protected</span> String <span class="hljs-title">doInBackground</span><span class="hljs-params">(String... params)</span> </span>&#123;
+        ...<span class="hljs-comment">// 自定义的线程任务</span>
+        
+        <span class="hljs-comment">// 可调用publishProgress()显示进度，之后将回调onProgressUpdate()</span>
+        publishProgress(count);   
+    &#125;
+
+    <span class="hljs-comment">//进度回调，在主线程中回调的</span>
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">protected</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onProgressUpdate</span><span class="hljs-params">(Integer... progresses)</span> </span>&#123;
+        ...
+    &#125;
+    
+    <span class="hljs-comment">//返回异步线程任务的执行结果，在主线程中回调</span>
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">protected</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onPostExecute</span><span class="hljs-params">(String result)</span> </span>&#123;
+        ...<span class="hljs-comment">// UI操作</span>
+    &#125;
+
+    <span class="hljs-comment">//将异步线程任务状态置为取消后，需自行在doInBackground判断任务的状态进行实质性的阻止中断，即回调此函数</span>
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">protected</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onCancelled</span><span class="hljs-params">()</span> </span>&#123;
+        ...
+    &#125;
+&#125;
+
+<span class="hljs-comment">//实例必须在UI线程中创建</span>
+MyTask mTask = <span class="hljs-keyword">new</span> MyTask();
+
+<span class="hljs-comment">//a. 必须在UI线程中调用</span>
+<span class="hljs-comment">//b. 同一个AsyncTask实例对象只能执行1次，若执行第2次将会抛出异常</span>
+<span class="hljs-comment">//c. 执行任务中，系统会自动调用AsyncTask的一系列方法：onPreExecute() 、doInBackground()、onProgressUpdate() 、onPostExecute() </span>
+<span class="hljs-comment">//d. 不能手动调用上述方法</span>
+mTask.execute()； <span class="hljs-comment">//执行异步线程的任务</span></code></pre>
+
+<h2 id="Thread-Handler"><a href="#Thread-Handler" class="headerlink" title="Thread + Handler"></a>Thread + Handler</h2><p>创建线程有两种方法</p>
+<ul>
+<li>继承Thread类，重写Thread的run()方法（Thread也实现了Runnable接口）</li>
+<li>实现Runnable接口，重写Runnable的run()方法，并将其作为参数实例化Thread，这样能避免Thread单继承的局限和多Thread之间可以共享Runnable中的资源。</li>
+</ul>
+<pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MyThread</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Thread</span> </span>&#123;
+	<span class="hljs-meta">@Overide</span>
+	<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">run</span><span class="hljs-params">()</span> </span>&#123;
+		...<span class="hljs-comment">//异步线程任务</span>
+	&#125;
+&#125;
+
+MyThread t = <span class="hljs-keyword">new</span> MyThread();<span class="hljs-comment">//创建已内含任务的线程</span>
+t.start();</code></pre>
+
+<pre><code class="hljs undefined">public class MyRunnable implements Runnable &#123;
+	public void run() &#123;
+		...//任务
+	&#125;
+&#125;
+
+MyRunnable runnable = new MyRunnable();
+Thread r = new Thread(runnable, &quot;threadName&quot;);//创建线程并指定任务
+r.start();</code></pre>
+
+<p>若要进行线程之间的切换通信，而多线程又选用了Thread实现，那么就需要搭配Handler使用了，因为Handler的最大作用就是线程的切换。</p>
+<p>子线程与主线程通信的示例：</p>
+<pre><code class="hljs undefined">//在主线程实例化Handler
+Handler handler = new Handler()&#123;
+    @Override
+    public void handleMessage(Message msg) &#123;
+        //msg是从子线程发来的消息
+        switch (msg.what) &#123;
+            case 1:
+                Log.i(&quot;&quot;,  msg.obj);
+                break;
+        &#125;
+    &#125;
+&#125;;
+
+//开启子线程
+new Thread(new Runnable() &#123;
+    @Override
+    public void run() &#123;
+        //在子线程发送一个消息。
+        Message msg = new Message(); //正常应使用Message.obtain();，这样可利用到系统的Message缓存池，优化内存
+        msg.obj = &quot;自定义传递的数据对象&quot;;
+        msg.what = 0; //what相当于msg的ID
+        handler.sendMessage(msg);//同一个消息不要发送两次，否则报错，因为消息队列中不允许存在重复的消息
+        //可使用post代替sendMessage，post内部会将Runnable封装成Message再发出去，且此Runnable的run方法比Handler中的handleMessage更高优先级
+        handler.post(new Runnable() &#123; 
+            @Override
+            public void run() &#123;
+                //这里是消息处理的方法，运行在主线程。
+            &#125;
+        &#125;
+    &#125;
+&#125;).start();</code></pre>
+
+<p>在主线程实例化Handler的话，其handleMessage是在主线程执行，因为Handler默认采用了主线程的Looper进行绑定，即是Handler在默认情况下，哪个线程创建它，就获取那个线程的Looper进行绑定，消息的处理也就在Looper所在的线程进行，除非在实例方法中额外指定Looper给Handler。（Thread拥有Looper，Looper拥有Handler和MessageQueue）</p>
+<p>若要在子线程创建Handler，则需要自行创建Looper并开启其循环，才能使Handler正常工作，因为其它线程利用绑定该子线程Looper的Handler向往此子线程发消息时，会将Message塞入子线程的MessageQueue去，没有Looper的话就子线程就不会去它的MessageQueue上取消息出来分发给Handler处理（可能连消息的发送阶段就已不能成功？）。</p>
+<p><img src="http://qiniu.ifungfay.com/mweb/Xnip2019-10-04_22-01-57.jpg2019%2010%2004" alt="Xnip2019-10-04_22-01-57"></p>
+<pre><code class="hljs java"><span class="hljs-comment">//在主线程创建并开启子线程异步任务</span>
+Handler handler;
+<span class="hljs-keyword">new</span> Thread(<span class="hljs-keyword">new</span> Runnable() &#123;
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">run</span><span class="hljs-params">()</span> </span>&#123;
+        <span class="hljs-comment">//创建当前线程的Looper，因一个线程只能有一个Looper所以不能调用两次</span>
+        Looper.prepare();
+        <span class="hljs-comment">//在子线程创建Handler对象</span>
+        handler = <span class="hljs-keyword">new</span> Handler() &#123;
+            <span class="hljs-meta">@Override</span>
+            <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">handleMessage</span><span class="hljs-params">(Message msg)</span> </span>&#123;
+                <span class="hljs-comment">//这里是消息处理，运行在子线程</span>
+            &#125;
+       &#125;;
+       <span class="hljs-comment">//开启Looper的消息轮询</span>
+       Looper.loop();
+    &#125;
+    
+    <span class="hljs-comment">//如果Handler不再需要发送和处理消息，那么就需要退出子线程的消息轮询</span>
+    <span class="hljs-comment">//Looper.myLooper().quit();</span>
+    <span class="hljs-comment">//Looper.myLooper().quitSafely();</span>
+&#125;).start();
+
+<span class="hljs-comment">//在主线程发送一个消息到子线程</span>
+Message msg = <span class="hljs-keyword">new</span> Message();
+handler.sendMessage(msg);</code></pre>
+
+<p>还有其它一些扩展的方法</p>
+<pre><code class="hljs java"> <span class="hljs-comment">//延时发送消息</span>
+<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">final</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">sendMessageDelayed</span><span class="hljs-params">(Message msg, <span class="hljs-keyword">long</span> delayMillis)</span>
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">final</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">postDelayed</span><span class="hljs-params">(Runnable r, <span class="hljs-keyword">long</span> delayMillis)</span></span>;
+
+<span class="hljs-comment">//定时发送消息（类比iOS的NSTimer）</span>
+<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">sendMessageAtTime</span><span class="hljs-params">(Message msg, <span class="hljs-keyword">long</span> uptimeMillis)</span> </span>&#123;
+<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">final</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">postAtTime</span><span class="hljs-params">(Runnable r, <span class="hljs-keyword">long</span> uptimeMillis)</span></span>;
+<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">final</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">postAtTime</span><span class="hljs-params">(Runnable r, Object token, <span class="hljs-keyword">long</span> uptimeMillis)</span></span>;</code></pre>
+
+<p>Activity类的runOnUiThread()、View类的post()、HandlerThread类，这些其实都是内部实现了或方便实现Handler的机制，封装起了一系列的方法，方便我们使用，例如runOnUiThread内部就是调用Activity在主线程创建的Handler去执行post(runnable)，再例如HandlerThread本质就是个Thread，与普通Thread的差别在于其内部实现了Looper的创建，方便地让Handler可以直接指定使用这个线程的Looper。</p>
+<p>话说回iOS，实现这种跨线程的通信，GCD相对方便一点，从发起异步任务，到与其它线程通信，这两部分逻辑的代码可以整合在一起实现，非常清晰，不过这是系统封装后的得益而已。NSThread也一样，系统通过封装好各种performSelector的方法，由我们自由选择执行的指定方法所在的线程（比Handler只能在Runnable Callback或者handleMessage这两个地方回调更有灵活性），实现线程间的通信，只要持有目标通信的NSThread，就好比持有着Handler，需要通信时就用其来发消息（performSelector），performSelector内部其实也是通过消息队列机制来触发任务线程去处理任务（借助NSTimer），也是需要一个循环体NSRunLoop才能起作用。</p>
+<h1 id="打包"><a href="#打包" class="headerlink" title="打包"></a>打包</h1><h2 id="Apk"><a href="#Apk" class="headerlink" title="Apk"></a>Apk</h2><p>操作路径：Build-&gt;Build Bundle(s) / APK(s)-&gt;Build APK(s)<br>产出路径：[project]/[module]/build/outputs/apk/debug</p>
+<p>选择Build Bundle(s)的话，产出的是aab(Android Application Bundle)，aab是一种新型的上传包格式，它能包裹应用所编译的代码和资源，但只能用于Google Play。</p>
+<p>若要使APK带签名的，则选择Generate Signed Bundle / APK，这项是需要指定keystore文件和其密码及别名的。</p>
+<h2 id="jar"><a href="#jar" class="headerlink" title="jar"></a>jar</h2><p>使用Android Studio对工程进行编译后，就会自动生成jar，所在路径为</p>
+<pre><code>/build/intermediates/bundles/debug(release)/classes.jar
+/build/intermediates/packaged-classes/release/classes.jar</code></pre><p>但若想删除jar中一些无用的内容，可以在要打jar的Module中的build.gradle里自定义一个打jar的Task，如下为制作一个指定输出路径、输出文件名、删除BuildConfig.class文件的jar</p>
+<pre><code class="hljs undefined">task makeJar(type: Jar, dependsOn: [&apos;assembleRelease&apos;]) &#123;
+    destinationDir = file(&apos;build/outputs/libs&apos;)
+    baseName = &quot;jar_name&quot; // SDK名称
+    version = &quot;1.0.0&quot; // 版本号
+    from(zipTree(&apos;build/intermediates/packaged-classes/release/classes.jar&apos;)) // jar的实际来源
+    exclude(&apos;com/xx/yy/BuildConfig.class&apos;)
+&#125;</code></pre>
+
+<p>由上面build.gradle中可以看出，我们单独去调用Gradle的assembleRelease这个Task，也是可以进行编译生成jar的。</p>
+<h2 id="arr"><a href="#arr" class="headerlink" title="arr"></a>arr</h2><p>对比jar，aar是更适合作为SDK的格式，因为它可以同时把class和res文件一起打包。</p>
+<p>打包方式也很简单，只要在一个Project下，新建一个用于打包的Module（Android libraries），SDK的源码和资源都在这个Module下添加，那么只要此Module一被编译，aar就能被生成，生成路径为</p>
+<pre><code>/build/outputs/aar/libraryname.aar</code></pre><p>开发时在Project下新建另一个Module，作为Demo App，其依赖上述的aar Module，就可以实现模拟接入和调试。</p>
+<h1 id="设计模式"><a href="#设计模式" class="headerlink" title="设计模式"></a>设计模式</h1><h2 id="MVP"><a href="#MVP" class="headerlink" title="MVP"></a>MVP</h2><p>在MVC的基础上增加了Presenter层后，Activity应该要改为视作View层，其原本控制器的职能已转移到了Presenter层上，进一步减少View和Model的耦合。</p>
+<p>做法：</p>
+<ul>
+<li>抽象View层的<code>更新界面接口</code>，由View（Activity）实现此接口，接口提供传入Value Object的方法去刷新View上的数据值</li>
+<li>抽象出Presenter<code>绑定（泛型的）抽象View的接口类</code>，具体业务Presenter实现此接口并持有（绑定）View和（创建）Model（即每一个Activity都有一个相应的Presenter来处理数据）</li>
+<li>具体业务Presenter需同时作为Model获取数据后的回调对象，即Model也持有Presenter，Presenter给Model提供回传出Value Object的<code>获取数据接口</code></li>
+<li>具体业务Presenter控制Model去获取数据和刷新View，以及响应View修改Model的数据</li>
+</ul>
+<h2 id="MVVM"><a href="#MVVM" class="headerlink" title="MVVM"></a>MVVM</h2><p>将Presenter改名为ViewModel，基本上与MVP模式完全一致。唯一的区别是，它采用双向绑定（data-binding）：View的变动，自动反映在ViewModel，反之亦然，即是Presenter不但要作为Modle的回调对象，还要作为View的回调对象，拿MVP上的做法为例，若View在实现时也持有了（创建）Presenter和会调用Presenter的<code>更新数据接口</code>，那么这个Presenter就可以理解为ViewModel了，这时候Model层也应该得抽象出一套<code>业务逻辑接口</code>。</p>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>在Android Studio上选择一个模板创建起一个应用（Google提供了挺多流行的界面框架选择），从MainActivity上开始一步步运用上面所写的各项知识点，例如使用MVP设计App的框架、读取资源显示到UI上、布局自己的界面、根据需求安插各式各样的控件、用列表展示出设计好的模型数据等等，再结合自己的业务Idea，搭建出属于你的Android App吧。</p>
+<p>但还有以下一些我未用到、上面也没详细介绍的功能，日后有机会再补充补充</p>
+<ul>
+<li><a href="https://blog.csdn.net/carson_ho/article/details/76101093" target="_blank" rel="noopener">ContentProvider</a></li>
+<li><a href="https://blog.csdn.net/carson_ho/article/details/52973504" target="_blank" rel="noopener">BroadcastReceiver</a></li>
+<li>JNI</li>
+<li>NDK（映射等）</li>
+</ul>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p><a href="https://www.jianshu.com/p/3b5b89d4e154" target="_blank" rel="noopener">AndroidManifest.xml详解</a></p>
+<p><a href="https://www.runoob.com/w3cnote/android-tutorial-view-viewgroup-intro.html" target="_blank" rel="noopener">View与ViewGroup的概念</a></p>
+<p><a href="https://www.runoob.com/w3cnote/android-tutorial-adapter.html" target="_blank" rel="noopener">Adapter基础讲解</a></p>
+<p><a href="https://www.cnblogs.com/travellife/p/5861177.html" target="_blank" rel="noopener">Android Adapter:ArrayAdapter篇</a></p>
+<p><a href="https://juejin.im/entry/575926ba5bbb500053c50316" target="_blank" rel="noopener">浅析 MVP 中 model 层设计</a></p>
+<p><a href="http://wuxiaolong.me/2015/09/23/AndroidMVPSample/" target="_blank" rel="noopener">Android MVP 实例</a></p>
+<p><a href="https://www.jianshu.com/p/734d3693da02" target="_blank" rel="noopener">谈谈我理解的Android应用架构</a></p>
+<p><a href="https://www.jianshu.com/p/ee1342fcf5e7" target="_blank" rel="noopener">Android 多线程：手把手教你使用AsyncTask</a></p>
+<p><a href="https://juejin.im/post/5910533dac502e006cfe01cd" target="_blank" rel="noopener">Handler的使用方式和注意事项</a></p>
+<p><a href="https://juejin.im/post/5910522f1b69e6006858b830" target="_blank" rel="noopener">Handler机制的实现与工作原理</a></p>
+
+      
+       <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 mingfungliu@gmail.com </span>
+    </div>
+</article>
+
+
+<p>
+    <a href="javascript:void(0)" class="dashang" onclick="dashangToggle()">赏</a>
+</p>
+
+
+
+<div class="article_copyright">
+    <p><span class="copy-title">文章标题:</span>开发一个Android App</p>
+    
+    <p><span class="copy-title">本文作者:</span><a href="javascript:void(0)" title="Mingfung">Mingfung</a></p>
+    <p><span class="copy-title">发布时间:</span>2019-10-05, 16:11:04</p>
+    <p><span class="copy-title">最后更新:</span>2019-10-11, 12:46:59</p>
+    <span class="copy-title">原始链接:</span><a class="post-url" href="/Android/开发一个Android-App/" title="开发一个Android App">http://blog.ifungfay.com/Android/开发一个Android-App/</a>
+    <p>
+        <span class="copy-title">版权声明:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+    </p>
+</div>
+
+
+
+
+    <script type="text/javascript">
+(function(d, s) {
+   var j, e = d.getElementsByTagName(s)[0];
+
+   if (typeof LivereTower === 'function') { return; }
+
+   j = d.createElement(s);
+   j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+   j.async = true;
+
+   e.parentNode.insertBefore(j, e);
+})(document, 'script');
+</script>
+<noscript> 为正常使用来必力评论功能请激活JavaScript</noscript>
+
+<iframe title="livere"   src="https://was.livere.me/comment/city?id=city&refer=http://blog.ifungfay.com/Android/开发一个Android-App/&uid=MTAyMC80NzAyOC8yMzUyOA==&site=http://blog.ifungfay.com/Android/开发一个Android-App/&title=开发一个Android App" scrolling="" frameborder="0" id="lv-comment-399" style="min-width: 100%; width: 100px; min-height: 400px; overflow: auto; border: 0px; z-index: 124212; height: 800px;" ></iframe>
+
+
+
+    
+
+
+
+
+    </div>
+    <div class="copyright">
+        <p class="footer-entry">©2016-2019 Mingfung</p>
+<p class="footer-entry">Built with <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/yelog/hexo-theme-3-hexo" target="_blank">3-hexo</a> theme</p>
+
+    </div>
+    <div class="full-toc">
+        <button class="full"><span class="min "></span></button>
+<button class="post-toc-menu"><span class="post-toc-menu-icons"></span></button>
+<div class="post-toc"><span class="post-toc-title">目录</span>
+    <div class="post-toc-content">
+
+    </div>
+</div>
+<a class="" id="rocket" href="javascript:void(0)"></a>
+    </div>
+</div>
+<div class="acParent"></div>
+
+<div class="hide_box" onclick="dashangToggle()"></div>
+<div class="shang_box">
+    <a class="shang_close" href="javascript:void(0)" onclick="dashangToggle()">×</a>
+    <div class="shang_tit">
+        <p>喜欢就点赞,疼爱就打赏</p>
+    </div>
+    <div class="shang_payimg">
+        <div class="pay_img">
+            <img src="/img/alipay.jpg" class="alipay" title="扫码支持">
+            <img src="/img/weixin.jpg" class="weixin" title="扫码支持">
+        </div>
+    </div>
+    <div class="shang_payselect">
+        <span><label><input type="radio" name="pay" checked value="alipay">支付宝</label></span><span><label><input type="radio" name="pay" value="weixin">微信</label></span>
+    </div>
+</div>
+
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/koharu.model.json"},"log":false});</script></body>
+<script src="/js/jquery.pjax.js?v=1.0.1" ></script>
+
+<script src="/js/script.js?v=1.0.1" ></script>
+<script>
+    var img_resize = 'default';
+    /*作者、标签的自动补全*/
+    $(function () {
+        $('.search').AutoComplete({
+            'data': ['#JSPatch','#JavaScriptCore','#property','#dynamic','#sythesize','#nonatomic','#iOS11','#Xcode9','#iPhoneX','#TLS','#SSL','#HTTPS','#ATS','#Java','#Android','#AndroidStudio','#adb','#反编译','#Gradle','#Module','#ProGuard','#Native','#JNI','#NDK','#AAR','#JAR','#html','#bootstrap','#css','#Flutter','#iOS','#Dart','#Git','#command','#Mac','#question','#PyCharm','#Django','#Python','#Anaconda','#Qgis','#vapor','#swift','#heroku','#cloud','#crypto','#console','#terminal','#database','#postgreSQL','#network','#http','#webSocket','#encoded','#leaf','#view','#session','#token','#verification','#越狱','#逆向','#工具','#安全','#CGI','#Servlet','#容器','#Docker','#Manager','#Model','#Role','#Target','#JSON','#Objective-C','#jekyll','#github','#blog','#Jenkins','#CI','#Test','#Ubuntu','#服务器','#Web App','#nginx','#supervisor','#fabric','#python','#mysql','#设计模式','#tool','#skill','#MVP','#Adapter','#Activity','#Fragment','#Layout','#Res','#Realm','#AIDL','#AsyncTask','#Thread','#Handler','#link','#register','#assembly','#library','#static','#memory','#runtime','#interrupt',],
+            'itemHeight': 20,
+            'width': 418
+        }).AutoComplete('show');
+    })
+    function initArticle() {
+        /*渲染对应的表格样式*/
+        
+            $(".post .pjax table").addClass("green_title");
+        
+
+        /*渲染打赏样式*/
+        
+        $("input[name=pay]").on("click", function () {
+            if($("input[name=pay]:checked").val()=="weixin"){
+                $(".shang_box .shang_payimg .pay_img").addClass("weixin_img");
+            } else {
+                $(".shang_box .shang_payimg .pay_img").removeClass("weixin_img");
+            }
+        })
+        
+
+        /*高亮代码块行号*/
+        
+        $('pre code').each(function(){
+            var lines = $(this).text().split('\n').length, widther='';
+            if (lines>99) {
+                widther = 'widther'
+            }
+            var $numbering = $('<ul/>').addClass('pre-numbering ' + widther).attr("unselectable","on");
+            $(this).addClass('has-numbering ' + widther)
+                    .parent()
+                    .append($numbering);
+            for(var i=1;i<=lines;i++){
+                $numbering.append($('<li/>').text(i));
+            }
+        });
+        
+
+        /*访问数量*/
+        
+        $.getScript("//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js");
+        
+
+        /*代码高亮，行号对齐*/
+        $('.pre-numbering').css('line-height',$('.has-numbering').css('line-height'));
+
+        
+    }
+
+    /*打赏页面隐藏与展示*/
+    
+    function dashangToggle() {
+        $(".shang_box").fadeToggle();
+        $(".hide_box").fadeToggle();
+    }
+    
+
+</script>
+
+<!--加入行号的高亮代码块样式-->
+
+<style>
+    pre{
+        position: relative;
+        margin-bottom: 24px;
+        border-radius: 10px;
+        border: 1px solid #e2dede;
+        background: #FFF;
+        overflow: hidden;
+    }
+    code.has-numbering{
+        margin-left: 30px;
+    }
+    code.has-numbering.widther{
+        margin-left: 35px;
+    }
+    .pre-numbering{
+        margin: 0px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 20px;
+        padding: 0.5em 3px 0.7em 5px;
+        border-right: 1px solid #C3CCD0;
+        text-align: right;
+        color: #AAA;
+        background-color: ;
+    }
+    .pre-numbering.widther {
+        width: 35px;
+    }
+</style>
+
+<!--自定义样式设置-->
+<style>
+    
+    
+    .nav {
+        width: 542px;
+    }
+    .nav.fullscreen {
+        margin-left: -542px;
+    }
+    .nav-left {
+        width: 120px;
+    }
+    
+    
+    @media screen and (max-width: 1468px) {
+        .nav {
+            width: 492px;
+        }
+        .nav.fullscreen {
+            margin-left: -492px;
+        }
+        .nav-left {
+            width: 100px;
+        }
+    }
+    
+    
+    @media screen and (max-width: 1024px) {
+        .nav {
+            width: 492px;
+            margin-left: -492px
+        }
+        .nav.fullscreen {
+            margin-left: 0;
+        }
+        .nav .hide-list.fullscreen {
+            left: 492px
+        }
+    }
+    
+    @media screen and (max-width: 426px) {
+        .nav {
+            width: 100%;
+        }
+        .nav-left {
+            width: 100%;
+        }
+    }
+    
+    
+    .nav-right .title-list nav a .post-title, .nav-right .title-list #local-search-result a .post-title {
+        color: #383636;
+    }
+    
+    
+    .nav-right .title-list nav a .post-date, .nav-right .title-list #local-search-result a .post-date {
+        color: #5e5e5f;
+    }
+    
+    
+    .nav-right nav a.hover, #local-search-result a.hover{
+        background-color: #e2e0e0;
+    }
+    
+    
+
+    /*列表样式*/
+    
+    .post .pjax article .article-entry>ol, .post .pjax article .article-entry>ul, .post .pjax article>ol, .post .pjax article>ul{
+        border: #e2dede solid 1px;
+        border-radius: 10px;
+        padding: 10px 32px 10px 56px;
+    }
+    .post .pjax article .article-entry li>ol, .post .pjax article .article-entry li>ul,.post .pjax article li>ol, .post .pjax article li>ul{
+        padding-top: 5px;
+        padding-bottom: 5px;
+    }
+    .post .pjax article .article-entry>ol>li, .post .pjax article .article-entry>ul>li,.post .pjax article>ol>li, .post .pjax article>ul>li{
+        margin-bottom: auto;
+        margin-left: auto;
+    }
+    .post .pjax article .article-entry li>ol>li, .post .pjax article .article-entry li>ul>li,.post .pjax article li>ol>li, .post .pjax article li>ul>li{
+        margin-bottom: auto;
+        margin-left: auto;
+    }
+    
+
+    /* 背景图样式 */
+    
+    
+
+
+    /*引用块样式*/
+    
+
+    /*文章列表背景图*/
+    
+    .nav-right:before {
+        content: ' ';
+        display: block;
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0.3;
+        background: url("null");
+        background-repeat: no-repeat;
+        background-position: 50% 0;
+        -ms-background-size: cover;
+        -o-background-size: cover;
+        -moz-background-size: cover;
+        -webkit-background-size: cover;
+        background-size: cover;
+    }
+    
+
+    
+</style>
+
+
+
+
+
+
+<div class="mobile-menus-out" >
+
+</div>
+<div class="mobile-menus">
+    
+    
+    <a class="dynamic-menu site_url"   href="/404.html">宝贝回家</a>
+    
+    
+    
+</div>
+
+
+</html>

@@ -1,0 +1,1752 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  <title>iOS逆向（二）工具篇 | Mingfung&#39;s Blog</title>
+  <meta name="keywords" content=" iOS , 逆向 , 工具 ">
+  <meta name="description" content="iOS逆向（二）工具篇 | Mingfung&#39;s Blog">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="description" content="关于iOS码农一枚">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Mingfung&#39;s Blog">
+<meta property="og:url" content="http://blog.ifungfay.com/about/index.html">
+<meta property="og:site_name" content="Mingfung&#39;s Blog">
+<meta property="og:description" content="关于iOS码农一枚">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-10-12T14:30:09.446Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Mingfung&#39;s Blog">
+<meta name="twitter:description" content="关于iOS码农一枚">
+
+
+<link rel="icon" href="/img/avatar.jpg">
+
+<link href="/css/style.css?v=1.0.1" rel="stylesheet">
+
+<link href="/css/hl_theme/zenbum.css?v=1.0.1" rel="stylesheet">
+
+<link href="//cdn.bootcss.com/animate.css/3.5.2/animate.min.css" rel="stylesheet">
+<link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+<script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="/js/jquery.autocomplete.min.js?v=1.0.1"></script>
+
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
+
+<script src="//cdn.bootcss.com/nprogress/0.2.0/nprogress.min.js"></script>
+
+
+
+<script src="/js/iconfont.js?v=1.0.1"></script>
+<!--鼠标点击爱心动画-->
+<script type="text/javascript" src="/js/clicklove.js"></script>
+</head>
+<div style="display: none">
+  <input class="theme_disqus_on" value="false">
+  <input class="theme_preload_comment" value="true">
+  <input class="theme_blog_path" value>
+</div>
+
+<body>
+<aside class="nav">
+    <div class="nav-left">
+        <a href="/" class="avatar_target">
+    <img class="avatar" src="/img/avatar.jpg" />
+</a>
+<div class="author">
+    <span>Mingfung</span>
+</div>
+
+<div class="icon">
+    
+        
+        <a title="rss" href="/atom.xml" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-rss"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+        <a title="github" href="https://github.com/leo9763" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-github"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+        <a title="facebook" href="https://www.facebook.com/ming.fung.liu.nero" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-facebook"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+    
+        
+    
+        
+        <a title="instagram" href="https://www.instagram.com/mingfungliu/" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-instagram"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+    
+        
+        <a title="weibo" href="https://weibo.com/neross" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-weibo"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+        <a title="jianshu" href="https://www.jianshu.com/u/007c5818ec78" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-jianshu"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+        <a title="zhihu" href="zhihu.com/people/mingfungliu" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-zhihu"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+    
+        
+    
+        
+        <a title="juejin" href="https://juejin.im/user/5b6b9b37f265da0f9f4e8df3" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-juejin"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+        <a title="email" href="mailto:mingfungliu@gmail.com" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-email"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+        <a title="qq" href="http://wpa.qq.com/msgrd?v=3&uin=52360086&site=qq&menu=yes" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-qq"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+    
+        
+    
+</div>
+
+
+
+<a class="more-menus">更多菜单</a>
+
+
+<ul>
+    <li><div class="all active">全部文章<small>(43)</small></div></li>
+    
+        
+            
+            <li><div data-rel="iOS">iOS<small>(6)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="Android">Android<small>(3)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="前端">前端<small>(4)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="工具">工具<small>(4)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="后端">后端<small>(12)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="管理">管理<small>(1)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="设计模式">设计模式<small>(7)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="系统">系统<small>(1)</small></div>
+                
+            </li>
+            
+        
+    
+</ul>
+<div class="left-bottom">
+    <div class="menus">
+    
+    
+    <a class="dynamic-menu site_url"   href="/404.html">宝贝回家</a>
+    
+    
+    
+    </div>
+    <div><a class="about  hasFriend  site_url"  href="/about">关于</a><a style="width: 50%"  class="friends">友链</a></div>
+</div>
+<input type="hidden" id="yelog_site_posts_number" value="43">
+
+<div style="display: none">
+    <span id="busuanzi_value_site_uv"></span>
+    <span id="busuanzi_value_site_pv"></span>
+</div>
+
+    </div>
+    <div class="nav-right">
+        <div class="friends-area">
+    <div class="friends-title">
+        友情链接
+        <i class="back-title-list"></i>
+    </div>
+    <div class="friends-content">
+        <ul>
+            
+            <li><a target="_blank" href="http://www.ifungfay.com">雪月风飞</a></li>
+            
+        </ul>
+    </div>
+</div>
+        <div class="title-list">
+    <form onkeydown="if(event.keyCode==13){return false;}">
+        <input class="search" type="text" placeholder="Search..." autocomplete="off"id="local-search-input" >
+        <i class="cross"></i>
+        <span>
+            <label for="tagswitch">Tags:</label>
+            <input id="tagswitch" type="checkbox" style="display: none" />
+            <i id="tagsWitchIcon"></i>
+        </span>
+    </form>
+    <div class="tags-list">
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">JSPatch</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">JavaScriptCore</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">property</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">dynamic</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">sythesize</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">nonatomic</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color1">iOS11</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">Xcode9</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">iPhoneX</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">TLS</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">SSL</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color1">HTTPS</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">ATS</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">Java</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">Android</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">AndroidStudio</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">adb</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">反编译</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">Gradle</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">Module</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">ProGuard</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">Native</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">JNI</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">NDK</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">AAR</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">JAR</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">html</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">bootstrap</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">css</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">Flutter</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">iOS</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">Dart</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">Git</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">command</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">Mac</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">question</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">PyCharm</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">Django</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">Python</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">Anaconda</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">Qgis</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color1">vapor</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color1">swift</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">heroku</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color1">cloud</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">crypto</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">console</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">terminal</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">database</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color1">postgreSQL</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">network</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">http</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">webSocket</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">encoded</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">leaf</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">view</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">session</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color1">token</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">verification</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">越狱</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">逆向</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">工具</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">安全</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">CGI</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">Servlet</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">容器</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">Docker</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">Manager</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color1">Model</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">Role</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">Target</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">JSON</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">Objective-C</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">jekyll</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">github</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">blog</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">Jenkins</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">CI</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">Test</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">Ubuntu</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">服务器</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">Web App</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color1">nginx</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color1">supervisor</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">fabric</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">python</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color1">mysql</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">设计模式</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">tool</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color1">skill</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">MVP</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">Adapter</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">Activity</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">Fragment</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">Layout</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">Res</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color1">Realm</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">AIDL</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">AsyncTask</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">Thread</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">Handler</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">link</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">register</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">assembly</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">library</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">static</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">memory</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">runtime</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">interrupt</a>
+    </li>
+    
+    <div class="clearfix"></div>
+</div>
+
+    
+    <nav id="title-list-nav">
+        
+        <a  class=""
+           href="/uncategorized/ATS详解/"
+           data-tag="TLS,SSL,HTTPS,ATS"
+           data-author="" >
+            <span class="post-title" title="ATS详解">ATS详解</span>
+            <span class="post-date" title="2017-07-22 15:57:55">2017/07/22</span>
+        </a>
+        
+        <a  class="Android "
+           href="/Android/Android原理入门/"
+           data-tag="Java,Android"
+           data-author="" >
+            <span class="post-title" title="Android原理入门">Android原理入门</span>
+            <span class="post-date" title="2019-08-14 00:22:11">2019/08/14</span>
+        </a>
+        
+        <a  class=""
+           href="/uncategorized/Android技巧入门/"
+           data-tag="AndroidStudio,adb,反编译"
+           data-author="" >
+            <span class="post-title" title="Android技巧入门">Android技巧入门</span>
+            <span class="post-date" title="2019-08-14 00:22:37">2019/08/14</span>
+        </a>
+        
+        <a  class="Android "
+           href="/Android/Android工程入门/"
+           data-tag="Gradle,Module,ProGuard,Native,JNI,NDK,AAR,JAR"
+           data-author="" >
+            <span class="post-title" title="Android工程入门">Android工程入门</span>
+            <span class="post-date" title="2019-02-24 13:44:00">2019/02/24</span>
+        </a>
+        
+        <a  class="前端 "
+           href="/前端/Bootstrap手册/"
+           data-tag="html,bootstrap,css"
+           data-author="" >
+            <span class="post-title" title="Bootstrap手册">Bootstrap手册</span>
+            <span class="post-date" title="2018-09-08 23:06:00">2018/09/08</span>
+        </a>
+        
+        <a  class="前端 "
+           href="/前端/Flutter开发（介绍篇）/"
+           data-tag="Android,Flutter,iOS,Dart"
+           data-author="" >
+            <span class="post-title" title="Flutter开发（介绍篇）">Flutter开发（介绍篇）</span>
+            <span class="post-date" title="2019-01-09 21:24:00">2019/01/09</span>
+        </a>
+        
+        <a  class="前端 "
+           href="/前端/Flutter开发（实践篇）/"
+           data-tag="Android,Flutter,iOS,Dart"
+           data-author="" >
+            <span class="post-title" title="Flutter开发（实践篇）">Flutter开发（实践篇）</span>
+            <span class="post-date" title="2019-01-09 23:06:00">2019/01/09</span>
+        </a>
+        
+        <a  class="工具 "
+           href="/工具/Git手册/"
+           data-tag="Git"
+           data-author="" >
+            <span class="post-title" title="Git手册">Git手册</span>
+            <span class="post-date" title="2019-01-28 21:35:00">2019/01/28</span>
+        </a>
+        
+        <a  class="工具 "
+           href="/工具/Mac命令行工具及其问题收录/"
+           data-tag="command,Mac,question"
+           data-author="" >
+            <span class="post-title" title="Mac命令行工具及其问题收录">Mac命令行工具及其问题收录</span>
+            <span class="post-date" title="2018-02-22 17:10:00">2018/02/22</span>
+        </a>
+        
+        <a  class="后端 "
+           href="/后端/Python的使用环境配置/"
+           data-tag="PyCharm,Django,Python,Anaconda,Qgis"
+           data-author="" >
+            <span class="post-title" title="Python的使用环境配置">Python的使用环境配置</span>
+            <span class="post-date" title="2018-05-24 19:30:00">2018/05/24</span>
+        </a>
+        
+        <a  class="后端 "
+           href="/后端/Vapor之初体验/"
+           data-tag="vapor,swift,heroku"
+           data-author="" >
+            <span class="post-title" title="Vapor之初体验">Vapor之初体验</span>
+            <span class="post-date" title="2018-01-05 21:49:00">2018/01/05</span>
+        </a>
+        
+        <a  class="后端 "
+           href="/后端/Vapor的部署/"
+           data-tag="vapor,swift,heroku,cloud"
+           data-author="" >
+            <span class="post-title" title="Vapor的部署">Vapor的部署</span>
+            <span class="post-date" title="2018-08-13 23:34:00">2018/08/13</span>
+        </a>
+        
+        <a  class="后端 "
+           href="/后端/Vapor（一）基础篇/"
+           data-tag="vapor,swift"
+           data-author="" >
+            <span class="post-title" title="Vapor（一）基础篇">Vapor（一）基础篇</span>
+            <span class="post-date" title="2018-08-13 23:34:00">2018/08/13</span>
+        </a>
+        
+        <a  class="后端 "
+           href="/后端/Vapor（七）工具篇/"
+           data-tag="command,vapor,swift,crypto,console,terminal"
+           data-author="" >
+            <span class="post-title" title="Vapor（七）工具篇">Vapor（七）工具篇</span>
+            <span class="post-date" title="2018-08-21 23:02:00">2018/08/21</span>
+        </a>
+        
+        <a  class="后端 "
+           href="/后端/Vapor（三）数据库篇/"
+           data-tag="vapor,swift,database,postgreSQL"
+           data-author="" >
+            <span class="post-title" title="Vapor（三）数据库篇">Vapor（三）数据库篇</span>
+            <span class="post-date" title="2018-08-15 21:33:00">2018/08/15</span>
+        </a>
+        
+        <a  class="后端 "
+           href="/后端/Vapor（二）进阶篇/"
+           data-tag="vapor,swift"
+           data-author="" >
+            <span class="post-title" title="Vapor（二）进阶篇">Vapor（二）进阶篇</span>
+            <span class="post-date" title="2018-08-14 21:20:00">2018/08/14</span>
+        </a>
+        
+        <a  class="后端 "
+           href="/后端/Vapor（五）网络篇/"
+           data-tag="vapor,swift,network,http,webSocket,encoded"
+           data-author="" >
+            <span class="post-title" title="Vapor（五）网络篇">Vapor（五）网络篇</span>
+            <span class="post-date" title="2018-08-17 20:30:00">2018/08/17</span>
+        </a>
+        
+        <a  class="后端 "
+           href="/后端/Vapor（六）视图篇/"
+           data-tag="vapor,swift,leaf,view"
+           data-author="" >
+            <span class="post-title" title="Vapor（六）视图篇">Vapor（六）视图篇</span>
+            <span class="post-date" title="2018-08-20 21:56:00">2018/08/20</span>
+        </a>
+        
+        <a  class="后端 "
+           href="/后端/Vapor（四）验证篇/"
+           data-tag="vapor,swift,session,token,verification"
+           data-author="" >
+            <span class="post-title" title="Vapor（四）验证篇">Vapor（四）验证篇</span>
+            <span class="post-date" title="2018-08-16 19:06:00">2018/08/16</span>
+        </a>
+        
+        <a  class=""
+           href="/uncategorized/hello-world/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Hello World">Hello World</span>
+            <span class="post-date" title="2018-01-07 14:45:35">2018/01/07</span>
+        </a>
+        
+        <a  class="iOS "
+           href="/iOS/iOS逆向（一）越狱篇/"
+           data-tag="iOS,越狱"
+           data-author="" >
+            <span class="post-title" title="iOS逆向（一）越狱篇">iOS逆向（一）越狱篇</span>
+            <span class="post-date" title="2018-09-13 22:39:01">2018/09/13</span>
+        </a>
+        
+        <a  class="iOS "
+           href="/iOS/iOS逆向（二）工具篇/"
+           data-tag="iOS,逆向,工具"
+           data-author="" >
+            <span class="post-title" title="iOS逆向（二）工具篇">iOS逆向（二）工具篇</span>
+            <span class="post-date" title="2018-09-13 22:39:02">2018/09/13</span>
+        </a>
+        
+        <a  class="iOS "
+           href="/iOS/iOS逆向（三）分析篇/"
+           data-tag="iOS,逆向"
+           data-author="" >
+            <span class="post-title" title="iOS逆向（三）分析篇">iOS逆向（三）分析篇</span>
+            <span class="post-date" title="2018-09-13 22:39:03">2018/09/13</span>
+        </a>
+        
+        <a  class="iOS "
+           href="/iOS/iOS逆向（五）总结篇/"
+           data-tag="iOS,逆向,安全"
+           data-author="" >
+            <span class="post-title" title="iOS逆向（五）总结篇">iOS逆向（五）总结篇</span>
+            <span class="post-date" title="2018-09-13 22:39:05">2018/09/13</span>
+        </a>
+        
+        <a  class="iOS "
+           href="/iOS/iOS逆向（四）实战篇/"
+           data-tag="iOS,逆向"
+           data-author="" >
+            <span class="post-title" title="iOS逆向（四）实战篇">iOS逆向（四）实战篇</span>
+            <span class="post-date" title="2018-09-13 22:39:04">2018/09/13</span>
+        </a>
+        
+        <a  class="后端 "
+           href="/后端/后端服务器概念了解下/"
+           data-tag="CGI,Servlet,容器,Docker"
+           data-author="" >
+            <span class="post-title" title="后端服务器概念了解下">后端服务器概念了解下</span>
+            <span class="post-date" title="2019-02-21 20:30:00">2019/02/21</span>
+        </a>
+        
+        <a  class=""
+           href="/uncategorized/利用Firebase实现的推送功能系统/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="利用Firebase实现的推送功能系统">利用Firebase实现的推送功能系统</span>
+            <span class="post-date" title="2018-01-17 19:33:41">2018/01/17</span>
+        </a>
+        
+        <a  class="管理 "
+           href="/管理/团队管理实践/"
+           data-tag="Manager,Model,Role,Target"
+           data-author="" >
+            <span class="post-title" title="团队管理实践">团队管理实践</span>
+            <span class="post-date" title="2019-02-23 23:50:00">2019/02/23</span>
+        </a>
+        
+        <a  class="iOS "
+           href="/iOS/处理服务端API返回JSON的总结/"
+           data-tag="iOS,JSON,Objective-C"
+           data-author="" >
+            <span class="post-title" title="处理服务端API返回JSON的总结">处理服务端API返回JSON的总结</span>
+            <span class="post-date" title="2018-01-09 14:35:00">2018/01/09</span>
+        </a>
+        
+        <a  class="前端 "
+           href="/前端/搭建Hexo博客/"
+           data-tag="jekyll,github,blog"
+           data-author="" >
+            <span class="post-title" title="搭建Hexo博客">搭建Hexo博客</span>
+            <span class="post-date" title="2017-07-18 21:50:14">2017/07/18</span>
+        </a>
+        
+        <a  class=""
+           href="/uncategorized/搭建Jekins/"
+           data-tag="Jenkins,CI,Test"
+           data-author="" >
+            <span class="post-title" title="搭建Jekins">搭建Jekins</span>
+            <span class="post-date" title="2017-08-26 22:59:36">2017/08/26</span>
+        </a>
+        
+        <a  class="工具 "
+           href="/工具/搭建博客图床/"
+           data-tag="blog"
+           data-author="" >
+            <span class="post-title" title="搭建博客图床">搭建博客图床</span>
+            <span class="post-date" title="2019-03-21 12:39:00">2019/03/21</span>
+        </a>
+        
+        <a  class="后端 "
+           href="/后端/搭建服务器/"
+           data-tag="Ubuntu,服务器,Web App,nginx,supervisor,fabric,python,mysql"
+           data-author="" >
+            <span class="post-title" title="搭建服务器">搭建服务器</span>
+            <span class="post-date" title="2019-04-06 00:00:00">2019/04/06</span>
+        </a>
+        
+        <a  class="设计模式 "
+           href="/设计模式/设计模式（一）策略模式 & 模板方法模式/"
+           data-tag="设计模式"
+           data-author="" >
+            <span class="post-title" title="设计模式（一）策略模式 &amp; 模板方法模式">设计模式（一）策略模式 &amp; 模板方法模式</span>
+            <span class="post-date" title="2019-01-13 23:41:00">2019/01/13</span>
+        </a>
+        
+        <a  class="工具 "
+           href="/工具/效率工具及技巧收录/"
+           data-tag="tool,skill"
+           data-author="" >
+            <span class="post-title" title="效率工具及技巧收录">效率工具及技巧收录</span>
+            <span class="post-date" title="2019-02-23 22:05:00">2019/02/23</span>
+        </a>
+        
+        <a  class="设计模式 "
+           href="/设计模式/设计模式（七）小总结/"
+           data-tag="设计模式"
+           data-author="" >
+            <span class="post-title" title="设计模式（七）小总结">设计模式（七）小总结</span>
+            <span class="post-date" title="2019-02-12 14:45:00">2019/02/12</span>
+        </a>
+        
+        <a  class="设计模式 "
+           href="/设计模式/设计模式（三）适配器模式 & 外观模式/"
+           data-tag="设计模式"
+           data-author="" >
+            <span class="post-title" title="设计模式（三）适配器模式 &amp; 外观模式">设计模式（三）适配器模式 &amp; 外观模式</span>
+            <span class="post-date" title="2019-02-11 15:10:00">2019/02/11</span>
+        </a>
+        
+        <a  class="设计模式 "
+           href="/设计模式/设计模式（二）迭代器模式 & 组合模式/"
+           data-tag="设计模式"
+           data-author="" >
+            <span class="post-title" title="设计模式（二）迭代器模式 &amp; 组合模式">设计模式（二）迭代器模式 &amp; 组合模式</span>
+            <span class="post-date" title="2019-02-11 09:59:00">2019/02/11</span>
+        </a>
+        
+        <a  class="设计模式 "
+           href="/设计模式/设计模式（五）工厂模式 & 装饰者模式/"
+           data-tag="设计模式"
+           data-author="" >
+            <span class="post-title" title="设计模式（五）工厂模式 &amp; 装饰者模式">设计模式（五）工厂模式 &amp; 装饰者模式</span>
+            <span class="post-date" title="2019-02-12 11:54:00">2019/02/12</span>
+        </a>
+        
+        <a  class="设计模式 "
+           href="/设计模式/设计模式（六）命令模式 & 观察者模式/"
+           data-tag="设计模式"
+           data-author="" >
+            <span class="post-title" title="设计模式（六）命令模式 &amp; 观察者模式">设计模式（六）命令模式 &amp; 观察者模式</span>
+            <span class="post-date" title="2019-02-12 14:28:00">2019/02/12</span>
+        </a>
+        
+        <a  class="设计模式 "
+           href="/设计模式/设计模式（四）状态模式 & 代理模式/"
+           data-tag="设计模式"
+           data-author="" >
+            <span class="post-title" title="设计模式（四）状态模式 &amp; 代理模式">设计模式（四）状态模式 &amp; 代理模式</span>
+            <span class="post-date" title="2019-02-12 13:12:00">2019/02/12</span>
+        </a>
+        
+        <a  class="Android "
+           href="/Android/开发一个Android-App/"
+           data-tag="MVP,Adapter,Activity,Fragment,Layout,Res,Realm,AIDL,AsyncTask,Thread,Handler"
+           data-author="" >
+            <span class="post-title" title="开发一个Android App">开发一个Android App</span>
+            <span class="post-date" title="2019-10-05 16:11:04">2019/10/05</span>
+        </a>
+        
+        <a  class="系统 "
+           href="/系统/链接、装载、库/"
+           data-tag="dynamic,link,register,assembly,library,static,memory,runtime,interrupt"
+           data-author="" >
+            <span class="post-title" title="链接、装载、库">链接、装载、库</span>
+            <span class="post-date" title="2019-06-05 08:53:00">2019/06/05</span>
+        </a>
+        
+    </nav>
+</div>
+    </div>
+    <div class="hide-list">
+        <div class="semicircle">
+            <div class="brackets first"><</div>
+            <div class="brackets">&gt;</div>
+        </div>
+    </div>
+</aside>
+<div class="post">
+    <div class="pjax">
+        <article id="post-iOS逆向（二）工具篇" class="article article-type-post" itemscope itemprop="blogPost">
+    
+        <h1 class="article-title">iOS逆向（二）工具篇</h1>
+    
+    <div class="article-meta">
+        
+        
+        
+        <span class="book">
+            
+                <a href="javascript:" data-rel="iOS">iOS</a>
+            
+        </span>
+        
+        
+        <span class="tag">
+            
+            <a href="javascript:" class="color4">iOS</a>
+            
+            <a href="javascript:" class="color3">逆向</a>
+            
+            <a href="javascript:" class="color3">工具</a>
+            
+        </span>
+        
+    </div>
+    <div class="article-meta">
+        
+        创建时间:<time class="date" title='更新时间: 2018-09-13 23:22:44'>2018-09-13 22:39</time>
+        
+    </div>
+    <div class="article-meta">
+        
+        
+        <span id="busuanzi_container_page_pv">
+            阅读:<span id="busuanzi_value_page_pv">
+                <span class="count-comment">
+                    <span class="spinner">
+                      <div class="cube1"></div>
+                      <div class="cube2"></div>
+                    </span>
+                </span>
+            </span>
+        </span>
+        
+        
+    </div>
+    
+    <div class="toc-ref">
+    
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#砸壳工具"><span class="toc-text">砸壳工具</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#dumpdecrypted"><span class="toc-text">dumpdecrypted</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#静态分析工具"><span class="toc-text">静态分析工具</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#class-dump"><span class="toc-text">class dump</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#IDA"><span class="toc-text">IDA</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#动态分析工具"><span class="toc-text">动态分析工具</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Cycript"><span class="toc-text">Cycript</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#debugserver"><span class="toc-text">debugserver</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#LLDB"><span class="toc-text">LLDB</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Theos"><span class="toc-text">Theos</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#辅助工具"><span class="toc-text">辅助工具</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#SSH"><span class="toc-text">SSH</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#dyld-decache"><span class="toc-text">dyld_decache</span></a></li></ol></li></ol>
+    
+<style>
+    .left-col .switch-btn,
+    .left-col .switch-area {
+        display: none;
+    }
+    .toc-level-3 i,
+    .toc-level-3 ol {
+        display: none !important;
+    }
+</style>
+</div>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>关于逆向的第二篇，也还没是正题，先来以使用的目的来分类一下逆向需要哪些工具，分别在什么平台上使用和有什么作用，部分还直接带上使用示例。在一些使用方式比较绕的工具上，同样也准备了坑点的描述，记录一下痛苦的心路历程，一个问题可能就卡了1、2天。</p>
+<a id="more"></a>
+
+<h3 id="砸壳工具"><a href="#砸壳工具" class="headerlink" title="砸壳工具"></a>砸壳工具</h3><h4 id="dumpdecrypted"><a href="#dumpdecrypted" class="headerlink" title="dumpdecrypted"></a>dumpdecrypted</h4><p>平台：MacOS &amp; iOS<br>作用：砸壳线上加密App</p>
+<p>先从github下载<a href="https://github.com/stefanesser/dumpdecrypted" target="_blank" rel="noopener">dumpdecrypted</a>的源码，然后编译成dylib备用。</p>
+<pre><code class="hljs undefined">$ cd dumpdecrypted-master/
+$ make</code></pre>
+
+<h3 id="静态分析工具"><a href="#静态分析工具" class="headerlink" title="静态分析工具"></a>静态分析工具</h3><h4 id="class-dump"><a href="#class-dump" class="headerlink" title="class dump"></a>class dump</h4><p>平台：MacOS<br>作用：导出头文件</p>
+<p><a href="http://stevenygard.com/projects/class-dump/" target="_blank" rel="noopener">下载连接</a></p>
+<pre><code class="hljs undefined">$ open /usr/local/bin
+$ sudo chmod 777 /usr/local/bin/class-dump
+$ class-dump --help</code></pre>
+
+<ul>
+<li>将下载好的class-dump复制到/usr/local/bin</li>
+<li>更改其权限</li>
+</ul>
+<h4 id="IDA"><a href="#IDA" class="headerlink" title="IDA"></a>IDA</h4><p>平台：MacOS<br>作用：反汇编。</p>
+<p><a href="https://www.hex-rays.com/products/ida/index.shtml" target="_blank" rel="noopener">下载地址</a>，点evaluation version，选择下载IDA 7.0 Freeware。</p>
+<h3 id="动态分析工具"><a href="#动态分析工具" class="headerlink" title="动态分析工具"></a>动态分析工具</h3><h4 id="Cycript"><a href="#Cycript" class="headerlink" title="Cycript"></a>Cycript</h4><p>平台：iOS<br>作用：命令行上编写及运行代码，或注入代码到进程并执行。</p>
+<p>直接在Cydia就能找到下载。</p>
+<h4 id="debugserver"><a href="#debugserver" class="headerlink" title="debugserver"></a>debugserver</h4><p>平台：iOS<br>作用：debug App，供LLDB的接入。</p>
+<p>在使用debugserver之前，首先要帮它添加task_for_pid权限，才能以进程为单位调试到别人的App。</p>
+<ul>
+<li>先从iOS拷贝出debugserver</li>
+</ul>
+<pre><code class="hljs undefined">$ rsync -avz -e &quot;ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -p 4567&quot; --progress root@127.0.0.1:/Developer/usr/bin/debugserver /Path/to/debugserver/</code></pre>
+
+<ul>
+<li>然后对debugserver瘦身</li>
+</ul>
+<pre><code class="hljs undefined">$ lipo -info /Path/to/debugserver/
+$ lipo -thin arm64 /Path/to/debugserver/ -output /Path/to/debugserver/</code></pre>
+
+<p>不知ldid从哪个版本开始支持对fat binary的签名，反正最后的一个版本1.2.1是支持的，如果支持的可以忽略上面的瘦身步骤</p>
+<ul>
+<li>再对对debugserver进行签名</li>
+</ul>
+<p><a href="http://iosre.com/ent.xml" target="_blank" rel="noopener">ent.xml下载地址</a>，下载到<code>/Path/to/debugserver/</code>后执行下面命令</p>
+<pre><code class="hljs undefined">$ cd /Path/to/debugserver/
+$ /opt/theos/bin/ldid -Sent.xml debugserver
+//或直接用brew的ldid执行</code></pre>
+
+<p>可以使用下面指令确认一下debugserver的签名属性是否正确，若输出ent.xml的内容则证明签名成功</p>
+<pre><code class="hljs undefined">ldid -e debugserver</code></pre>
+
+<ul>
+<li>然后将debugserver拷贝回iOS</li>
+</ul>
+<pre><code class="hljs undefined">$ rsync -avz -e &quot;ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -p 4567&quot; --progress /Path/to/debugserver/debugserver root@127.0.0.1:/usr/bin/debugserver</code></pre>
+
+<ul>
+<li>最后SSH到iOS为debugserver添加执行权限</li>
+</ul>
+<pre><code class="hljs undefined">iPhone:~ root# chmod +x /usr/bin/debugserver
+//或
+iPhone:~ root# chmod 777 /usr/bin/debugserver</code></pre>
+
+<p>当ldid签名无效时，可以尝试用下面的方法重签debugserver</p>
+<pre><code class="hljs undefined">codesign -s - --entitlements ent.plist -f debugserver</code></pre>
+
+<p>若上述的ent.xml、ent.plist下载不了，可以用下面的内容自己建文件</p>
+<p><strong>ent.plist</strong></p>
+<pre><code class="hljs undefined">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;!DOCTYPE plist PUBLIC &quot;-//Apple//DTD PLIST 1.0//EN&quot; &quot;http://www.apple.com/DTDs/ PropertyList-1.0.dtd&quot;&gt;
+&lt;plist version=&quot;1.0&quot;&gt;
+&lt;dict&gt;
+    &lt;key&gt;com.apple.springboard.debugapplications&lt;/key&gt;
+    &lt;true/&gt;
+    &lt;key&gt;run-unsigned-code&lt;/key&gt;
+    &lt;true/&gt;
+    &lt;key&gt;get-task-allow&lt;/key&gt;
+    &lt;true/&gt;
+    &lt;key&gt;task_for_pid-allow&lt;/key&gt;
+    &lt;true/&gt;
+&lt;/dict&gt;
+&lt;/plist&gt;</code></pre>
+
+<p><strong>ent.xml</strong></p>
+<pre><code class="hljs undefined">&lt;!DOCTYPE plist PUBLIC &quot;-//Apple//DTD PLIST 1.0//EN&quot; &quot;http://www.apple.com/DTDs/PropertyList-1.0.dtd&quot;&gt;
+&lt;plist version=&quot;1.0&quot;&gt;
+&lt;dict&gt;
+        &lt;key&gt;com.apple.springboard.debugapplications&lt;/key&gt;
+        &lt;true/&gt;
+        &lt;key&gt;get-task-allow&lt;/key&gt;
+        &lt;true/&gt;
+        &lt;key&gt;task_for_pid-allow&lt;/key&gt;
+        &lt;true/&gt;
+        &lt;key&gt;run-unsigned-code&lt;/key&gt;
+        &lt;true/&gt;
+&lt;/dict&gt;
+&lt;/plist&gt;</code></pre>
+
+<p>另外，还可以在iOS上在BigBoss那安装上Toolchain，在Mterminal上使用ldid来直接对iOS的debugserver进行签名，免去了拷贝来拷贝去的麻烦。</p>
+<p>使用示例</p>
+<pre><code class="hljs undefined">//启动进程并等待LLDB接入 
+//*为所有IP可接入，接入端口为1234
+debugserver -x posix *:1234 /Path/to/TargetApp.app/TargetApp
+
+//附加进程
+debugserver *:1234 -a /Path/to/TargetApp.app/TargetApp</code></pre>
+
+<p>第二版小黄书教的<code>debugserver -x backboard</code>无效，提示</p>
+<blockquote>
+<p>debugserver-@(#)PROGRAM:debugserver  PROJECT:debugserver-360.0.26.3<br> for arm64.<br>error: failed to launch process debugserver: failed to get the task for process -1</p>
+</blockquote>
+<p>网上说的<code>debugserver -x spring</code>无效，但输出的提示有指出有效的类型有哪些，估计spring已经被抛弃了</p>
+<blockquote>
+<p>error: invalid TYPE for the –launch=TYPE (-x TYPE) option: ‘spring’<br>Valid values TYPE are:<br>  auto       Auto-detect the best launch method to use.<br>  posix      Launch the executable using posix_spawn.<br>  fork       Launch the executable using fork and exec.<br>  backboard  Launch the executable through BackBoard Services.<br>  frontboard  Launch the executable through FrontBoard Services.</p>
+</blockquote>
+<p>最后还是用<a href="http://iosre.com/t/debugserver/3695/2" target="_blank" rel="noopener">posix</a>解决了。</p>
+<h4 id="LLDB"><a href="#LLDB" class="headerlink" title="LLDB"></a>LLDB</h4><p>平台：MacOS<br>作用：调试用的Debugger</p>
+<ul>
+<li>运行LLDB</li>
+</ul>
+<pre><code class="hljs undefined">$ /Applications/Xcode.app/Contents/Developer/usr/bin/lldb</code></pre>
+
+<ul>
+<li>连接debugserver</li>
+</ul>
+<pre><code class="hljs undefined">(lldb) process connect connect://IP:port
+Process 1281 stopped
+* thread #1, stop reason = signal SIGSTOP
+    frame #0: 0x000000010061d000 dyld`_dyld_start
+dyld`_dyld_start:
+-&gt;  0x10061d000 &lt;+0&gt;:  mov    x28, sp
+    0x10061d004 &lt;+4&gt;:  and    sp, x28, #0xfffffffffffffff0
+    0x10061d008 &lt;+8&gt;:  mov    x0, #0x0
+    0x10061d00c &lt;+12&gt;: mov    x1, #0x0
+Target 0: (TargetApp) stopped.</code></pre>
+
+<p>暂时还没了解如何用iproxy的本地IP连接lldb，但我在iproxy开启的情况下使用Mac热点分配的IP来连接也很快，几秒而已。</p>
+<p>使用示例</p>
+<pre><code class="hljs undefined">(lldb) b function               //在函数起始位置设断点
+(lldb) b l                      //查看所有断点
+(lldb) b s -a 0xAddress         //设置断点
+(lldb) b dis [breakPointNumber] //禁用所有断点 [或指定禁用的断点号]
+(lldb) b en                     //启用所有断点 [或指定启用的断点号]
+(lldb) b del                    //删除所有断点 [或指定删除的断点号]
+(lldb) c                        //继续运行
+
+//设置一组断点，通过以下命令
+(lldb) b com add 1              // 指定某一断点下执行的指令集合
+Enter your debugger command(s).  Type &apos;DONE&apos; to end.
+(lldb) po [$r0 class] 
+(lldb) p (char *)$r1 
+(lldb) DONE
+
+(lldb) ni                       //nexti 进入函数体的下一步
+(lldb) si                       //stepi 不进入函数体的下一步
+(lldb) register write $rn x     //给指定寄存器rn赋值x
+//lldb下control + c能强制断掉现在的进程，相当于Xcode中的暂停</code></pre>
+
+<h4 id="Theos"><a href="#Theos" class="headerlink" title="Theos"></a>Theos</h4><p>平台：MacOS<br>作用：编写和编译插件等</p>
+<pre><code class="hljs undefined">brew install dpkg
+brew install ldid</code></pre>
+
+<ul>
+<li>先安装两个Theos依赖的工具dpkg和ldid</li>
+</ul>
+<pre><code class="hljs undefined">$ export THEOS=/opt/theos
+$ sudo git clone --recursive git://github.com/DHowett/theos.git $THEOS
+$ sudo chown -R 777 $THEOS
+
+$ cp /usr/local/Cellar/ldid/xx_version/bin/ldid /opt/theos/bin/ldid /opt/theos/bin/ldid
+$ sudo chmod 777 /opt/theos/bin/ldid 
+$ sudo chmod 777 /opt/theos/bin/ldid 
+
+$ cp /usr/local/Cellar/dpkg/xx_version/bin/dpkg-deb /opt/theos/bin/ldid /opt/theos/bin/dpkg-deb
+$ sudo chmod 777 /opt/theos/bin/dpkg-deb</code></pre>
+
+<ul>
+<li>下载Theos</li>
+<li>复制ldid到Theos下，并更改其权限</li>
+<li>复制dpkg-deb到Theos下，并更改其权限</li>
+</ul>
+<h3 id="辅助工具"><a href="#辅助工具" class="headerlink" title="辅助工具"></a>辅助工具</h3><h4 id="SSH"><a href="#SSH" class="headerlink" title="SSH"></a>SSH</h4><p>平台：MacOS &amp; iOS<br>作用：远程操作</p>
+<p>如果打算先在iOS的Cydia上下载一个OpenSSH，然后在MacOS上的终端通过ssh连接上去iOS，而又当你的设备是10.3.x版本的系统，那就掉坑了。</p>
+<p><a href="https://www.jianshu.com/p/91e0c22a6ea7" target="_blank" rel="noopener">SSH连不上？戳这里</a></p>
+<p>简单来说，解决方法就是</p>
+<ul>
+<li>卸载干净iOS上的OpenSSH和OpenSSL；</li>
+<li>添加源 <a href="http://cydia.ichitaso.com/test" target="_blank" rel="noopener">http://cydia.ichitaso.com/test</a> ；</li>
+<li>在上述源里下载 dropbear （OpenSSH的替代品）；</li>
+<li>重新安装OpenSSL</li>
+<li>这个时候再试试 ssh root@deviceIP  （继续用22端口即可，有些网友说用2222的亲测不对）</li>
+</ul>
+<p>不能使用OpenSSH的原因是</p>
+<blockquote>
+<p>Yalu jailbreak<br>Can I install OpenSSH?<br>No, the jailbreak already comes with a working SSH daemon (dropbear). Installing OpenSSH can create issues on your jailbroken device.</p>
+</blockquote>
+<p>中途确认dropbear进程是否有在运行的可用以下指令</p>
+<pre><code class="hljs undefined">ps aux|grep dropbear
+ps -e | grep ssh</code></pre>
+
+<p>接下来才进入正题，直接在同Wifi环境下ssh，此链接过程可能会十分漫长</p>
+<pre><code class="hljs undefined">$ ssh root@172.16.xxx.xxx</code></pre>
+
+<p>若嫌Wifi连接太慢，可以使用usbmuxd工具来利用usb实现连接，安装</p>
+<pre><code class="hljs undefined">$ brew install usbmuxd</code></pre>
+
+<p>把iPhone的默认端口22映射到Mac上</p>
+<pre><code class="hljs undefined">$ iproxy 4567 22
+waiting for connection</code></pre>
+
+<p>保持上面的终端，新建一个终端进行连接（root的默认密码是alpine，有必要的话首次登陆后注意修改密码）</p>
+<pre><code class="hljs undefined">$ ssh -p 4567 root@127.0.0.1
+root@127.0.0.1&apos;s password:</code></pre>
+
+<p>当你想使用scp的时候直接改用rsync代替吧，在使用着iproxy的情况示例</p>
+<pre><code class="hljs undefined">rsync -avz -e &quot;ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -p 4567&quot; --progress /path/to/source/file  root@127.0.0.1:/path/to/destination/</code></pre>
+
+<p>这是参考自狗神分享的<a href="http://iosre.com/t/rsync-scp-ios-osx/1984" target="_blank" rel="noopener">rsync替代scp</a>帖子中，一位逆友后来更新的指令。</p>
+<p>为什么要使用rsync替代scp？原因是yalu102自带的SSH缺少了scp，无法用WINSCP传输文件。</p>
+<p>说一下我踩到的坑，在使用着iproxy的情况下执行scp来copy file示例如下（注意-P要大写）</p>
+<pre><code class="hljs undefined">$ scp -P 4567 /Users/xx/dumpdecrypted.dylib root@127.0.0.1:/var/xx/Documents/</code></pre>
+
+<blockquote>
+<p>sh: scp: command not found</p>
+</blockquote>
+<p>会发现出现以上报错，原因上面已交代。</p>
+<p>google一下，发现部分外国帖子和大量国人已经针对上述问题总结出下面解决方法，先到Cydia下载wget到iOS上，然后在iOS的Terminal执行下面指令</p>
+<pre><code class="hljs undefined">wget mila432.com/scp
+ldid -S scp
+chmod 777 scp
+mv scp /usr/bin/scp</code></pre>
+
+<p>但是！mila432.com/scp 这个地址的内容已不存在了..<br>最后，就是用rsync解决了（其实低端点用iFunBox等工具也是可以的），拷贝成功后会输出</p>
+<blockquote>
+<p>building file list …<br>1 file to consider<br>dumpdecrypted.dylib<br>      197528 100%  157.13MB/s    0:00:00 (xfer#1, to-check=0/1)<br>sent 8418 bytes  received 42 bytes  2417.14 bytes/sec<br>total size is 197528  speedup is 23.35</p>
+</blockquote>
+<p>如果设备重启了，重新越狱后发现ssh连不上，提示以下错误的时候，则需要重装Dropbear和OpenSSL</p>
+<pre><code class="hljs undefined">$ ssh -p 4568 root@127.0.0.1
+ssh: connect to host 127.0.0.1 port 4568: Connection refused
+ssh: connect to host 127.0.0.1 port 4568: Connection refused
+ssh_exchange_identification: read: Connection reset by peer</code></pre>
+
+<p>如果出现下面的错误，清空文件<code>/Users/username/.ssh/known_hosts</code>中的内容就能解决。或者切换到一个新的映射端口上，如 iproxy 2222 22，区别开之前经常使用的端口</p>
+<pre><code class="hljs undefined">$ ssh -p 2222 root@127.0.0.1
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@    WARNING: REMOTE HOST IDENTIFICATION HAS CHANGED!     @
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+IT IS POSSIBLE THAT SOMEONE IS DOING SOMETHING NASTY!
+Someone could be eavesdropping on you right now (man-in-the-middle attack)!
+It is also possible that a host key has just been changed.
+The fingerprint for the ECDSA key sent by the remote host is
+SHA256:NhckXKSdwvSSLhago6bQb1/lIqRaLqAxHd6kHOPIYQs.
+Please contact your system administrator.
+Add correct host key in /Users/username/.ssh/known_hosts to get rid of this message.
+Offending ECDSA key in /Users/username/.ssh/known_hosts:3
+ECDSA host key for [127.0.0.1]:2222 has changed and you have requested strict checking.
+Host key verification failed.</code></pre>
+
+<h4 id="dyld-decache"><a href="#dyld-decache" class="headerlink" title="dyld_decache"></a>dyld_decache</h4><p>平台：MacOS<br>作用：抽取出iOS的系统库文件（从iOS拷贝到MacOS上）的二进制文件。</p>
+<p>当要分析系统框架中的类及其方法时，就需要用到这个工具。抽取iOS库的二进制文件来分析，是为了避免MacOS和iOS上分析出的指令和地址数据不一致。</p>
+<p>抽取后的库放入IDA分析库本身和其各个方法的基地址，然后结合ASLR偏移计算出偏移后的真实地址，最后就可以根据真实地址打断点。</p>
+<p><a href="https://github.com/downloads/kennytm/Miscellaneous/dyld_decached[v0.1c].bz2" target="_blank" rel="noopener">下载地址</a></p>
+
+      
+       <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 mingfungliu@gmail.com </span>
+    </div>
+</article>
+
+
+<p>
+    <a href="javascript:void(0)" class="dashang" onclick="dashangToggle()">赏</a>
+</p>
+
+
+
+<div class="article_copyright">
+    <p><span class="copy-title">文章标题:</span>iOS逆向（二）工具篇</p>
+    
+    <p><span class="copy-title">本文作者:</span><a href="javascript:void(0)" title="Mingfung">Mingfung</a></p>
+    <p><span class="copy-title">发布时间:</span>2018-09-13, 22:39:02</p>
+    <p><span class="copy-title">最后更新:</span>2018-09-13, 23:22:44</p>
+    <span class="copy-title">原始链接:</span><a class="post-url" href="/iOS/iOS逆向（二）工具篇/" title="iOS逆向（二）工具篇">http://blog.ifungfay.com/iOS/iOS逆向（二）工具篇/</a>
+    <p>
+        <span class="copy-title">版权声明:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+    </p>
+</div>
+
+
+
+
+    <script type="text/javascript">
+(function(d, s) {
+   var j, e = d.getElementsByTagName(s)[0];
+
+   if (typeof LivereTower === 'function') { return; }
+
+   j = d.createElement(s);
+   j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+   j.async = true;
+
+   e.parentNode.insertBefore(j, e);
+})(document, 'script');
+</script>
+<noscript> 为正常使用来必力评论功能请激活JavaScript</noscript>
+
+<iframe title="livere"   src="https://was.livere.me/comment/city?id=city&refer=http://blog.ifungfay.com/iOS/iOS逆向（二）工具篇/&uid=MTAyMC80NzAyOC8yMzUyOA==&site=http://blog.ifungfay.com/iOS/iOS逆向（二）工具篇/&title=iOS逆向（二）工具篇" scrolling="" frameborder="0" id="lv-comment-399" style="min-width: 100%; width: 100px; min-height: 400px; overflow: auto; border: 0px; z-index: 124212; height: 800px;" ></iframe>
+
+
+
+    
+
+
+
+
+    </div>
+    <div class="copyright">
+        <p class="footer-entry">©2016-2019 Mingfung</p>
+<p class="footer-entry">Built with <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/yelog/hexo-theme-3-hexo" target="_blank">3-hexo</a> theme</p>
+
+    </div>
+    <div class="full-toc">
+        <button class="full"><span class="min "></span></button>
+<button class="post-toc-menu"><span class="post-toc-menu-icons"></span></button>
+<div class="post-toc"><span class="post-toc-title">目录</span>
+    <div class="post-toc-content">
+
+    </div>
+</div>
+<a class="" id="rocket" href="javascript:void(0)"></a>
+    </div>
+</div>
+<div class="acParent"></div>
+
+<div class="hide_box" onclick="dashangToggle()"></div>
+<div class="shang_box">
+    <a class="shang_close" href="javascript:void(0)" onclick="dashangToggle()">×</a>
+    <div class="shang_tit">
+        <p>喜欢就点赞,疼爱就打赏</p>
+    </div>
+    <div class="shang_payimg">
+        <div class="pay_img">
+            <img src="/img/alipay.jpg" class="alipay" title="扫码支持">
+            <img src="/img/weixin.jpg" class="weixin" title="扫码支持">
+        </div>
+    </div>
+    <div class="shang_payselect">
+        <span><label><input type="radio" name="pay" checked value="alipay">支付宝</label></span><span><label><input type="radio" name="pay" value="weixin">微信</label></span>
+    </div>
+</div>
+
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/koharu.model.json"},"log":false});</script></body>
+<script src="/js/jquery.pjax.js?v=1.0.1" ></script>
+
+<script src="/js/script.js?v=1.0.1" ></script>
+<script>
+    var img_resize = 'default';
+    /*作者、标签的自动补全*/
+    $(function () {
+        $('.search').AutoComplete({
+            'data': ['#JSPatch','#JavaScriptCore','#property','#dynamic','#sythesize','#nonatomic','#iOS11','#Xcode9','#iPhoneX','#TLS','#SSL','#HTTPS','#ATS','#Java','#Android','#AndroidStudio','#adb','#反编译','#Gradle','#Module','#ProGuard','#Native','#JNI','#NDK','#AAR','#JAR','#html','#bootstrap','#css','#Flutter','#iOS','#Dart','#Git','#command','#Mac','#question','#PyCharm','#Django','#Python','#Anaconda','#Qgis','#vapor','#swift','#heroku','#cloud','#crypto','#console','#terminal','#database','#postgreSQL','#network','#http','#webSocket','#encoded','#leaf','#view','#session','#token','#verification','#越狱','#逆向','#工具','#安全','#CGI','#Servlet','#容器','#Docker','#Manager','#Model','#Role','#Target','#JSON','#Objective-C','#jekyll','#github','#blog','#Jenkins','#CI','#Test','#Ubuntu','#服务器','#Web App','#nginx','#supervisor','#fabric','#python','#mysql','#设计模式','#tool','#skill','#MVP','#Adapter','#Activity','#Fragment','#Layout','#Res','#Realm','#AIDL','#AsyncTask','#Thread','#Handler','#link','#register','#assembly','#library','#static','#memory','#runtime','#interrupt',],
+            'itemHeight': 20,
+            'width': 418
+        }).AutoComplete('show');
+    })
+    function initArticle() {
+        /*渲染对应的表格样式*/
+        
+            $(".post .pjax table").addClass("green_title");
+        
+
+        /*渲染打赏样式*/
+        
+        $("input[name=pay]").on("click", function () {
+            if($("input[name=pay]:checked").val()=="weixin"){
+                $(".shang_box .shang_payimg .pay_img").addClass("weixin_img");
+            } else {
+                $(".shang_box .shang_payimg .pay_img").removeClass("weixin_img");
+            }
+        })
+        
+
+        /*高亮代码块行号*/
+        
+        $('pre code').each(function(){
+            var lines = $(this).text().split('\n').length, widther='';
+            if (lines>99) {
+                widther = 'widther'
+            }
+            var $numbering = $('<ul/>').addClass('pre-numbering ' + widther).attr("unselectable","on");
+            $(this).addClass('has-numbering ' + widther)
+                    .parent()
+                    .append($numbering);
+            for(var i=1;i<=lines;i++){
+                $numbering.append($('<li/>').text(i));
+            }
+        });
+        
+
+        /*访问数量*/
+        
+        $.getScript("//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js");
+        
+
+        /*代码高亮，行号对齐*/
+        $('.pre-numbering').css('line-height',$('.has-numbering').css('line-height'));
+
+        
+    }
+
+    /*打赏页面隐藏与展示*/
+    
+    function dashangToggle() {
+        $(".shang_box").fadeToggle();
+        $(".hide_box").fadeToggle();
+    }
+    
+
+</script>
+
+<!--加入行号的高亮代码块样式-->
+
+<style>
+    pre{
+        position: relative;
+        margin-bottom: 24px;
+        border-radius: 10px;
+        border: 1px solid #e2dede;
+        background: #FFF;
+        overflow: hidden;
+    }
+    code.has-numbering{
+        margin-left: 30px;
+    }
+    code.has-numbering.widther{
+        margin-left: 35px;
+    }
+    .pre-numbering{
+        margin: 0px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 20px;
+        padding: 0.5em 3px 0.7em 5px;
+        border-right: 1px solid #C3CCD0;
+        text-align: right;
+        color: #AAA;
+        background-color: ;
+    }
+    .pre-numbering.widther {
+        width: 35px;
+    }
+</style>
+
+<!--自定义样式设置-->
+<style>
+    
+    
+    .nav {
+        width: 542px;
+    }
+    .nav.fullscreen {
+        margin-left: -542px;
+    }
+    .nav-left {
+        width: 120px;
+    }
+    
+    
+    @media screen and (max-width: 1468px) {
+        .nav {
+            width: 492px;
+        }
+        .nav.fullscreen {
+            margin-left: -492px;
+        }
+        .nav-left {
+            width: 100px;
+        }
+    }
+    
+    
+    @media screen and (max-width: 1024px) {
+        .nav {
+            width: 492px;
+            margin-left: -492px
+        }
+        .nav.fullscreen {
+            margin-left: 0;
+        }
+        .nav .hide-list.fullscreen {
+            left: 492px
+        }
+    }
+    
+    @media screen and (max-width: 426px) {
+        .nav {
+            width: 100%;
+        }
+        .nav-left {
+            width: 100%;
+        }
+    }
+    
+    
+    .nav-right .title-list nav a .post-title, .nav-right .title-list #local-search-result a .post-title {
+        color: #383636;
+    }
+    
+    
+    .nav-right .title-list nav a .post-date, .nav-right .title-list #local-search-result a .post-date {
+        color: #5e5e5f;
+    }
+    
+    
+    .nav-right nav a.hover, #local-search-result a.hover{
+        background-color: #e2e0e0;
+    }
+    
+    
+
+    /*列表样式*/
+    
+    .post .pjax article .article-entry>ol, .post .pjax article .article-entry>ul, .post .pjax article>ol, .post .pjax article>ul{
+        border: #e2dede solid 1px;
+        border-radius: 10px;
+        padding: 10px 32px 10px 56px;
+    }
+    .post .pjax article .article-entry li>ol, .post .pjax article .article-entry li>ul,.post .pjax article li>ol, .post .pjax article li>ul{
+        padding-top: 5px;
+        padding-bottom: 5px;
+    }
+    .post .pjax article .article-entry>ol>li, .post .pjax article .article-entry>ul>li,.post .pjax article>ol>li, .post .pjax article>ul>li{
+        margin-bottom: auto;
+        margin-left: auto;
+    }
+    .post .pjax article .article-entry li>ol>li, .post .pjax article .article-entry li>ul>li,.post .pjax article li>ol>li, .post .pjax article li>ul>li{
+        margin-bottom: auto;
+        margin-left: auto;
+    }
+    
+
+    /* 背景图样式 */
+    
+    
+
+
+    /*引用块样式*/
+    
+
+    /*文章列表背景图*/
+    
+    .nav-right:before {
+        content: ' ';
+        display: block;
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0.3;
+        background: url("null");
+        background-repeat: no-repeat;
+        background-position: 50% 0;
+        -ms-background-size: cover;
+        -o-background-size: cover;
+        -moz-background-size: cover;
+        -webkit-background-size: cover;
+        background-size: cover;
+    }
+    
+
+    
+</style>
+
+
+
+
+
+
+<div class="mobile-menus-out" >
+
+</div>
+<div class="mobile-menus">
+    
+    
+    <a class="dynamic-menu site_url"   href="/404.html">宝贝回家</a>
+    
+    
+    
+</div>
+
+
+</html>

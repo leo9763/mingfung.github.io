@@ -1,0 +1,2930 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  <title>链接、装载、库 | Mingfung&#39;s Blog</title>
+  <meta name="keywords" content=" dynamic , link , register , assembly , library , static , memory , runtime , interrupt ">
+  <meta name="description" content="链接、装载、库 | Mingfung&#39;s Blog">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="description" content="关于iOS码农一枚">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Mingfung&#39;s Blog">
+<meta property="og:url" content="http://blog.ifungfay.com/about/index.html">
+<meta property="og:site_name" content="Mingfung&#39;s Blog">
+<meta property="og:description" content="关于iOS码农一枚">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-10-12T14:30:09.446Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Mingfung&#39;s Blog">
+<meta name="twitter:description" content="关于iOS码农一枚">
+
+
+<link rel="icon" href="/img/avatar.jpg">
+
+<link href="/css/style.css?v=1.0.1" rel="stylesheet">
+
+<link href="/css/hl_theme/zenbum.css?v=1.0.1" rel="stylesheet">
+
+<link href="//cdn.bootcss.com/animate.css/3.5.2/animate.min.css" rel="stylesheet">
+<link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+<script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="/js/jquery.autocomplete.min.js?v=1.0.1"></script>
+
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
+
+<script src="//cdn.bootcss.com/nprogress/0.2.0/nprogress.min.js"></script>
+
+
+
+<script src="/js/iconfont.js?v=1.0.1"></script>
+<!--鼠标点击爱心动画-->
+<script type="text/javascript" src="/js/clicklove.js"></script>
+</head>
+<div style="display: none">
+  <input class="theme_disqus_on" value="false">
+  <input class="theme_preload_comment" value="true">
+  <input class="theme_blog_path" value>
+</div>
+
+<body>
+<aside class="nav">
+    <div class="nav-left">
+        <a href="/" class="avatar_target">
+    <img class="avatar" src="/img/avatar.jpg" />
+</a>
+<div class="author">
+    <span>Mingfung</span>
+</div>
+
+<div class="icon">
+    
+        
+        <a title="rss" href="/atom.xml" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-rss"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+        <a title="github" href="https://github.com/leo9763" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-github"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+        <a title="facebook" href="https://www.facebook.com/ming.fung.liu.nero" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-facebook"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+    
+        
+    
+        
+        <a title="instagram" href="https://www.instagram.com/mingfungliu/" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-instagram"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+    
+        
+        <a title="weibo" href="https://weibo.com/neross" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-weibo"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+        <a title="jianshu" href="https://www.jianshu.com/u/007c5818ec78" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-jianshu"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+        <a title="zhihu" href="zhihu.com/people/mingfungliu" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-zhihu"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+    
+        
+    
+        
+        <a title="juejin" href="https://juejin.im/user/5b6b9b37f265da0f9f4e8df3" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-juejin"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+        <a title="email" href="mailto:mingfungliu@gmail.com" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-email"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+        <a title="qq" href="http://wpa.qq.com/msgrd?v=3&uin=52360086&site=qq&menu=yes" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-qq"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+    
+        
+    
+</div>
+
+
+
+<a class="more-menus">更多菜单</a>
+
+
+<ul>
+    <li><div class="all active">全部文章<small>(43)</small></div></li>
+    
+        
+            
+            <li><div data-rel="iOS">iOS<small>(6)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="Android">Android<small>(3)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="前端">前端<small>(4)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="工具">工具<small>(4)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="后端">后端<small>(12)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="管理">管理<small>(1)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="设计模式">设计模式<small>(7)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="系统">系统<small>(1)</small></div>
+                
+            </li>
+            
+        
+    
+</ul>
+<div class="left-bottom">
+    <div class="menus">
+    
+    
+    <a class="dynamic-menu site_url"   href="/404.html">宝贝回家</a>
+    
+    
+    
+    </div>
+    <div><a class="about  hasFriend  site_url"  href="/about">关于</a><a style="width: 50%"  class="friends">友链</a></div>
+</div>
+<input type="hidden" id="yelog_site_posts_number" value="43">
+
+<div style="display: none">
+    <span id="busuanzi_value_site_uv"></span>
+    <span id="busuanzi_value_site_pv"></span>
+</div>
+
+    </div>
+    <div class="nav-right">
+        <div class="friends-area">
+    <div class="friends-title">
+        友情链接
+        <i class="back-title-list"></i>
+    </div>
+    <div class="friends-content">
+        <ul>
+            
+            <li><a target="_blank" href="http://www.ifungfay.com">雪月风飞</a></li>
+            
+        </ul>
+    </div>
+</div>
+        <div class="title-list">
+    <form onkeydown="if(event.keyCode==13){return false;}">
+        <input class="search" type="text" placeholder="Search..." autocomplete="off"id="local-search-input" >
+        <i class="cross"></i>
+        <span>
+            <label for="tagswitch">Tags:</label>
+            <input id="tagswitch" type="checkbox" style="display: none" />
+            <i id="tagsWitchIcon"></i>
+        </span>
+    </form>
+    <div class="tags-list">
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">JSPatch</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">JavaScriptCore</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">property</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">dynamic</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">sythesize</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">nonatomic</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color1">iOS11</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">Xcode9</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">iPhoneX</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">TLS</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">SSL</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color1">HTTPS</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">ATS</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">Java</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">Android</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">AndroidStudio</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">adb</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">反编译</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">Gradle</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">Module</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">ProGuard</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">Native</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">JNI</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">NDK</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">AAR</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">JAR</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">html</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">bootstrap</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">css</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">Flutter</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">iOS</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">Dart</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">Git</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">command</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">Mac</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">question</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">PyCharm</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">Django</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">Python</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">Anaconda</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">Qgis</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color1">vapor</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color1">swift</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">heroku</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color1">cloud</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">crypto</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">console</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">terminal</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">database</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color1">postgreSQL</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">network</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">http</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">webSocket</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">encoded</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">leaf</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">view</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">session</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color1">token</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">verification</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">越狱</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">逆向</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">工具</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">安全</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">CGI</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">Servlet</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">容器</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">Docker</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">Manager</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color1">Model</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">Role</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">Target</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">JSON</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">Objective-C</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">jekyll</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">github</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">blog</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">Jenkins</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">CI</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">Test</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">Ubuntu</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">服务器</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">Web App</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color1">nginx</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color1">supervisor</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">fabric</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">python</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color1">mysql</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">设计模式</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">tool</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color1">skill</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">MVP</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">Adapter</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">Activity</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">Fragment</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">Layout</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">Res</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color1">Realm</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">AIDL</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">AsyncTask</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">Thread</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">Handler</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">link</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">register</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">assembly</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">library</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">static</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">memory</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">runtime</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">interrupt</a>
+    </li>
+    
+    <div class="clearfix"></div>
+</div>
+
+    
+    <nav id="title-list-nav">
+        
+        <a  class=""
+           href="/uncategorized/ATS详解/"
+           data-tag="TLS,SSL,HTTPS,ATS"
+           data-author="" >
+            <span class="post-title" title="ATS详解">ATS详解</span>
+            <span class="post-date" title="2017-07-22 15:57:55">2017/07/22</span>
+        </a>
+        
+        <a  class="Android "
+           href="/Android/Android原理入门/"
+           data-tag="Java,Android"
+           data-author="" >
+            <span class="post-title" title="Android原理入门">Android原理入门</span>
+            <span class="post-date" title="2019-08-14 00:22:11">2019/08/14</span>
+        </a>
+        
+        <a  class=""
+           href="/uncategorized/Android技巧入门/"
+           data-tag="AndroidStudio,adb,反编译"
+           data-author="" >
+            <span class="post-title" title="Android技巧入门">Android技巧入门</span>
+            <span class="post-date" title="2019-08-14 00:22:37">2019/08/14</span>
+        </a>
+        
+        <a  class="Android "
+           href="/Android/Android工程入门/"
+           data-tag="Gradle,Module,ProGuard,Native,JNI,NDK,AAR,JAR"
+           data-author="" >
+            <span class="post-title" title="Android工程入门">Android工程入门</span>
+            <span class="post-date" title="2019-02-24 13:44:00">2019/02/24</span>
+        </a>
+        
+        <a  class="前端 "
+           href="/前端/Bootstrap手册/"
+           data-tag="html,bootstrap,css"
+           data-author="" >
+            <span class="post-title" title="Bootstrap手册">Bootstrap手册</span>
+            <span class="post-date" title="2018-09-08 23:06:00">2018/09/08</span>
+        </a>
+        
+        <a  class="前端 "
+           href="/前端/Flutter开发（介绍篇）/"
+           data-tag="Android,Flutter,iOS,Dart"
+           data-author="" >
+            <span class="post-title" title="Flutter开发（介绍篇）">Flutter开发（介绍篇）</span>
+            <span class="post-date" title="2019-01-09 21:24:00">2019/01/09</span>
+        </a>
+        
+        <a  class="前端 "
+           href="/前端/Flutter开发（实践篇）/"
+           data-tag="Android,Flutter,iOS,Dart"
+           data-author="" >
+            <span class="post-title" title="Flutter开发（实践篇）">Flutter开发（实践篇）</span>
+            <span class="post-date" title="2019-01-09 23:06:00">2019/01/09</span>
+        </a>
+        
+        <a  class="工具 "
+           href="/工具/Git手册/"
+           data-tag="Git"
+           data-author="" >
+            <span class="post-title" title="Git手册">Git手册</span>
+            <span class="post-date" title="2019-01-28 21:35:00">2019/01/28</span>
+        </a>
+        
+        <a  class="工具 "
+           href="/工具/Mac命令行工具及其问题收录/"
+           data-tag="command,Mac,question"
+           data-author="" >
+            <span class="post-title" title="Mac命令行工具及其问题收录">Mac命令行工具及其问题收录</span>
+            <span class="post-date" title="2018-02-22 17:10:00">2018/02/22</span>
+        </a>
+        
+        <a  class="后端 "
+           href="/后端/Python的使用环境配置/"
+           data-tag="PyCharm,Django,Python,Anaconda,Qgis"
+           data-author="" >
+            <span class="post-title" title="Python的使用环境配置">Python的使用环境配置</span>
+            <span class="post-date" title="2018-05-24 19:30:00">2018/05/24</span>
+        </a>
+        
+        <a  class="后端 "
+           href="/后端/Vapor之初体验/"
+           data-tag="vapor,swift,heroku"
+           data-author="" >
+            <span class="post-title" title="Vapor之初体验">Vapor之初体验</span>
+            <span class="post-date" title="2018-01-05 21:49:00">2018/01/05</span>
+        </a>
+        
+        <a  class="后端 "
+           href="/后端/Vapor的部署/"
+           data-tag="vapor,swift,heroku,cloud"
+           data-author="" >
+            <span class="post-title" title="Vapor的部署">Vapor的部署</span>
+            <span class="post-date" title="2018-08-13 23:34:00">2018/08/13</span>
+        </a>
+        
+        <a  class="后端 "
+           href="/后端/Vapor（一）基础篇/"
+           data-tag="vapor,swift"
+           data-author="" >
+            <span class="post-title" title="Vapor（一）基础篇">Vapor（一）基础篇</span>
+            <span class="post-date" title="2018-08-13 23:34:00">2018/08/13</span>
+        </a>
+        
+        <a  class="后端 "
+           href="/后端/Vapor（七）工具篇/"
+           data-tag="command,vapor,swift,crypto,console,terminal"
+           data-author="" >
+            <span class="post-title" title="Vapor（七）工具篇">Vapor（七）工具篇</span>
+            <span class="post-date" title="2018-08-21 23:02:00">2018/08/21</span>
+        </a>
+        
+        <a  class="后端 "
+           href="/后端/Vapor（三）数据库篇/"
+           data-tag="vapor,swift,database,postgreSQL"
+           data-author="" >
+            <span class="post-title" title="Vapor（三）数据库篇">Vapor（三）数据库篇</span>
+            <span class="post-date" title="2018-08-15 21:33:00">2018/08/15</span>
+        </a>
+        
+        <a  class="后端 "
+           href="/后端/Vapor（二）进阶篇/"
+           data-tag="vapor,swift"
+           data-author="" >
+            <span class="post-title" title="Vapor（二）进阶篇">Vapor（二）进阶篇</span>
+            <span class="post-date" title="2018-08-14 21:20:00">2018/08/14</span>
+        </a>
+        
+        <a  class="后端 "
+           href="/后端/Vapor（五）网络篇/"
+           data-tag="vapor,swift,network,http,webSocket,encoded"
+           data-author="" >
+            <span class="post-title" title="Vapor（五）网络篇">Vapor（五）网络篇</span>
+            <span class="post-date" title="2018-08-17 20:30:00">2018/08/17</span>
+        </a>
+        
+        <a  class="后端 "
+           href="/后端/Vapor（六）视图篇/"
+           data-tag="vapor,swift,leaf,view"
+           data-author="" >
+            <span class="post-title" title="Vapor（六）视图篇">Vapor（六）视图篇</span>
+            <span class="post-date" title="2018-08-20 21:56:00">2018/08/20</span>
+        </a>
+        
+        <a  class="后端 "
+           href="/后端/Vapor（四）验证篇/"
+           data-tag="vapor,swift,session,token,verification"
+           data-author="" >
+            <span class="post-title" title="Vapor（四）验证篇">Vapor（四）验证篇</span>
+            <span class="post-date" title="2018-08-16 19:06:00">2018/08/16</span>
+        </a>
+        
+        <a  class=""
+           href="/uncategorized/hello-world/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Hello World">Hello World</span>
+            <span class="post-date" title="2018-01-07 14:45:35">2018/01/07</span>
+        </a>
+        
+        <a  class="iOS "
+           href="/iOS/iOS逆向（一）越狱篇/"
+           data-tag="iOS,越狱"
+           data-author="" >
+            <span class="post-title" title="iOS逆向（一）越狱篇">iOS逆向（一）越狱篇</span>
+            <span class="post-date" title="2018-09-13 22:39:01">2018/09/13</span>
+        </a>
+        
+        <a  class="iOS "
+           href="/iOS/iOS逆向（二）工具篇/"
+           data-tag="iOS,逆向,工具"
+           data-author="" >
+            <span class="post-title" title="iOS逆向（二）工具篇">iOS逆向（二）工具篇</span>
+            <span class="post-date" title="2018-09-13 22:39:02">2018/09/13</span>
+        </a>
+        
+        <a  class="iOS "
+           href="/iOS/iOS逆向（三）分析篇/"
+           data-tag="iOS,逆向"
+           data-author="" >
+            <span class="post-title" title="iOS逆向（三）分析篇">iOS逆向（三）分析篇</span>
+            <span class="post-date" title="2018-09-13 22:39:03">2018/09/13</span>
+        </a>
+        
+        <a  class="iOS "
+           href="/iOS/iOS逆向（五）总结篇/"
+           data-tag="iOS,逆向,安全"
+           data-author="" >
+            <span class="post-title" title="iOS逆向（五）总结篇">iOS逆向（五）总结篇</span>
+            <span class="post-date" title="2018-09-13 22:39:05">2018/09/13</span>
+        </a>
+        
+        <a  class="iOS "
+           href="/iOS/iOS逆向（四）实战篇/"
+           data-tag="iOS,逆向"
+           data-author="" >
+            <span class="post-title" title="iOS逆向（四）实战篇">iOS逆向（四）实战篇</span>
+            <span class="post-date" title="2018-09-13 22:39:04">2018/09/13</span>
+        </a>
+        
+        <a  class="后端 "
+           href="/后端/后端服务器概念了解下/"
+           data-tag="CGI,Servlet,容器,Docker"
+           data-author="" >
+            <span class="post-title" title="后端服务器概念了解下">后端服务器概念了解下</span>
+            <span class="post-date" title="2019-02-21 20:30:00">2019/02/21</span>
+        </a>
+        
+        <a  class=""
+           href="/uncategorized/利用Firebase实现的推送功能系统/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="利用Firebase实现的推送功能系统">利用Firebase实现的推送功能系统</span>
+            <span class="post-date" title="2018-01-17 19:33:41">2018/01/17</span>
+        </a>
+        
+        <a  class="管理 "
+           href="/管理/团队管理实践/"
+           data-tag="Manager,Model,Role,Target"
+           data-author="" >
+            <span class="post-title" title="团队管理实践">团队管理实践</span>
+            <span class="post-date" title="2019-02-23 23:50:00">2019/02/23</span>
+        </a>
+        
+        <a  class="iOS "
+           href="/iOS/处理服务端API返回JSON的总结/"
+           data-tag="iOS,JSON,Objective-C"
+           data-author="" >
+            <span class="post-title" title="处理服务端API返回JSON的总结">处理服务端API返回JSON的总结</span>
+            <span class="post-date" title="2018-01-09 14:35:00">2018/01/09</span>
+        </a>
+        
+        <a  class="前端 "
+           href="/前端/搭建Hexo博客/"
+           data-tag="jekyll,github,blog"
+           data-author="" >
+            <span class="post-title" title="搭建Hexo博客">搭建Hexo博客</span>
+            <span class="post-date" title="2017-07-18 21:50:14">2017/07/18</span>
+        </a>
+        
+        <a  class=""
+           href="/uncategorized/搭建Jekins/"
+           data-tag="Jenkins,CI,Test"
+           data-author="" >
+            <span class="post-title" title="搭建Jekins">搭建Jekins</span>
+            <span class="post-date" title="2017-08-26 22:59:36">2017/08/26</span>
+        </a>
+        
+        <a  class="工具 "
+           href="/工具/搭建博客图床/"
+           data-tag="blog"
+           data-author="" >
+            <span class="post-title" title="搭建博客图床">搭建博客图床</span>
+            <span class="post-date" title="2019-03-21 12:39:00">2019/03/21</span>
+        </a>
+        
+        <a  class="后端 "
+           href="/后端/搭建服务器/"
+           data-tag="Ubuntu,服务器,Web App,nginx,supervisor,fabric,python,mysql"
+           data-author="" >
+            <span class="post-title" title="搭建服务器">搭建服务器</span>
+            <span class="post-date" title="2019-04-06 00:00:00">2019/04/06</span>
+        </a>
+        
+        <a  class="设计模式 "
+           href="/设计模式/设计模式（一）策略模式 & 模板方法模式/"
+           data-tag="设计模式"
+           data-author="" >
+            <span class="post-title" title="设计模式（一）策略模式 &amp; 模板方法模式">设计模式（一）策略模式 &amp; 模板方法模式</span>
+            <span class="post-date" title="2019-01-13 23:41:00">2019/01/13</span>
+        </a>
+        
+        <a  class="工具 "
+           href="/工具/效率工具及技巧收录/"
+           data-tag="tool,skill"
+           data-author="" >
+            <span class="post-title" title="效率工具及技巧收录">效率工具及技巧收录</span>
+            <span class="post-date" title="2019-02-23 22:05:00">2019/02/23</span>
+        </a>
+        
+        <a  class="设计模式 "
+           href="/设计模式/设计模式（七）小总结/"
+           data-tag="设计模式"
+           data-author="" >
+            <span class="post-title" title="设计模式（七）小总结">设计模式（七）小总结</span>
+            <span class="post-date" title="2019-02-12 14:45:00">2019/02/12</span>
+        </a>
+        
+        <a  class="设计模式 "
+           href="/设计模式/设计模式（三）适配器模式 & 外观模式/"
+           data-tag="设计模式"
+           data-author="" >
+            <span class="post-title" title="设计模式（三）适配器模式 &amp; 外观模式">设计模式（三）适配器模式 &amp; 外观模式</span>
+            <span class="post-date" title="2019-02-11 15:10:00">2019/02/11</span>
+        </a>
+        
+        <a  class="设计模式 "
+           href="/设计模式/设计模式（二）迭代器模式 & 组合模式/"
+           data-tag="设计模式"
+           data-author="" >
+            <span class="post-title" title="设计模式（二）迭代器模式 &amp; 组合模式">设计模式（二）迭代器模式 &amp; 组合模式</span>
+            <span class="post-date" title="2019-02-11 09:59:00">2019/02/11</span>
+        </a>
+        
+        <a  class="设计模式 "
+           href="/设计模式/设计模式（五）工厂模式 & 装饰者模式/"
+           data-tag="设计模式"
+           data-author="" >
+            <span class="post-title" title="设计模式（五）工厂模式 &amp; 装饰者模式">设计模式（五）工厂模式 &amp; 装饰者模式</span>
+            <span class="post-date" title="2019-02-12 11:54:00">2019/02/12</span>
+        </a>
+        
+        <a  class="设计模式 "
+           href="/设计模式/设计模式（六）命令模式 & 观察者模式/"
+           data-tag="设计模式"
+           data-author="" >
+            <span class="post-title" title="设计模式（六）命令模式 &amp; 观察者模式">设计模式（六）命令模式 &amp; 观察者模式</span>
+            <span class="post-date" title="2019-02-12 14:28:00">2019/02/12</span>
+        </a>
+        
+        <a  class="设计模式 "
+           href="/设计模式/设计模式（四）状态模式 & 代理模式/"
+           data-tag="设计模式"
+           data-author="" >
+            <span class="post-title" title="设计模式（四）状态模式 &amp; 代理模式">设计模式（四）状态模式 &amp; 代理模式</span>
+            <span class="post-date" title="2019-02-12 13:12:00">2019/02/12</span>
+        </a>
+        
+        <a  class="Android "
+           href="/Android/开发一个Android-App/"
+           data-tag="MVP,Adapter,Activity,Fragment,Layout,Res,Realm,AIDL,AsyncTask,Thread,Handler"
+           data-author="" >
+            <span class="post-title" title="开发一个Android App">开发一个Android App</span>
+            <span class="post-date" title="2019-10-05 16:11:04">2019/10/05</span>
+        </a>
+        
+        <a  class="系统 "
+           href="/系统/链接、装载、库/"
+           data-tag="dynamic,link,register,assembly,library,static,memory,runtime,interrupt"
+           data-author="" >
+            <span class="post-title" title="链接、装载、库">链接、装载、库</span>
+            <span class="post-date" title="2019-06-05 08:53:00">2019/06/05</span>
+        </a>
+        
+    </nav>
+</div>
+    </div>
+    <div class="hide-list">
+        <div class="semicircle">
+            <div class="brackets first"><</div>
+            <div class="brackets">&gt;</div>
+        </div>
+    </div>
+</aside>
+<div class="post">
+    <div class="pjax">
+        <article id="post-链接、装载、库" class="article article-type-post" itemscope itemprop="blogPost">
+    
+        <h1 class="article-title">链接、装载、库</h1>
+    
+    <div class="article-meta">
+        
+        
+        
+        <span class="book">
+            
+                <a href="javascript:" data-rel="系统">系统</a>
+            
+        </span>
+        
+        
+        <span class="tag">
+            
+            <a href="javascript:" class="color3">dynamic</a>
+            
+            <a href="javascript:" class="color5">link</a>
+            
+            <a href="javascript:" class="color4">register</a>
+            
+            <a href="javascript:" class="color4">assembly</a>
+            
+            <a href="javascript:" class="color3">library</a>
+            
+            <a href="javascript:" class="color2">static</a>
+            
+            <a href="javascript:" class="color2">memory</a>
+            
+            <a href="javascript:" class="color3">runtime</a>
+            
+            <a href="javascript:" class="color5">interrupt</a>
+            
+        </span>
+        
+    </div>
+    <div class="article-meta">
+        
+        创建时间:<time class="date" title='更新时间: 2019-10-11 08:51:07'>2019-06-05 08:53</time>
+        
+    </div>
+    <div class="article-meta">
+        
+        
+        <span id="busuanzi_container_page_pv">
+            阅读:<span id="busuanzi_value_page_pv">
+                <span class="count-comment">
+                    <span class="spinner">
+                      <div class="cube1"></div>
+                      <div class="cube2"></div>
+                    </span>
+                </span>
+            </span>
+        </span>
+        
+        
+    </div>
+    
+    <div class="toc-ref">
+    
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#介绍"><span class="toc-text">介绍</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#计算机"><span class="toc-text">计算机</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#静态链接"><span class="toc-text">静态链接</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#编译和链接"><span class="toc-text">编译和链接</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#预编译"><span class="toc-text">预编译</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#编译"><span class="toc-text">编译</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#汇编"><span class="toc-text">汇编</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#链接"><span class="toc-text">链接</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#目标文件的格式"><span class="toc-text">目标文件的格式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#目标文件的结构"><span class="toc-text">目标文件的结构</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#分段"><span class="toc-text">分段</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#文件头"><span class="toc-text">文件头</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#段表（Section-Header-Table）"><span class="toc-text">段表（Section Header Table）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#重定位表"><span class="toc-text">重定位表</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#字符串表"><span class="toc-text">字符串表</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#符号表"><span class="toc-text">符号表</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#特殊符号"><span class="toc-text">特殊符号</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#符号修饰和函数签名"><span class="toc-text">符号修饰和函数签名</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#强符号和弱符号"><span class="toc-text">强符号和弱符号</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#调试信息"><span class="toc-text">调试信息</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#空间与地址分配"><span class="toc-text">空间与地址分配</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#符号解析与重定位"><span class="toc-text">符号解析与重定位</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#重定位"><span class="toc-text">重定位</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#符号解析"><span class="toc-text">符号解析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#COMMON块"><span class="toc-text">COMMON块</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ABI（Application-Binary-Interface）"><span class="toc-text">ABI（Application Binary Interface）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#静态库链接"><span class="toc-text">静态库链接</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#链接过程控制"><span class="toc-text">链接过程控制</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#BFD库"><span class="toc-text">BFD库</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#装载与动态链接"><span class="toc-text">装载与动态链接</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#进程虚拟地址空间"><span class="toc-text">进程虚拟地址空间</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#装载的方式"><span class="toc-text">装载的方式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#装载过程"><span class="toc-text">装载过程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#进程虚存的空间分布"><span class="toc-text">进程虚存的空间分布</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#ELF文件视图"><span class="toc-text">ELF文件视图</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#堆栈"><span class="toc-text">堆栈</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#装载ELF过程"><span class="toc-text">装载ELF过程</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#动态链接"><span class="toc-text">动态链接</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#例子"><span class="toc-text">例子</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#地址无关代码"><span class="toc-text">地址无关代码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#延迟绑定（PLT）"><span class="toc-text">延迟绑定（PLT）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#动态链接相关结构"><span class="toc-text">动态链接相关结构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#动态链接的步骤和实现"><span class="toc-text">动态链接的步骤和实现</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#显式运行时链接"><span class="toc-text">显式运行时链接</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#共享库的组织"><span class="toc-text">共享库的组织</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#共享库版本"><span class="toc-text">共享库版本</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#符号版本"><span class="toc-text">符号版本</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#共享库系统路径"><span class="toc-text">共享库系统路径</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#共享库查找过程"><span class="toc-text">共享库查找过程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#环境变量"><span class="toc-text">环境变量</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#共享库的创建和安装"><span class="toc-text">共享库的创建和安装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#共享库构造和析构函数"><span class="toc-text">共享库构造和析构函数</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#内存"><span class="toc-text">内存</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#程序的内存布局"><span class="toc-text">程序的内存布局</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#栈"><span class="toc-text">栈</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#调用惯例"><span class="toc-text">调用惯例</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#堆与内存管理"><span class="toc-text">堆与内存管理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#堆分配算法"><span class="toc-text">堆分配算法</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#运行库"><span class="toc-text">运行库</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#入口函数和程序的初始化"><span class="toc-text">入口函数和程序的初始化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#运行库与I-O"><span class="toc-text">运行库与I/O</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#C语言运行库"><span class="toc-text">C语言运行库</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#运行库与多线程"><span class="toc-text">运行库与多线程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#fread实现"><span class="toc-text">fread实现</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#系统调用与API"><span class="toc-text">系统调用与API</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#关于汇编"><span class="toc-text">关于汇编</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#寄存器"><span class="toc-text">寄存器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#内存模型"><span class="toc-text">内存模型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#汇编指令"><span class="toc-text">汇编指令</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#X86指令"><span class="toc-text">X86指令</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#LEA（load-dffective-address）"><span class="toc-text">LEA（load dffective address）</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ARM指令"><span class="toc-text">ARM指令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Intel格式与AT-amp-T格式的区别"><span class="toc-text">Intel格式与AT&amp;T格式的区别</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#函数中的指令套路"><span class="toc-text">函数中的指令套路</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#iOS上的实践"><span class="toc-text">iOS上的实践</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#macOS上的实践"><span class="toc-text">macOS上的实践</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#名词释义"><span class="toc-text">名词释义</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#命令集"><span class="toc-text">命令集</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#参考"><span class="toc-text">参考</span></a></li></ol>
+    
+<style>
+    .left-col .switch-btn,
+    .left-col .switch-area {
+        display: none;
+    }
+    .toc-level-3 i,
+    .toc-level-3 ol {
+        display: none !important;
+    }
+</style>
+</div>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h1><p>此文和中心包括两部分：第一是占篇幅最多的编译、链接、加载等，这些相对底层的系统机制和运行原理；第二是穿插于第一点内容之中，对应于各步骤的操作或分析命令，以及最后的汇编语言入门讲解。</p>
+<p>通过了解这些系统底层的原理及知识，能让我们更好更快地排查程序构建或运行时的问题，又或者帮助我们进行程序逆向或代码安全防护的分析研究。</p>
+<p>一点点耐心地积累，不要过早就忌怕自己无法驾驭枯燥的知识，打退堂鼓。</p>
+<a id="more"></a>
+
+<h1 id="计算机"><a href="#计算机" class="headerlink" title="计算机"></a>计算机</h1><p>硬件框架<br>北桥（PCI bridge）：负责协调CPU、内存和高速的图形设备高速地交换数据；<br>南桥（ISA bridge）：负责连接低速设备，如磁盘、USB、键盘、鼠标等I/O，使其与北桥连接分离；<br>系统总线（System BUS）：由于CPU与内存、I/O的频率相差太大，需要一个隔离它们的通信连接；（像PCI总线和ISA总线，其实都是为了分离不同速率的设备，并适配它们间的通信）</p>
+<img src="http://qiniu.ifungfay.com/mweb/linking_hardware_system.png2019%2008%2013" width="700">
+【图】计算机硬件结构框架图
+
+<p>系统软件可分为两类</p>
+<ul>
+<li>平台性的，如操作系统内核、驱动程序、运行库、系统工具；</li>
+<li>程序开发的，如编译器、汇编器、链接器等开发工具和开发库；</li>
+</ul>
+<img src="http://qiniu.ifungfay.com/mweb/linking_sofeware_system.png2019%2008%2013" width="700">
+【图】软件体系结构图
+
+<p>CPU</p>
+<ul>
+<li>分时系统（Time-Sharing System）：每个程序运行一段时间后都主动让出CPU给其它程序，使得一段时间内每个程序都有机会运行一小段时间。缺点是如果一个程序霸占着CPU不放（例如while(1) ），其它程序也就只能等着，系统也没法处理。</li>
+<li>多任务系统（Multi-tasking System）：CPU由操作系统统一进行分配，每个进程根据进程优先级的高低都有机会得到CPU，但如果运行时间超出一定时间，操作系统会暂停该进程，将CPU资源分配给其它等待运行的进程（此为抢占式分配-Preemptive）。因为CPU在进程间的切换非常快速，所以人们感觉很多进程都是在同时运行的假象。</li>
+<li>进程（Process）：所有应用程序都以进程方式运行在比操作系统权限更低的级别，每个进程都有自己独立的地址空间，使得进程之间的地址空间相互隔离。</li>
+</ul>
+<p>硬件</p>
+<ul>
+<li>硬盘：存储单位为扇区（Sector），一个扇区有512字节，一磁道有1024个扇区，一盘面有65536个磁道，一个盘片有2个盘面，一个硬盘有n个盘片。总容量为n * 2 * 65536 * 1024 * 512。扇区一般不按硬件细节描述编号，而采用逻辑扇区号（LBA Logic Block Address）从0开始编排，由电子设备在内部为我们转为盘面、磁道这些实际的位置。</li>
+<li>I/O端口：x86上有65536个硬件端口寄存器，CPU提供了指令in和out实现对硬件端口的读和写。对硬盘的IDE接口，有IDE0和IDE1两个通道，每个通道可连接2个设备（Master和Slave），IDE通道的端口地址为端口寄存器中间的4个字节，最前1个字节为读取的扇区数，最后1个字节为操作命令码。</li>
+<li>内存：<ul>
+<li>程序给出的地址都是一种虚拟地址（Virtual Address），通过映射的方法将虚拟地址转换为实际的物理地址。</li>
+<li>地址空间，可以这样解释它的作用，想象成一个巨大的数组，每个元素为一个字节，而这个数组的大小就是由地址空间的地址长度决定的，比如32位（即CPU有32条地址线）的地址空间下，这个数组大小为2的32次方个（字节），即4294967296字节=4GB，16进制表示为0x00000000~0xFFFFFFFF。</li>
+<li>分段（Segmentation）：将程序需要的内存空间大小的虚拟空间映射到某个地址空间，这样可达到地址隔离（由系统映射函数中判断是否越过程序内存区的访问）和地址是确定而无需在每次运行时都重定位，但单单这样内存的使用效率还是过低（在内存供给不足时数据换入换出的情况下）。</li>
+<li>分页（Paging）：将地址空间等分成固定大小的页，每一页的大小由硬件或系统决定。每一页就是内存中的存储单位（有点类似硬盘的扇区概念）。系统会把常用的数据和代码页装载到内存，不常用的代码和数据保存到磁盘里，需要用到的时候，硬件会捕获页错误（Page Fault）消息，由操作系统接管进程，负责将磁盘的数据页（磁盘页，DP）从磁盘中读出来并装入内存变为物理页（PP），然后让其与虚拟页（VP）建立映射关系。</li>
+<li>页映射：虚拟存储依靠硬件支持，硬件采用MMU（Memory Management Unit，一般集成在CPU）部件进行映射，将CPU需访问的虚拟地址（即我们在程序中看到的地址）转换为内存的实际物理地址。</li>
+</ul>
+</li>
+<li>线程：<ul>
+<li>组成：独立的 线程ID、当前指令指针（PC）、寄存器集合、堆栈。（多核CPU下）多个线程组成一个进程。</li>
+<li>共享：程序的内存空间，包括代码段、数据段、堆等。</li>
+<li>私有：局部变量、函数参数、线程局部存储（Thread Local Storage，TLS）数据。</li>
+<li>执行：线程数少于等于处理器数时是真并发，否则操作系统会让运行多个线程的处理器轮流执行这些线程，这时就需要线程调度（Thread Schedule）进行线程切换，一般采用采用轮转法（Round Robin），那线程就会拥有三个状态：运行（Running）、就绪（Ready）、等待（Waiting）：<ul>
+<li>当时间片用尽时，线程将进入就绪状态，如果时间片用尽前线程就开始等待某事件则进入等待状态；</li>
+<li>当线程离开运行状态（无论就绪还是等待），调度系统会选择一个其它就绪的线程执行；</li>
+<li>等待状态的线程所等待的事件发生后，该线程就进入就绪状态</li>
+</ul>
+</li>
+<li>优先级（Priority）：线程都拥有各自的线程优先级，具有高优先级的线程会更早地执行，而低优先级的线程常要等待到系统中已经没有高优先级的可执行的线程存在时才能执行。I/O密集型线程（I/O Bound Thread）比CPU密集型线程（CPU Bound Thread）更容易得到优先级的提升（因其频繁进入等待而释放CPU）。改变优先级：<ul>
+<li>用户指定；</li>
+<li>根据进入等待状态的频繁程度提升或降低优先级；</li>
+<li>长时间得不到执行而被提升优先级，避免因存在高优先级的CPU密集型线程导致的饿死（Starvation）。</li>
+</ul>
+</li>
+<li>安全：程序代码编译为汇编代码之后，原本一行的代码指令可能由不止一条汇编指令组成，因此在执行了一半被调度系统打断去执行别的代码后，从而使结果可能出现意想不到的结果。所以需要一些措施避免这种被打断导致的出错：<ul>
+<li>原子性（Atomic）：意为单指令完成的操作；</li>
+<li>同步锁（Synchrominzation Lock）：同步指在一个线程访问数据未结束的时候，其他线程不得对同一个数据进行访问；锁则是同步的一种方法，非强制使用，当每一个线程在访问数据或资源前先试图获取锁，并在访问结束后释放锁，在锁已经被占用的时候试图获取锁时线程会等待（进入等待状态），直到锁重新可用（进入运行状态）。类型有：<ul>
+<li>二元信号量（Binary Semaphore）</li>
+<li>多元信号量（Semaphore）：获取信号量时信号量减1，信号量少于0则进入等待状态，释放信号量时信号量加1，信号量少于1则唤醒一个等待中的线程。</li>
+<li>互斥量（Mutex）：和Semaphore相似，但只能哪个线程获取的就哪个线程负责释放；</li>
+<li>临界区（Critical Section）：和Mutex相似，但更进一步严格，作用范围局限到本进程内；</li>
+<li>读写锁</li>
+<li>条件变量</li>
+</ul>
+</li>
+<li>防止过度优化：由于编译器可能会为提高访问速度、执行效率，对寄存器、指令等的操作进行干预，使用关键字volatile可以试图阻止过度优化，解决：<ul>
+<li>阻止编译器为了提高速度将一个变量缓存到寄存器内而不写回；</li>
+<li>阻止编译器调整操作volatile变量的指令顺序；（但CPU动态调度换序还可能存在，可再通过CPU提供的barrier指令，如lwsync，来做一个阻止指令被调度交换的分水岭）</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>用户态：内核中的一个线程，有可能对应一个或多个用户态的线程。<ul>
+<li>在1对1模型下线程之间是真正的并发，一个线程阻塞时其它线程不受影响。但用户的线程数量会受到限制（最多只能等同于CPU数）。</li>
+<li>多对1模型下，显而易见的是一个线程阻塞会导致该内核中的其它用户态线程阻塞。但它具有高效的上下文切换和无限制的线程数。</li>
+<li>多对多模型</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h1 id="静态链接"><a href="#静态链接" class="headerlink" title="静态链接"></a>静态链接</h1><h2 id="编译和链接"><a href="#编译和链接" class="headerlink" title="编译和链接"></a>编译和链接</h2><p>GCC编译过程 = 预处理（Prepressing） + 编译（Compilation） + 汇编（Assembly） + 链接（Linking）</p>
+<img src="http://qiniu.ifungfay.com/mweb/linking_compile_breakdown.png2019%2008%2013" width="700">
+【图】GCC编译过程分解图
+
+<p>编译器就是将高级语言翻译成机器语言的一个工具</p>
+<img src="http://qiniu.ifungfay.com/mweb/linking_compile_process.png2019%2008%2013" width="700">
+【图】编译过程图
+
+<h2 id="预编译"><a href="#预编译" class="headerlink" title="预编译"></a>预编译</h2><p>主要处理源代码文件中以“#”开始的预编译指令，比如#include、#define、#if、#ifdef等。</p>
+<p>处理的文件包括.c 和 .h文件。（如果是其它基于C扩展的语言 的编译器，可能还会处理.m .mm等文件），生成.i文件。</p>
+<pre><code class="hljs undefined">#-E表示只进行预编译
+$gcc -E hello.c -o hello.i</code></pre>
+
+<p>处理步骤：</p>
+<ul>
+<li>删除#define，并展开宏定义</li>
+<li>处理条件预编译指令</li>
+<li>处理导入预编译指令，将被包含的文件递归插入到该预编译指令的位置</li>
+<li>删除注释</li>
+<li>添加行号和文件名标识，比如 #2 “hello.c” 2（便于调试）</li>
+<li>保留编译器需要的#pragma编译指令</li>
+</ul>
+<h2 id="编译"><a href="#编译" class="headerlink" title="编译"></a>编译</h2><p>进行一系列词法分析、语法分析、语义分析、优化后产生相应的汇编代码文件。</p>
+<pre><code class="hljs undefined">$gcc -S hello.i -o hello.s</code></pre>
+
+<ul>
+<li>词法分析：源代码被输入到扫描器（Scanner），用有限状态机（Finite State Machine）将源代码的字符分割成一系列记号（Token），如关键字（系统定义）、标识符（变量名）、字面量（数字、字符串）、特殊符号（加号、等号、括号）。标识符放入到符号表，数字字符串放入到文字表。lex工具程序可以帮助完成此项工作。</li>
+<li>语法分析：由语法分析器（Grammar Parser），采用上下文无关语法（Context-free Grammar）的分析手段，对记号进行分析从而产生语法树（Syntax Tree）。语法树就是以表达式为节点的树。yacc工具程序可以帮助完成此项工作。</li>
+<li>语义分析：由语义分析器（Semantic Analyzer）完成对表达式的语法层面分析，分为静态语义和动态语义：<ul>
+<li>静态语义包括声明和类型的匹配、类型的转换（一般是隐含性的）</li>
+<li>动态语义指运行时期出现的语义相关问题（比如0作为除数）</li>
+<li>最后整个语法树的表达式都被标识了类型（如需做隐式转换，语义分析程序会在语法树种插入相应的转换节点）</li>
+</ul>
+</li>
+<li>中间语言生成：<ul>
+<li>中间代码（Intermediate Code）：源码级优化器（Source Code Optimizer）对在编译期可被确定值的表达式等的情况进行优化，将整个语法树转换成中间代码，其实就是语法树经优化后的顺序表示。</li>
+<li>内容：跟目标机器和运行时环境无关，像不包含数据的尺寸、变量地址、寄存器名等。而代码的形式类型一般常见的有三址码、P代码。</li>
+<li>意义：使得编译器可以被分为前端和后端，前端负责产生机器无关的中间代码，后端负责将中间码转换为目标机器码。（有开发者通过修改编译器或增加插件实现了对IR层代码的混淆，比混淆源码或机器码来得简单方便）</li>
+</ul>
+</li>
+</ul>
+<h2 id="汇编"><a href="#汇编" class="headerlink" title="汇编"></a>汇编</h2><p>将汇编代码转变成机器可执行的指令，每一个汇编语句几乎都对应一条机器指令，生成目标文件（Object File）.o 或 .obj。</p>
+<pre><code class="hljs undefined">$as hello.s -o hello.o
+$gcc -c hello.s -o hello.o
+$gcc -c hello.c -o hello.o</code></pre>
+
+<p>代码生成器（Code Generator）和目标代码优化器（Target Code Optimizer）依据不同的字长、寄存器、整数数据类型、浮点数数据类型等工作，将中间码生成用汇编语言表示的目标指令代码，然后进行机器代码级别的优化，最后生成目标文件。</p>
+<h2 id="链接"><a href="#链接" class="headerlink" title="链接"></a>链接</h2><p>处理.o文件和库.a（库是加了索引的一组目标文件的包），最终生成.out文件</p>
+<pre><code class="hljs undefined">$ld -static crt1.o crti.o crtbeginT.o hello.o -start-group -lgcc -lgcc_eh -lc -end-group crtend.o crtn.o</code></pre>
+
+<ul>
+<li>重定位（Relocation）：重新计算各个目标地址的过程</li>
+<li>汇编语言的符号（Symbol）：使用符号和标记，如jmp代表一条8位（1字节）指令的高四位的含义，如divide代表一个程序的起始位置。</li>
+<li>模块：<ul>
+<li>为方便开发、编译、测试、重用、阅读、理解，每个类是一个基本的模块，若干个类模块组成一个包，若干个包组成一个程序。模块间以符号引用来通信。</li>
+<li>每个模块都是单独编译的，它会暂时把不知道地址的函数或变量的目标地址搁置（置0），等到最后链接时由链接器去修正这些指令的目标地址。每个要被修正的地方叫一个重定位入口（Relocation Entry）。</li>
+</ul>
+</li>
+<li>链接：负责将模块拼接起来，把各个模块之间的相互引用的部分都处理好，能正确地衔接（其实就是把一些指令对其它符号地址的引用加以修正），产生可执行的程序。<ul>
+<li>地址和空间分配（Address and Storage Allocation）</li>
+<li>符号决议（Symbol Resolution），又叫符号绑定、名称绑定。</li>
+<li>重定位</li>
+</ul>
+</li>
+</ul>
+<h2 id="目标文件的格式"><a href="#目标文件的格式" class="headerlink" title="目标文件的格式"></a>目标文件的格式</h2><p>目标文件：源代码编译后但未进行链接的中间文件（是编译后的可执行文件格式，只是还没经过链接过程，可能有些富豪或地址还没被调整）。</p>
+<p>基于COFF（Common file format）的可执行文件格式：</p>
+<ul>
+<li>Windows：PE（Portable Executable）<ul>
+<li>目标文件：.obj</li>
+<li>动态链接库(DLL,Dynamic Linking Library)：.dll</li>
+<li>静态链接库(Static Linking Library)：.lib</li>
+</ul>
+</li>
+<li>Linux：ELF（Executable Linkable Format）<ul>
+<li>目标文件：.o</li>
+<li>动态链接库：.so</li>
+<li>静态链接库：.a</li>
+</ul>
+</li>
+</ul>
+<p>静态链接库是把很多目标文件加上索引后捆绑在一起形成的一个文件包。</p>
+<p>文件归类：</p>
+<ul>
+<li>可重定位文件：包含代码和数据，可被用来链接成可执行文件或共享目标文件（如.o .a .obj .lib）</li>
+<li>可执行文件：包可直接执行的程序，没有扩展名（如bin/bash .exe）</li>
+<li>共享目标文件（.so .dll）：<ul>
+<li>连接器将其与其他可重定位文件和共享目标文件链接，产生新的目标文件</li>
+<li>动态链接器将n个共享目标文件与可执行文件结合，作为进程映像的一部分来运行</li>
+</ul>
+</li>
+<li>核心转储文件（core dump）</li>
+</ul>
+<p>查看文件格式的指令</p>
+<pre><code class="hljs undefined">$ file foobar.o</code></pre>
+
+<h2 id="目标文件的结构"><a href="#目标文件的结构" class="headerlink" title="目标文件的结构"></a>目标文件的结构</h2><h3 id="分段"><a href="#分段" class="headerlink" title="分段"></a>分段</h3><p>分段的好处：</p>
+<ul>
+<li>数据与指令分别映射到两个虚存区域，防止指令地址被改写；</li>
+<li>分离数据缓存和指令缓存，提高CPU缓存命中率；</li>
+<li>运行多个程序副本时，共享指令（数据区域则是进程私有）</li>
+</ul>
+<p>文件头：描述整个文件的属性，比如是否可执行、是否静态链接还动态链接、入口地址、目标硬件、目标操作系统、段表等。<br>段表：描述文件中各个段的数组。</p>
+<p>存储单位：段/节（Section），系统保留的段采用“.”作为前缀，因为可以拥有同名段，所以自定义的段不能使用“.”作为前缀，避免与系统段冲突。</p>
+<ul>
+<li>代码段：存放程序源代码编译后的机器指令（常用段名为.code .text）</li>
+<li>数据段：存放已经初始化过的全局变量和局部静态变量数据（常用段名为.data）</li>
+<li>.bss段：存放未初始化的全局变量和局部静态变量，提供预留位置</li>
+<li>.rodata段：存放只读数据（const和字符串常量，有时名为.rodata1）</li>
+<li>.debug段：调试信息</li>
+<li>.line段：调试时段行号表</li>
+<li>.note段：额外的编译器信息</li>
+<li>.comment段：编译器版本信息</li>
+<li>.dynamic段：动态链接信息</li>
+<li>.hash段：符号哈希表</li>
+<li>.strtab段：字符串表，存储ELF文件中用到的各种字符串</li>
+<li>.symtab段：符号表</li>
+<li>.shstrtab段：段名表</li>
+<li>.plt .got：动态链接的跳转表和全局入口表</li>
+<li>.init .fini：程序初始化与终结代码段</li>
+<li>自定义段：示例</li>
+</ul>
+<pre><code class="hljs undefined">__attribute((section(&quot;FOO&quot;))) int global = 42;
+
+__attribute((section(&quot;BAR&quot;))) void foo() &#123;&#125;</code></pre>
+
+<p>地址顺序：文件头开始于0x00000000，往上叠加，每段的起始地址为自身偏移（File offset，段偏移为累计已叠加段的长度总和+文件头长度），通过以下指令查看文件结构信息：</p>
+<pre><code class="hljs undefined">$ gcc -c xx.c #编译文件，-c只编译不链接
+$ objdump -h xx.o #查看object文件内容，-h打印各段基本信息，-x可打印更多信息
+$ objdump -s -d xx.o #-s以十六制形式打印，-d将指令段反汇编
+$ size xx.o #查看ELF文件各段长度</code></pre>
+
+<p>还可以将媒体文件作为一个段</p>
+<pre><code class="hljs undefined">$objcopy -I binary -O elf32-i386 -B i386 image.jpg image.o
+$objdump -ht image.o</code></pre>
+
+<h3 id="文件头"><a href="#文件头" class="headerlink" title="文件头"></a>文件头</h3><p>文件头信息对应文件头结构Elf32_Ehdr关系：</p>
+<ul>
+<li>ELF魔数（Magic）：属e_ident字段</li>
+<li>文件机器字节长度(Class)：属e_ident字段，但从Magic中获取</li>
+<li>数据存储方式(Data)：属e_ident字段，但从Magic中获取</li>
+<li>版本(Version)：属e_ident字段，但从Magic中获取</li>
+<li>运行平台(OS/ABI)：属e_ident字段，但从Magic中获取</li>
+<li>ABI版本(ABI Version)：属e_ident字段，但从Magic中获取</li>
+<li>ELF重定位类型(Type)：属e_type，ELF文件类型（1-ET_REL可重定位文件.o,2-ET_EXEC可执行文件,3-ET_DYN共享目标文件.so）</li>
+<li>硬件平台(Machine)：属e_machine，CPU的平台属性</li>
+<li>硬件平台版本(Version)：属e_version，一般为常数1</li>
+<li>入口地址(Entry point address)：属e_entry，规定ELF程序的入口虚拟地址，操作系统在加载完该程序后从这个地址开始执行进程的指令（可重定位文件一般没有入口地址，则此值为0）</li>
+<li>程序头入口和长度(Start of program headers)：属e_phoff</li>
+<li>段表的位置和长度(Start of section headers)：属e_shoff，段表在文件中的偏移</li>
+<li>段数量：属e_shnum</li>
+<li>(FLAGS)：e_word，ELF标志位，标识一些EFL文件平台相关的属性</li>
+<li>：e_ehsize，文件头本身大小</li>
+<li>：e_phentsize，程序头描述符大学</li>
+<li>：e_phnum，程序头描述符数量</li>
+<li>：e_shentsize，段表描述符大小</li>
+<li>：e_shstrndex，段表字符串表所在的段在段表中的下标</li>
+</ul>
+<p>查看头文件信息指令为</p>
+<pre><code class="hljs undefined">$ readelf -h SimpleSection.o #-h表示只显示</code></pre>
+
+<h3 id="段表（Section-Header-Table）"><a href="#段表（Section-Header-Table）" class="headerlink" title="段表（Section Header Table）"></a>段表（Section Header Table）</h3><p>用于保存ELF文件中各种段的基本属性，比如每个段的段名、段的长度、在文件中的偏移、读写权限、等等其他属性。是以Elf32_Shdr结构体（称为段描述符，Section Descriptor）为元素的数组，结构体成员如下：</p>
+<ul>
+<li>sh_name：段名，位于”.shstrtab“的字符串表中，sh_name是段名字符串在”.shstrtab“中的偏移；</li>
+<li>sh_type：段类型，常量以SHT_开头，包括程序段、字符串表、符号表、重定位表、哈希表、动态链接信息、提示性信息、没内容、重定位信息、保留、动态链接符号表、无效；</li>
+<li>sh_flags：段标志位，表示段在进程虚拟地址空间中的属性，比如可写、须分配空间、可执行；</li>
+<li>sh_addr：段虚拟地址，如果段可被加载时，sh_addr为该段被加载后在进程地址空间中的虚拟地址，否则为0；</li>
+<li>sh_offset：段偏移，如果段存在于文静中，则表示该段在文件中的偏移，否则无意义；</li>
+<li>sh_size：段长度；</li>
+<li>sh_link：段链接信息，取决于sh_type<ul>
+<li>SHT_DYNAMIC：该段所使用的字符串表在段表中的下标</li>
+<li>SHT_HASH：该段所使用的符号表在段表中的下标</li>
+<li>SHT_REL：该段所使用的相应符号表在段表中的下标</li>
+<li>SHT_RELA：同上</li>
+<li>SHT_SYMTAB：操作系统相关</li>
+<li>SHT_DYNSYM：同上</li>
+<li>other：SHN_UNDEF</li>
+</ul>
+</li>
+<li>sh_info：同上；</li>
+<li>sh_addralign：段地址对齐，表示地址对齐数量中的指数，使sh_addr%(2**sh_addralign)=0，若为1或0则段没有对齐要求；</li>
+<li>sh_entsize：项的长度，当段包含固定大小的项时，其表示每个项的大小；</li>
+</ul>
+<p>查看完整的ELF文件的段的指令为</p>
+<pre><code class="hljs undefined">readelf -S SimpleSection.o</code></pre>
+
+<h3 id="重定位表"><a href="#重定位表" class="headerlink" title="重定位表"></a>重定位表</h3><ul>
+<li>对于每个须要重定位的代码段或数据段，即是当段中有绝对地址引用时，就都会有一个相应的重定位表，比如.rel.text就是针对.text的重定位表。</li>
+<li>一个重定位表就是独立一个段，它的sh_link就表示符号表的下标，sh_info表示它作用于哪个段</li>
+</ul>
+<h3 id="字符串表"><a href="#字符串表" class="headerlink" title="字符串表"></a>字符串表</h3><ul>
+<li>段名、变量名等，把字符串集中起来存放到一个表，然后用字符串在表中的偏移来引用字符串，使用偏移时实质也是引用字符串表中的下标。</li>
+<li>字符串表以段形式保存，一般为<code>.strtab</code>字符串表（普通字符串）或者<code>.shstrtab</code>段表字符串表（段表中的字符串，如段名）。</li>
+<li>Elf32_Ehdr最后一个成员e_shstrndx代表段表字符串.shstrtab在段表中的下标。</li>
+</ul>
+<h2 id="符号表"><a href="#符号表" class="headerlink" title="符号表"></a>符号表</h2><p>链接过程的本质就是把多个不同的目标文件之间互相”粘“到一起，目标文件之间相互拼合实际上是目标文件之间对地址的引用，即对函数和变量地址的引用，而在链接中，我们将函数和变量统称为<code>符号（Symbol）</code>，函数名和变量名就是符号名，符号值就是他们的地址。</p>
+<p>一般是名为“.symtab”的段，每个元素是一个<code>Elf32_Sym</code>结构体:</p>
+<ul>
+<li>st_name：符号名，这个成员包含了该符号名在字符串表中的下标</li>
+<li>st_value：符号值，非COMMON块符号是在通过st_shndx确定符号所在段后，将在该段中的偏移地址设置为符号值，而COMMON块符号是将符号的对齐属性设置为符号值，可执行文件下符号值则直接是符号的虚拟地址。</li>
+<li>st_size：符号大小</li>
+<li>st_info：符号类型及绑定信息，低4位表示类型，高4位表示符号绑定信息<ul>
+<li>STB_LOCAL：绑定信息-局部符号，目标文件外不可见</li>
+<li>STB_GLOBAL：绑定信息-全局符号，外部可见</li>
+<li>STB_WEAK：绑定信息-弱引用</li>
+<li>STT_NOTYPE：表示未知类型</li>
+<li>STT_OBJECT：表示数据对象，如变量、数组等</li>
+<li>STT_FUNC：表示函数或其他可执行代码</li>
+<li>STT_SECTION：表示一个段</li>
+<li>STT_FILE：文件名，一般是该目标文件所对应的源文件名，所以一定是和STB_LOCAL搭配，st_shndx一定是SHN_ABS</li>
+</ul>
+</li>
+<li>st_other：预留</li>
+<li>st_shndx：符号所在的段，如果该符号定义在目标文件内，那么就表示符号所在段在段表的下标，否则有3种类型表示：<ul>
+<li>SHN_ABS：符号包含了一绝对值</li>
+<li>SHN_COMMON：符号是一个COMMON块，例如未初始化的全局变量符号</li>
+<li>SHN_UNDEF：0，符号未定义，在本目标文件中引用到，但定义在其他目标文件中</li>
+</ul>
+</li>
+</ul>
+<h3 id="特殊符号"><a href="#特殊符号" class="headerlink" title="特殊符号"></a>特殊符号</h3><ul>
+<li>__executable_start：程序起始地址（不是入口地址）</li>
+<li>__etext：代码段结束、末尾的地址</li>
+<li>_edata：数据段结束地址</li>
+<li>_end：程序结束地址</li>
+</ul>
+<p>引用示例：<br>extern char <strong>executable_start[];<br>print(“%X”,</strong>executable_start);</p>
+<h3 id="符号修饰和函数签名"><a href="#符号修饰和函数签名" class="headerlink" title="符号修饰和函数签名"></a>符号修饰和函数签名</h3><p>为了防止符号名冲突：</p>
+<ul>
+<li>添加前后缀<ul>
+<li>UNIX下的C语言，全局变量和函数在经过编译后，符号名前加下划线“_”，例如函数_foo（Linux下的GCC已不采用）；</li>
+<li>Fortran语言，编译后所有符号名前加“_”，后面也加“_”，例如函数_foo_；</li>
+</ul>
+</li>
+<li>增加命名空间（Namespace）</li>
+<li>符号修饰（Name Decoration）<ul>
+<li>函数签名（Function Signature），包含函数名、参数类型、所在类、命名空间等其它信息。</li>
+<li>名称修饰法，在编译成目标文件时，函数名和变量名会被修饰而形成符号：<ul>
+<li>GCC的C++名称修饰方法：<ul>
+<li>所有符号都以“_Z”开头</li>
+<li>后面紧跟“N”</li>
+<li>然后是各命名空间和类的名字字符串长度和该名字，如1N2AB</li>
+<li>最后以“E”结尾</li>
+<li>再加参数列表，如int即是i</li>
+<li>示例（GCC）：<ul>
+<li>函数 <code>int N::C::func(int)</code> 修饰后为 <code>_ZN1N1C4funcEi</code>；</li>
+<li>foo中的全局变量<code>bar</code>修饰后为<code>_ZN3foo3barE</code>；</li>
+<li>func函数中的静态变量<code>skr</code>修饰后为<code>_ZZ4funcE3skr</code>，若多个函数内有相同的静态变量名，则在“E”前多加字符区分，比如多加一个“v”成<code>_ZZ4mainvE3skr</code>；</li>
+<li>可使用binutils中的c++filt工具对被修饰过的名称进行解析。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Visual的C++名称修饰发<ul>
+<li>“?”开头</li>
+<li>函数名，“@”结尾</li>
+<li>类名，“@”结尾</li>
+<li>命名空间，“@”结尾</li>
+<li>调用类型，A表示__cdecl</li>
+<li>参数类型及返回值</li>
+<li>示例：函数 <code>int N::C::func(int)</code> 修饰后为 <code>?func@C@N@@AAEHH@Z</code>；</li>
+</ul>
+</li>
+<li>extern “C”：<ul>
+<li>C++编译器会将在extern “C”的大括号内部或其同行后声明的代码当做C语言代码处理，这样C++的名称修饰机制就不会起作用。        </li>
+<li>通过这个方法，可以手动获取到修饰名字后的变量。</li>
+<li>C++编译器中提供了一个宏“__cplusplus”来避免C编译器不支持extern “C”的情况。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="强符号和弱符号"><a href="#强符号和弱符号" class="headerlink" title="强符号和弱符号"></a>强符号和弱符号</h3><ul>
+<li>强符号（Strong Symbol），对于函数和初始化了的全局变量，编译器默认为强符号，当定义的两个强符号，例如两个全局变量都初始化了值，且名字一样的时候，编译就会报错。</li>
+<li>弱符号（Weak Symbol），未初始化的全局变量为弱符号，可以通过<code>__attribute__((weak))</code>来定义任何一个强符号为弱符号。外部变量的引用是非强也非弱，例如 extern int ext。</li>
+<li>规则<ul>
+<li>不允许强符号被多次定义；</li>
+<li>若一个符号在某目标文件中是强符号，在其他文件是弱符号，那么选择强符号；</li>
+<li>若一个符号在所有目标文件都是弱符号，那么选择其中占用空间最大的一个；</li>
+</ul>
+</li>
+<li>强引用和弱引用<ul>
+<li>强引用，若没找到符号的定义，编译器因无法决议符号的引用而会报错；</li>
+<li>弱引用，若符号有定义，则编译器将该符号的引用决议，否则编译器对于该引用也不报错，例如<code>__attribute__ ((weakref)) void foo();</code></li>
+<li>主要都是用于库链接的过程。库中定义的弱符号可以被用户的强符号所覆盖，从而使得程序可以使用自定义版本的库函数。可以声明一个弱引用函数，利用其判断该函数是否存在可使用而不会编译报错，就可以插拔含此函数的库或更换库版本。</li>
+</ul>
+</li>
+</ul>
+<h2 id="调试信息"><a href="#调试信息" class="headerlink" title="调试信息"></a>调试信息</h2><p>GCC编译时加上“-g”参数，可在目标文件中加上调试信息，会发现目标文件中多了很多debug相关的段。</p>
+<p>ELF文件采用DWARF（Debug With Arbitrary Record Format）的调试信息标准格式，而Windows上采用CodeView标准。</p>
+<p>调试信息在目标文件和可执行文件上占很大空间，比代码和数据会大几倍，所以产品发布时都须要把调试信息去掉，节省空间，就是我们常说的release版本。</p>
+<p>去掉ELF文件中的调试信息命令</p>
+<pre><code>$strip foo</code></pre><h2 id="空间与地址分配"><a href="#空间与地址分配" class="headerlink" title="空间与地址分配"></a>空间与地址分配</h2><p>对于链接器，整个链接过程中，就是将几个输入目标文件加工后合并成一个输出文件。</p>
+<p>因为每个段都须要有一定的地址和空间对齐要求，如果按序叠加段，就会造成内存空间大量的内部碎片。</p>
+<p>所以一般采取相似段合并，使用两步链接（Two-pass Linking）的方法：</p>
+<ul>
+<li>空间与地址分配：收录起各段信息（更新段表的信息）和符号（放入全局符号表）</li>
+<li>符号解析与重定位：利用上面的信息进行符号解析和重定位。</li>
+</ul>
+<p>也就是说，链接器为目标文件分配地址和空间就包含两个意思：</p>
+<ul>
+<li>输出的可执行文件中的空间（合并段后确定）；</li>
+<li>装载后的虚拟地址中的虚拟地址空间（重链接后确定）；</li>
+</ul>
+<p>链接的指令：</p>
+<pre><code class="hljs undefined">#-e main表示将main函数作为程序入口，因为ld链接器默认以_start为入口
+#-o ab表示链接输出文件名为ab，默认为a.out
+$ld a.o b.o -e main -o ab</code></pre>
+
+<img src="http://qiniu.ifungfay.com/mweb/linking_executable_file_process.png2019%2008%2013" width="700">
+【图】可执行文件与进程空间
+
+<p>因为合并目标文件后，各个符号在段内的相对位置固定了，所以链接器就可以开始计算各个符号真正的虚拟地址，给每个符号加上一个偏移量。</p>
+<p>而虚拟空间从0开始分配，是因为操作系统的进程虚拟地址空间的分配规则，每个进程的ELF可执行文件默认都从地址0x8048000开始分配，由系统内核管理着每个进程虚拟内存和机器的物理RAM它们之间的映射，所以每个进程的起始物理地址是不同的。</p>
+<h2 id="符号解析与重定位"><a href="#符号解析与重定位" class="headerlink" title="符号解析与重定位"></a>符号解析与重定位</h2><h3 id="重定位"><a href="#重定位" class="headerlink" title="重定位"></a>重定位</h3><pre><code class="hljs undefined">$objdump -d a.o #-d查看代码的反汇编结果</code></pre>
+
+<p>在没链接之前，不知道变量或函数的地址时，目标文件会以两种形式临时设定一些临时地址：</p>
+<ul>
+<li>绝对寻址，例如对于一条传输指令的源为一个立即数时，该被传输的变量则采用绝对寻址，寻址修正后的地址为该符号的实际地址；</li>
+<li>相对寻址，对于不同的指令（jmp、call、mov等等），寻址的方式都千差万别，例如近址相对位移调用指令，即是一行指令中，除去指令码外，最后面的4字节32位就是被调用函数的相对于调用指令的下一条指令的偏移量，一般以（小端）补码形式表示函数的地址，寻址修正后的地址为符号举例被修正位置的地址差。</li>
+</ul>
+<p>链接后，会从定义变量的地方重定位出此前未定位变量在代码中的虚拟地址，也会从调用未定位函数的指令相邻的下一条指令的虚拟地址，加上偏移量反推出该函数的虚拟地址。</p>
+<pre><code class="hljs undefined">$objdump -r a.o #-r查看重定位表</code></pre>
+
+<p>比如<code>.text</code>一般对应<code>.rel.text</code>重定位表。每个要被重定位的地方叫重定位入口（Relocation Entry），重定位表结构如下：</p>
+<ul>
+<li>r_offset，重定位入口的偏移<ul>
+<li>可重定位文件中，是（该重定位入口要修正的位置的第一个字节）相对段起始的偏移；</li>
+<li>可执行文件或共享对象文件，是（该重定位入口要修正的位置的第一个字节的）虚拟地址；</li>
+</ul>
+</li>
+<li>r_info，高24位表示重定位入口的符号在符号表中的下标，低8位表示重定位入口的类型</li>
+</ul>
+<h3 id="符号解析"><a href="#符号解析" class="headerlink" title="符号解析"></a>符号解析</h3><p>每个目标文件都可能定义一些符号，也可能引用到定义在其他目标文件的符号。</p>
+<p>每个重定位的入口都是对一个符号的引用。</p>
+<p>连接器对某个符号的引用进行重定位时，就会去查找由所有输入目标文件的符号表组成的全局符号表，确定符号的地址。</p>
+<h3 id="COMMON块"><a href="#COMMON块" class="headerlink" title="COMMON块"></a>COMMON块</h3><p>事先声明需要的临时使用空间的大小。</p>
+<p>在链接时，当不同的目标文件需要的COMMON块空间大小不一致时，以最大的那块为准，而且只针对弱符号，因为如果有其中一个是强符号，那么最终输出结果中的符号所占用空间就与强符号相同了。</p>
+<p>弱符号大于强符号时就会链接报错。</p>
+<p>以下方式允许我们把所有未初始化的全局变量不以COMMON块的形式处理，即是当一个未初始化的全局变量不是以COMMON块的形式存在，那就相当于一个强符号：</p>
+<pre><code class="hljs undefined">$gcc -fno-common
+ini global __attribute__((nocommon));</code></pre>
+
+<h2 id="ABI（Application-Binary-Interface）"><a href="#ABI（Application-Binary-Interface）" class="headerlink" title="ABI（Application Binary Interface）"></a>ABI（Application Binary Interface）</h2><p>符号修饰标准、变量内存布局、函数调用方式等跟可执行代码二进制兼容性相关的内容。</p>
+<h2 id="静态库链接"><a href="#静态库链接" class="headerlink" title="静态库链接"></a>静态库链接</h2><p>静态库可简单看成一组目标文件的集合。</p>
+<p>根据是否支持多线程和调试的功能，C运行库可区分为多个版本。</p>
+<p>以下指令可查看静态库包含了哪些目标文件：</p>
+<pre><code class="hljs undefined">$ar -t libc.a</code></pre>
+
+<p>查找函数所在的目标文件：</p>
+<pre><code class="hljs undefined">$objdump -t libc.a</code></pre>
+
+<p>关闭内置函数优化选项（避免GCC为提高运行速度替换函数）：</p>
+<pre><code class="hljs undefined">$gcc -c -fno-builtin hello.c</code></pre>
+
+<p>解压目标文件到当前目录：</p>
+<pre><code class="hljs undefined">$ar -x libc.a</code></pre>
+
+<p>与静态库链接，ld链接器会自动寻找所有需要的符号及它们所在的目标文件，将这些目标文件从静态库中解压出来，然后链接在一起成为一个可执行文件。</p>
+<p>编译链接过程详情：</p>
+<pre><code class="hljs undefined">$gcc -static --verbose -fno-builtin hello.c
+...
+/usr/lib/gcc/i486-linux-gnu/4.1.3/cc1 -quiet -v hello.o -quiet -dumpbase hello.c -mtune=generic -auxbase hello -version -fno-builtin -fstack-protector -fstack-protector -o /tmp/ccUhtGSB.s
+...
+as --traditional-format -V -Qy -o /tmp/ccQZRPL5.o /tmp/ccUhtGSB.s
+...
+/usr/lib/gcc/i486-linux-gnu/4.1.3/collect2 -m elf_i386 --hash-style=both -static crt1.o crti.o crtbeginT.o -L/lib /tmp/ccQZRPL5.o --start-group -lgcc -lgcc_eh -lc --end-group crtend.o crtn.o</code></pre>
+
+<ul>
+<li>cc1是GCC的C编译器，编译出临时的汇编文件.s；</li>
+<li>as是GNU的汇编器，将临时汇编文件汇编成目标文件.o；</li>
+<li>collect2是ld连接器的一个包装，其先调用ld完成目标文件的链接，然后对链接结果做收集所有与程序初始化有关的信息并构造初始化的结构的处理</li>
+</ul>
+<p>将函数尽量独立开存放到不同的目标文件，可以尽量减少空间的浪费，这样没有被用到目标文件（函数）就不要链接到最终输出文件。</p>
+<h2 id="链接过程控制"><a href="#链接过程控制" class="headerlink" title="链接过程控制"></a>链接过程控制</h2><p>链接过程需要确认的内容：</p>
+<ul>
+<li>使用哪些目标文件</li>
+<li>使用哪些库文件</li>
+<li>是否在最终可执行文件中保留调试信息</li>
+<li>输出文件格式，是可执行文件还是动态链接库</li>
+<li>是否要导出符号供调试使用</li>
+</ul>
+<p>控制链接有3种方式：链接器在命令行的参数、链接指令内置于目标文件、链接脚本。</p>
+<p>查看ld默认的链接脚本（路径：/usr/lib/ldscripts）：</p>
+<pre><code class="hljs undefined">$ld -verbose</code></pre>
+
+<p>自定义链接脚本：</p>
+<pre><code class="hljs undefined">$ld -T link.script</code></pre>
+
+<p>内嵌汇编：</p>
+<pre><code class="hljs undefined">asm(&quot;movl $42, %ebx \n\t&quot;
+    &quot;movl $1, %eax \n\t&quot;
+    &quot;int $0x80 \n\t&quot; );</code></pre>
+
+<p>int是中断指令，通过0x80实现系统调用，根据eax中的系统调用号选择中断类型。</p>
+<p>在main()函数结束后控制权会返回给系统库，由系统库负责调用EXIT，EXIT是一种系统调用，其调用号为1。</p>
+<p>控制链接的过程无非就是控制输入段（输入文件中的段）如何变成输出段（输出文件中的段），比如哪些输入段要合并一个输出段，哪些输入段要丢弃。指定输出段的名字、装载地址、属性等。</p>
+<p>链接脚本示例：</p>
+<pre><code class="hljs undefined">ENTRY(nomain) 
+
+SECTIONS
+&#123;
+ .=0x0804800 + SIZEOF_HEADERS;
+ tinytext : &#123; *(.text) *(.data) *(.rodata) &#125;
+ /DISCARD/: &#123; *(.comment) &#125;
+&#125;</code></pre>
+
+<ul>
+<li><code>ENTRY(symbol)</code>指定程序入口函数，对应ld指令的<code>-e</code>选项，使用优先级：-e&gt;entry&gt;_start&gt;.text第一个字节&gt;0</li>
+<li><code>SECTIONS {}</code>的是指定各输入段到输出段的变换指令</li>
+<li>大括号内的则是变换规则<ul>
+<li><code>.=</code>表示当前虚拟地址的赋值，下一个规则处中的段则以此地址起始；</li>
+<li><code>xx : { *(.xx) *(.yy)}</code>大括号中的段依次合并到输出文件tinytext(xx)中，*表示通配输入文件，可采用正则；</li>
+<li><code>/DISCARD/ : { *(.zz) }</code>丢弃段</li>
+</ul>
+</li>
+<li>其它<ul>
+<li><code>STARTUP(filename)</code>指定文件filename为第一个输入文件；</li>
+<li><code>SEARCH_DIR(path)</code>指定路径path加入到链接器的库查找目录，对应<code>-Lpath</code>命令；</li>
+<li><code>INPUT(file,file,...)</code>指定输入文件</li>
+<li><code>INCLUDE filename</code>包含指定文件进链接脚本</li>
+<li><code>PROVIDE(symbol)</code>在链接脚本定义某个符号</li>
+</ul>
+</li>
+</ul>
+<p>ld可通过-s参数禁止链接器产生符号表，或使用strip命令去除。对可执行文件来说，符号表和字符串表示可选的，但段名字符串表则是必须的。</p>
+<h2 id="BFD库"><a href="#BFD库" class="headerlink" title="BFD库"></a>BFD库</h2><p>因为硬软件平台种类繁多，固产生了BFD库（Binary File Description library）来统一处理不同的目标文件格式，它是binutils的一个子项目。</p>
+<p>BFD把目标文件抽象成一个统一的模型。</p>
+<p>GCC、GNU、ld、GDB、binutils都通过BFD库来处理目标文件，而非直接处理。</p>
+<h1 id="装载与动态链接"><a href="#装载与动态链接" class="headerlink" title="装载与动态链接"></a>装载与动态链接</h1><h2 id="进程虚拟地址空间"><a href="#进程虚拟地址空间" class="headerlink" title="进程虚拟地址空间"></a>进程虚拟地址空间</h2><p>每个程序被运行后，都将拥有自己独立的虚拟地址空间（Virtual Address Space），其大小由计算机的硬件平台决定（CPU的位数决定）。</p>
+<ul>
+<li>32位的硬件平台，虚拟空间的地址为0-2^32-1，即0x00000000~0xFFFFFFFF，4GB大小，4字节长度（位数，每两位16进制为1字节长度）；</li>
+<li>64位寻址能力的平台则有达2^64字节，即17179869184GB的大小。</li>
+</ul>
+<p>C语言指针大小的位数与虚拟空间的位数相同，32位平台的指针为32位，即4字节；64位平台的指针为64位，即8字节。</p>
+<p>进程只能使用操作系统分配给进程的地址，如果访问未经允许的空间，那么操作系统就会捕获到这些访问，将进程的这种访问当作非法操作，强制结束进程。</p>
+<img src="http://qiniu.ifungfay.com/mweb/linking_process_virtual_space.png2019%2008%2013" width="500">
+【图】进程虚拟空间分布
+
+<p>所有代码、数据包括通过C语言malloc()等方法申请的虚拟空间之和是不能超过3GB，而且还有一部分其实是预留给其它用途，并不能全占用该3GB。</p>
+<p>在扩展的36位地址线下，Intel修改了页映射方式，使得新的映射方式可以访问到更多的物理内存，此方式叫PAE（Physical Address Extension）。操作系统提供一个窗口映射的方法，把这些额外的内存映射到进程地址空间中来。Linux系统下采用mmap()系统调用来实现。</p>
+<img src="http://qiniu.ifungfay.com/mweb/linking_pae_awe.png2019%2008%2013" width="500">
+【图】PAE/AWE
+
+<h2 id="装载的方式"><a href="#装载的方式" class="headerlink" title="装载的方式"></a>装载的方式</h2><p>动态装入的原理，来源于很多时候（多个运行的）程序所需要的内存数量会大于物理内存的数量，但程序运行时是有局部性原理的，所以我们可以将程序最常用的部分驻留在内存中，将不太常用的数据存放在磁盘里面。</p>
+<p>两种典型的动态装载方法：</p>
+<ul>
+<li>覆盖装入（Overlay）<ul>
+<li>几乎已被淘汰，但在内存受限的嵌入式，如DSP还可能有用；</li>
+<li>程序员需手工将模块按照它们之间的调用依赖关系组织成树状结构，这样同层级或不同分支上的节点就意味着是独立不会互相调用的，需要用到时就可以覆盖装入到同层其它节点原先所占用的内存空间。</li>
+<li>典型用时间换取空间，因为当节点模块没在内存中，则需从磁盘或其它存储器读取，覆盖装入的速度比较慢。</li>
+</ul>
+</li>
+<li>页映射（Paging）<ul>
+<li>将内存和所有磁盘中的数据和指令按照“页（Page）”为单位划分成若干个页，以后所有的装载和操作的单位就是页。</li>
+<li>将程序当前用到的可执行文件页，按先进先出的内存分配规则（FIFO），或找出比较少访问的已装载的物理页分配规则（LUR），找出可用于重新装载的物理内存。</li>
+<li>如此装载的管理器就是现代的操作系统，更准确来说是操作系统的存储管理器。</li>
+</ul>
+</li>
+</ul>
+<h2 id="装载过程"><a href="#装载过程" class="headerlink" title="装载过程"></a>装载过程</h2><ul>
+<li>创建一个进程：创建一个独立的虚拟地址空间；<ul>
+<li>建立<code>虚拟空间</code>到<code>物理内存</code>的映射关系；</li>
+<li>实质只是分配一个页目录的数据结构，并未发生装载进内存的操作。</li>
+</ul>
+</li>
+<li>装载相应的可执行文件：读取可执行文件头，并且建立<code>虚拟空间</code>与<code>可执行文件</code>的映射关系；<ul>
+<li>当程序执行发生页错误时，操作系统将从物理内存中分配一个物理页，然后将该“缺页”从磁盘中读取到内存中，再设置缺页的虚拟页和物理页的映射关系，这就是传统意义上的装载过程；</li>
+<li>由于可执行文件装载时实际上是被映射的虚拟空间，所以也被称为映像文件（Image）</li>
+<li>映射的关系只是保存在操作系统内部的一个数据结构；</li>
+<li>虚拟内存区域（VMA，Virtual Memory Area），代表进程虚拟空间中的一个段，在系统创建进程后在进程相应的数据结构中设置有一个对应段的VMA，当发生段错误时，就会被查找来定位错误页在可执行文件中的位置。</li>
+</ul>
+</li>
+<li>执行：将CPU的指令寄存器设置成可执行文件的入口地址，启动运行。</li>
+</ul>
+<p>页错误（Page Fault）发生过程：</p>
+<ul>
+<li>CPU开始执行一个地址的指令时，发现该页是个空页时，则认为是一个页错误；</li>
+<li>操作系统通过专门的页错误处理例程处理；</li>
+<li>查询虚拟空间和可执行文件的映射关系数据结构，找到空页的VMA；</li>
+<li>计算相应页面在可执行文件中的偏移，然后在物理内存中分配一个物理页面，将进程中该虚拟页与分配的物理页之间建立映射关系；</li>
+<li>把控制权交还给进程，继续执行。</li>
+</ul>
+<img src="http://qiniu.ifungfay.com/mweb/linking_paging_fault.png2019%2008%2013" width="700">
+【图】页错误
+
+<p>虚拟空间就相当于一个缓冲桥梁一样的存在，将物理页和可执行文件的分页在需要(用到)的时候才关联起来。</p>
+<h2 id="进程虚存的空间分布"><a href="#进程虚存的空间分布" class="headerlink" title="进程虚存的空间分布"></a>进程虚存的空间分布</h2><h3 id="ELF文件视图"><a href="#ELF文件视图" class="headerlink" title="ELF文件视图"></a>ELF文件视图</h3><p>ELF文件被映射时，是以系统的页长度作为单位的，那么每个段在映射时的长度应该都是系统页长度的整数倍；如果不是，那么多余的部分也将占用一个页。</p>
+<p>因此，对于相同权限的段（比如可读可写、可读可执行），把它们合并到一起当作一个段进行映射，就减少了内存的浪费。</p>
+<p>ELF中的<code>Segment</code>（节）就是这种经过合并的包含一个或多个属性类似的Section（段）的概念。合并成Segment（节）后，VMA也会对应减少（一个Segment对应一个），从而减少页面内部的碎片，节省内存空间。</p>
+<ul>
+<li>Section存储的是从链接的角度出发，称为ELF文件的链接视图（Linking View）；</li>
+<li>Segment划分的是从装载的角度出发，称为ELF文件的执行视图（Execution View）。</li>
+</ul>
+<p>查看Segment的指令：</p>
+<pre><code class="hljs undefined">$gcc -static SectionMapping.c -o SectionMapping.elf
+$readelf -S SectionMapping.elf
+$readelf -l SectionMapping.elf</code></pre>
+
+<p>描述Segment的结构叫程序头（Program Header），描述了ELF文件该如何被操作系统映射到进程的虚拟空间，在ELF可执行文件中会有一个专门的数据结构<code>程序头表</code>（Program Header Table）用来保存Segment信息，表元素是结构体<code>Elf32_Phdr</code>：</p>
+<ul>
+<li>p_type：Segment的类型，包括LOAD、DYNAMIC、INTERP；</li>
+<li>p_offset：Segment在文件中的偏移；</li>
+<li>p_vaddr：Segment第一个字节在进程虚拟地址空间的起始位置，LOAD类型的元素均按此从小到大排列；</li>
+<li>p_paddr：Segment的物理装载地址，LMA，一般和p_vaddr一样；</li>
+<li>p_filesz：Segment的ELF文件所占用长度，可能为0，因可能这个Segment是在ELF文件中不存在的内存；</li>
+<li>p_memse：Segment的进程虚拟地址空间占用长度，可能为0。对于LOAD类型的Segment，p_memse不能少于p_filesz，多余的部分全填充0，代表构造ELF文件时不需要额外设立BSS的Segment；</li>
+<li>p_flags：Segment的权限属性，包括R可读、W可写、X可执行；</li>
+<li>p_align：Segment的对齐属性，实际对齐字节是等于2的p_align次方；</li>
+</ul>
+<h3 id="堆栈"><a href="#堆栈" class="headerlink" title="堆栈"></a>堆栈</h3><p>VMA除了被用来映射可执行文件中的各个Segment外，还被使用来对进程的地址空间进行管理。堆（Heap）、栈（Stack）在进程的虚拟空间中的表现就是以VMA的形式存在。</p>
+<p>查看进程的虚拟空间分布：</p>
+<pre><code class="hljs undefined">$./SectionMapping.elf &amp; # 查询可执行文件的进程号
+$cat /proc/21963/maps</code></pre>
+
+<p>每个线程都有属于自己的堆栈，单线程的程序中VMA堆栈是全部归它使用。也有个特殊的VMA叫“vdso”，其地址位于内核空间，事实上它是一个内核模块，进程可以通过访问这个VMA来跟内核进行一些通信。</p>
+<p>操作系统通过给进程空间划分出一个个VMA来管理虚拟空间，基本原则为将相同权限属性的、有映像文件的映射成一个VMA，进程中分如下几种VMA区域：</p>
+<ul>
+<li>代码VMA，权限只读、可执行，有映像文件；</li>
+<li>数据VMA，权限可读写、可执行，有映像文件；</li>
+<li>堆VMA，权限可读写、可执行，无映像文件，匿名，可向上扩展（地址比栈低，低位的起始地址靠近内存底端）；</li>
+<li>栈VMA，权限可读写、不可执行，无映像文件，匿名，可向下扩展（地址比堆高，高位的起始地址靠近系统内核内存区域）；</li>
+</ul>
+<p>堆最大的申请数量会受到系统版本、程序大小、用到的动态库/共享库数量、大小、程序栈数量、大小、随机地址空间分布技术（为防止程序被恶意攻击）等因素影响，下面是测试malloc最大内存申请数量的代码：</p>
+<pre><code class="hljs undefined">#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+
+unsigned maximum = 0;
+
+int main(int argc, char *argv[])
+&#123;
+    unsigned blocksize[] = &#123; 1024 * 1024 , 1024, 1 &#125;;
+    int i, count;
+    for (i=0; i&lt;3; i++) &#123;
+        for (count=1; ; count++) &#123;
+            void *block = malloc( maximum + blocksize[i] * count);
+            if (block) &#123;
+                maximum = maximum + blocksize[i] * count;
+                free(block);
+            else &#123;
+                break;
+            &#125;
+        &#125;
+    &#125;
+    printf(&quot;maximum malloc size = %u bytes\n&quot;, maximum);
+&#125;</code></pre>
+
+<p>由于有着长度和起始地址的限制，对于可执行文件来说，它应该尽量地优化自己的空间和地址的安排，以节省空间。</p>
+<p>ELF可执行文件的起始虚拟地址一般为0x08048000，按上述的合并过程所得的Segment，在其对齐地址（按页单位大小划分）后内部仍可能存在很多碎片（不足一页的多余部分），所以UNIX系统将各个段接壤部分（文件头也被视作一个段会与其它段合并）共享一个物理页面，然后将物理页面分别映射两次到虚拟地址空间，使虚拟地址空间看起来和ELF的文件分段一致，实质在物理内存中是共享页来充分利用空间，从而使一个物理页面可能同时包含两个或以上的段数据（只要段数据的大小总和少于物理页单位大小）。所以一个可装载的Segment，它的p_vaddr除以对齐属性的余数等于p_offset除以对齐属性的余数。</p>
+<img src="http://qiniu.ifungfay.com/mweb/linking_elf_file_combine.png2019%2008%2013" width="700">
+【图】ELF文件段合并
+
+<h2 id="装载ELF过程"><a href="#装载ELF过程" class="headerlink" title="装载ELF过程"></a>装载ELF过程</h2><ul>
+<li>在用户层面，bash进程调用fork()系统调用创建一个新进程；</li>
+<li>新进程调用execve()系统调用执行指定的ELF文件；</li>
+<li>原bash进程继续返回等待刚才启动的新进程结束；</li>
+<li>然后继续等待用户输入命令。</li>
+</ul>
+<p>execve()有很多不同形式包装的exec系列API，其在内核中做了如下事情：</p>
+<ul>
+<li>调用入口sys_execve()进行一些参数的检查复制；</li>
+<li>调用do_execve()，查找被执行的文件，找到则读取文件的前128字节，来判断文件格式，头4个字节甚至称为魔数，例如ELF可执行文件是 0x7F e l f，Java可执行文件是 c a f e，Shell等脚本是 #!(根据魔数确定是脚本后再解析后面的解释程序的路径，像 #!/bin/sh、#!/usr/bin/python)；</li>
+<li>然后调用search_binary_handle()去搜索和匹配合适的可执行文件装载处理过程，例如load_elf_binary()、load_aout_binary()、load_script()等，以ELF加载为例：<ul>
+<li>检查文件格式的有效性；</li>
+<li>寻找动态链接的”.interp”段，设置动态链接器路径；</li>
+<li>根据程序头表，对文件进行映射；</li>
+<li>初始化ELF进程环境；</li>
+<li>将系统调用的返回地址修改成ELF可执行文件的入口点，对于静态链接的ELF文件该入口点就是ELF文件的文件头中e_entry所指的地址，对于动态链接的ELF可执行文件则入口点是动态链接器；</li>
+<li>当sys_execve()系统调用从内核态返回到用户态时，EIP寄存器直接跳转到ELF程序的入口地址，开始执行程序，ELF可执行文件装载完成。</li>
+</ul>
+</li>
+</ul>
+<h1 id="动态链接"><a href="#动态链接" class="headerlink" title="动态链接"></a>动态链接</h1><p>静态链接的缺点：</p>
+<ul>
+<li>浪费内存和磁盘空间，比如一个目标文件静态链接到N个不同的可执行文件，那么磁盘被占用的空间就比复用一个目标文件时多出了N倍，若这些文件同时被加载运行的话，内存空间也同样是N倍的增长；</li>
+<li>模块更新困难，一旦使用的目标文件模块更新，所有用到的程序就得重新获取新版本、重新链接、再发布新程序。</li>
+</ul>
+<p>动态链接（Dynamic Linking）优点：</p>
+<ul>
+<li>把程序的模块相互分割开来，形成独立的文件，不对那些组成程序的目标文件进行链接，等到程序运行时才链接；（解决占用磁盘空间问题）</li>
+<li>若有程序已加载并动态链接了所需的目标文件，下一个复用该目标文件的程序加载时，就无需重复加载此目标文件，只要链接就行了；（解决占用内存空间问题）</li>
+<li>还减少了物理页的换入换出，增加了CPU的缓存命中率，也解决了模式升级难的问题；</li>
+<li>运行时可动态加载各种程序模块，后来被用来制作各种插件（Plug-in），产品公司按规则制定好程序的接口，其它公司或开发者按这种接口编写符合要求的动态链接文件；</li>
+<li>加强程序的兼容性，动态链接库相当于在程序和操作系统之间增加了一个中间层。</li>
+</ul>
+<p>而动态链接的缺点是，当程序所依赖的某个模块更新后，由于新的模块与旧的模块之间接口不兼容，导致程序无法运行，所以非大版本更新时就需一直做向后兼容。</p>
+<p>ELF动态链接文件称为动态共享对象（DSO，Dynamic Shared Objects），即共享对象，一般是.so格式文件，Windows下是动态链接库（Dynamic Linking Library），一般是.dll格式文件。</p>
+<p>程序被装载时都要进行重新链接，所以，动态链接会导致程序在性能的一些损失（5%左右，对比重复地浪费内存和磁盘空间是值得的），但有些优化方法可减小：比如延迟绑定（Lazy Binding）。从而换取程序的空间节省和构建、升级时的灵活性。</p>
+<h2 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h2><p>编译成共享对象：</p>
+<pre><code>$gcc -fPIC -shared -o Lib.so Lib.c</code></pre><p>编译链接：</p>
+<pre><code>$gcc -o Program Program.c ./Lib.so</code></pre><p>Lib.so也参与链接是因为，链接器需要把定义在动态共享对象中的函数符号的引用标记为一个动态链接的符号，但不会对它进行地址重定位，把这个过程留到装载的时再进行。要不链接静态库重定位出外部引用的函数地址，要不链接动态库标记为动态链接符号，要不就编译报错了。</p>
+<img src="http://qiniu.ifungfay.com/mweb/linking_dynamic_linking.png2019%2008%2013" width="700">
+【图】动态链接过程
+
+<p>查看虚拟地址空间分布（可查看到对动态共享对象的引用）：</p>
+<pre><code>$./Program &amp;
+[1] xxxxx
+printing from Lib.so 1
+$cat /proc/xxxxx/maps
+$kill xxxxx</code></pre><p>一般会包括<code>动态链接器ld.so</code>、<code>C语言运行库libc.so</code></p>
+<p>查看动态共享对象的装载属性：</p>
+<pre><code>$readelf -l Lib.so</code></pre><p>动态链接模块的装载地址是从0x00000000开始的，它是一个无效地址，共享对象的最终装载地址在编译时是不确定的。</p>
+<h2 id="地址无关代码"><a href="#地址无关代码" class="headerlink" title="地址无关代码"></a>地址无关代码</h2><p>上一点提到，共享对象的装载起始地址不是一开始就固定的（与可执行文件不同），为管理共享模块的地址分配，要手工分配的称为静态共享库，会有以下问题：</p>
+<ul>
+<li>地址冲突；</li>
+<li>静态共享库的升级后，会产生全局函数和变量地址变化；</li>
+</ul>
+<p>所以共享对象在编译时不能假设自己在进程虚拟地址空间中的位置。</p>
+<p>一个程序在编译时假设被装载的目标地址为0x1000，但在装载时操作系统发现0x1000这个地址已经被别的程序使用了，从0x4000开始有一块足够大的空间可以容纳该程序，那么该程序就可以被装载至0x4000，程序指令或数据中的所有绝对引用只要都加上0x3000的偏移，这就是装载时重定位（Load Time Relocation），解决了动态模块中有绝对地址引用的问题，但指令部分无法在多个进程之间共享（因为进程之间相互不知道指令在其它进程装载重定位的地址，所以只能和数据一样，每个进程中按上述规则产生了副本）。</p>
+<pre><code>$gcc -fPIC -shared -o Lib.so Lib.c</code></pre><p>上面这个指令中，-fPIC代表使用地址无关代码技术，否则使用装载时重定位。</p>
+<p>地址无关代码（PIC，Position-independent Code），是要使程序模块中共享的指令部分在装载时不需要因为装载地址改变而改变，把指令中的那些需要被修改的部分分离出来，和数据部分放一起，数据部分在每个进程中都会有一个副本，这样指令部分就可保持不变了。</p>
+<p>有4种寻址模式：</p>
+<ul>
+<li>模块内部调用或跳转，利用相对偏移调用指令实现；</li>
+<li>模块内部数据访问，利用当前指令地址（PC）加偏移量实现；（获取PC通过调用__i686.get_pc_thunk.cx函数，把返回地址，即把call的下一条指令的地址放到ecx寄存器，那就是当前PC了）</li>
+<li>模块间数据访问，其它模块的全局变量的地址是跟模块的装载地址有关，因为ELF的数据段里面建立了一个指向这些变量的指针数组，即全局偏移表（Global Offset Table，GOT），当代码需要引用这些全局变量时，通过GOT中相应的项间接引用，每个变量都对应一个4个字节的地址，链接器在装载模块的时候会查找每个变量所在的地址，然后填充GOT中的各个项。由于GOT放在数据段，所以可在装载时再被修改，并每个进程都可以有独立的副本互不影响；</li>
+<li>模块间调用或跳转，目标函数的地址保存在GOT中，调用时通过GOT中的项进行间接跳转（先得到当前指令地址PC，然后加上偏移值得到函数所在GOT中的偏移。这样所引用的外部模块函数就也是地址无关的，相对地根据偏移找到GOT中在动态链接后加载的其它模块的目标函数所在地址）。</li>
+</ul>
+<p>大写的<code>-fPIC</code>是没有硬件平台的限制的，小写的<code>-fpic</code>则存在某些平台上有限制，例如全局符号的数量或者代码的长度。</p>
+<p>区分是否PIC的指令：</p>
+<pre><code>readelf -d foo.so | grep TEXTREL</code></pre><p>PIC是不包含代码重定位表的。</p>
+<p>ELF共享库在编译时，默认都把定义在模块内部的全局变量当作定义在其他模块的全局变量，也就是说当作前面的“模块间调用或跳转”，通过GOT来实现变量的访问，当共享模块被装载时，如果某个全局变量在可执行文件中拥有副本，那么动态链接器就会把GOT中的相应地址指向该副本，这样此变量在运行时实际上最终就只有一个实例。</p>
+<p>多了GOT中间一层的寻址，速度会比装载时重定位的共享对象运行速度慢，但GCC默认会使用PIC方式来动态链接可执行文件的代码部分，以便不同的进程能共享代码段，节省内存（存在.got这样的段）。</p>
+<h2 id="延迟绑定（PLT）"><a href="#延迟绑定（PLT）" class="headerlink" title="延迟绑定（PLT）"></a>延迟绑定（PLT）</h2><p>要解决动态链接、（全局和静态数据、模块间调用的）GOT定位慢、间接寻址等的速度问题，ELF采用了一种叫<code>延迟绑定（Lazy Binding）</code>的思路，当函数第一次被调用到时才进行绑定（符号查找、重定位等），实现方法是PLT（Procedure Linkage Table）：</p>
+<ul>
+<li>链接器初始化阶段，没有填入函数的地址，不需查找符号，只是将符号引用在重定位表“.rel.plt”的下标和模块ID压入堆栈，然后调用_dl_runtime_resolve()来完成符号解析和重定位。</li>
+<li>.got保存全局变量引用的地址，.got.plt保存函数引用的地址</li>
+<li>.got.plt保存的前三项（延迟绑定所需的一些信息），为系统所用，包括<ul>
+<li>.dynamic段的地址</li>
+<li>本模块的ID（动态装载时被初始化）</li>
+<li>_dl_runtime_resolve()的地址（动态装载时被初始化）。</li>
+<li>plt段本身也是地址无关的代码，所以可跟代码等一起合并成同一个可读可执行的“Segment”被装载入内存。</li>
+</ul>
+</li>
+</ul>
+<h2 id="动态链接相关结构"><a href="#动态链接相关结构" class="headerlink" title="动态链接相关结构"></a>动态链接相关结构</h2><p>动态链接器（Dynamic Linker）实际上是一个共享对象。</p>
+<ul>
+<li>.interp段，解释器，保存需要的动态链接器的路径。查看指令objdump -s a.out</li>
+<li>.dynamic段，保存动态链接器所需要的基本信息，可以看作是动态链接下ELF文件的文件头，指示依赖哪些共享对象、动态链接符号表的位置、动态链接重定位表的位置、共享对象初始化代码的地址等，结构为Elf32_Dyn，d_tag对应的含义：<ul>
+<li>DT_SYMTAB，动态链接符号表地址</li>
+<li>DT_STRTAB，动态链接字符串表地址</li>
+<li>DT_STRSZ，动态链接字符串表大小</li>
+<li>DT_HASH，动态链接哈希表地址</li>
+<li>DT_SONAME，本共享对象的“SO-NAME”</li>
+<li>DT_RPATH，动态链接共享对象搜索路径</li>
+<li>DT_INIT，初始化代码地址</li>
+<li>DT_FINIT，结束代码地址</li>
+<li>DT_NEED，依赖的共享对象文件(名)</li>
+<li>DT_REL DT_RELA，动态链接重定位表地址</li>
+<li>DT_RELENT DT_RELAENT，动态重定位表入口数量</li>
+</ul>
+</li>
+</ul>
+<p>查看.dynamic段的内容：</p>
+<pre><code>$readelf -d Lib.so</code></pre><p>查看主模块或共享库依赖于哪些共享库：</p>
+<pre><code>$ldd Program1</code></pre><p>查看动态符号表及其哈希表(用于更快地查找符号)：</p>
+<pre><code>$readelf -sD Lib.so</code></pre><p>PIC模式的共享对象也需要重定位，虽然代码段不需要重定位，但数据段包含了绝对地址的引用（代码段中的绝对地址相关部分被分离成GOT，而GOT实际上时数据段的一部分）。像.rel.dyn实际上是对.got和数据段的数据引用的修正，.rel.plt是对函数引用的修正，位于.got.plt。</p>
+<p>查看动态链接文件的重定位表：</p>
+<pre><code>$readelf -r Lib.so
+$readelf -S Lib.so</code></pre><p>GLOB_DAT和JUMP_SLOT此两种重定位入口类型表示，当动态链接器需要重定位时（可能被延迟），先找到函数符号在全局符号表中的地址，然后直接将其填入.got.plt中对应偏移的位置上（即被修正的位置）。而RELATIVE则必须在装载时进行重定位，即基址重置Rebasing，因为其包含绝对地址的引用，一般是数据段的部分。</p>
+<p>PIC模式编译的ELF文件，调用了一个外部函数，则函数会出现在.rel.plt中，而如果不是PIC模式编译则出现在.rel.dyn中。</p>
+<p>最后，在动态链接时，进程堆栈会保存动态链接器所需的一些辅助信息数组（Auxiliary Vector），它位于环境变量指针的后面（更高位的内存地址上）</p>
+<h2 id="动态链接的步骤和实现"><a href="#动态链接的步骤和实现" class="headerlink" title="动态链接的步骤和实现"></a>动态链接的步骤和实现</h2><ul>
+<li>动态链接器本身不可以依赖于其他任何共享对象；</li>
+<li>动态链接器本身所需要的全局和静态变量的重定位工作由它本身完成，即自举（Bootstrap）。当操作系统将进程控制权交给动态链接器时开始执行，调用这些变量甚至函数前要先等自举完成，包括自举内部也不能调用。<ul>
+<li>先找出自己的GOT</li>
+<li>再找出.dynamic段</li>
+<li>通过重定位表和符号表，得到本身的重定位入口，进行重定位。</li>
+</ul>
+</li>
+</ul>
+<p>自举后，可执行文件和链接器本身的符号表就合并到全局符号表（Global Symbol Table）。然后根据.dynamic中的DT_NEEDED入口类型找出依赖的共享对象，放入到一个装载集合中，之后通过一般的广度优先算法进行遍历集合中依赖的共享对象，读取相应的ELF文件头和.dynamic段进行代码段和数据段的空间映射。</p>
+<p>指定寻址共享对象的路径：</p>
+<pre><code>$gcc main.c b1.so b2.so -o main -Xlinker -rpath ./</code></pre><p>当遇到依赖的共享对象中，存在重名符号的情况时，会出现共享对象里面的全局符号被另一个共享对象的同名全局符号覆盖，此称为全局符号介入（Global Symbol Interpose），它遵循的规则是，当一个符号需要被加入全局符号表时，如果相同的符号名已经存在，则后面加入的符号被忽略。</p>
+<p>然后，链接器开始重新遍历可执行文件和共享对象的重定位表，将他们GOT/PLT中每个需要重定位的位置进行修正。</p>
+<p>完成重定位后，如果共享对象有.init段则链接器执行之实现初始化，如有.finit段则在程序退出时执行。可执行文件的.init和.finit则由程序来执行。</p>
+<p>最后进程的控制权转交给程序的入口并且开始执行。</p>
+<p>链接器既是一个共享对象，也是一个ELF可执行程序。对于动态链接的可执行文件，内核（execve()）会分析它的动态链接器地址（在.interp段），将动态链接器映射至进程地址空间，把控制权交给它，去装载依赖的共享库。(入口地址在没有.interp就是ELF的e_entry，有则是动态链接器的e_entry)</p>
+<p>动态链接器入口（执行顺序）：</p>
+<ul>
+<li>_start()</li>
+<li>_dl_start()重定位/自举</li>
+<li>_dl_start_final()收集基本的运行数值 </li>
+<li>_dl_sysdep_start进行平台相关的处理 </li>
+<li>_dl_main()对程序依赖的共享对象进行装载。</li>
+</ul>
+<h2 id="显式运行时链接"><a href="#显式运行时链接" class="headerlink" title="显式运行时链接"></a>显式运行时链接</h2><p>显示运行时链接（Explicit Run-time Linking），也叫运行时加载，就是让程序自己在运行时控制加载指定的模块，并且可以在不需要该模块时将其卸载。能被这样操作的共享对象叫做动态装载库（Dynamic Loading Library）。</p>
+<p>当程序需要用到某个插件或者驱动的时候，才将相应的模块装载进来，而不需要从一开始就将他们全部装载进来，从而减少了程序启动时间和内存使用。并且程序可以在运行的时候重新加载某个模块，这样使得程序本身不必重新启动而实现模块的增加、删除、更新等。</p>
+<p>动态库的装载通过一系列动态链接器提供的API完成：</p>
+<ul>
+<li>dlopen，打开动态库，当第一个参数filename设置为0时，函数返回全局符号表的句柄；第二个参数flag表示函数符号的解析方式，包括RTLD_LAZY延迟绑定，RTLD_NOW模块被加载时即完成函数绑定；返回值是被加载的模块的句柄，需要手工先加载其它嵌套的依赖库。</li>
+<li>dlsym，查找需要的符号，第一个参数为dlopen返回的句柄；第二个参数是要查找的符号；返回值，若找的符号是函数，则返回函数的地址，如果是变量，则返回变量的地址，如果是常量，则返回常量值。</li>
+<li>dlerror，如果dlsym找到符号，则返回NULL，否则返回对应的错误信息。</li>
+<li>dlclose，卸载已加载的模块，其与dlopen一起共同通过加载计数器管理模块装载状态，卸载过程是先执行.finit段代码，然后将相应符号从符号表中去除，取消进程空间跟模块的映射关系，最后关闭模块文件。</li>
+</ul>
+<p>可以通过以下指令参考符号表：</p>
+<pre><code>$objdump -t </code></pre><h1 id="共享库的组织"><a href="#共享库的组织" class="headerlink" title="共享库的组织"></a>共享库的组织</h1><h2 id="共享库版本"><a href="#共享库版本" class="headerlink" title="共享库版本"></a>共享库版本</h2><p>共享库的更新分两类：</p>
+<ul>
+<li>兼容更新</li>
+<li>不兼容更新</li>
+</ul>
+<p>共享库的ABI（Application Binary Interface），对于不同语言，主要包括一些诸如函数调用的堆栈结构、符号命名、参数规则、数据结构的内存分布等方面的规则。改变（C语言）共享库ABI的行为包括：</p>
+<ul>
+<li>导出函数的行为发生改变，不再满足旧版本规则的函数行为准则；</li>
+<li>导出函数被删除；</li>
+<li>导出数据的结构发生变化；</li>
+<li>导出函数的接口发生变化。</li>
+</ul>
+<p>例如不同版本的编译器、操作系统和硬件平台，都很容易使得产生的程序文件的API兼容困难。</p>
+<p>版本命名一般采用规则：libname.so.x.y.z，每个共享库都有一个SO-NAME，这个SO-NAME即共享库的文件名去掉次版本号和发布版本号，保留主版本号。系统会为每个共享库在它所在的目录创建一个跟SO-NAME相同的并且指向它的软链接（Symbol Link），这个软链接会指向目录中主版本号相同、次版本号和发布版本号最新的共享库，.dynamic中的DT_NEED类型的字段值就是使用SO-NAME，这样使能依赖最新的兼容的共享库，但又无需每次都更改依赖的库的版本号。而当主版本号升级后，系统就会存在多个SO-NAME，也不会影响已有的程序，除非进行卸载删除。</p>
+<p>工具<code>ldconfig</code>，在安装或更新一个共享库时，运行它会遍历所有的默认共享库目录，更新或创建所有的软链接，使指向最新版本的共享库。</p>
+<p>在编译器命令行里，可以指定-lXXX，表示链接一个libXXX.so.2.6.1的共享库。</p>
+<h2 id="符号版本"><a href="#符号版本" class="headerlink" title="符号版本"></a>符号版本</h2><p>为解决次版本号交会问题（Minor-revision Rendezvous Problem），即较低次版本不向前兼容所产生的符号缺少问题，采用了符号版本机制。</p>
+<p>在共享库次版本升级时，除了SO-NAME更新，还为新添加的全局符号打上标记。可以在链接共享库时编写一种符号版本脚本的文件，指定这些符号与集合之间及集合与集合之间的继承依赖关系。可以使用版本机制（Versioning）和范围机制（Scoping）两种方式指定。</p>
+<p>程序里面记录的不是构建时共享库中版本最新的符号集合，而是程序所依赖的集合中版本号最小的那个。</p>
+<p>指定脚本文件：</p>
+<pre><code>$gcc -shared -fPIC lib.c -Xlinker --version-script lib.ver -o lib.so
+# 相当于ld --version-script lib.ver</code></pre><h2 id="共享库系统路径"><a href="#共享库系统路径" class="headerlink" title="共享库系统路径"></a>共享库系统路径</h2><p>大部分开源的操作系统都遵守一个叫FHS（File Hierarchy Standard）的标准，其规定了一个系统中的系统文件应该如何存放。</p>
+<ul>
+<li>/lib，存放系统最关键和基础的共享库，如动态链接器、C语言运行库、数据库等；</li>
+<li>/usr/lib，存放非系统运行时所需的关键性共享库，主要是开发时用的库；</li>
+<li>/usr/local/lib，放置更操作系统本身并不十分相关的库，主要是第三方的应用程序的库。</li>
+</ul>
+<h2 id="共享库查找过程"><a href="#共享库查找过程" class="headerlink" title="共享库查找过程"></a>共享库查找过程</h2><p>动态链接的模块所依赖的模块路径保存在.dynamic段里面，由DT_NEED类型的项表示。对模块的查找规则：</p>
+<ul>
+<li>如果DT_NEED里面保存的绝对路径，则动态链接器就按此路径查找；</li>
+<li>如果DT_NEED里面保存的相对路径，则动态链接器会在/lib、/usr/lib和/etc/ld.so.conf配置文件指定的目录中查找共享库。（为保可移植性和兼容性，一般是相对的）</li>
+<li>ldconfig还会缓存起SO-NAME到/etc/ld.so.cache，方便快捷查找（共享库目录下添加、删除、更新任何一个共享库或更改/etc/ld.so.conf的配置，都应该运行ldconfig）。</li>
+</ul>
+<h2 id="环境变量"><a href="#环境变量" class="headerlink" title="环境变量"></a>环境变量</h2><ul>
+<li>LD_LIBRARY_PATH（优先查找该指定的目录下的共享库），对应指令参数<code>-library-path</code>；</li>
+<li>LD_PRELOAD，指定预先装载的一些共享库或目标文件。利用它来覆盖后面加载的同名全局符号（全局符号介入机制），从而改写标准C库中的某个或某几个函数而不影响其他函数，方便调试测试；</li>
+<li>LD_DEBUG，打开动态链接器的调试功能，运行时打印出各种有用的信息。</li>
+</ul>
+<h2 id="共享库的创建和安装"><a href="#共享库的创建和安装" class="headerlink" title="共享库的创建和安装"></a>共享库的创建和安装</h2><p>创建：</p>
+<pre><code>$gcc -shared -Wl,-soname,my_soname -o library_name source_files library_files</code></pre><p>-Wl 传递-soname my_soname给链接器。默认情况下，链接器在产生可执行文件时，只会将那些链接时被其他共享模块引用到的符号放到动态符号表，这样可以减少动态符号表的大小。ld链接器提供了<code>-export-dynamic</code>参数将全局符号导出到动态符号表。</p>
+<p>清除符号信息（或通过ld的-s和-S参数使生成的输出文件不产生符号信息，s是所有符号信息，S是调试符号信息）：</p>
+<pre><code>$strip libfoo.so</code></pre><h2 id="共享库构造和析构函数"><a href="#共享库构造和析构函数" class="headerlink" title="共享库构造和析构函数"></a>共享库构造和析构函数</h2><p><strong>attribute</strong>((constructor))此属性加在声明的函数上，即指定该函数为共享库构造函数，拥有这种属性的函数会在共享库加载时被执行，即在程序的main函数之前执行，又或者在dlopen返回之前被执行。</p>
+<h1 id="内存"><a href="#内存" class="headerlink" title="内存"></a>内存</h1><h2 id="程序的内存布局"><a href="#程序的内存布局" class="headerlink" title="程序的内存布局"></a>程序的内存布局</h2><ul>
+<li>栈：通常在用户空间的最高地址处分配（接近内核空间处）；</li>
+<li>堆：当程序使用malloc或new分配内存时，在栈的下方（低地址方向）分配，堆一般比栈大得多，也没固定统一的存储区域；</li>
+<li>可执行文件映像：由装载器在装载时将可执行文件的内存读取或映射到这里；</li>
+<li>保留区：对内存中受到保护而禁止访问的内存区域总称，不是一个单一的区域；</li>
+<li>动态链接库映射区域：如果可执行文件依赖其他共享库，就在栈和堆之间分配一个区域装载共享库进空间。</li>
+</ul>
+<p>栈向低地址增长，堆向高地址增长。指针初始化为NULL或栈上的指针初始化被随机分配地址都直接使用个，都可能出现“段错误（segment fault）”，由非法指针解引造成。</p>
+<h2 id="栈"><a href="#栈" class="headerlink" title="栈"></a>栈</h2><p>栈顶由称为<code>esp</code>的寄存器进行定位，压栈的操作使栈顶的地址减少，弹出的操作使栈顶地址增大。栈保存了一个函数调用所需要的维护信息，被称为堆栈帧（Stack Frame）或活动记录（Activate Record），包括：</p>
+<ul>
+<li>函数返回地址和参数；</li>
+<li>临时变量，包括函数的非静态局部变量、编译器自动生成的其它临时变量；</li>
+<li>保存的上下文，包括函数调用前后需要保持不变的寄存器。</li>
+</ul>
+<p>函数的活动记录用<code>ebp</code>（指向函数活动记录的一个固定位置，称为帧指针 Frame Pointer）和<code>esp</code>两个寄存器划定范围。</p>
+<p>在参数之后的数据即是当前函数的活动记录，ebp所直接指向的数据是调用该函数前ebp的值，这样在函数返回的时候，ebp可以通过读取这个值恢复到调用前的值</p>
+<img src="http://qiniu.ifungfay.com/mweb/linking_activity_record.png2019%2008%2013" width="500">
+【图】活动记录
+
+<p>函数调用过程：</p>
+<ul>
+<li>把所有或一部分参数压入栈中，若其它参数没有入栈，那么使用某些特定的寄存器传递；</li>
+<li>把当前指令的下一条指令的地址压入栈中，并跳转到函数体执行，这两步由call指令完成；</li>
+<li>push ebp，把ebp压入栈中，称为old ebp；</li>
+<li>mov ebp,esp，ebp=esp</li>
+<li>【可选】sub esp, XXX，在栈上分配XXX字节的临时空间；</li>
+<li>【可选】push XXX，如有必要，保存名为XXX寄存器；</li>
+</ul>
+<p>GCC编译器有一个参数<code>-fomit-frame-pointer</code>可以取消帧指针，空出ebp寄存器供使用，但帧上的寻址速度会变慢，无法准确定位函数的调用轨迹。</p>
+<p>eax一般会在函数的最后被赋值，作为返回值传出，函数返回之后，调用方可以通过读取eax寄存器来获取返回值。</p>
+<p>但像函数被声明为static、函数在编译单元仅被直接调用，没有显示或隐式去地址的情况下，编译器生成函数的进入和退出指令序列时并不按标准方式进行。</p>
+<h2 id="调用惯例"><a href="#调用惯例" class="headerlink" title="调用惯例"></a>调用惯例</h2><p>函数的调用方和被调用方对于函数如何调用须要有一个明确的约定，即调用惯例（Calling Convention）。</p>
+<ul>
+<li>函数参数的传递顺序和方式，调用方将参数压入栈，函数自己再从栈中将参数取出，压栈顺序从左至右，还是从右至左，还是使用寄存器传递以提高性能；</li>
+<li>栈的维护方式，弹出全部被压入栈的参数的工作，由函数的调用方还是函数本身来完成；</li>
+<li>名字修饰的策略，为了链接时对调用惯例进行区分。</li>
+</ul>
+<p>默认的调用惯例是cdecl，如 int _cdecl foo(int n, float m)，代表从右至左的顺序压参数入栈、函数调用方出栈、直接在函数名称前加1个下划线。其它还有如stdcall、fastcall、pascal。</p>
+<p>程序返回时，先使用pop恢复保存在栈里的寄存器，然后从栈里取得返回地址，返回到调用方，调用方再调整ESP将堆栈恢复。</p>
+<p>一般的调用惯例，都采用eax和edx联合返回的方式进行，eax存储返回值要低4字节，edx存储返回值要高1-4字节；超过8字节的采用隐含参数传入（通过复合指令rep movs，相当于memcpy），将eax指向的内容拷贝给调用方，即仍然是eax传出函数返回的结构体，只不过存储的是结构体的指针。</p>
+<h2 id="堆与内存管理"><a href="#堆与内存管理" class="headerlink" title="堆与内存管理"></a>堆与内存管理</h2><p>如果内核提供一个系统调用，可以让程序使用这个系统调用申请内存，但效率较差，每次程序申请或者释放堆空间都要进行系统调用。所以，程序向操作系统申请一块适当大小的堆空间，然后由程序自己管理这块空间，管理着堆空间分配的往往是程序的运行库。</p>
+<p>运行库拥有一个算法进行管理堆空间。</p>
+<ul>
+<li>brk()系统调用，实际上就是设置进程的数据段结束地址。</li>
+<li>mmap()系统调用，向操作系统申请一段虚拟地址空间，当它不将地址空间映射到某个文件时，我们称这块空间为匿名（Anonymous）空间，就拿来作为堆空间。</li>
+</ul>
+<p>malloc函数：</p>
+<ul>
+<li>对于小玉128KB的请求，会在现有的堆空间里面按堆分配算法分配一块空间并返回；</li>
+<li>对于大于128KB的请求，会使用mmap()函数为它分配一块匿名空间，然后再匿名空间中为用户分配空间。</li>
+<li>malloc申请的空间起始地址和大小都必须是系统页的大小的整数倍。</li>
+</ul>
+<h2 id="堆分配算法"><a href="#堆分配算法" class="headerlink" title="堆分配算法"></a>堆分配算法</h2><ul>
+<li>空闲链表，一旦链表被破坏，整个堆就无法正常工作，容易被越界读写所接触到；</li>
+<li>位图（Bitmap），将整个堆划分为大量的块，每个块的大小相同，总是分配整数个块给用户，使用一个整数数组记录块的使用情况，用两位表示一个块的头/主体/空闲三种状态。</li>
+<li>多级位图；</li>
+<li>对象池。</li>
+</ul>
+<h1 id="运行库"><a href="#运行库" class="headerlink" title="运行库"></a>运行库</h1><h2 id="入口函数和程序的初始化"><a href="#入口函数和程序的初始化" class="headerlink" title="入口函数和程序的初始化"></a>入口函数和程序的初始化</h2><p>入口函数或入口点（Entry Point）准备好main函数执行所需要的环境，并负责调用main函数，会记录main函数的返回值，调用atexit注册的函数，结束进程。</p>
+<ul>
+<li>操作系统在创建进程后，吧控制权交给程序的入口，此入口往往是运行库中的某个入口函数；</li>
+<li>入口函数对运行库和程序运行环境进行初始化，包括堆、I/O、线程、全局变量构造等；</li>
+<li>入口函数完成初始化后，调用main函数，开始执行程序主体部分；</li>
+<li>main函数执行完毕后，返回到入口函数，入口函数进行清理工作，包括全局变量的析构、堆销毁、关闭I/O等，然后进行系统调用结束进程。</li>
+</ul>
+<p>_start() __libc_start_main() exit() _exit()</p>
+<h2 id="运行库与I-O"><a href="#运行库与I-O" class="headerlink" title="运行库与I/O"></a>运行库与I/O</h2><p>文件是一个广义的概念，各种具有输入输出概念的实体，如设备、磁盘文件、命令行等。在操作系统层面上，文件操作也是有类似于FILE的一个概念，这叫文件描述符（File Descriptor）或句柄（Handle），打开文件得到的fd，表示打开文件表的下标，由于表处于内核，并且用户无法访问，因此用户即使拥有fd，也无法得到打开文件对象的地址，只能通过系统提供的函数来操作。</p>
+<p>I/O的职责是，初始化函数需要在用户空间中建立stdin、stdout、stderr及其对应的FILE结构，使得程序进入main之后可以直接使用printf、scanf等函数。</p>
+<h2 id="C语言运行库"><a href="#C语言运行库" class="headerlink" title="C语言运行库"></a>C语言运行库</h2><p>C运行库（CRT）</p>
+<p>主要功能包括：</p>
+<ul>
+<li>启动与退出</li>
+<li>标准函数</li>
+<li>I/O</li>
+<li>堆</li>
+<li>语言实现</li>
+<li>调试</li>
+</ul>
+<p>标准库：ANSI C89 ，到ANSI C99，主要文件（模块）包括：</p>
+<ul>
+<li>标准输入输出 stdio.h</li>
+<li>文件操作 stdio.h</li>
+<li>字符操作 ctype.h</li>
+<li>字符串操作 string.h</li>
+<li>数学函数 math.h</li>
+<li>资源管理 stdlib.h</li>
+<li>格式转换 stdlib.h</li>
+<li>时间/日期 time.h</li>
+<li>断言 assert.h</li>
+<li>各种类型上的常数 limits.h &amp; float.h</li>
+<li>变长参数 stdarg.h</li>
+<li>非局部跳转 setjmp.h</li>
+</ul>
+<p>运行库的代表性特殊函数：</p>
+<ul>
+<li>变长参数（得益于cdecl调用惯例）<ul>
+<li>va_list ap;，让ap以后依次指向各个可变参数</li>
+<li>va_start(ap, lastarg);，初始化ap</li>
+<li>type next = va_arg(ap, type);，获得下一个不定参数</li>
+<li>va_end(ap);</li>
+</ul>
+</li>
+</ul>
+<p>在GCC编译器下，变长参数泓可以使用“##”宏字符串链接操作实现，在MSVC下使用<strong>VA_ARGS</strong>。</p>
+<ul>
+<li><p>非局部跳转。</p>
+</li>
+<li><p>辅助程序运行的运行库：</p>
+<ul>
+<li><p>/usr/lib/crtl.o，包含程序的入口函数_start，由它负责调用__libc_start_main初始化libc并且调用main函数进入真正的程序主体；</p>
+</li>
+<li><p>/usr/lib/crti.o，帮助.init和.finit它们启动，比如计算GOT等；</p>
+</li>
+<li><p>/usr/lib/crtn.o，同上。其实crti.o和crtn.o分别是_init()和_finit()函数的开始和结尾部分，它们和其它目标文件按顺序链接后刚好形成完整的_init()和_finit()函数，因此链接时，crti.o必须在用户目标文件和系统库之前，crtn.o必须在用户目标文件和系统库之后。</p>
+<p>$objdump -dr /usr/lib/crti.o<br>$objdump -dr /usr/lib/crtn.o</p>
+</li>
+</ul>
+</li>
+</ul>
+<p>希望使用自己的libc和crt1.o等启动文件代替系统默认的，使用参数GCC的参数”-nostartfile“和”-nostdlib“</p>
+<h2 id="运行库与多线程"><a href="#运行库与多线程" class="headerlink" title="运行库与多线程"></a>运行库与多线程</h2><p>线程在实际运用中也拥有自己的私有存储空间：</p>
+<ul>
+<li>栈，只要知道其他线程的堆栈地址还是可以在线程间访问</li>
+<li>线程局部存储（Thread Local Storage，TLS）</li>
+<li>寄存器（包括PC寄存器），寄存器存放的数据是执行流的基本数据。</li>
+</ul>
+<p>线程相关的部分不属于标准库的内容，多线程相关主要指：</p>
+<ul>
+<li>提供多线程操作的接口，比如创建线程、退出线程、设置线程优先级等函数接口；</li>
+<li>运行库能在多线程环境下正确运行。</li>
+</ul>
+<p>自然具有线程安全属性的函数包括：</p>
+<ul>
+<li>字符处理（同时还是可重入）</li>
+<li>字符串处理</li>
+<li>数学函数（同时还是可重入）</li>
+<li>字符串转整形/浮点数</li>
+<li>获取环境变量（同时还是可重入）</li>
+<li>变长数组辅助函数</li>
+<li>非局部跳转函数</li>
+</ul>
+<p>线程局部存储（TLS）的实现，定义一个全局变量为TLS类型，则只需加上以下关键字（隐式TLS）：</p>
+<pre><code>__thread int number;</code></pre><p>这样，每个线程都会拥有这个变量的一个副本。</p>
+<p>显式TLS，程序员须要手工申请TLS变量，并在每次访问该变量时都要调用相应的函数得到变量的地址，并在访问完成之后须要释放该变量。pthread库中提供了 pthread_key_create()、pthread_getspecific()、pthread_setspecific()、pthread_key_delete()。</p>
+<h2 id="fread实现"><a href="#fread实现" class="headerlink" title="fread实现"></a>fread实现</h2><p>fread有4个参数，从文件流<code>stream</code>里读取<code>count</code>个大小为<code>elementSize</code>字节的数据，存储在<code>buffer</code>里。</p>
+<p>由于系统调用开销大，要进行上下文切换、内核参数检查、复制，频繁进行会严重影响程序和系统性能，所以I/O系统中引入缓冲（Buffer）的概念。比如讲对控制台的多次写入放入一个数组里，等到数组被填满之后再一次性完成系统调用写入。读文件则先看缓冲中是否有数据，有则直接从缓冲中读取，若为空则通过系统调用一次性读取一大块文件内容填充到缓冲区。</p>
+<p>fwrite向文件写入一段数据时，此时这些数据不一定被真正地写入到文件中，而是可能还存在于文件的写缓冲里面，如果此时系统崩溃或意外退出程序，就可能丢失数据。因此标准库提供了相关的函数弥补缓冲带来的问题：</p>
+<ul>
+<li>fflush，将缓冲的数据全部写入实际的文件，并情况缓冲。</li>
+<li>setvbuf，设置指定文件的缓冲，_IONBF（无缓冲模式）：该文件不使用任何缓冲，_IOLBF（行缓冲模式）：仅支持文本模式打开的文件，每收到一换行符，就将缓冲flush，_IOFBF（全缓冲模式）：仅当缓冲满时才flush。</li>
+<li>setbuf，同上。</li>
+</ul>
+<p>fread-&gt;fread_s (缓冲溢出保护、加锁线程安全)-&gt;_fread_nolock_s（循环读取、缓冲）-&gt;_read（换行符转换）-&gt;系统API</p>
+<h1 id="系统调用与API"><a href="#系统调用与API" class="headerlink" title="系统调用与API"></a>系统调用与API</h1><p>系统调用（System Call），是应用程序与操作系统内核之间的接口。这些接口往往通过中断来实现，比如0x80号中断作为系统调用的入口，各个通用寄存器用于传递参数，EAX寄存器用于表示系统调用的接口号，比如：</p>
+<ul>
+<li>EAX=1表示退出进程（exit）；</li>
+<li>EAX=2表示创建进程（fork）；</li>
+<li>EAX=3表示读取文件IO（read）；</li>
+<li>EAX=4表示写文件或IOS（write）；</li>
+<li>EAX=5表示打开文件（open）；</li>
+<li>EAX=6表示关闭文件（close）；</li>
+<li>EAX=7表示等待进程退出（waitpid）；</li>
+<li>EAX=8表示创建文件（create）…</li>
+</ul>
+<p>每个系统调用都对应于内核源码中的一个函数，都以sys_开头，比如exit对应sys_exit函数，当系统调用返回时，EAX又作为调用结果的返回值，参数通过EBX、ECX、EDX、ESI、EDI和EBP传入。类型包括有权限管理、定时器、信号、网络等相关的。</p>
+<p>可以使用<code>man</code>命令查看每个系统调用的详细说明。因为系统调用使用不便、操作系统间不兼容，所以运行库的存在的一部分原因也是为解决这部分问题。</p>
+<p>系统调用是运行在内核状态的，而应用程序基本都是运行在用户态的，操作系统通过中断（Interrupt）来从用户态切换到内核态。</p>
+<p>中断有两种类型：</p>
+<ul>
+<li>硬中断，来自硬件的异常或事件发生；</li>
+<li>软中断，通常是一条指令（int），带一个参数记录中断号，触发某个中断并执行其中断处理程序。</li>
+</ul>
+<p>在内核中有一个数组称为中断向量表（Interrupt Vector Table），第n项即包含了指向第n号中断的中断处理程序的指针。触发系统调用的指令（中断号放置在固定的寄存器中，像eax来传入）：</p>
+<pre><code>int 0x80</code></pre><p>系统调用使用返回值传递错误码，若为负数表明调用失败，而C语言里大多函数都以返回-1表示调用失败，而将出错信息存储在一个名为errno的全局变量。</p>
+<ul>
+<li>CPU执行到int $0x80时，保存现场以便恢复；（int对应的是iret指令，会对压栈的寄存器在切回到用户态时出栈）</li>
+<li>然后将特权状态切换到内核态；（用户态和内核态使用的是不同的栈，寄存器SS还应该指向当前栈所在的页，在内核栈中压入用户态的寄存器）</li>
+<li>然后CPU查找中断向量表中的第0x80号元素</li>
+</ul>
+<h1 id="关于汇编"><a href="#关于汇编" class="headerlink" title="关于汇编"></a>关于汇编</h1><p>汇编语言（ assembly language，缩写为 asm）是二进制指令的文本形式，与指令是一一对应的关系。二进制的指令又称为操作码（opcode）。</p>
+<p>把文字指令翻译成二进制，这个步骤就称为 assembling，完成这个步骤的程序就叫做 assembler，它处理的文本，自然就叫做 aseembly code。</p>
+<h2 id="寄存器"><a href="#寄存器" class="headerlink" title="寄存器"></a>寄存器</h2><p>CPU 本身只负责运算，不负责储存数据。CPU 的运算速度远高于内存的读写速度，所以为了避免被拖慢，CPU 都自带一级缓存和二级缓存，而不从内存读写。但CPU 缓存还是不够快，另外数据在缓存里面的地址是不固定的，CPU 每次读写都要寻址也会拖慢速度。因此，除了缓存之外，CPU 还自带了寄存器（register），用来储存最常用的数据。也就是说，那些最频繁读写的数据（比如循环变量），都会放在寄存器里面，CPU 优先读写寄存器，再由寄存器跟内存交换数据。寄存器不依靠地址区分数据，而依靠名称。</p>
+<p>32 位 CPU 的寄存器大小就是4个字节，早期的 x86 CPU 只有8个寄存器：</p>
+<ul>
+<li>EAX</li>
+<li>EBX</li>
+<li>ECX</li>
+<li>EDX</li>
+<li>EDI</li>
+<li>ESI</li>
+<li>EBP</li>
+<li>ESP</li>
+</ul>
+<p>寄存器只能存放很少量的数据，大多数时候，CPU 要指挥寄存器，直接跟内存交换数据。</p>
+<p>寄存器的具体种类：</p>
+<ul>
+<li>数据寄存器<ul>
+<li>AX：累积暂存器</li>
+<li>BX：基底暂存器</li>
+<li>CX：计数暂存器</li>
+<li>DX：资料暂存器</li>
+</ul>
+</li>
+<li>索引暂存器（变址&amp;指针寄存器）<ul>
+<li>SI：来源索引暂存器</li>
+<li>DI：目的索引暂存器</li>
+</ul>
+</li>
+<li>指针寄存器</li>
+<li>SP：堆叠指标暂存器</li>
+<li>BP：基底指标暂存器</li>
+<li>通用寄存器（变量）<ul>
+<li>EAX 是”累加器”(accumulator)，它是很多加法乘法指令的缺省寄存器，默认保存所有API函数的返回值。</li>
+<li>EBX 是”基地址”(base)寄存器, 在内存寻址时存放基地址，即作为存储器指针来使用。</li>
+<li>ECX 是计数器(counter), 是重复(REP)前缀指令和LOOP指令的内定计数器，即在循环和字符串操作时，要用它来控制循环次数；在位操作中，当移多位时，要用CL来指明移位的位数。loop指令的用法为，CPU执行loop指令的时候，一先进行(CX)=(CX)-1，二判断cx中的值，不为0则转至标号处执行程序，如果为0则向下执行。</li>
+<li>EDX 总是被用来放整数除法产生的余数，在进行乘、除运算时，它可作为默认的操作数参与运算，也可用于存放I/O的端口地址。</li>
+<li>ESI/EDI分别叫做”源/目标索引寄存器”(source/destination index)，因为在很多字符串操作指令中，DS:ESI指向源串，而ES:EDI指向目标串。也可以叫他们做变址寄存器(Index Register），主要是可用于存放存储单元在段内的偏移量，用它们可实现多种存储器操作数的寻址方式，为以不同的地址形式访问存储单元提供方便。变址寄存器不可分割成8位寄存器。作为通用寄存器，也可存储算术逻辑运算的操作数和运算结果。它们可作一般的存储器指针使用。在字符串操作指令的执行过程中，对它们有特定的要求，而且还具有特殊的功能。</li>
+<li>EBP 基址指针寄存器(extended base pointer)，其内存放着一个指针，该指针永远指向系统栈最上面一个栈帧的底部</li>
+<li>ESP 栈指针寄存器(extended stack pointer)，其内存放着一个指针，该指针永远指向系统栈最上面一个栈帧的栈顶。SS:SP，SS中存放的是栈顶的段地址，偏移地址存放在SP中，任意时刻有：SS:SP指向栈顶元素。</li>
+</ul>
+</li>
+<li>段寄存器（物理地址=段地址*16+偏移地址）<ul>
+<li>CS CPU将CS:IP指向的内存单元中的内容看作指令（CS:代码段寄存器。IP：指令指针寄存器）</li>
+<li>DS</li>
+<li>ES</li>
+<li>SS</li>
+</ul>
+</li>
+</ul>
+<p>EAX是32位寄存器，AX是16位寄存器,AL(AH)是八位寄存器。<br>EAX可以存储的数字是DWORD（双字），AX存储的是WORD（字），AL(AH)存储的是BYTE（字节）。<br>EAX、ECX、EDX、EBX：是AX、CX、DX、BX的延伸，各为32位位。<br>ESI、EDI、ESP、EBP：是SI、DI、SP、BP的延伸，各为32位位</p>
+<h2 id="内存模型"><a href="#内存模型" class="headerlink" title="内存模型"></a>内存模型</h2><p>关于堆，对于动态的内存占用请求，系统就会从预先分配好的那段内存之中，划出一部分给用户，具体规则是从起始地址+一段静态数据后的地址开始划分，此为Heap（堆）。</p>
+<p>关于栈，其他的内存占用就叫做 Stack（栈），是由于函数运行而临时占用的内存区域。在栈中，系统会为每个调用的函数新建一个帧，用来储存它的内部变量，一般来说，调用栈有多少层，就有多少帧。栈是由内存区域的结束地址开始，从高位（地址）向低位（地址）分配。</p>
+<p>程序从函数的标签开始执行，这时会在 Stack 上为函数建立一个帧，并将 Stack 所指向的地址，写入 ESP 寄存器。</p>
+<h2 id="汇编指令"><a href="#汇编指令" class="headerlink" title="汇编指令"></a>汇编指令</h2><h3 id="X86指令"><a href="#X86指令" class="headerlink" title="X86指令"></a>X86指令</h3><ul>
+<li>push n：用于将运算子放入 Stack，push指令其实有一个前置操作。它会先取出 ESP 寄存器里面的地址，将其减去（即向低位发展）n所占用的字节数，然后将新地址写入 ESP 寄存器。</li>
+<li>push %ebx：表示将 EBX 寄存器里面的值，写入某函数的帧。有些编译器（像微软的）描述的寄存器位置则没有前缀符号%。</li>
+<li>call function：程序会去找function该函数标签，并为该函数建立一个新的帧。</li>
+<li>mov %eax, [%esp+8] ：这是Intel的mov格式，先将 ESP 寄存器里面的<code>地址</code>加上8个字节，得到一个新的地址，然后按照这个地址在 Stack 取出数据，再将数据写入 EAX 寄存器。</li>
+<li>movl %edx, 4(%edi)：这个AT&amp;T的格式，由于GNU汇编器不允许值与寄存器相加，必须将值放在括号外（先取地址再运算），这条指令就是把EDX寄存器的值存放在EDI寄存器指向的位置之后4个字节的内存位置中，4也是设置为-4来让方向取反。若对立即数操作，则立即数前面必须放一个$，用其表示取value的内存地址。</li>
+<li>add %eax, %ebx：将两个运算子相加，并将结果写入第一个运算子。即将 EAX 寄存器的值加上 EBX 寄存器的值，结果写入第一个运算子 EAX 寄存器。</li>
+<li>pop %ebx：取出 Stack 最近一个写入的值（即最低位地址的值），并将这个值写入运算子指定的位置（寄存器）。注意，pop指令还会将 ESP 寄存器里面的地址加4进行回收。</li>
+<li>ret：终止当前函数的执行，将运行权交还给上层函数，也就是当前函数的帧将被回收。</li>
+<li>add %esp, 8：由于esp寄存器存的值就是栈顶地址，该指令表示，将 ESP 寄存器里面的地址，手动加上8个字节，再写回 ESP 寄存器。</li>
+<li>movl %ebx, (%edi)：当edi没括号时，则只是把EBX寄存器的值加载到EDI寄存器中，但若EDI带有括号时，则指令表示把EBX寄存器中的值传送给EDI寄存器中包含的内存位置。</li>
+<li>lea eax,[ebx+8]：就是将ebx+8这个值直接赋给eax（ebx其所存地址指向的值+8），而不是把ebx+8处的内存地址里的数据赋给eax。</li>
+</ul>
+<h4 id="LEA（load-dffective-address）"><a href="#LEA（load-dffective-address）" class="headerlink" title="LEA（load dffective address）"></a>LEA（load dffective address）</h4><p>关于LEA，可能比较难理解，下面做详细的介绍</p>
+<p>LEA指令的功能是取偏移地址（优化寻址时的算术运算，可四则混合运算），MOV指令的功能是传送数据 </p>
+<p>LEA AX,[1000H]，作用是将内存单元[1000H]的偏移地址1000H送至AX；<br>MOV AX,[1000H]，作用是将内存单元[1000H]的内容1234H送给AX</p>
+<p>LEA AX,[SI]，作用是将寄存器SI的内容4567H当做数据传送给AX；<br>MOV AX,[SI]，作用是将寄存器SI的内容4567H当做地址看待，将地址为4567H处的内容传送给AX；</p>
+<p>LEA AX,SI，作用是将寄存器SI的偏移地址1001H传送给AX；<br>MOV AX,SI，作用是将寄存器SI的内容传送给AX；</p>
+<p>几种形式：<br>LEA BX ，BUFFER<br>LEA AX，[BX]<a href="基址加变址寻址">DI</a><br>LEA DX，DATA [BX]<a href="相对基址加变址寻址">SI</a> </p>
+<p>几种等价：<br>1.LEA BX,TABLE 等价于 MOV BX,OFFSET TABLE<br>2.LEA AX,[SI] 等价于 MOV AX,SI</p>
+<p>但有时不能直接使用MOV代替，比如：LEA AX,[SI+6] 不能直接替换成：MOV AX,SI+6；但可替换为拆分两步：MOV AX,SI 和 ADD AX,6</p>
+<p>LEA指令是一个计算机指令，可以将有效地址传送到指定的的寄存器。LEA OPRD1,OPRD2，OPRD1 为目的操作数，OPRD2 为源操作数，可为变量名、标号或地址表达式。从第二个操作数（源操作数）计算有效地址，并将结果存入第一个操作数（目的操作数）。源操作数是指定了一种访存操作的内存地址，目的操作数为一个通用寄存器。</p>
+<p>源操作数为变量或者立即数时，与为寄存器时不同。</p>
+<ul>
+<li>对于lea指令来说，有没有[]对于变量是无所谓的，其结果都是取变量的地址，相当于获取其指针，Lea的偏移量还可以是立即数，lea ebx,num; = lea eax,[num];</li>
+<li>对于mov指令来说，有没有[]对于变量是无所谓的，其结果都是取值，立即数时则是直接赋值</li>
+</ul>
+<p>另外一则例子：</p>
+<ul>
+<li>lea eax,[ebx+8]：表示将ebx+8这个值直接赋给eax（ebx其所存地址指向的值+8），而不是把ebx+8处的内存地址里的数据赋给eax。</li>
+<li>mov eax,[ebx+8]：而mov指令则恰恰相反，是把内存地址为ebx+8处的数据赋给eax。</li>
+<li>lea ebx ,[eax+edx]：这样可以满足要计算两个寄存器的和，而又不破坏原来的值。这条指令执行的是 ebx = eax + edx 这条加法运算（两项地址所指向的值相加），如果用add指令，则不可能一条指令内完成。</li>
+</ul>
+<h3 id="ARM指令"><a href="#ARM指令" class="headerlink" title="ARM指令"></a>ARM指令</h3><p>与X86汇编比较：</p>
+<ul>
+<li>x86汇编的寄存器少，用途易记，指令最多只有2个操作数，常用的指令基本都支持各种寻址模式，x86对于汇编器以及反汇编器开发者就特别麻烦，1是opcode规则特别特别复杂，2是太多可有可无的前缀。</li>
+<li>ARM则恰好相反，寄存器多的像海一样难记，还有立即数的使用限制（32位指令处理32位立即数通过伪指令（寄存器）来处理），3元操作数指令提供了不少灵异变化和优化空间。</li>
+<li>保护模式分页分别存在于ARM和x86，是需要掌握的基础。</li>
+</ul>
+<p>ARM的指令格式：</p>
+<pre><code>&lt;opcode&gt;{&lt;cond&gt;}{S}{. W|.N} &lt;Rd&gt;,&lt;Rn&gt;{,&lt;operand2&gt;}</code></pre><ul>
+<li><p>{}为可选参数，&lt;&gt;为变量</p>
+</li>
+<li><p>opcode：指令助记符，如MOV、ADD、SUB等；</p>
+</li>
+<li><p>cond：指令条件码：</p>
+<ul>
+<li>EQ：相等，标志位Z=1</li>
+<li>NE：不相等，标志位Z=0</li>
+<li>CS/HS：无符号数大于或等于，标志位C=1</li>
+<li>CC/LO：无符号数小于，标志位C=0</li>
+<li>MI：负数，标志位N=1</li>
+<li>PL：正数或零，标志位N=0</li>
+<li>VS：溢出，标志位V=1</li>
+<li>VC：没有溢出，标志位V=0</li>
+<li>HI：无符号数大于，标志位C=1 Z=0</li>
+<li>LS：无符号数小于或等于，标志位C=0 Z=1</li>
+<li>GE：有符号数大于或等于，标志位N=V</li>
+<li>LT：有符号数小于，标志位N!=V</li>
+<li>GT：有符号数大于，标志位Z=0 N=V</li>
+<li>LE：有符号数小于或等于，标志位Z=1 N!=V</li>
+<li>AL：无条件执行（默认条件），任何标志位</li>
+</ul>
+</li>
+<li><p>{S}：是否影响CPSR的值</p>
+</li>
+<li><p>{.W .N}：指令宽度说明符</p>
+</li>
+<li><p>Rd：目的寄存器</p>
+</li>
+<li><p>Rn：第一个操作数寄存器</p>
+</li>
+<li><p>operand2：第二个操作数，可以是寄存器、立即数、寄存器移位操作。</p>
+</li>
+<li><p>跳转指令</p>
+<ul>
+<li>B指令：B{cond} lable，比如BNE就是not equal z=0时，跳转到lable。</li>
+<li>BL指令：BL{cond} lable，如果条件cond满足，会将当前指令的下一条指令的地址copy到R14（LR）寄存器中，然后跳转到lable指定的地址继续执行，这条指令通常作用于子程序，在子程序的尾部 执行MOV PC,LR 就可以返回到主程序中，继续执行下一条指令。</li>
+<li>BX指令：BX{cond} Rm，跳转时判断是用arm代还是Thumb代码执行。</li>
+</ul>
+</li>
+<li><p>存储器访问指令</p>
+<ul>
+<li>LDR指令：LDR{type}{cond} Rd,lable，从存储器中加载数据到寄存器，Rd是要加载的寄存器，lable是要读取的内存地址，<ul>
+<li>type指明操作数的大小：<ul>
+<li>B：无符号字节；</li>
+<li>SB：有符号字节；</li>
+<li>H：无符号半字；</li>
+<li>SH：有符号半字；</li>
+</ul>
+</li>
+<li>lable读取内存的表示方式：<ul>
+<li>LDR R8, [R9, #04] 或 LDR R8, [R9], #04，表示直接偏移或寄存器偏移，即在寄存器保存的地址上加上偏移量得出要取值的地址，然后取得值就是label；</li>
+<li>LDR R8, #04，表示取值地址是相对于PC偏移，label就是PC偏移地址所存的值；</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>STR指令：STR{type}{cond} Rd, label，与LDR相反，存储内容到指定的内存中，Rd表示要存的内容，label表示存储单元，type中SB与SH无效。STR R0,[R2,#04] 将R0寄存器的数据，存储到R2+4所指向的存储单元中去。</li>
+<li>LDM指令：LDM{addr_mode}{cond} Rn{!} reglist，从指定的存储单元加载多个数据到一个寄存器列表：<ul>
+<li>Rn为基地址寄存器，用于存储初始地址；</li>
+<li>! 表示最终地址将写回到Rn寄存器</li>
+<li>reglist，在多个连续的寄存器时使用“-”连接，如{R0-R3}，否则{R0,R3,R7}</li>
+<li>addr_mode:<ul>
+<li>IA，基址寄存器在执行指令之后增加（默认）</li>
+<li>IB，执行前增加</li>
+<li>DA，执行前减少</li>
+<li>DB，执行后减少</li>
+<li>FB，满递减堆栈</li>
+<li>FA，满递增堆栈</li>
+<li>ED，空递减堆栈</li>
+<li>EA，空递增堆栈</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>STM指令：STM{addr_mode}{cond} Rn{!} reglist，与LDM相反</li>
+<li>PUSH指令：PUSH{cond} reglist，将寄存器推入满递减堆栈中</li>
+<li>POP指令：POP{cond} reglist，与PUSH相反</li>
+<li>SWP指令：SWP {B}{cond} Rd, Rm, [Rn]，交换寄存器与存储器之间的数据，<ul>
+<li>B为可选字节，有B则交换字节，否则交换32位的字</li>
+<li>Rd为要从存储器中加载数据的寄存器 存储器-&gt;寄存器</li>
+<li>Rm为要从寄存器加载数据到存储器的寄存器 寄存器-&gt;存储器</li>
+<li>Rn:为需要进行数据交换的存储器地址。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>数据处理指令</p>
+<ul>
+<li>MOV指令：MOV{cond}{S} Rd, operand2，将8位立即数或者寄存器的内容传送到目标寄存器，如MOV,RO,#8或MOV,RO,R1</li>
+<li>MVN指令：MVN{cond}{S} Rd, operand2，将8位的立即数或寄存器按位取反后，传送到目标寄存器，此为数据非传送指令</li>
+</ul>
+</li>
+<li><p>算数运算指令</p>
+<ul>
+<li>ADD指令：为加法指令，例如ADD R0,R1,LSL #3即R0 = R1 * 8，ADDS R0,R1,R2即R0 = R1+R2，ADD R0,R1,#2即R0 = R1+@</li>
+<li>ADC指令：ADC{cond}{S} Rd, Rn, operand2，带进位的加法指令，将Rn,operand2的值相加，然后再加上CPSR寄存器的C条件标志位的值，最后将结果保存到Rd寄存器.</li>
+<li>SUB指令：为减法指令，例如SUB RO,R1,#4即R0 = R1-4</li>
+<li>RSB指令：逆向减法指令，就是说用operand2 - Rn，然后赋值给Rd</li>
+</ul>
+</li>
+<li><p>逻辑运算</p>
+<ul>
+<li>AND指令：逻辑与，例如AND RO,R0,#1，用来测试R0的最低位</li>
+<li>ORR指令：逻辑或，例如ORR R0,R0,#0X0F，指令执行后保留R0的低四位，其余位清0</li>
+<li>EOR指令：逻辑异或，例如EOR R0,R0,R0，执行后R0为0（两个同位值不相同，则异或结果为1，相同时为0）</li>
+<li>ORN指令：ORN{cond}{S} Rd,Rn,operand2，逻辑或非，先将操作数取反，再与目标寄存器进行或操作</li>
+<li>BIC指令：BIC{cond}{S} Rd,Rn,operand2，位清除指令，将operand2的值取反，然后将结果与Rn寄存器的值相 “与” 并保存到Rd寄存器中</li>
+</ul>
+</li>
+<li><p>比较指令：</p>
+<ul>
+<li>CMP指令：CMP{cond} Rn,operand2，使用Rn寄存器减去operand2的值，但CMP指令不保存计算结果，仅仅根据比较重置标志位（cpsr）：<ul>
+<li>CF : 进位标志</li>
+<li>PF : 奇偶标志</li>
+<li>AF : 辅助进位标识</li>
+<li>ZF : 0标识</li>
+<li>SF : 符号标识</li>
+<li>OF : 溢出标识</li>
+</ul>
+</li>
+<li>CMN指令：CMN{cond} Rn,operand2，将operand2的值加到Rn寄存器上，这与ADDS的指令功能相同，不过CMN指令不保存计算结果</li>
+<li>TST指令：TST{cond} Rn,operand2，测试指令，进行 “与” 运算，但不保存计算结果，仅仅根据计算结果设置标志位（cpsr）</li>
+<li>TEQ指令：进行 “异或” 运算，但不保存计算结果，仅仅根据计算结果设置标志位</li>
+</ul>
+</li>
+<li><p>移位指令</p>
+<ul>
+<li>LSL：逻辑左移，将整个操作数向左移动两位，右边补0,最终操作也就是 * 2^n(移位)，例如LSL R1,R0,#2，将R0向左移动两位，结果保存到R1中. 也就是 R0 * 2^2</li>
+<li>LSR：逻辑右移，整体向右移，左边补0，最终操作也就是 / 2 ^ n(移位)，例如LSR R1,R0,#2，将R0向右移动两位，结果保存到R1中. 也就是 R0 / 2^2</li>
+</ul>
+</li>
+</ul>
+<h3 id="Intel格式与AT-amp-T格式的区别"><a href="#Intel格式与AT-amp-T格式的区别" class="headerlink" title="Intel格式与AT&amp;T格式的区别"></a>Intel格式与AT&amp;T格式的区别</h3><p>在Intel格式的时候，[]表示地址，()表示数据；在AT&amp;T格式的时候，()表示为地址（编译时可添加编译条件 –masm=intel，或者–masm=att 指定格式）：</p>
+<ul>
+<li>AT&amp;T: -4(%ebp)                         //相当于 Intel: [ebp - 4]<ul>
+<li>AT&amp;T: foo(,%eax,4)                     //相当于 Intel: [foo + eax*4]</li>
+<li>AT&amp;T: foo(,1)                          //相当于 Intel：[foo]</li>
+<li>AT&amp;T: %gs:foo                          //相当于 Intel：gs:foo</li>
+<li>AT&amp;T: movl -4(%ebp), %eax              //相当于 Intel: mov eax, [ebp - 4]</li>
+<li>AT&amp;T: movl array(, %eax, 4), %eax      //相当于 Intel: mov eax, [eax*4 + array]</li>
+<li>AT&amp;T: movw array(%ebx, %eax, 4), %cx   //相当于 Intel: mov cx, [ebx + 4*eax + array]</li>
+<li>AT&amp;T: movb $4, %fs:(%eax)              //相当于 Intel: mov fs:eax, 4</li>
+</ul>
+</li>
+</ul>
+<h3 id="函数中的指令套路"><a href="#函数中的指令套路" class="headerlink" title="函数中的指令套路"></a>函数中的指令套路</h3><pre><code class="hljs undefined">push ebp ; //调用函数前，先保存当前EBP，为栈增加一个元素，BASE用于防止栈空后继续弹栈
+mov ebp,esp ; //然后将EBP设为当前堆栈指针
+sub esp, xxx ; //预留xxx字节给函数临时变量，栈顶提升(地址变小)
+...
+mov esp,ebp ; //函数执行完，将EBP（调用函数前的栈顶）赋回给ESP，栈顶下降(地址变大)
+pop ebp ; //从栈中取出EBP，恢复调用函数前的EBP
+ret ; //返回</code></pre>
+
+<h3 id="iOS上的实践"><a href="#iOS上的实践" class="headerlink" title="iOS上的实践"></a>iOS上的实践</h3><ul>
+<li>cmp指令中，一般查看标志位N和Z，N=1表示运算结果为负数，N=0表示结果为正数，Z=1表示运算结果为零，Z=0表示结果为非零。</li>
+<li>cpsr，例如当cpsr为0x20000000时，N为对应于32位，Z位对应于31位，如果分别都为00，也就是说非负数非0。</li>
+<li>加了条件的b指令一般跟在cmp指令后调用，例如cmp x1,x2和bgt testCode，bgt的判断条件取决于cpsr，即要跳转到testCode执行需要x1大于x2。</li>
+<li>执行函数采用bl指令，调用后能返回（b指令不具备返回），bl首先会将下一条的执行命令的地址放到lr（x30）中，然后执行跳转指令，等到跳转函数执行完成，执行跳转函数的ret的时候就会回到需要执行下一条的命令。</li>
+<li>64位下，一个寄存器有8个字节的容量，ldr赋值多少取决于接收数据的寄存器是多少字节。</li>
+<li>ldur与ldr指令意思一样，只是用于操作负数，例如ldur x1, [x0,#-0x4]</li>
+<li>ldp，表示从内存中读取数据放到一对内存中，例如ldp w1, w2 [x1, #0x4]，即将x1中所存的地址加上#0x4得到新指向地址，从这个地址指向的数据开始赋值给w1, w2，其中w1和w2分别占用4个字节那么就是其中的4个字节赋值给w1，其中的4个字节赋值给w2。</li>
+<li>ldp、ldr 、ldur 都是从内存中读取数据进行赋值。</li>
+<li>零寄存器，里面存储的值都是0，比如32位的wzr，64位的xzr。</li>
+<li>pc寄存器，存储的是当前执行到的代码的地址。</li>
+<li>fp、lr、sp、pc在顺序上，分别应该是x29、x30、x31、x32</li>
+<li>将C代码转为汇编的一种方式：</li>
+</ul>
+<pre><code class="hljs undefined">xcrun -sdk iphoneos clang -arch arm64 -S Ctest.c -o Ctest.s</code></pre>
+
+<p>在lldb上可以用以下几条指令查看信息：</p>
+<pre><code class="hljs undefined"># 读取所有寄存器现存的内容
+(lldb) register read
+# 读取具体某寄存器现存的内容
+(lldb) register read x0
+# 查询内存地址所指向的内存的值
+(lldb) x 0x000000016fd1fa4c
+(lldb) x x0   （x0所存的内容为内存地址）</code></pre>
+
+<h3 id="macOS上的实践"><a href="#macOS上的实践" class="headerlink" title="macOS上的实践"></a>macOS上的实践</h3><p>ld 需要添加-lSystem标识去防止抛出<code>warning: No version-min specified on command line</code>错误，然后使用 -macosx_version_min 移除错误：</p>
+<pre><code>ld hello.o -o hello -macosx_version_min 10.13 -lSystem
+ld hello.o world.o -o hello -macosx_version_min 10.13 -lSystem</code></pre><p>高级语言对照汇编语言解释：</p>
+<pre><code class="hljs undefined">#include&lt;stdio.h&gt;
+
+int main(int argc, char const *argv[])
+&#123;
+	int i, j, k;
+	printf(&quot;\n&quot;);
+	for(i=1;i&lt;5;i++) &#123;
+		for(j=1;j&lt;5;j++) &#123;
+			for(k=1;k&lt;5;k++) &#123;
+				if(i!=k&amp;&amp;i!=j&amp;&amp;j!=k) &#123;
+					printf(&quot;%d,%d,%d\n&quot;,i,j,k);
+				&#125;
+			&#125;
+		&#125;
+	&#125;
+	return 0;
+&#125;</code></pre>
+
+<img src="http://qiniu.ifungfay.com/mweb/linking_macos_pratise.jpg2019%2008%2026" width="700">
+
+<p>（movx，x为3种情况的字符：1，l用于32位的长字值；2，w用于16位的字值；3，b用于8位的字节值。）</p>
+<p>macOS中编译出的文件并不是linux的ELF，而是Mach-O格式，相应的指令如下：</p>
+<ul>
+<li>file：查看Mach-O文件的类型</li>
+<li>lipo：对架构的相关操作<ul>
+<li>-info：查看架构</li>
+<li>-thin：拆除某种架构，<code>lipo &lt;Mach-O&gt; -thin &lt;架构名&gt; -output &lt;输出文件路径&gt;</code></li>
+<li>-create：合并多种架构，<code>lipo -create &lt;Mach-O1&gt; &lt;Mach-O2&gt; -output &lt;输出文件路径&gt;</code></li>
+</ul>
+</li>
+<li>otool：查看Mach-O文件结构<ul>
+<li>-L：查看动态链接库</li>
+<li>-h：查看文件头信息</li>
+<li>在终端里直接输入otool即可得到各种参数的说明</li>
+</ul>
+</li>
+</ul>
+<p>也可使用免费开源的工具MachOView，查看Mach-O文件（支持胖二进制文件，但汇编代码中没有符号标识，偏移量不是从0开始，所以比较适合用其看局部的详细信息和其它结构中的内容）<br><a href="https://sourceforge.net/projects/machoview/" target="_blank" rel="noopener">MachOView</a></p>
+<img src="http://qiniu.ifungfay.com/mweb/linking_macos_machoview.png2019%2008%2027" width="700">
+
+<p>Mach-O主要分为三个部分：</p>
+<ul>
+<li>Header：包含字节顺序、架构类型、加载指令的数量等，使得系统可以快速确认一些信息，比如当前文件用于32位还是64位，对应的处理器是什么、文件类型是什么。</li>
+<li>Load commands：指示加载器如何加载二进制文件，它是一张包含很多内容的表，内容包括区域的位置、符号表、动态符号表等。每个加载指令都包含一个元信息，比如指令类型、名称、在二进制文件中的位置等等。</li>
+<li>Data：通常是对象文件中最大的部分。主要包含代码、数据，例如符号表，动态符号表等等。Data 中包含若干个 segment (段)，每个 segment 下又有若干个 section(节)：<ul>
+<li>文本段 __TEXT：类似PE的.text段</li>
+<li>数据段 __DATA：类似PE的.data段</li>
+<li>动态库加载信息 Dynamic Loader Info</li>
+<li>入口函数 Function Starts</li>
+<li>符号表 Symbol Table</li>
+<li>动态库符号表 Dynamic Symbol Table</li>
+<li>字符串表 String Table</li>
+</ul>
+</li>
+</ul>
+<p>C通常用GCC编译，OC通常用Clang编译。而二者也其实是可以通用的，即用Clang来编译C代码，GCC来编译OC代码。</p>
+<h1 id="名词释义"><a href="#名词释义" class="headerlink" title="名词释义"></a>名词释义</h1><p>工具</p>
+<ul>
+<li>GCC：GNU编译器套装（GNU Compiler Collection），是一套语言编译器，跨平台，后来被Clang+LLVM追赶。</li>
+<li>binutils是用来处理许多格式的目标文件，是一整套的编程语言工具程序，跨平台。例如汇编器as、链接器ld、获取信息和反汇编objdump、ELF文件的解释器readelf（只支持Linux）、列出总体和section大小size等。</li>
+</ul>
+<p>编码</p>
+<ul>
+<li>ASCII：针对英文数字和个别通用符号的编码</li>
+<li>Unicode：基于ASCII，增加针对不同国家的语言和符号的编码</li>
+<li>UTF-8：动态编码，针对Unicode中可用ASCII编码的情况，节省空间</li>
+</ul>
+<p>CPU</p>
+<ul>
+<li>32/64位：一般指CPU的通用寄存器(GPRs，General-Purpose Registers)位宽（亦即数据总线的位宽），其代表着在寄存器上的寻址能力，CPU有多少根地址线决定着能寻址到多大的内存地址，32位CPU可以定位2^32个内存单元，即内存空间可以去到4GB。</li>
+<li>数据总线：负责计算机中数据在各组成部分之间的传送，数据总线宽度是指在芯片内部数据传送的宽度，而数据总线宽度则决定了CPU与二级缓存、内存以及输入/输出设备之间一次数据传输的信息量。例如，8根数据总线一次可以传输一个字节，16根数据总线一次可以传输两个字节。数据总线是为各部件之间提供数据传送的通路，只有在控制总线和地址总线的作用下，数据总线才有意义。</li>
+<li>控制总线：CPU对外部器件的控制是通过控制总线来进行的。控制总线是个总称，控制总线是一些不同控制线的集合。有多少根控制总线，就意味着CPU提供了对外部器件的多少种控制。</li>
+</ul>
+<p>内存</p>
+<ul>
+<li>字节序：假设对于0x1234567，内存地址从低到高的话，在计算机内部处理是采用小端字节序来提升效率（即67 45 23 01），其它情况才采用大端字节序来方便阅读（即01 23 45 67）。所以objdump打印的16进制数据都是按小端字节序显示。</li>
+</ul>
+<p>堆栈</p>
+<ul>
+<li>堆栈段底部：这种底部说法一般指高位地址的顶点，比如一个堆栈段的地址空间是0xBF801FBC~0xBF802000，那么其底部就是0xBF802000。</li>
+</ul>
+<p>文件</p>
+<ul>
+<li>Mach-O：即Mach Object文件格式的缩写，它是一种用于可执行文件，目标代码，动态库，内核转储的文件格式。作为a.out格式的替代，Mach-O提供了更强的扩展性，并提升了符号表中信息的访问速度。</li>
+</ul>
+<img src="http://qiniu.ifungfay.com/mweb/linking_process_heap_stack.png2019%2008%2013" width="700">
+【图】进程初始堆栈
+
+<p>glibc</p>
+<ul>
+<li>即GNU C Library，GNU旗下的C标准库，其头文件位于/usr/include，二进制文件的动态标准库在/lib/libc.so.6，静态标准库在/usr/lib/libc.a。</li>
+</ul>
+<h1 id="命令集"><a href="#命令集" class="headerlink" title="命令集"></a>命令集</h1><p>查询</p>
+<pre><code class="hljs undefined">$file foobar.o 		# 查文件格式
+$objdump -h xx.o 	# 查看object文件内容，-h打印各段基本信息，-x可打印更多信息
+$objdump -s -d xx.o # -s以十六制形式打印，-d将指令段反汇编
+$objdump -d a.o 	# -d查看代码的反汇编结果
+$objdump -r a.o 	# -r查看重定位表
+$objdump -t libc.a 	# 查找函数所在的目标文件
+$objdump -t  		# 参考符号表
+$size xx.o 			# 查看ELF文件各段长度
+$readelf -h SimpleSection.o 	# -h表示只显示
+$readelf -S SimpleSection.o 	# 显示节头信息
+$readelf -l Lib.so 				# 查看动态共享对象的装载属性（查看segment）
+$readelf -d Lib.so 				# 查看.dynamic段的内容
+$readelf -sD Lib.so  			# 查看动态符号表及其哈希表
+$ldd Program1 					# 查看主模块或共享库依赖的共享库
+$readelf -r Lib.so 				# 查看动态链接文件的重定位表
+$readelf -d foo.so | grep TEXTREL # 区分是否PIC的指令
+$ar -t libc.a 					# 查看静态库包含的架构
+$ar -x libc.a 					# 解压目标文件到当前目录
+$./SectionMapping.elf &amp; 		# 1 查询可执行文件的进程号
+$cat /proc/xxxxx/maps   		# 2 查看进程的虚拟空间分布
+$kill xxxxx						# 3</code></pre>
+
+<p>编译</p>
+<pre><code class="hljs undefined">$gcc -E hello.c -o hello.i 	# 预编译
+$gcc -S hello.i -o hello.s 	# 汇编，翻译成汇编语言
+$as hello.s -o hello.o 		# 生成目标文件
+$gcc -c hello.s -o hello.o 	# 编译、汇编原文件
+$gcc -c hello.c -o hello.o 
+$gcc -c xx.c 				# 只编译不链接
+$objcopy -I binary -O elf32-i386 -B i386 image.jpg image.o 	# 媒体文件作段
+$gcc -static SectionMapping.c -o SectionMapping.elf 		# 静态库编译
+$gcc -fno-common ... 										# 所有未初始化的全局变量不以COMMON块的形式处理
+$gcc -c -fno-builtin hello.c 								# 关闭内置函数优化选项
+$gcc -fPIC -shared -o Lib.so Lib.c 							# 编译成共享对象，-fPIC代表使用地址无关代码技术
+$gcc -o Program Program.c ./Lib.so 							# 编译链接
+$gcc main.c b1.so b2.so -o main -Xlinker -rpath ./  		# 指定寻址共享对象的路径
+$gcc -shared -fPIC lib.c -Xlinker --version-script lib.ver -o lib.so 			# 指定脚本文件
+$ld --version-script lib.verz													# 指定脚本文件
+$gcc -shared -Wl,-soname,my_soname -o library_name source_files library_files 	# 创建共享库</code></pre>
+
+<p>链接</p>
+<pre><code class="hljs undefined">$ld -static crt1.o crti.o crtbeginT.o hello.o -start-group -lgcc -lgcc_eh -lc -end-group crtend.o crtn.o
+$ld a.o b.o -e main -o ab 	#-e main表示将main函数作为程序入口，因为ld链接器默认以_start为入口，-o ab表示链接输出文件名为ab，默认为a.out
+$ld -T link.script 			#自定义链接脚本</code></pre>
+
+<p>去掉调试信息</p>
+<pre><code class="hljs undefined">$strip foo</code></pre>
+
+<p>内嵌汇编</p>
+<pre><code class="hljs undefined">asm(&quot;movl $42, %ebx \n\t&quot;
+    &quot;movl $1, %eax \n\t&quot;
+    &quot;int $0x80 \n\t&quot; );</code></pre>
+
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p><a href="http://www.ruanyifeng.com/blog/2018/01/assembly-language-primer.html" target="_blank" rel="noopener">汇编语言入门教程</a></p>
+<p><a href="https://blog.51cto.com/yhj51blog/1683031" target="_blank" rel="noopener">汇编语言中LEA与MOV指令小结</a></p>
+<p>《程序员的自我修养 – 链接、装载与库》</p>
+<p><a href="https://www.ibm.com/developerworks/cn/linux/l-assembly/index.html" target="_blank" rel="noopener">Linux 汇编语言开发指南</a></p>
+
+      
+       <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 mingfungliu@gmail.com </span>
+    </div>
+</article>
+
+
+<p>
+    <a href="javascript:void(0)" class="dashang" onclick="dashangToggle()">赏</a>
+</p>
+
+
+
+<div class="article_copyright">
+    <p><span class="copy-title">文章标题:</span>链接、装载、库</p>
+    
+    <p><span class="copy-title">本文作者:</span><a href="javascript:void(0)" title="Mingfung">Mingfung</a></p>
+    <p><span class="copy-title">发布时间:</span>2019-06-05, 08:53:00</p>
+    <p><span class="copy-title">最后更新:</span>2019-10-11, 08:51:07</p>
+    <span class="copy-title">原始链接:</span><a class="post-url" href="/系统/链接、装载、库/" title="链接、装载、库">http://blog.ifungfay.com/系统/链接、装载、库/</a>
+    <p>
+        <span class="copy-title">版权声明:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+    </p>
+</div>
+
+
+
+
+    <script type="text/javascript">
+(function(d, s) {
+   var j, e = d.getElementsByTagName(s)[0];
+
+   if (typeof LivereTower === 'function') { return; }
+
+   j = d.createElement(s);
+   j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+   j.async = true;
+
+   e.parentNode.insertBefore(j, e);
+})(document, 'script');
+</script>
+<noscript> 为正常使用来必力评论功能请激活JavaScript</noscript>
+
+<iframe title="livere"   src="https://was.livere.me/comment/city?id=city&refer=http://blog.ifungfay.com/系统/链接、装载、库/&uid=MTAyMC80NzAyOC8yMzUyOA==&site=http://blog.ifungfay.com/系统/链接、装载、库/&title=链接、装载、库" scrolling="" frameborder="0" id="lv-comment-399" style="min-width: 100%; width: 100px; min-height: 400px; overflow: auto; border: 0px; z-index: 124212; height: 800px;" ></iframe>
+
+
+
+    
+
+
+
+
+    </div>
+    <div class="copyright">
+        <p class="footer-entry">©2016-2019 Mingfung</p>
+<p class="footer-entry">Built with <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/yelog/hexo-theme-3-hexo" target="_blank">3-hexo</a> theme</p>
+
+    </div>
+    <div class="full-toc">
+        <button class="full"><span class="min "></span></button>
+<button class="post-toc-menu"><span class="post-toc-menu-icons"></span></button>
+<div class="post-toc"><span class="post-toc-title">目录</span>
+    <div class="post-toc-content">
+
+    </div>
+</div>
+<a class="" id="rocket" href="javascript:void(0)"></a>
+    </div>
+</div>
+<div class="acParent"></div>
+
+<div class="hide_box" onclick="dashangToggle()"></div>
+<div class="shang_box">
+    <a class="shang_close" href="javascript:void(0)" onclick="dashangToggle()">×</a>
+    <div class="shang_tit">
+        <p>喜欢就点赞,疼爱就打赏</p>
+    </div>
+    <div class="shang_payimg">
+        <div class="pay_img">
+            <img src="/img/alipay.jpg" class="alipay" title="扫码支持">
+            <img src="/img/weixin.jpg" class="weixin" title="扫码支持">
+        </div>
+    </div>
+    <div class="shang_payselect">
+        <span><label><input type="radio" name="pay" checked value="alipay">支付宝</label></span><span><label><input type="radio" name="pay" value="weixin">微信</label></span>
+    </div>
+</div>
+
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/koharu.model.json"},"log":false});</script></body>
+<script src="/js/jquery.pjax.js?v=1.0.1" ></script>
+
+<script src="/js/script.js?v=1.0.1" ></script>
+<script>
+    var img_resize = 'default';
+    /*作者、标签的自动补全*/
+    $(function () {
+        $('.search').AutoComplete({
+            'data': ['#JSPatch','#JavaScriptCore','#property','#dynamic','#sythesize','#nonatomic','#iOS11','#Xcode9','#iPhoneX','#TLS','#SSL','#HTTPS','#ATS','#Java','#Android','#AndroidStudio','#adb','#反编译','#Gradle','#Module','#ProGuard','#Native','#JNI','#NDK','#AAR','#JAR','#html','#bootstrap','#css','#Flutter','#iOS','#Dart','#Git','#command','#Mac','#question','#PyCharm','#Django','#Python','#Anaconda','#Qgis','#vapor','#swift','#heroku','#cloud','#crypto','#console','#terminal','#database','#postgreSQL','#network','#http','#webSocket','#encoded','#leaf','#view','#session','#token','#verification','#越狱','#逆向','#工具','#安全','#CGI','#Servlet','#容器','#Docker','#Manager','#Model','#Role','#Target','#JSON','#Objective-C','#jekyll','#github','#blog','#Jenkins','#CI','#Test','#Ubuntu','#服务器','#Web App','#nginx','#supervisor','#fabric','#python','#mysql','#设计模式','#tool','#skill','#MVP','#Adapter','#Activity','#Fragment','#Layout','#Res','#Realm','#AIDL','#AsyncTask','#Thread','#Handler','#link','#register','#assembly','#library','#static','#memory','#runtime','#interrupt',],
+            'itemHeight': 20,
+            'width': 418
+        }).AutoComplete('show');
+    })
+    function initArticle() {
+        /*渲染对应的表格样式*/
+        
+            $(".post .pjax table").addClass("green_title");
+        
+
+        /*渲染打赏样式*/
+        
+        $("input[name=pay]").on("click", function () {
+            if($("input[name=pay]:checked").val()=="weixin"){
+                $(".shang_box .shang_payimg .pay_img").addClass("weixin_img");
+            } else {
+                $(".shang_box .shang_payimg .pay_img").removeClass("weixin_img");
+            }
+        })
+        
+
+        /*高亮代码块行号*/
+        
+        $('pre code').each(function(){
+            var lines = $(this).text().split('\n').length, widther='';
+            if (lines>99) {
+                widther = 'widther'
+            }
+            var $numbering = $('<ul/>').addClass('pre-numbering ' + widther).attr("unselectable","on");
+            $(this).addClass('has-numbering ' + widther)
+                    .parent()
+                    .append($numbering);
+            for(var i=1;i<=lines;i++){
+                $numbering.append($('<li/>').text(i));
+            }
+        });
+        
+
+        /*访问数量*/
+        
+        $.getScript("//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js");
+        
+
+        /*代码高亮，行号对齐*/
+        $('.pre-numbering').css('line-height',$('.has-numbering').css('line-height'));
+
+        
+    }
+
+    /*打赏页面隐藏与展示*/
+    
+    function dashangToggle() {
+        $(".shang_box").fadeToggle();
+        $(".hide_box").fadeToggle();
+    }
+    
+
+</script>
+
+<!--加入行号的高亮代码块样式-->
+
+<style>
+    pre{
+        position: relative;
+        margin-bottom: 24px;
+        border-radius: 10px;
+        border: 1px solid #e2dede;
+        background: #FFF;
+        overflow: hidden;
+    }
+    code.has-numbering{
+        margin-left: 30px;
+    }
+    code.has-numbering.widther{
+        margin-left: 35px;
+    }
+    .pre-numbering{
+        margin: 0px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 20px;
+        padding: 0.5em 3px 0.7em 5px;
+        border-right: 1px solid #C3CCD0;
+        text-align: right;
+        color: #AAA;
+        background-color: ;
+    }
+    .pre-numbering.widther {
+        width: 35px;
+    }
+</style>
+
+<!--自定义样式设置-->
+<style>
+    
+    
+    .nav {
+        width: 542px;
+    }
+    .nav.fullscreen {
+        margin-left: -542px;
+    }
+    .nav-left {
+        width: 120px;
+    }
+    
+    
+    @media screen and (max-width: 1468px) {
+        .nav {
+            width: 492px;
+        }
+        .nav.fullscreen {
+            margin-left: -492px;
+        }
+        .nav-left {
+            width: 100px;
+        }
+    }
+    
+    
+    @media screen and (max-width: 1024px) {
+        .nav {
+            width: 492px;
+            margin-left: -492px
+        }
+        .nav.fullscreen {
+            margin-left: 0;
+        }
+        .nav .hide-list.fullscreen {
+            left: 492px
+        }
+    }
+    
+    @media screen and (max-width: 426px) {
+        .nav {
+            width: 100%;
+        }
+        .nav-left {
+            width: 100%;
+        }
+    }
+    
+    
+    .nav-right .title-list nav a .post-title, .nav-right .title-list #local-search-result a .post-title {
+        color: #383636;
+    }
+    
+    
+    .nav-right .title-list nav a .post-date, .nav-right .title-list #local-search-result a .post-date {
+        color: #5e5e5f;
+    }
+    
+    
+    .nav-right nav a.hover, #local-search-result a.hover{
+        background-color: #e2e0e0;
+    }
+    
+    
+
+    /*列表样式*/
+    
+    .post .pjax article .article-entry>ol, .post .pjax article .article-entry>ul, .post .pjax article>ol, .post .pjax article>ul{
+        border: #e2dede solid 1px;
+        border-radius: 10px;
+        padding: 10px 32px 10px 56px;
+    }
+    .post .pjax article .article-entry li>ol, .post .pjax article .article-entry li>ul,.post .pjax article li>ol, .post .pjax article li>ul{
+        padding-top: 5px;
+        padding-bottom: 5px;
+    }
+    .post .pjax article .article-entry>ol>li, .post .pjax article .article-entry>ul>li,.post .pjax article>ol>li, .post .pjax article>ul>li{
+        margin-bottom: auto;
+        margin-left: auto;
+    }
+    .post .pjax article .article-entry li>ol>li, .post .pjax article .article-entry li>ul>li,.post .pjax article li>ol>li, .post .pjax article li>ul>li{
+        margin-bottom: auto;
+        margin-left: auto;
+    }
+    
+
+    /* 背景图样式 */
+    
+    
+
+
+    /*引用块样式*/
+    
+
+    /*文章列表背景图*/
+    
+    .nav-right:before {
+        content: ' ';
+        display: block;
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0.3;
+        background: url("null");
+        background-repeat: no-repeat;
+        background-position: 50% 0;
+        -ms-background-size: cover;
+        -o-background-size: cover;
+        -moz-background-size: cover;
+        -webkit-background-size: cover;
+        background-size: cover;
+    }
+    
+
+    
+</style>
+
+
+
+
+
+
+<div class="mobile-menus-out" >
+
+</div>
+<div class="mobile-menus">
+    
+    
+    <a class="dynamic-menu site_url"   href="/404.html">宝贝回家</a>
+    
+    
+    
+</div>
+
+
+</html>

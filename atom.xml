@@ -1,0 +1,1200 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Mingfung&#39;s Blog</title>
+  <icon>http://blog.ifungfay.com//img/avatar.jpg</icon>
+  <subtitle>知识焦虑症候群</subtitle>
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://blog.ifungfay.com/"/>
+  <updated>2019-10-11T04:46:59.807Z</updated>
+  <id>http://blog.ifungfay.com/</id>
+  
+  <author>
+    <name>Mingfung</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>开发一个Android App</title>
+    <link href="http://blog.ifungfay.com/Android/%E5%BC%80%E5%8F%91%E4%B8%80%E4%B8%AAAndroid-App/"/>
+    <id>http://blog.ifungfay.com/Android/开发一个Android-App/</id>
+    <published>2019-10-05T08:11:04.000Z</published>
+    <updated>2019-10-11T04:46:59.807Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;从0到1，搭建一个简单的Android App。中间会夹着某些知识点的全量内容，方便下次开发时直接在这里根据自己当时的总结翻找回顾（官方的文档其实也已经很全很方便翻阅）。因为本人是iOS开发出身，所以中间也会夹着些和iOS相似概念的类比，举一反三地思考，加强记忆。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Android" scheme="http://blog.ifungfay.com/categories/Android/"/>
+    
+    
+      <category term="MVP" scheme="http://blog.ifungfay.com/tags/MVP/"/>
+    
+      <category term="Adapter" scheme="http://blog.ifungfay.com/tags/Adapter/"/>
+    
+      <category term="Activity" scheme="http://blog.ifungfay.com/tags/Activity/"/>
+    
+      <category term="Fragment" scheme="http://blog.ifungfay.com/tags/Fragment/"/>
+    
+      <category term="Layout" scheme="http://blog.ifungfay.com/tags/Layout/"/>
+    
+      <category term="Res" scheme="http://blog.ifungfay.com/tags/Res/"/>
+    
+      <category term="Realm" scheme="http://blog.ifungfay.com/tags/Realm/"/>
+    
+      <category term="AIDL" scheme="http://blog.ifungfay.com/tags/AIDL/"/>
+    
+      <category term="AsyncTask" scheme="http://blog.ifungfay.com/tags/AsyncTask/"/>
+    
+      <category term="Thread" scheme="http://blog.ifungfay.com/tags/Thread/"/>
+    
+      <category term="Handler" scheme="http://blog.ifungfay.com/tags/Handler/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Android技巧入门</title>
+    <link href="http://blog.ifungfay.com/uncategorized/Android%E6%8A%80%E5%B7%A7%E5%85%A5%E9%97%A8/"/>
+    <id>http://blog.ifungfay.com/uncategorized/Android技巧入门/</id>
+    <published>2019-08-13T16:22:37.000Z</published>
+    <updated>2019-09-23T15:00:18.766Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;常用的adb指令&quot;&gt;&lt;a href=&quot;#常用的adb指令&quot; class=&quot;headerlink&quot; title=&quot;常用的adb指令&quot;&gt;&lt;/a&gt;常用的adb指令&lt;/h1&gt;&lt;p&gt;查看连接的设备：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;adb
+        
+      
+    
+    </summary>
+    
+    
+    
+      <category term="AndroidStudio" scheme="http://blog.ifungfay.com/tags/AndroidStudio/"/>
+    
+      <category term="adb" scheme="http://blog.ifungfay.com/tags/adb/"/>
+    
+      <category term="反编译" scheme="http://blog.ifungfay.com/tags/%E5%8F%8D%E7%BC%96%E8%AF%91/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Android原理入门</title>
+    <link href="http://blog.ifungfay.com/Android/Android%E5%8E%9F%E7%90%86%E5%85%A5%E9%97%A8/"/>
+    <id>http://blog.ifungfay.com/Android/Android原理入门/</id>
+    <published>2019-08-13T16:22:11.000Z</published>
+    <updated>2019-10-11T05:48:10.239Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;Java&quot;&gt;&lt;a href=&quot;#Java&quot; class=&quot;headerlink&quot; title=&quot;Java&quot;&gt;&lt;/a&gt;Java&lt;/h1&gt;&lt;p&gt;Java是一门基于JVM（Java Virtual
+        
+      
+    
+    </summary>
+    
+    
+      <category term="Android" scheme="http://blog.ifungfay.com/categories/Android/"/>
+    
+    
+      <category term="Java" scheme="http://blog.ifungfay.com/tags/Java/"/>
+    
+      <category term="Android" scheme="http://blog.ifungfay.com/tags/Android/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>链接、装载、库</title>
+    <link href="http://blog.ifungfay.com/%E7%B3%BB%E7%BB%9F/%E9%93%BE%E6%8E%A5%E3%80%81%E8%A3%85%E8%BD%BD%E3%80%81%E5%BA%93/"/>
+    <id>http://blog.ifungfay.com/系统/链接、装载、库/</id>
+    <published>2019-06-05T00:53:00.000Z</published>
+    <updated>2019-10-11T00:51:07.783Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;介绍&quot;&gt;&lt;a href=&quot;#介绍&quot; class=&quot;headerlink&quot; title=&quot;介绍&quot;&gt;&lt;/a&gt;介绍&lt;/h1&gt;&lt;p&gt;此文和中心包括两部分：第一是占篇幅最多的编译、链接、加载等，这些相对底层的系统机制和运行原理；第二是穿插于第一点内容之中，对应于各步骤的操作或分析命令，以及最后的汇编语言入门讲解。&lt;/p&gt;
+&lt;p&gt;通过了解这些系统底层的原理及知识，能让我们更好更快地排查程序构建或运行时的问题，又或者帮助我们进行程序逆向或代码安全防护的分析研究。&lt;/p&gt;
+&lt;p&gt;一点点耐心地积累，不要过早就忌怕自己无法驾驭枯燥的知识，打退堂鼓。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="系统" scheme="http://blog.ifungfay.com/categories/%E7%B3%BB%E7%BB%9F/"/>
+    
+    
+      <category term="dynamic" scheme="http://blog.ifungfay.com/tags/dynamic/"/>
+    
+      <category term="link" scheme="http://blog.ifungfay.com/tags/link/"/>
+    
+      <category term="register" scheme="http://blog.ifungfay.com/tags/register/"/>
+    
+      <category term="assembly" scheme="http://blog.ifungfay.com/tags/assembly/"/>
+    
+      <category term="library" scheme="http://blog.ifungfay.com/tags/library/"/>
+    
+      <category term="static" scheme="http://blog.ifungfay.com/tags/static/"/>
+    
+      <category term="memory" scheme="http://blog.ifungfay.com/tags/memory/"/>
+    
+      <category term="runtime" scheme="http://blog.ifungfay.com/tags/runtime/"/>
+    
+      <category term="interrupt" scheme="http://blog.ifungfay.com/tags/interrupt/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>搭建服务器</title>
+    <link href="http://blog.ifungfay.com/%E5%90%8E%E7%AB%AF/%E6%90%AD%E5%BB%BA%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
+    <id>http://blog.ifungfay.com/后端/搭建服务器/</id>
+    <published>2019-04-05T16:00:00.000Z</published>
+    <updated>2019-09-23T14:55:37.790Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;本地开发完Web App后，只在本地能跑起来是远远未能符合工程应用的需要，我们还需要在服务器上进行账号设置、环境搭建、安装和启动必要的服务、部署自动化、服务进程管理、Web服务设置等的工作，这样才能使我们服务器上的Web在被正常访问的基础上，更高效、稳定地部署和发布。&lt;/p&gt;
+&lt;p&gt;下面使用阿里云ECS服务器演示（略过购买ECS、购买弹性公网IP、ECS绑定IP的过程）。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="后端" scheme="http://blog.ifungfay.com/categories/%E5%90%8E%E7%AB%AF/"/>
+    
+    
+      <category term="Ubuntu" scheme="http://blog.ifungfay.com/tags/Ubuntu/"/>
+    
+      <category term="服务器" scheme="http://blog.ifungfay.com/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
+    
+      <category term="Web App" scheme="http://blog.ifungfay.com/tags/Web-App/"/>
+    
+      <category term="nginx" scheme="http://blog.ifungfay.com/tags/nginx/"/>
+    
+      <category term="supervisor" scheme="http://blog.ifungfay.com/tags/supervisor/"/>
+    
+      <category term="fabric" scheme="http://blog.ifungfay.com/tags/fabric/"/>
+    
+      <category term="python" scheme="http://blog.ifungfay.com/tags/python/"/>
+    
+      <category term="mysql" scheme="http://blog.ifungfay.com/tags/mysql/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>搭建博客图床</title>
+    <link href="http://blog.ifungfay.com/%E5%B7%A5%E5%85%B7/%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E5%9B%BE%E5%BA%8A/"/>
+    <id>http://blog.ifungfay.com/工具/搭建博客图床/</id>
+    <published>2019-03-21T04:39:00.000Z</published>
+    <updated>2019-04-04T16:46:12.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;做了自己图床后，写博客真的变得倍爽。过程说复杂称不上，但也耗费了一定的时间，为避免日后遗忘了而又需要重新搭建时能省点心，还是记录一下吧。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="工具" scheme="http://blog.ifungfay.com/categories/%E5%B7%A5%E5%85%B7/"/>
+    
+    
+      <category term="blog" scheme="http://blog.ifungfay.com/tags/blog/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Android工程入门</title>
+    <link href="http://blog.ifungfay.com/Android/Android%E5%B7%A5%E7%A8%8B%E5%85%A5%E9%97%A8/"/>
+    <id>http://blog.ifungfay.com/Android/Android工程入门/</id>
+    <published>2019-02-24T05:44:00.000Z</published>
+    <updated>2019-10-11T04:44:21.468Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;深入了解很多Android工程上的内容时，产生了很多疑惑，由于时间实在分不开来，本身没有先系统地学习，都是针对不懂的查查问问，所以这里算是来一个Android工程入门的杂谈吧（其实叫杂烩比较合乎），记录一些收集到的原理和方法、一些自己的观点和遇到的问题。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Android" scheme="http://blog.ifungfay.com/categories/Android/"/>
+    
+    
+      <category term="Gradle" scheme="http://blog.ifungfay.com/tags/Gradle/"/>
+    
+      <category term="Module" scheme="http://blog.ifungfay.com/tags/Module/"/>
+    
+      <category term="ProGuard" scheme="http://blog.ifungfay.com/tags/ProGuard/"/>
+    
+      <category term="Native" scheme="http://blog.ifungfay.com/tags/Native/"/>
+    
+      <category term="JNI" scheme="http://blog.ifungfay.com/tags/JNI/"/>
+    
+      <category term="NDK" scheme="http://blog.ifungfay.com/tags/NDK/"/>
+    
+      <category term="AAR" scheme="http://blog.ifungfay.com/tags/AAR/"/>
+    
+      <category term="JAR" scheme="http://blog.ifungfay.com/tags/JAR/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>团队管理实践</title>
+    <link href="http://blog.ifungfay.com/%E7%AE%A1%E7%90%86/%E5%9B%A2%E9%98%9F%E7%AE%A1%E7%90%86%E5%AE%9E%E8%B7%B5/"/>
+    <id>http://blog.ifungfay.com/管理/团队管理实践/</id>
+    <published>2019-02-23T15:50:00.000Z</published>
+    <updated>2019-04-04T16:44:25.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+
+&lt;h1 id=&quot;管理理论&quot;&gt;&lt;a href=&quot;#管理理论&quot; class=&quot;headerlink&quot; title=&quot;管理理论&quot;&gt;&lt;/a&gt;管理理论&lt;/h1&gt;&lt;h2 id=&quot;定义&quot;&gt;&lt;a href=&quot;#定义&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="管理" scheme="http://blog.ifungfay.com/categories/%E7%AE%A1%E7%90%86/"/>
+    
+    
+      <category term="Manager" scheme="http://blog.ifungfay.com/tags/Manager/"/>
+    
+      <category term="Model" scheme="http://blog.ifungfay.com/tags/Model/"/>
+    
+      <category term="Role" scheme="http://blog.ifungfay.com/tags/Role/"/>
+    
+      <category term="Target" scheme="http://blog.ifungfay.com/tags/Target/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>效率工具及技巧收录</title>
+    <link href="http://blog.ifungfay.com/%E5%B7%A5%E5%85%B7/%E6%95%88%E7%8E%87%E5%B7%A5%E5%85%B7%E5%8F%8A%E6%8A%80%E5%B7%A7%E6%94%B6%E5%BD%95/"/>
+    <id>http://blog.ifungfay.com/工具/效率工具及技巧收录/</id>
+    <published>2019-02-23T14:05:00.000Z</published>
+    <updated>2019-04-04T16:44:57.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+
+&lt;h2 id=&quot;转换脑图文件格式&quot;&gt;&lt;a href=&quot;#转换脑图文件格式&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="工具" scheme="http://blog.ifungfay.com/categories/%E5%B7%A5%E5%85%B7/"/>
+    
+    
+      <category term="tool" scheme="http://blog.ifungfay.com/tags/tool/"/>
+    
+      <category term="skill" scheme="http://blog.ifungfay.com/tags/skill/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>后端服务器概念了解下</title>
+    <link href="http://blog.ifungfay.com/%E5%90%8E%E7%AB%AF/%E5%90%8E%E7%AB%AF%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%A6%82%E5%BF%B5%E4%BA%86%E8%A7%A3%E4%B8%8B/"/>
+    <id>http://blog.ifungfay.com/后端/后端服务器概念了解下/</id>
+    <published>2019-02-21T12:30:00.000Z</published>
+    <updated>2019-03-21T07:00:25.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;本文主要是收录些后端节点的概念，通过了解来帮助阅读后端的技术资讯、排查系统问题、项目需求会议整体讨论等情境上可以对后端相关的内容能有一定认知度，思考与自身领域的相关性，而不至于错过一些优秀的思维角度和设计理念、定位问题局限、相关议题参与度低等情况，也可以作为扩充知识面，学习后端的导索。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="后端" scheme="http://blog.ifungfay.com/categories/%E5%90%8E%E7%AB%AF/"/>
+    
+    
+      <category term="CGI" scheme="http://blog.ifungfay.com/tags/CGI/"/>
+    
+      <category term="Servlet" scheme="http://blog.ifungfay.com/tags/Servlet/"/>
+    
+      <category term="容器" scheme="http://blog.ifungfay.com/tags/%E5%AE%B9%E5%99%A8/"/>
+    
+      <category term="Docker" scheme="http://blog.ifungfay.com/tags/Docker/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>设计模式（七）小总结</title>
+    <link href="http://blog.ifungfay.com/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%EF%BC%88%E4%B8%83%EF%BC%89%E5%B0%8F%E6%80%BB%E7%BB%93/"/>
+    <id>http://blog.ifungfay.com/设计模式/设计模式（七）小总结/</id>
+    <published>2019-02-12T06:45:00.000Z</published>
+    <updated>2019-02-12T08:04:50.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;一连6篇，共12种设计模式已经介绍完了，其实这些都是最基本的模式，但也是最重要的模式，因为外面其它各种的模式比较多是从这些基础的模式上进行变体所得的。&lt;/p&gt;
+&lt;p&gt;虽然本系列是使用Java实现，但与其它语言的思路是共通的，只是可能其它语言有更好的语法或API帮助模式的实现而会有些许不一样而已。&lt;/p&gt;
+&lt;p&gt;希望后面还能继续在这介绍上更大领域上的设计模式，例如应用模式、业务流程模式、用户界面设计模式、组织模式、架构模式等等。&lt;/p&gt;
+&lt;p&gt;现在来做一个简单的回顾总结。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="设计模式" scheme="http://blog.ifungfay.com/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+    
+    
+      <category term="设计模式" scheme="http://blog.ifungfay.com/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>设计模式（六）命令模式 &amp; 观察者模式</title>
+    <link href="http://blog.ifungfay.com/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%EF%BC%88%E5%85%AD%EF%BC%89%E5%91%BD%E4%BB%A4%E6%A8%A1%E5%BC%8F%20&amp;%20%E8%A7%82%E5%AF%9F%E8%80%85%E6%A8%A1%E5%BC%8F/"/>
+    <id>http://blog.ifungfay.com/设计模式/设计模式（六）命令模式 &amp; 观察者模式/</id>
+    <published>2019-02-12T06:28:00.000Z</published>
+    <updated>2019-02-12T06:34:39.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;命令模式&quot;&gt;&lt;a href=&quot;#命令模式&quot; class=&quot;headerlink&quot; title=&quot;命令模式&quot;&gt;&lt;/a&gt;命令模式&lt;/h2&gt;&lt;h3 id=&quot;应用场景&quot;&gt;&lt;a href=&quot;#应用场景&quot; class=&quot;headerlink&quot; title=&quot;应用场景&quot;&gt;&lt;/a&gt;应用场景&lt;/h3&gt;&lt;p&gt;使用多功能的遥控器打开一个电灯&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="设计模式" scheme="http://blog.ifungfay.com/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+    
+    
+      <category term="设计模式" scheme="http://blog.ifungfay.com/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>设计模式（四）状态模式 &amp; 代理模式</title>
+    <link href="http://blog.ifungfay.com/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%EF%BC%88%E5%9B%9B%EF%BC%89%E7%8A%B6%E6%80%81%E6%A8%A1%E5%BC%8F%20&amp;%20%E4%BB%A3%E7%90%86%E6%A8%A1%E5%BC%8F/"/>
+    <id>http://blog.ifungfay.com/设计模式/设计模式（四）状态模式 &amp; 代理模式/</id>
+    <published>2019-02-12T05:12:00.000Z</published>
+    <updated>2019-02-12T06:37:10.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;状态模式&quot;&gt;&lt;a href=&quot;#状态模式&quot; class=&quot;headerlink&quot; title=&quot;状态模式&quot;&gt;&lt;/a&gt;状态模式&lt;/h2&gt;&lt;h3 id=&quot;应用场景&quot;&gt;&lt;a href=&quot;#应用场景&quot; class=&quot;headerlink&quot; title=&quot;应用场景&quot;&gt;&lt;/a&gt;应用场景&lt;/h3&gt;&lt;p&gt;制作一部糖果机，拥有投钱、退钱、检查糖果、发放糖果的程序。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="设计模式" scheme="http://blog.ifungfay.com/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+    
+    
+      <category term="设计模式" scheme="http://blog.ifungfay.com/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>设计模式（五）工厂模式 &amp; 装饰者模式</title>
+    <link href="http://blog.ifungfay.com/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%EF%BC%88%E4%BA%94%EF%BC%89%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F%20&amp;%20%E8%A3%85%E9%A5%B0%E8%80%85%E6%A8%A1%E5%BC%8F/"/>
+    <id>http://blog.ifungfay.com/设计模式/设计模式（五）工厂模式 &amp; 装饰者模式/</id>
+    <published>2019-02-12T03:54:00.000Z</published>
+    <updated>2019-02-12T06:34:30.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;工厂模式&quot;&gt;&lt;a href=&quot;#工厂模式&quot; class=&quot;headerlink&quot; title=&quot;工厂模式&quot;&gt;&lt;/a&gt;工厂模式&lt;/h2&gt;&lt;h3 id=&quot;应用场景&quot;&gt;&lt;a href=&quot;#应用场景&quot; class=&quot;headerlink&quot; title=&quot;应用场景&quot;&gt;&lt;/a&gt;应用场景&lt;/h3&gt;&lt;p&gt;创建不同类型的披萨对象&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="设计模式" scheme="http://blog.ifungfay.com/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+    
+    
+      <category term="设计模式" scheme="http://blog.ifungfay.com/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>设计模式（三）适配器模式 &amp; 外观模式</title>
+    <link href="http://blog.ifungfay.com/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%EF%BC%88%E4%B8%89%EF%BC%89%E9%80%82%E9%85%8D%E5%99%A8%E6%A8%A1%E5%BC%8F%20&amp;%20%E5%A4%96%E8%A7%82%E6%A8%A1%E5%BC%8F/"/>
+    <id>http://blog.ifungfay.com/设计模式/设计模式（三）适配器模式 &amp; 外观模式/</id>
+    <published>2019-02-11T07:10:00.000Z</published>
+    <updated>2019-02-12T06:34:04.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;适配器模式&quot;&gt;&lt;a href=&quot;#适配器模式&quot; class=&quot;headerlink&quot; title=&quot;适配器模式&quot;&gt;&lt;/a&gt;适配器模式&lt;/h2&gt;&lt;h3 id=&quot;应用场景&quot;&gt;&lt;a href=&quot;#应用场景&quot; class=&quot;headerlink&quot; title=&quot;应用场景&quot;&gt;&lt;/a&gt;应用场景&lt;/h3&gt;&lt;p&gt;鸭子中有绿头鸭、红头鸭等，现在还缺一点鸭子的品种，想用火鸡冒充鸭子。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="设计模式" scheme="http://blog.ifungfay.com/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+    
+    
+      <category term="设计模式" scheme="http://blog.ifungfay.com/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>设计模式（二）迭代器模式 &amp; 组合模式</title>
+    <link href="http://blog.ifungfay.com/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%EF%BC%88%E4%BA%8C%EF%BC%89%E8%BF%AD%E4%BB%A3%E5%99%A8%E6%A8%A1%E5%BC%8F%20&amp;%20%E7%BB%84%E5%90%88%E6%A8%A1%E5%BC%8F/"/>
+    <id>http://blog.ifungfay.com/设计模式/设计模式（二）迭代器模式 &amp; 组合模式/</id>
+    <published>2019-02-11T01:59:00.000Z</published>
+    <updated>2019-02-12T06:33:45.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;迭代器模式&quot;&gt;&lt;a href=&quot;#迭代器模式&quot; class=&quot;headerlink&quot; title=&quot;迭代器模式&quot;&gt;&lt;/a&gt;迭代器模式&lt;/h2&gt;&lt;h3 id=&quot;应用场景&quot;&gt;&lt;a href=&quot;#应用场景&quot; class=&quot;headerlink&quot; title=&quot;应用场景&quot;&gt;&lt;/a&gt;应用场景&lt;/h3&gt;&lt;p&gt;假设有西餐和煎饼两种菜单，需要招待员打印出这两种菜单的所有菜品项目。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="设计模式" scheme="http://blog.ifungfay.com/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+    
+    
+      <category term="设计模式" scheme="http://blog.ifungfay.com/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Git手册</title>
+    <link href="http://blog.ifungfay.com/%E5%B7%A5%E5%85%B7/Git%E6%89%8B%E5%86%8C/"/>
+    <id>http://blog.ifungfay.com/工具/Git手册/</id>
+    <published>2019-01-28T13:35:00.000Z</published>
+    <updated>2019-04-18T03:28:45.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;记录一些常用的Git命令方便使用时查询，以及简单交代对应的原理，便于操作时理解实际意义。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="工具" scheme="http://blog.ifungfay.com/categories/%E5%B7%A5%E5%85%B7/"/>
+    
+    
+      <category term="Git" scheme="http://blog.ifungfay.com/tags/Git/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>设计模式（一）策略模式 &amp; 模板方法模式</title>
+    <link href="http://blog.ifungfay.com/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%EF%BC%88%E4%B8%80%EF%BC%89%E7%AD%96%E7%95%A5%E6%A8%A1%E5%BC%8F%20&amp;%20%E6%A8%A1%E6%9D%BF%E6%96%B9%E6%B3%95%E6%A8%A1%E5%BC%8F/"/>
+    <id>http://blog.ifungfay.com/设计模式/设计模式（一）策略模式 &amp; 模板方法模式/</id>
+    <published>2019-01-13T15:41:00.000Z</published>
+    <updated>2019-02-12T05:11:48.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;以往在开发或者重构代码的时候，会经常用上一些技巧来达到抽象和解耦等目的，但并没有系统地详细了解和分类总结过程中所用到的方法，现在回过头来看一些设计模式的方法论，借鉴前人总结的开发经验，感触还蛮大的。而且在了解这些正统、专业的方法论后，后续与其它程序员在沟通代码设计时就有更高效的语言去描述了，当然前提是大家都对这有所了解。&lt;/p&gt;
+&lt;p&gt;上一年初对公司的iOS项目进行了一次大重构后，今年又有计划要对Android那边的项目也进行一次优化重构，这次必须得在行动前梳理梳理这设计模式的知识，尽量在工作中需要的地方清晰合理地应用起来。&lt;/p&gt;
+&lt;p&gt;这个系列主要都是参考《Head First》，也是按书本上所用的语言Java来做Demo（合乎我接下来搞Android呢）。好，那就开始吧~（为了节省篇幅，下面方法体中的规范会有所将就）&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="设计模式" scheme="http://blog.ifungfay.com/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+    
+    
+      <category term="设计模式" scheme="http://blog.ifungfay.com/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Flutter开发（实践篇）</title>
+    <link href="http://blog.ifungfay.com/%E5%89%8D%E7%AB%AF/Flutter%E5%BC%80%E5%8F%91%EF%BC%88%E5%AE%9E%E8%B7%B5%E7%AF%87%EF%BC%89/"/>
+    <id>http://blog.ifungfay.com/前端/Flutter开发（实践篇）/</id>
+    <published>2019-01-09T15:06:00.000Z</published>
+    <updated>2019-10-11T04:36:22.013Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;环境搭建&quot;&gt;&lt;a href=&quot;#环境搭建&quot; class=&quot;headerlink&quot; title=&quot;环境搭建&quot;&gt;&lt;/a&gt;环境搭建&lt;/h1&gt;&lt;h2 id=&quot;iOS&quot;&gt;&lt;a href=&quot;#iOS&quot; class=&quot;headerlink&quot; title=&quot;iOS&quot;&gt;&lt;/a&gt;iOS&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;克隆Flutter项目&lt;pre&gt;&lt;code class=&quot;hljs undefined&quot;&gt;git clone -b beta https://github.com/flutter/flutter.git&lt;/code&gt;&lt;/pre&gt;
+
+&lt;/li&gt;
+&lt;/ol&gt;
+    
+    </summary>
+    
+    
+      <category term="前端" scheme="http://blog.ifungfay.com/categories/%E5%89%8D%E7%AB%AF/"/>
+    
+    
+      <category term="Android" scheme="http://blog.ifungfay.com/tags/Android/"/>
+    
+      <category term="Flutter" scheme="http://blog.ifungfay.com/tags/Flutter/"/>
+    
+      <category term="iOS" scheme="http://blog.ifungfay.com/tags/iOS/"/>
+    
+      <category term="Dart" scheme="http://blog.ifungfay.com/tags/Dart/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Flutter开发（介绍篇）</title>
+    <link href="http://blog.ifungfay.com/%E5%89%8D%E7%AB%AF/Flutter%E5%BC%80%E5%8F%91%EF%BC%88%E4%BB%8B%E7%BB%8D%E7%AF%87%EF%BC%89/"/>
+    <id>http://blog.ifungfay.com/前端/Flutter开发（介绍篇）/</id>
+    <published>2019-01-09T13:24:00.000Z</published>
+    <updated>2019-10-11T00:52:23.027Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;介绍&quot;&gt;&lt;a href=&quot;#介绍&quot; class=&quot;headerlink&quot; title=&quot;介绍&quot;&gt;&lt;/a&gt;介绍&lt;/h1&gt;&lt;p&gt;&lt;strong&gt;1. Flutter是什么？&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Flutter是谷歌的是一款完全免费、开源的移动UI框架，其实也就是移动应用程序SDK，里面包含框架、控件和一些工具，可以快速在iOS和Android上构建相对高质量的原生用户界面，它也可以与现有的代码一起工作。&lt;/p&gt;
+&lt;p&gt;简单来说，Flutter可以用一套代码同时构建Android和iOS应用，并且可以达到原生应用一样的性能。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="前端" scheme="http://blog.ifungfay.com/categories/%E5%89%8D%E7%AB%AF/"/>
+    
+    
+      <category term="Android" scheme="http://blog.ifungfay.com/tags/Android/"/>
+    
+      <category term="Flutter" scheme="http://blog.ifungfay.com/tags/Flutter/"/>
+    
+      <category term="iOS" scheme="http://blog.ifungfay.com/tags/iOS/"/>
+    
+      <category term="Dart" scheme="http://blog.ifungfay.com/tags/Dart/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>iOS逆向（五）总结篇</title>
+    <link href="http://blog.ifungfay.com/iOS/iOS%E9%80%86%E5%90%91%EF%BC%88%E4%BA%94%EF%BC%89%E6%80%BB%E7%BB%93%E7%AF%87/"/>
+    <id>http://blog.ifungfay.com/iOS/iOS逆向（五）总结篇/</id>
+    <published>2018-09-13T14:39:05.000Z</published>
+    <updated>2018-09-13T15:22:35.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;最后一遍，总结一下关于安全开发的攻防要点，借鉴一些经验，记录一些小而黑的技巧，还有我读小黄书后的知识点梳理。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="iOS" scheme="http://blog.ifungfay.com/categories/iOS/"/>
+    
+    
+      <category term="iOS" scheme="http://blog.ifungfay.com/tags/iOS/"/>
+    
+      <category term="逆向" scheme="http://blog.ifungfay.com/tags/%E9%80%86%E5%90%91/"/>
+    
+      <category term="安全" scheme="http://blog.ifungfay.com/tags/%E5%AE%89%E5%85%A8/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>iOS逆向（四）实战篇</title>
+    <link href="http://blog.ifungfay.com/iOS/iOS%E9%80%86%E5%90%91%EF%BC%88%E5%9B%9B%EF%BC%89%E5%AE%9E%E6%88%98%E7%AF%87/"/>
+    <id>http://blog.ifungfay.com/iOS/iOS逆向（四）实战篇/</id>
+    <published>2018-09-13T14:39:04.000Z</published>
+    <updated>2018-09-13T15:22:54.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;这篇主要是更详细地讲解一步一步找出目标的方法，从定位view，到定位其Controller，再到定位目标函数，以及一些工具在实际场景下的使用过程，比如IDA等。看到最后，我可能会被读者喷是标题党，但是我也很无奈，等下次吧，会再努力尝试一下。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="iOS" scheme="http://blog.ifungfay.com/categories/iOS/"/>
+    
+    
+      <category term="iOS" scheme="http://blog.ifungfay.com/tags/iOS/"/>
+    
+      <category term="逆向" scheme="http://blog.ifungfay.com/tags/%E9%80%86%E5%90%91/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>iOS逆向（三）分析篇</title>
+    <link href="http://blog.ifungfay.com/iOS/iOS%E9%80%86%E5%90%91%EF%BC%88%E4%B8%89%EF%BC%89%E5%88%86%E6%9E%90%E7%AF%87/"/>
+    <id>http://blog.ifungfay.com/iOS/iOS逆向（三）分析篇/</id>
+    <published>2018-09-13T14:39:03.000Z</published>
+    <updated>2018-09-13T15:22:49.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;在逆向环境、工具准备得七七八八后，就开始学习一下逆向的套路。先要定位一个逆向的目标App和需要Tweak它的功能点，然后通过网络分析、动态分析、静态分析、沙盒分析等方法，来看看一般是如何给一个App做逆向的，怎么找出题目的位置、有什么解法。知道题该怎么解后，接着是学习怎么造Tweak，怎么把别人App的功能扭曲成自己想要的效果。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="iOS" scheme="http://blog.ifungfay.com/categories/iOS/"/>
+    
+    
+      <category term="iOS" scheme="http://blog.ifungfay.com/tags/iOS/"/>
+    
+      <category term="逆向" scheme="http://blog.ifungfay.com/tags/%E9%80%86%E5%90%91/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>iOS逆向（二）工具篇</title>
+    <link href="http://blog.ifungfay.com/iOS/iOS%E9%80%86%E5%90%91%EF%BC%88%E4%BA%8C%EF%BC%89%E5%B7%A5%E5%85%B7%E7%AF%87/"/>
+    <id>http://blog.ifungfay.com/iOS/iOS逆向（二）工具篇/</id>
+    <published>2018-09-13T14:39:02.000Z</published>
+    <updated>2018-09-13T15:22:44.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;关于逆向的第二篇，也还没是正题，先来以使用的目的来分类一下逆向需要哪些工具，分别在什么平台上使用和有什么作用，部分还直接带上使用示例。在一些使用方式比较绕的工具上，同样也准备了坑点的描述，记录一下痛苦的心路历程，一个问题可能就卡了1、2天。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="iOS" scheme="http://blog.ifungfay.com/categories/iOS/"/>
+    
+    
+      <category term="iOS" scheme="http://blog.ifungfay.com/tags/iOS/"/>
+    
+      <category term="逆向" scheme="http://blog.ifungfay.com/tags/%E9%80%86%E5%90%91/"/>
+    
+      <category term="工具" scheme="http://blog.ifungfay.com/tags/%E5%B7%A5%E5%85%B7/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>iOS逆向（一）越狱篇</title>
+    <link href="http://blog.ifungfay.com/iOS/iOS%E9%80%86%E5%90%91%EF%BC%88%E4%B8%80%EF%BC%89%E8%B6%8A%E7%8B%B1%E7%AF%87/"/>
+    <id>http://blog.ifungfay.com/iOS/iOS逆向（一）越狱篇/</id>
+    <published>2018-09-13T14:39:01.000Z</published>
+    <updated>2018-09-13T15:22:38.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;关于逆向的第一篇先来讲一下 iOS 10.3.x 的越狱，因为之后的逆向工程均在iOS 10.3.3上进行，而且现在的iOS越狱工具有很多选择，哪个才适合作为逆向的基础环境，这里也稍作一下分析。然后介绍怎么使用工具进行越狱，有什么坑需要注意。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="iOS" scheme="http://blog.ifungfay.com/categories/iOS/"/>
+    
+    
+      <category term="iOS" scheme="http://blog.ifungfay.com/tags/iOS/"/>
+    
+      <category term="越狱" scheme="http://blog.ifungfay.com/tags/%E8%B6%8A%E7%8B%B1/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Bootstrap手册</title>
+    <link href="http://blog.ifungfay.com/%E5%89%8D%E7%AB%AF/Bootstrap%E6%89%8B%E5%86%8C/"/>
+    <id>http://blog.ifungfay.com/前端/Bootstrap手册/</id>
+    <published>2018-09-08T15:06:00.000Z</published>
+    <updated>2018-09-13T15:21:04.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;介绍&quot;&gt;&lt;a href=&quot;#介绍&quot; class=&quot;headerlink&quot; title=&quot;介绍&quot;&gt;&lt;/a&gt;介绍&lt;/h2&gt;&lt;p&gt;Bootstrap是Twitter推出的一个用于前端开发的开源工具包。它由Twitter的设计师Mark Otto和Jacob Thornton合作开发，是一个CSS/HTML/JS框架，用于开发响应式布局、移动设备优先的 WEB 项目。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;支持预处理脚本：可以直接使用 Bootstrap 提供的 CSS 样式表，同时 Bootstrap 的源码是基于最流行的 CSS 预处理脚本 - Less 和 Sass 开发的。你可以采用预编译的 CSS 文件快速开发，也可以从源码定制自己需要的样式。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;一个框架、多种设备：网站和应用能在 Bootstrap 的帮助下通过同一份代码快速、有效适配手机、平板、PC 设备，这一切都是 CSS 媒体查询（Media Query）的功劳。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;a href=&quot;https://v3.bootcss.com/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Bootstrap3官网&lt;/a&gt;&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="前端" scheme="http://blog.ifungfay.com/categories/%E5%89%8D%E7%AB%AF/"/>
+    
+    
+      <category term="html" scheme="http://blog.ifungfay.com/tags/html/"/>
+    
+      <category term="bootstrap" scheme="http://blog.ifungfay.com/tags/bootstrap/"/>
+    
+      <category term="css" scheme="http://blog.ifungfay.com/tags/css/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Vapor（七）工具篇</title>
+    <link href="http://blog.ifungfay.com/%E5%90%8E%E7%AB%AF/Vapor%EF%BC%88%E4%B8%83%EF%BC%89%E5%B7%A5%E5%85%B7%E7%AF%87/"/>
+    <id>http://blog.ifungfay.com/后端/Vapor（七）工具篇/</id>
+    <published>2018-08-21T15:02:00.000Z</published>
+    <updated>2018-08-28T14:26:38.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;搬最后一篇关于Vapor的砖，介绍一下Vapor中可选用的工具，包括Command、Console、Crypto。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="后端" scheme="http://blog.ifungfay.com/categories/%E5%90%8E%E7%AB%AF/"/>
+    
+    
+      <category term="command" scheme="http://blog.ifungfay.com/tags/command/"/>
+    
+      <category term="vapor" scheme="http://blog.ifungfay.com/tags/vapor/"/>
+    
+      <category term="swift" scheme="http://blog.ifungfay.com/tags/swift/"/>
+    
+      <category term="crypto" scheme="http://blog.ifungfay.com/tags/crypto/"/>
+    
+      <category term="console" scheme="http://blog.ifungfay.com/tags/console/"/>
+    
+      <category term="terminal" scheme="http://blog.ifungfay.com/tags/terminal/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Vapor（六）视图篇</title>
+    <link href="http://blog.ifungfay.com/%E5%90%8E%E7%AB%AF/Vapor%EF%BC%88%E5%85%AD%EF%BC%89%E8%A7%86%E5%9B%BE%E7%AF%87/"/>
+    <id>http://blog.ifungfay.com/后端/Vapor（六）视图篇/</id>
+    <published>2018-08-20T13:56:00.000Z</published>
+    <updated>2018-08-28T14:19:36.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Vapor里的视图主要是通过Leaf实现的，Leaf是一种简单的模板语言，通过模板来实现在HTML中的动态Web，就是在Leaf模板中通过规定的语法来渲染出对应的内容。Leaf有以下目标&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Small set of strictly enforced rules 小套严格执行规则&lt;/li&gt;
+&lt;li&gt;Consistency 一致性&lt;/li&gt;
+&lt;li&gt;Parser first mentality 解析器第一心态&lt;/li&gt;
+&lt;li&gt;Extensibility 可扩展性&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;而动态Web，则是指在页面里嵌套了程序，这种网站对一些框架相同，更新较快的信息页面进行内容与形式的分离，将信息内容以记录的形式存入了网站的数据库中，以便于网站各处调用。这样，我们看到的一个页面可能在服务器上并不一一对应某个 html 的文件，网页框架里也套了很多数据库里记录的内容。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="后端" scheme="http://blog.ifungfay.com/categories/%E5%90%8E%E7%AB%AF/"/>
+    
+    
+      <category term="vapor" scheme="http://blog.ifungfay.com/tags/vapor/"/>
+    
+      <category term="swift" scheme="http://blog.ifungfay.com/tags/swift/"/>
+    
+      <category term="leaf" scheme="http://blog.ifungfay.com/tags/leaf/"/>
+    
+      <category term="view" scheme="http://blog.ifungfay.com/tags/view/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Vapor（五）网络篇</title>
+    <link href="http://blog.ifungfay.com/%E5%90%8E%E7%AB%AF/Vapor%EF%BC%88%E4%BA%94%EF%BC%89%E7%BD%91%E7%BB%9C%E7%AF%87/"/>
+    <id>http://blog.ifungfay.com/后端/Vapor（五）网络篇/</id>
+    <published>2018-08-17T12:30:00.000Z</published>
+    <updated>2018-08-28T14:32:19.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;这篇主要内容是再介绍一下Route的通用方法，网络传输数据的编码格式，Vapor中HTTP服务端和客户端的详细使用说明，以及WebSocket。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="后端" scheme="http://blog.ifungfay.com/categories/%E5%90%8E%E7%AB%AF/"/>
+    
+    
+      <category term="vapor" scheme="http://blog.ifungfay.com/tags/vapor/"/>
+    
+      <category term="swift" scheme="http://blog.ifungfay.com/tags/swift/"/>
+    
+      <category term="network" scheme="http://blog.ifungfay.com/tags/network/"/>
+    
+      <category term="http" scheme="http://blog.ifungfay.com/tags/http/"/>
+    
+      <category term="webSocket" scheme="http://blog.ifungfay.com/tags/webSocket/"/>
+    
+      <category term="encoded" scheme="http://blog.ifungfay.com/tags/encoded/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Vapor（四）验证篇</title>
+    <link href="http://blog.ifungfay.com/%E5%90%8E%E7%AB%AF/Vapor%EF%BC%88%E5%9B%9B%EF%BC%89%E9%AA%8C%E8%AF%81%E7%AF%87/"/>
+    <id>http://blog.ifungfay.com/后端/Vapor（四）验证篇/</id>
+    <published>2018-08-16T11:06:00.000Z</published>
+    <updated>2019-09-03T01:52:56.631Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;常用的服务端的验证方式有Cookie-Session、JWT，下面主要围绕这两种验证方式说明，顺带也介绍了Cookie的密码和Oauth Token两种验证方式。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="后端" scheme="http://blog.ifungfay.com/categories/%E5%90%8E%E7%AB%AF/"/>
+    
+    
+      <category term="vapor" scheme="http://blog.ifungfay.com/tags/vapor/"/>
+    
+      <category term="swift" scheme="http://blog.ifungfay.com/tags/swift/"/>
+    
+      <category term="session" scheme="http://blog.ifungfay.com/tags/session/"/>
+    
+      <category term="token" scheme="http://blog.ifungfay.com/tags/token/"/>
+    
+      <category term="verification" scheme="http://blog.ifungfay.com/tags/verification/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Vapor（三）数据库篇</title>
+    <link href="http://blog.ifungfay.com/%E5%90%8E%E7%AB%AF/Vapor%EF%BC%88%E4%B8%89%EF%BC%89%E6%95%B0%E6%8D%AE%E5%BA%93%E7%AF%87/"/>
+    <id>http://blog.ifungfay.com/后端/Vapor（三）数据库篇/</id>
+    <published>2018-08-15T13:33:00.000Z</published>
+    <updated>2018-09-04T15:23:14.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;作为一个服务器，没有比数据库更重要的东西，在Vapor上有多种数据库提供选择，而且已经有良好的封装和中间件，简单的调用就能访问到数据库，同时横向兼容。&lt;/p&gt;
+&lt;p&gt;这篇文章讲解了Vapor中和数据库相关的一些配置、操作、原理等的内容。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="后端" scheme="http://blog.ifungfay.com/categories/%E5%90%8E%E7%AB%AF/"/>
+    
+    
+      <category term="vapor" scheme="http://blog.ifungfay.com/tags/vapor/"/>
+    
+      <category term="swift" scheme="http://blog.ifungfay.com/tags/swift/"/>
+    
+      <category term="database" scheme="http://blog.ifungfay.com/tags/database/"/>
+    
+      <category term="postgreSQL" scheme="http://blog.ifungfay.com/tags/postgreSQL/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Vapor（二）进阶篇</title>
+    <link href="http://blog.ifungfay.com/%E5%90%8E%E7%AB%AF/Vapor%EF%BC%88%E4%BA%8C%EF%BC%89%E8%BF%9B%E9%98%B6%E7%AF%87/"/>
+    <id>http://blog.ifungfay.com/后端/Vapor（二）进阶篇/</id>
+    <published>2018-08-14T13:20:00.000Z</published>
+    <updated>2018-08-28T13:09:07.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;经过了解基础的概念后，可以再深一步来了解这些概念存在的意义和扩展的使用方法，包括Service、Client、Content、Session。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="后端" scheme="http://blog.ifungfay.com/categories/%E5%90%8E%E7%AB%AF/"/>
+    
+    
+      <category term="vapor" scheme="http://blog.ifungfay.com/tags/vapor/"/>
+    
+      <category term="swift" scheme="http://blog.ifungfay.com/tags/swift/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Vapor的部署</title>
+    <link href="http://blog.ifungfay.com/%E5%90%8E%E7%AB%AF/Vapor%E7%9A%84%E9%83%A8%E7%BD%B2/"/>
+    <id>http://blog.ifungfay.com/后端/Vapor的部署/</id>
+    <published>2018-08-13T15:34:00.000Z</published>
+    <updated>2018-08-13T16:52:14.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;最近计划搭个后端，开始实践Swift的后台开发，借此了解后台数据库的操作，为之后学习前端和在客户端搞点事情时做一些接口的准备。&lt;/p&gt;
+&lt;p&gt;才过去了几个月，Vapor就升级到3.0版本，还提供了他们自家的云端 Vapor Cloud，通过 Vapor tool 就可简单地将工程部署上去。&lt;/p&gt;
+&lt;p&gt;同时，在Swift4.0上，部署到Heroku的一些操作细节也不一样了，下面就来讲述一下部署到这两个平台的步骤&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="后端" scheme="http://blog.ifungfay.com/categories/%E5%90%8E%E7%AB%AF/"/>
+    
+    
+      <category term="vapor" scheme="http://blog.ifungfay.com/tags/vapor/"/>
+    
+      <category term="swift" scheme="http://blog.ifungfay.com/tags/swift/"/>
+    
+      <category term="heroku" scheme="http://blog.ifungfay.com/tags/heroku/"/>
+    
+      <category term="cloud" scheme="http://blog.ifungfay.com/tags/cloud/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Vapor（一）基础篇</title>
+    <link href="http://blog.ifungfay.com/%E5%90%8E%E7%AB%AF/Vapor%EF%BC%88%E4%B8%80%EF%BC%89%E5%9F%BA%E7%A1%80%E7%AF%87/"/>
+    <id>http://blog.ifungfay.com/后端/Vapor（一）基础篇/</id>
+    <published>2018-08-13T15:34:00.000Z</published>
+    <updated>2018-08-28T13:59:23.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;其实这个Vapor系列的文章和官网介绍的差不多，但为了加深个人理解和方便日后查阅，还是逐点再撸一遍，并且将知识点做了一下归类。过程中会有类比到其它系统、语言，又或者是旧版本的Vapor，分析它们的特性、设计模式等，使学习起来更加融会贯通。&lt;/p&gt;
+&lt;p&gt;第一篇，先介绍一下Vapor的一些基础概念，像文件结构、服务、路由、异步等等。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="后端" scheme="http://blog.ifungfay.com/categories/%E5%90%8E%E7%AB%AF/"/>
+    
+    
+      <category term="vapor" scheme="http://blog.ifungfay.com/tags/vapor/"/>
+    
+      <category term="swift" scheme="http://blog.ifungfay.com/tags/swift/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Python的使用环境配置</title>
+    <link href="http://blog.ifungfay.com/%E5%90%8E%E7%AB%AF/Python%E7%9A%84%E4%BD%BF%E7%94%A8%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/"/>
+    <id>http://blog.ifungfay.com/后端/Python的使用环境配置/</id>
+    <published>2018-05-24T11:30:00.000Z</published>
+    <updated>2018-08-07T16:17:21.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;公司更换新Mac，i7的cpu跑起来还是挺爽的，电脑还是买顶配的划算，无论从使用时间、使用期限和使用体验上，都是物有所值。&lt;/p&gt;
+&lt;p&gt;为了维护我们客户端自己的Web版工具，新电脑上得重新配置一次开发环境，但无奈以前配置环境时没有总结，导致又多踩一遍坑。这次总结会包括&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;安装Python3.x&lt;/li&gt;
+&lt;li&gt;配置项目的Python虚拟环境&lt;/li&gt;
+&lt;li&gt;配置PyCharm的编译环境&lt;/li&gt;
+&lt;li&gt;更新Django版本&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;顺带记录一下其它使用Python的工具或者管理器的问题，像Qgis、Anaconda。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="后端" scheme="http://blog.ifungfay.com/categories/%E5%90%8E%E7%AB%AF/"/>
+    
+    
+      <category term="PyCharm" scheme="http://blog.ifungfay.com/tags/PyCharm/"/>
+    
+      <category term="Django" scheme="http://blog.ifungfay.com/tags/Django/"/>
+    
+      <category term="Python" scheme="http://blog.ifungfay.com/tags/Python/"/>
+    
+      <category term="Anaconda" scheme="http://blog.ifungfay.com/tags/Anaconda/"/>
+    
+      <category term="Qgis" scheme="http://blog.ifungfay.com/tags/Qgis/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Mac命令行工具及其问题收录</title>
+    <link href="http://blog.ifungfay.com/%E5%B7%A5%E5%85%B7/Mac%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%B7%A5%E5%85%B7%E5%8F%8A%E5%85%B6%E9%97%AE%E9%A2%98%E6%94%B6%E5%BD%95/"/>
+    <id>http://blog.ifungfay.com/工具/Mac命令行工具及其问题收录/</id>
+    <published>2018-02-22T09:10:00.000Z</published>
+    <updated>2019-08-27T14:57:36.258Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+
+&lt;h2 id=&quot;问题集&quot;&gt;&lt;a href=&quot;#问题集&quot; class=&quot;headerlink&quot; title=&quot;问题集&quot;&gt;&lt;/a&gt;问题集&lt;/h2&gt;&lt;h3 id=&quot;OSX使用oh-my-zsh后-bash-profile自定义失效&quot;&gt;&lt;a
+        
+      
+    
+    </summary>
+    
+    
+      <category term="工具" scheme="http://blog.ifungfay.com/categories/%E5%B7%A5%E5%85%B7/"/>
+    
+    
+      <category term="command" scheme="http://blog.ifungfay.com/tags/command/"/>
+    
+      <category term="Mac" scheme="http://blog.ifungfay.com/tags/Mac/"/>
+    
+      <category term="question" scheme="http://blog.ifungfay.com/tags/question/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>利用Firebase实现的推送功能系统</title>
+    <link href="http://blog.ifungfay.com/uncategorized/%E5%88%A9%E7%94%A8Firebase%E5%AE%9E%E7%8E%B0%E7%9A%84%E6%8E%A8%E9%80%81%E5%8A%9F%E8%83%BD%E7%B3%BB%E7%BB%9F/"/>
+    <id>http://blog.ifungfay.com/uncategorized/利用Firebase实现的推送功能系统/</id>
+    <published>2018-01-17T11:33:41.000Z</published>
+    <updated>2018-01-17T11:33:41.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;本文不是一篇介绍如何接入Notification的教程，而主要是关联起应用业务来讲述关于到点的推送模式的实现过程，以及补充一些推送接入时的注意点。接入教程的话，喵神的这篇&lt;a href=&quot;https://onevcat.com/2016/08/notification/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;《活久见的重构 - iOS 10 UserNotifications 框架解析》&lt;/a&gt;已经十分有条理地把UserNotification的细节说得非常清晰。&lt;/p&gt;
+    
+    </summary>
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>处理服务端API返回JSON的总结</title>
+    <link href="http://blog.ifungfay.com/iOS/%E5%A4%84%E7%90%86%E6%9C%8D%E5%8A%A1%E7%AB%AFAPI%E8%BF%94%E5%9B%9EJSON%E7%9A%84%E6%80%BB%E7%BB%93/"/>
+    <id>http://blog.ifungfay.com/iOS/处理服务端API返回JSON的总结/</id>
+    <published>2018-01-09T06:35:00.000Z</published>
+    <updated>2018-01-09T10:26:52.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;   当服务端API返回给客户端的数据中，有空字段时一般是使用null填充，这时若iOS客户端不对字段先作类型判断的话，就很容易出现崩溃，因为Cocoa在JSON对象转换时对null转为了NSNull对象，而不是nil，且nil也不能存放于集合对象中，不先作类型判断，直接使用该字段转出的对象就可能出现找不到访问的selector而崩溃了。（Android的空判断本来就是用null作依据，所以这个情况对它没有影响。）&lt;/p&gt;
+&lt;p&gt;   所以开发API时，应该与服务端协商好规范约定，而客户端也应该做好防范措施。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="iOS" scheme="http://blog.ifungfay.com/categories/iOS/"/>
+    
+    
+      <category term="iOS" scheme="http://blog.ifungfay.com/tags/iOS/"/>
+    
+      <category term="JSON" scheme="http://blog.ifungfay.com/tags/JSON/"/>
+    
+      <category term="Objective-C" scheme="http://blog.ifungfay.com/tags/Objective-C/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Hello World</title>
+    <link href="http://blog.ifungfay.com/uncategorized/hello-world/"/>
+    <id>http://blog.ifungfay.com/uncategorized/hello-world/</id>
+    <published>2018-01-07T06:45:35.000Z</published>
+    <updated>2018-01-07T06:45:35.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.io/docs/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;documentation&lt;/a&gt; for more info. If you get any problems when using Hexo, you can find the answer in &lt;a href=&quot;https://hexo.io/docs/troubleshooting.html&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;troubleshooting&lt;/a&gt; or you can ask me on &lt;a href=&quot;https://github.com/hexojs/hexo/issues&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;GitHub&lt;/a&gt;.&lt;/p&gt;
+    
+    </summary>
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Vapor之初体验</title>
+    <link href="http://blog.ifungfay.com/%E5%90%8E%E7%AB%AF/Vapor%E4%B9%8B%E5%88%9D%E4%BD%93%E9%AA%8C/"/>
+    <id>http://blog.ifungfay.com/后端/Vapor之初体验/</id>
+    <published>2018-01-05T13:49:00.000Z</published>
+    <updated>2018-05-07T02:56:22.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;比较出名的Swift Web框架有Vapor、Perfect、Kitura，现在这些框架都还没十分成熟，主要是缺少基础库，还有Swift Package Manager(SPM)不支持iOS。但基于苹果的Swift Server API计划，我们还是可以放心投入到Swift Web学习中去。这里先简单介绍一下Vapor的上手体验，开始Swift Web的入门之旅。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="后端" scheme="http://blog.ifungfay.com/categories/%E5%90%8E%E7%AB%AF/"/>
+    
+    
+      <category term="vapor" scheme="http://blog.ifungfay.com/tags/vapor/"/>
+    
+      <category term="swift" scheme="http://blog.ifungfay.com/tags/swift/"/>
+    
+      <category term="heroku" scheme="http://blog.ifungfay.com/tags/heroku/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>搭建Jekins</title>
+    <link href="http://blog.ifungfay.com/uncategorized/%E6%90%AD%E5%BB%BAJekins/"/>
+    <id>http://blog.ifungfay.com/uncategorized/搭建Jekins/</id>
+    <published>2017-08-26T14:59:36.000Z</published>
+    <updated>2019-10-10T12:48:39.996Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;介绍&quot;&gt;&lt;a href=&quot;#介绍&quot; class=&quot;headerlink&quot; title=&quot;介绍&quot;&gt;&lt;/a&gt;介绍&lt;/h2&gt;&lt;p&gt;Jenkins是一种CI（Continuous integration，即可持续集成）系统工具。简单来说就是用于持续、自动地构建/测试软件项目和进行监控。具体来说的话，它可以实现&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;软件构建自动化 ：配置完成后，CI系统会依照预先制定的时间表，或者针对某一特定事件，对目标软件进行构建。&lt;/li&gt;
+&lt;li&gt;构建可持续的自动化检查 ：CI系统能持续地获取新增或修改后签入的源代码，也就是说，当软件开发团队需要周期性的检查新增或修改后的代码时，CI系统会不断确认这些新代码是否破坏了原有软件的成功构建。这减少了开发者们在检查彼此相互依存的代码中变化情况需要花费的时间和精力。&lt;/li&gt;
+&lt;li&gt;构建可持续的自动化测试 ：构建检查的扩展部分，构建后执行预先制定的一套测试规则，完成后触发通知(Email,RSS等等)给相关的当事人。&lt;/li&gt;
+&lt;li&gt;生成后后续过程的自动化 :当自动化检查和测试成功完成，软件构建的周期中可能也需要一些额外的任务，诸如生成文档、打包软件、部署构件到一个运行环境或者软件仓库。这样，构件才能更迅速地提供给用户使用。&lt;/li&gt;
+&lt;/ul&gt;
+    
+    </summary>
+    
+    
+    
+      <category term="Jenkins" scheme="http://blog.ifungfay.com/tags/Jenkins/"/>
+    
+      <category term="CI" scheme="http://blog.ifungfay.com/tags/CI/"/>
+    
+      <category term="Test" scheme="http://blog.ifungfay.com/tags/Test/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>ATS详解</title>
+    <link href="http://blog.ifungfay.com/uncategorized/ATS%E8%AF%A6%E8%A7%A3/"/>
+    <id>http://blog.ifungfay.com/uncategorized/ATS详解/</id>
+    <published>2017-07-22T07:57:55.000Z</published>
+    <updated>2019-10-10T10:22:50.028Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;恰逢最近面试的时候有被问到这一块，工作中其实也会经常遇到这方面的问题，但是原理并没有明明白白地搞下来，现在就来详细了解一番吧。&lt;/p&gt;
+&lt;p&gt;来，先从基本的原理入手，首先介绍一下一些安全协议。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;TLS(Transport Layer Security，传输层安全协议)是SSL的标准化版本，有1.0、1.1、1.2、1.3四个版本。是一种对基于网络的传输的加密协议，可以在受信任的第三方公证基础上做双方的身份认证。TLS可以用在TCP上，也可以用在无连接的UDP报文上。协议规定了身份认证、算法协商、密钥交换等的实现。而TLS 1.0和SSL 3.0几乎没有区别，就相当于SSL 3.1；&lt;/li&gt;
+&lt;li&gt;SSL（Secure Socket Layer，安全套接字层）由网景Netscape公司开发的，有1、2、3三个版本，是TLS的前身，现在已不再更新；&lt;/li&gt;
+&lt;li&gt;HTTPS是在基于TLS/SSL的安全套接字上的的应用层协议，除了传输层进行了加密外，其它与常规HTTP协议基本保持一致；&lt;/li&gt;
+&lt;li&gt;证书是TLS协议中用来对身份进行验证的机制，是一种数字签名形式的文件，包含证书拥有者的公钥及第三方的证书信息。&lt;/li&gt;
+&lt;/ul&gt;
+    
+    </summary>
+    
+    
+    
+      <category term="TLS" scheme="http://blog.ifungfay.com/tags/TLS/"/>
+    
+      <category term="SSL" scheme="http://blog.ifungfay.com/tags/SSL/"/>
+    
+      <category term="HTTPS" scheme="http://blog.ifungfay.com/tags/HTTPS/"/>
+    
+      <category term="ATS" scheme="http://blog.ifungfay.com/tags/ATS/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>搭建Hexo博客</title>
+    <link href="http://blog.ifungfay.com/%E5%89%8D%E7%AB%AF/%E6%90%AD%E5%BB%BAHexo%E5%8D%9A%E5%AE%A2/"/>
+    <id>http://blog.ifungfay.com/前端/搭建Hexo博客/</id>
+    <published>2017-07-18T13:50:14.000Z</published>
+    <updated>2019-01-28T13:51:41.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;在15年的时候，同样是使用GitHub Page搭建博客，使用一款名为&lt;a href=&quot;https://github.com/dbtek/dbyll&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;dbll&lt;/a&gt;的主题，但不知是主题不好用还是自己太懒的关系，只发布过可怜的几篇文章。&lt;/p&gt;
+&lt;p&gt;直到最近看了一些关于作为技术人员为什么要写博客的&lt;a href=&quot;https://www.zhihu.com/question/20128360&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;文章&lt;/a&gt;和&lt;a href=&quot;http://www.wklken.me/posts/2015/09/26/why-i-keep-blogging.html&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;文章&lt;/a&gt;等，同时网易那边的面试失败，使我产生了那种对知识掌握不够细致、不够深的挫折感与悔晚感，知识面也没有广阔到什么程度去，而下定了从此之后一定要写技术博客的决心。&lt;/p&gt;
+&lt;p&gt;好了，不扯太多自己的东西，开始正式介绍使用Hexo+GitHub Page搭建自己个人博客的教程。&lt;/p&gt;
+&lt;h2 id=&quot;为什么选择Hexo&quot;&gt;&lt;a href=&quot;#为什么选择Hexo&quot; class=&quot;headerlink&quot; title=&quot;为什么选择Hexo&quot;&gt;&lt;/a&gt;为什么选择Hexo&lt;/h2&gt;&lt;p&gt;正如它&lt;a href=&quot;https://hexo.io/zh-cn/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;主页&lt;/a&gt;说讲的：快速、简洁且高效。执行短短五条指令后就能运行起来看到效果&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="前端" scheme="http://blog.ifungfay.com/categories/%E5%89%8D%E7%AB%AF/"/>
+    
+    
+      <category term="jekyll" scheme="http://blog.ifungfay.com/tags/jekyll/"/>
+    
+      <category term="github" scheme="http://blog.ifungfay.com/tags/github/"/>
+    
+      <category term="blog" scheme="http://blog.ifungfay.com/tags/blog/"/>
+    
+  </entry>
+  
+</feed>

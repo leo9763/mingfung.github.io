@@ -1,0 +1,1824 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  <title>ATS详解 | Mingfung&#39;s Blog</title>
+  <meta name="keywords" content=" TLS , SSL , HTTPS , ATS ">
+  <meta name="description" content="ATS详解 | Mingfung&#39;s Blog">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="description" content="关于iOS码农一枚">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Mingfung&#39;s Blog">
+<meta property="og:url" content="http://blog.ifungfay.com/about/index.html">
+<meta property="og:site_name" content="Mingfung&#39;s Blog">
+<meta property="og:description" content="关于iOS码农一枚">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-10-12T14:30:09.446Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Mingfung&#39;s Blog">
+<meta name="twitter:description" content="关于iOS码农一枚">
+
+
+<link rel="icon" href="/img/avatar.jpg">
+
+<link href="/css/style.css?v=1.0.1" rel="stylesheet">
+
+<link href="/css/hl_theme/zenbum.css?v=1.0.1" rel="stylesheet">
+
+<link href="//cdn.bootcss.com/animate.css/3.5.2/animate.min.css" rel="stylesheet">
+<link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+<script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="/js/jquery.autocomplete.min.js?v=1.0.1"></script>
+
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
+
+<script src="//cdn.bootcss.com/nprogress/0.2.0/nprogress.min.js"></script>
+
+
+
+<script src="/js/iconfont.js?v=1.0.1"></script>
+<!--鼠标点击爱心动画-->
+<script type="text/javascript" src="/js/clicklove.js"></script>
+</head>
+<div style="display: none">
+  <input class="theme_disqus_on" value="false">
+  <input class="theme_preload_comment" value="true">
+  <input class="theme_blog_path" value>
+</div>
+
+<body>
+<aside class="nav">
+    <div class="nav-left">
+        <a href="/" class="avatar_target">
+    <img class="avatar" src="/img/avatar.jpg" />
+</a>
+<div class="author">
+    <span>Mingfung</span>
+</div>
+
+<div class="icon">
+    
+        
+        <a title="rss" href="/atom.xml" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-rss"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+        <a title="github" href="https://github.com/leo9763" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-github"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+        <a title="facebook" href="https://www.facebook.com/ming.fung.liu.nero" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-facebook"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+    
+        
+    
+        
+        <a title="instagram" href="https://www.instagram.com/mingfungliu/" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-instagram"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+    
+        
+        <a title="weibo" href="https://weibo.com/neross" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-weibo"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+        <a title="jianshu" href="https://www.jianshu.com/u/007c5818ec78" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-jianshu"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+        <a title="zhihu" href="zhihu.com/people/mingfungliu" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-zhihu"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+    
+        
+    
+        
+        <a title="juejin" href="https://juejin.im/user/5b6b9b37f265da0f9f4e8df3" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-juejin"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+        <a title="email" href="mailto:mingfungliu@gmail.com" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-email"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+        <a title="qq" href="http://wpa.qq.com/msgrd?v=3&uin=52360086&site=qq&menu=yes" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-qq"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+    
+        
+    
+</div>
+
+
+
+<a class="more-menus">更多菜单</a>
+
+
+<ul>
+    <li><div class="all active">全部文章<small>(43)</small></div></li>
+    
+        
+            
+            <li><div data-rel="iOS">iOS<small>(6)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="Android">Android<small>(3)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="前端">前端<small>(4)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="工具">工具<small>(4)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="后端">后端<small>(12)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="管理">管理<small>(1)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="设计模式">设计模式<small>(7)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="系统">系统<small>(1)</small></div>
+                
+            </li>
+            
+        
+    
+</ul>
+<div class="left-bottom">
+    <div class="menus">
+    
+    
+    <a class="dynamic-menu site_url"   href="/404.html">宝贝回家</a>
+    
+    
+    
+    </div>
+    <div><a class="about  hasFriend  site_url"  href="/about">关于</a><a style="width: 50%"  class="friends">友链</a></div>
+</div>
+<input type="hidden" id="yelog_site_posts_number" value="43">
+
+<div style="display: none">
+    <span id="busuanzi_value_site_uv"></span>
+    <span id="busuanzi_value_site_pv"></span>
+</div>
+
+    </div>
+    <div class="nav-right">
+        <div class="friends-area">
+    <div class="friends-title">
+        友情链接
+        <i class="back-title-list"></i>
+    </div>
+    <div class="friends-content">
+        <ul>
+            
+            <li><a target="_blank" href="http://www.ifungfay.com">雪月风飞</a></li>
+            
+        </ul>
+    </div>
+</div>
+        <div class="title-list">
+    <form onkeydown="if(event.keyCode==13){return false;}">
+        <input class="search" type="text" placeholder="Search..." autocomplete="off"id="local-search-input" >
+        <i class="cross"></i>
+        <span>
+            <label for="tagswitch">Tags:</label>
+            <input id="tagswitch" type="checkbox" style="display: none" />
+            <i id="tagsWitchIcon"></i>
+        </span>
+    </form>
+    <div class="tags-list">
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">JSPatch</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">JavaScriptCore</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">property</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">dynamic</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">sythesize</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">nonatomic</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color1">iOS11</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">Xcode9</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">iPhoneX</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">TLS</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">SSL</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color1">HTTPS</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">ATS</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">Java</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">Android</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">AndroidStudio</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">adb</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">反编译</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">Gradle</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">Module</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">ProGuard</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">Native</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">JNI</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">NDK</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">AAR</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">JAR</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">html</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">bootstrap</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">css</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">Flutter</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">iOS</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">Dart</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">Git</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">command</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">Mac</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">question</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">PyCharm</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">Django</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">Python</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">Anaconda</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">Qgis</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color1">vapor</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color1">swift</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">heroku</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color1">cloud</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">crypto</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">console</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">terminal</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">database</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color1">postgreSQL</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">network</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">http</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">webSocket</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">encoded</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">leaf</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">view</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">session</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color1">token</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">verification</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">越狱</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">逆向</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">工具</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">安全</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">CGI</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">Servlet</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">容器</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">Docker</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">Manager</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color1">Model</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">Role</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">Target</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">JSON</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">Objective-C</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">jekyll</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">github</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">blog</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">Jenkins</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">CI</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">Test</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">Ubuntu</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">服务器</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">Web App</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color1">nginx</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color1">supervisor</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">fabric</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">python</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color1">mysql</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">设计模式</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">tool</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color1">skill</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">MVP</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">Adapter</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">Activity</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">Fragment</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">Layout</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">Res</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color1">Realm</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">AIDL</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">AsyncTask</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">Thread</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">Handler</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">link</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">register</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">assembly</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">library</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">static</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">memory</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">runtime</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">interrupt</a>
+    </li>
+    
+    <div class="clearfix"></div>
+</div>
+
+    
+    <nav id="title-list-nav">
+        
+        <a  class=""
+           href="/uncategorized/ATS详解/"
+           data-tag="TLS,SSL,HTTPS,ATS"
+           data-author="" >
+            <span class="post-title" title="ATS详解">ATS详解</span>
+            <span class="post-date" title="2017-07-22 15:57:55">2017/07/22</span>
+        </a>
+        
+        <a  class="Android "
+           href="/Android/Android原理入门/"
+           data-tag="Java,Android"
+           data-author="" >
+            <span class="post-title" title="Android原理入门">Android原理入门</span>
+            <span class="post-date" title="2019-08-14 00:22:11">2019/08/14</span>
+        </a>
+        
+        <a  class=""
+           href="/uncategorized/Android技巧入门/"
+           data-tag="AndroidStudio,adb,反编译"
+           data-author="" >
+            <span class="post-title" title="Android技巧入门">Android技巧入门</span>
+            <span class="post-date" title="2019-08-14 00:22:37">2019/08/14</span>
+        </a>
+        
+        <a  class="Android "
+           href="/Android/Android工程入门/"
+           data-tag="Gradle,Module,ProGuard,Native,JNI,NDK,AAR,JAR"
+           data-author="" >
+            <span class="post-title" title="Android工程入门">Android工程入门</span>
+            <span class="post-date" title="2019-02-24 13:44:00">2019/02/24</span>
+        </a>
+        
+        <a  class="前端 "
+           href="/前端/Bootstrap手册/"
+           data-tag="html,bootstrap,css"
+           data-author="" >
+            <span class="post-title" title="Bootstrap手册">Bootstrap手册</span>
+            <span class="post-date" title="2018-09-08 23:06:00">2018/09/08</span>
+        </a>
+        
+        <a  class="前端 "
+           href="/前端/Flutter开发（介绍篇）/"
+           data-tag="Android,Flutter,iOS,Dart"
+           data-author="" >
+            <span class="post-title" title="Flutter开发（介绍篇）">Flutter开发（介绍篇）</span>
+            <span class="post-date" title="2019-01-09 21:24:00">2019/01/09</span>
+        </a>
+        
+        <a  class="前端 "
+           href="/前端/Flutter开发（实践篇）/"
+           data-tag="Android,Flutter,iOS,Dart"
+           data-author="" >
+            <span class="post-title" title="Flutter开发（实践篇）">Flutter开发（实践篇）</span>
+            <span class="post-date" title="2019-01-09 23:06:00">2019/01/09</span>
+        </a>
+        
+        <a  class="工具 "
+           href="/工具/Git手册/"
+           data-tag="Git"
+           data-author="" >
+            <span class="post-title" title="Git手册">Git手册</span>
+            <span class="post-date" title="2019-01-28 21:35:00">2019/01/28</span>
+        </a>
+        
+        <a  class="工具 "
+           href="/工具/Mac命令行工具及其问题收录/"
+           data-tag="command,Mac,question"
+           data-author="" >
+            <span class="post-title" title="Mac命令行工具及其问题收录">Mac命令行工具及其问题收录</span>
+            <span class="post-date" title="2018-02-22 17:10:00">2018/02/22</span>
+        </a>
+        
+        <a  class="后端 "
+           href="/后端/Python的使用环境配置/"
+           data-tag="PyCharm,Django,Python,Anaconda,Qgis"
+           data-author="" >
+            <span class="post-title" title="Python的使用环境配置">Python的使用环境配置</span>
+            <span class="post-date" title="2018-05-24 19:30:00">2018/05/24</span>
+        </a>
+        
+        <a  class="后端 "
+           href="/后端/Vapor之初体验/"
+           data-tag="vapor,swift,heroku"
+           data-author="" >
+            <span class="post-title" title="Vapor之初体验">Vapor之初体验</span>
+            <span class="post-date" title="2018-01-05 21:49:00">2018/01/05</span>
+        </a>
+        
+        <a  class="后端 "
+           href="/后端/Vapor的部署/"
+           data-tag="vapor,swift,heroku,cloud"
+           data-author="" >
+            <span class="post-title" title="Vapor的部署">Vapor的部署</span>
+            <span class="post-date" title="2018-08-13 23:34:00">2018/08/13</span>
+        </a>
+        
+        <a  class="后端 "
+           href="/后端/Vapor（一）基础篇/"
+           data-tag="vapor,swift"
+           data-author="" >
+            <span class="post-title" title="Vapor（一）基础篇">Vapor（一）基础篇</span>
+            <span class="post-date" title="2018-08-13 23:34:00">2018/08/13</span>
+        </a>
+        
+        <a  class="后端 "
+           href="/后端/Vapor（七）工具篇/"
+           data-tag="command,vapor,swift,crypto,console,terminal"
+           data-author="" >
+            <span class="post-title" title="Vapor（七）工具篇">Vapor（七）工具篇</span>
+            <span class="post-date" title="2018-08-21 23:02:00">2018/08/21</span>
+        </a>
+        
+        <a  class="后端 "
+           href="/后端/Vapor（三）数据库篇/"
+           data-tag="vapor,swift,database,postgreSQL"
+           data-author="" >
+            <span class="post-title" title="Vapor（三）数据库篇">Vapor（三）数据库篇</span>
+            <span class="post-date" title="2018-08-15 21:33:00">2018/08/15</span>
+        </a>
+        
+        <a  class="后端 "
+           href="/后端/Vapor（二）进阶篇/"
+           data-tag="vapor,swift"
+           data-author="" >
+            <span class="post-title" title="Vapor（二）进阶篇">Vapor（二）进阶篇</span>
+            <span class="post-date" title="2018-08-14 21:20:00">2018/08/14</span>
+        </a>
+        
+        <a  class="后端 "
+           href="/后端/Vapor（五）网络篇/"
+           data-tag="vapor,swift,network,http,webSocket,encoded"
+           data-author="" >
+            <span class="post-title" title="Vapor（五）网络篇">Vapor（五）网络篇</span>
+            <span class="post-date" title="2018-08-17 20:30:00">2018/08/17</span>
+        </a>
+        
+        <a  class="后端 "
+           href="/后端/Vapor（六）视图篇/"
+           data-tag="vapor,swift,leaf,view"
+           data-author="" >
+            <span class="post-title" title="Vapor（六）视图篇">Vapor（六）视图篇</span>
+            <span class="post-date" title="2018-08-20 21:56:00">2018/08/20</span>
+        </a>
+        
+        <a  class="后端 "
+           href="/后端/Vapor（四）验证篇/"
+           data-tag="vapor,swift,session,token,verification"
+           data-author="" >
+            <span class="post-title" title="Vapor（四）验证篇">Vapor（四）验证篇</span>
+            <span class="post-date" title="2018-08-16 19:06:00">2018/08/16</span>
+        </a>
+        
+        <a  class=""
+           href="/uncategorized/hello-world/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Hello World">Hello World</span>
+            <span class="post-date" title="2018-01-07 14:45:35">2018/01/07</span>
+        </a>
+        
+        <a  class="iOS "
+           href="/iOS/iOS逆向（一）越狱篇/"
+           data-tag="iOS,越狱"
+           data-author="" >
+            <span class="post-title" title="iOS逆向（一）越狱篇">iOS逆向（一）越狱篇</span>
+            <span class="post-date" title="2018-09-13 22:39:01">2018/09/13</span>
+        </a>
+        
+        <a  class="iOS "
+           href="/iOS/iOS逆向（二）工具篇/"
+           data-tag="iOS,逆向,工具"
+           data-author="" >
+            <span class="post-title" title="iOS逆向（二）工具篇">iOS逆向（二）工具篇</span>
+            <span class="post-date" title="2018-09-13 22:39:02">2018/09/13</span>
+        </a>
+        
+        <a  class="iOS "
+           href="/iOS/iOS逆向（三）分析篇/"
+           data-tag="iOS,逆向"
+           data-author="" >
+            <span class="post-title" title="iOS逆向（三）分析篇">iOS逆向（三）分析篇</span>
+            <span class="post-date" title="2018-09-13 22:39:03">2018/09/13</span>
+        </a>
+        
+        <a  class="iOS "
+           href="/iOS/iOS逆向（五）总结篇/"
+           data-tag="iOS,逆向,安全"
+           data-author="" >
+            <span class="post-title" title="iOS逆向（五）总结篇">iOS逆向（五）总结篇</span>
+            <span class="post-date" title="2018-09-13 22:39:05">2018/09/13</span>
+        </a>
+        
+        <a  class="iOS "
+           href="/iOS/iOS逆向（四）实战篇/"
+           data-tag="iOS,逆向"
+           data-author="" >
+            <span class="post-title" title="iOS逆向（四）实战篇">iOS逆向（四）实战篇</span>
+            <span class="post-date" title="2018-09-13 22:39:04">2018/09/13</span>
+        </a>
+        
+        <a  class="后端 "
+           href="/后端/后端服务器概念了解下/"
+           data-tag="CGI,Servlet,容器,Docker"
+           data-author="" >
+            <span class="post-title" title="后端服务器概念了解下">后端服务器概念了解下</span>
+            <span class="post-date" title="2019-02-21 20:30:00">2019/02/21</span>
+        </a>
+        
+        <a  class=""
+           href="/uncategorized/利用Firebase实现的推送功能系统/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="利用Firebase实现的推送功能系统">利用Firebase实现的推送功能系统</span>
+            <span class="post-date" title="2018-01-17 19:33:41">2018/01/17</span>
+        </a>
+        
+        <a  class="管理 "
+           href="/管理/团队管理实践/"
+           data-tag="Manager,Model,Role,Target"
+           data-author="" >
+            <span class="post-title" title="团队管理实践">团队管理实践</span>
+            <span class="post-date" title="2019-02-23 23:50:00">2019/02/23</span>
+        </a>
+        
+        <a  class="iOS "
+           href="/iOS/处理服务端API返回JSON的总结/"
+           data-tag="iOS,JSON,Objective-C"
+           data-author="" >
+            <span class="post-title" title="处理服务端API返回JSON的总结">处理服务端API返回JSON的总结</span>
+            <span class="post-date" title="2018-01-09 14:35:00">2018/01/09</span>
+        </a>
+        
+        <a  class="前端 "
+           href="/前端/搭建Hexo博客/"
+           data-tag="jekyll,github,blog"
+           data-author="" >
+            <span class="post-title" title="搭建Hexo博客">搭建Hexo博客</span>
+            <span class="post-date" title="2017-07-18 21:50:14">2017/07/18</span>
+        </a>
+        
+        <a  class=""
+           href="/uncategorized/搭建Jekins/"
+           data-tag="Jenkins,CI,Test"
+           data-author="" >
+            <span class="post-title" title="搭建Jekins">搭建Jekins</span>
+            <span class="post-date" title="2017-08-26 22:59:36">2017/08/26</span>
+        </a>
+        
+        <a  class="工具 "
+           href="/工具/搭建博客图床/"
+           data-tag="blog"
+           data-author="" >
+            <span class="post-title" title="搭建博客图床">搭建博客图床</span>
+            <span class="post-date" title="2019-03-21 12:39:00">2019/03/21</span>
+        </a>
+        
+        <a  class="后端 "
+           href="/后端/搭建服务器/"
+           data-tag="Ubuntu,服务器,Web App,nginx,supervisor,fabric,python,mysql"
+           data-author="" >
+            <span class="post-title" title="搭建服务器">搭建服务器</span>
+            <span class="post-date" title="2019-04-06 00:00:00">2019/04/06</span>
+        </a>
+        
+        <a  class="设计模式 "
+           href="/设计模式/设计模式（一）策略模式 & 模板方法模式/"
+           data-tag="设计模式"
+           data-author="" >
+            <span class="post-title" title="设计模式（一）策略模式 &amp; 模板方法模式">设计模式（一）策略模式 &amp; 模板方法模式</span>
+            <span class="post-date" title="2019-01-13 23:41:00">2019/01/13</span>
+        </a>
+        
+        <a  class="工具 "
+           href="/工具/效率工具及技巧收录/"
+           data-tag="tool,skill"
+           data-author="" >
+            <span class="post-title" title="效率工具及技巧收录">效率工具及技巧收录</span>
+            <span class="post-date" title="2019-02-23 22:05:00">2019/02/23</span>
+        </a>
+        
+        <a  class="设计模式 "
+           href="/设计模式/设计模式（七）小总结/"
+           data-tag="设计模式"
+           data-author="" >
+            <span class="post-title" title="设计模式（七）小总结">设计模式（七）小总结</span>
+            <span class="post-date" title="2019-02-12 14:45:00">2019/02/12</span>
+        </a>
+        
+        <a  class="设计模式 "
+           href="/设计模式/设计模式（三）适配器模式 & 外观模式/"
+           data-tag="设计模式"
+           data-author="" >
+            <span class="post-title" title="设计模式（三）适配器模式 &amp; 外观模式">设计模式（三）适配器模式 &amp; 外观模式</span>
+            <span class="post-date" title="2019-02-11 15:10:00">2019/02/11</span>
+        </a>
+        
+        <a  class="设计模式 "
+           href="/设计模式/设计模式（二）迭代器模式 & 组合模式/"
+           data-tag="设计模式"
+           data-author="" >
+            <span class="post-title" title="设计模式（二）迭代器模式 &amp; 组合模式">设计模式（二）迭代器模式 &amp; 组合模式</span>
+            <span class="post-date" title="2019-02-11 09:59:00">2019/02/11</span>
+        </a>
+        
+        <a  class="设计模式 "
+           href="/设计模式/设计模式（五）工厂模式 & 装饰者模式/"
+           data-tag="设计模式"
+           data-author="" >
+            <span class="post-title" title="设计模式（五）工厂模式 &amp; 装饰者模式">设计模式（五）工厂模式 &amp; 装饰者模式</span>
+            <span class="post-date" title="2019-02-12 11:54:00">2019/02/12</span>
+        </a>
+        
+        <a  class="设计模式 "
+           href="/设计模式/设计模式（六）命令模式 & 观察者模式/"
+           data-tag="设计模式"
+           data-author="" >
+            <span class="post-title" title="设计模式（六）命令模式 &amp; 观察者模式">设计模式（六）命令模式 &amp; 观察者模式</span>
+            <span class="post-date" title="2019-02-12 14:28:00">2019/02/12</span>
+        </a>
+        
+        <a  class="设计模式 "
+           href="/设计模式/设计模式（四）状态模式 & 代理模式/"
+           data-tag="设计模式"
+           data-author="" >
+            <span class="post-title" title="设计模式（四）状态模式 &amp; 代理模式">设计模式（四）状态模式 &amp; 代理模式</span>
+            <span class="post-date" title="2019-02-12 13:12:00">2019/02/12</span>
+        </a>
+        
+        <a  class="Android "
+           href="/Android/开发一个Android-App/"
+           data-tag="MVP,Adapter,Activity,Fragment,Layout,Res,Realm,AIDL,AsyncTask,Thread,Handler"
+           data-author="" >
+            <span class="post-title" title="开发一个Android App">开发一个Android App</span>
+            <span class="post-date" title="2019-10-05 16:11:04">2019/10/05</span>
+        </a>
+        
+        <a  class="系统 "
+           href="/系统/链接、装载、库/"
+           data-tag="dynamic,link,register,assembly,library,static,memory,runtime,interrupt"
+           data-author="" >
+            <span class="post-title" title="链接、装载、库">链接、装载、库</span>
+            <span class="post-date" title="2019-06-05 08:53:00">2019/06/05</span>
+        </a>
+        
+    </nav>
+</div>
+    </div>
+    <div class="hide-list">
+        <div class="semicircle">
+            <div class="brackets first"><</div>
+            <div class="brackets">&gt;</div>
+        </div>
+    </div>
+</aside>
+<div class="post">
+    <div class="pjax">
+        <article id="post-ATS详解" class="article article-type-post" itemscope itemprop="blogPost">
+    
+        <h1 class="article-title">ATS详解</h1>
+    
+    <div class="article-meta">
+        
+        
+        
+        
+        <span class="tag">
+            
+            <a href="javascript:" class="color4">TLS</a>
+            
+            <a href="javascript:" class="color4">SSL</a>
+            
+            <a href="javascript:" class="color1">HTTPS</a>
+            
+            <a href="javascript:" class="color4">ATS</a>
+            
+        </span>
+        
+    </div>
+    <div class="article-meta">
+        
+        创建时间:<time class="date" title='更新时间: 2019-10-10 18:22:50'>2017-07-22 15:57</time>
+        
+    </div>
+    <div class="article-meta">
+        
+        
+        <span id="busuanzi_container_page_pv">
+            阅读:<span id="busuanzi_value_page_pv">
+                <span class="count-comment">
+                    <span class="spinner">
+                      <div class="cube1"></div>
+                      <div class="cube2"></div>
+                    </span>
+                </span>
+            </span>
+        </span>
+        
+        
+    </div>
+    
+    <div class="toc-ref">
+    
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#SSL工作原理"><span class="toc-text">SSL工作原理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#身份认证"><span class="toc-text">身份认证</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#交换秘钥"><span class="toc-text">交换秘钥</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#消息验证"><span class="toc-text">消息验证</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#TLS"><span class="toc-text">TLS</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#TLS与SSL的差异"><span class="toc-text">TLS与SSL的差异</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#TLS的主要目标"><span class="toc-text">TLS的主要目标</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#TLS对于安全性的改进"><span class="toc-text">TLS对于安全性的改进</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#证书"><span class="toc-text">证书</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#证书链"><span class="toc-text">证书链</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ATS（AppTransportSecurity）"><span class="toc-text">ATS（AppTransportSecurity）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#ATS默认的条件"><span class="toc-text">ATS默认的条件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ATS的Client配置"><span class="toc-text">ATS的Client配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#自定义验证"><span class="toc-text">自定义验证</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#服务端验证客户端"><span class="toc-text">服务端验证客户端</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#客户端验证服务端"><span class="toc-text">客户端验证服务端</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#自签名证书验证"><span class="toc-text">自签名证书验证</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#AFN的相关属性"><span class="toc-text">AFN的相关属性</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#小结"><span class="toc-text">小结</span></a></li></ol>
+    
+<style>
+    .left-col .switch-btn,
+    .left-col .switch-area {
+        display: none;
+    }
+    .toc-level-3 i,
+    .toc-level-3 ol {
+        display: none !important;
+    }
+</style>
+</div>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>恰逢最近面试的时候有被问到这一块，工作中其实也会经常遇到这方面的问题，但是原理并没有明明白白地搞下来，现在就来详细了解一番吧。</p>
+<p>来，先从基本的原理入手，首先介绍一下一些安全协议。</p>
+<ul>
+<li>TLS(Transport Layer Security，传输层安全协议)是SSL的标准化版本，有1.0、1.1、1.2、1.3四个版本。是一种对基于网络的传输的加密协议，可以在受信任的第三方公证基础上做双方的身份认证。TLS可以用在TCP上，也可以用在无连接的UDP报文上。协议规定了身份认证、算法协商、密钥交换等的实现。而TLS 1.0和SSL 3.0几乎没有区别，就相当于SSL 3.1；</li>
+<li>SSL（Secure Socket Layer，安全套接字层）由网景Netscape公司开发的，有1、2、3三个版本，是TLS的前身，现在已不再更新；</li>
+<li>HTTPS是在基于TLS/SSL的安全套接字上的的应用层协议，除了传输层进行了加密外，其它与常规HTTP协议基本保持一致；</li>
+<li>证书是TLS协议中用来对身份进行验证的机制，是一种数字签名形式的文件，包含证书拥有者的公钥及第三方的证书信息。</li>
+</ul>
+<a id="more"></a>
+<h2 id="SSL工作原理"><a href="#SSL工作原理" class="headerlink" title="SSL工作原理"></a>SSL工作原理</h2><p>SSL协议位于TCP/IP协议与各种应用层协议之间，为数据通讯提供安全支持。SSL协议可分为两层： SSL记录协议（SSL Record Protocol），它建立在可靠的传输协议（如TCP）之上，为高层协议提供数据封装、压缩、加密等基本功能的支持。 SSL握手协议（SSL Handshake Protocol），它建立在SSL记录协议之上，用于在实际的数据传输开始前，通讯双方进行身份认证、协商加密算法、交换加密密钥等。</p>
+<h3 id="身份认证"><a href="#身份认证" class="headerlink" title="身份认证"></a>身份认证</h3><p>现假设Alice要认证Bob的身份:</p>
+<blockquote>
+<p>A–&gt;B hello,areyou bob?<br>B–&gt;A Alice,This Is bob{digest[Alice,This Is Bob]}bobs-private-key</p>
+</blockquote>
+<p>Bod使用RSA的私钥加密一个消息摘要，例如对消息进行MD5 hash后加密，然后连同消息原文发给Alice。<br>Alice使用RSA的公钥解密，将解密的信息与消息原文的摘要对比。此为<code>数字签名</code>。</p>
+<p>为了解决中间人攻击，标准化组织在分发公钥这步协议上发明了证书。证书是由证书颁发者（即其上一级证书）使用其私钥签名而成，外界都可以通过证书知道颁发者的公钥。</p>
+<p>这样就有了更安全的签名:</p>
+<blockquote>
+<p>A–&gt;B hello<br>B–&gt;A Hi, I’m Bob, bobs-certificate<br>(A:verify bobs-certificate)<br>A–&gt;B prove it<br>B–&gt;A Alice, This Is bob{ digest[Alice, This Is Bob] }bobs-private-key</p>
+</blockquote>
+<h3 id="交换秘钥"><a href="#交换秘钥" class="headerlink" title="交换秘钥"></a>交换秘钥</h3><p>有了证书的数字签名认证后，就可以进一步优化密文的交换方式。下面是先用不对称的加密算法法验证身份，然后用对称加密算法互通其他信息</p>
+<blockquote>
+<p>A–&gt;B hello<br>B–&gt;A Hi, I’m Bob, bobs-certificate<br>A–&gt;B prove it<br>B–&gt;A Alice, This Is bob{ digest[Alice, This Is Bob] }bobs-private-key<br>A–&gt;B ok bob, here is a secret {secret-key} bobs-public-key<br>B–&gt;A {some message}secret-key</p>
+</blockquote>
+<p>但是上面这种先认证身份后再对称加密传输数据的方式还是有漏洞，中间人虽然无法破解加密信息，却可以在得到身份认证后破坏对称加密信息来进行暴力碰撞。所以再有一种协议来解决，就是加入消息验证码（MAC）。</p>
+<h3 id="消息验证"><a href="#消息验证" class="headerlink" title="消息验证"></a>消息验证</h3><p>消息验证码（MAC）根据对称秘钥和消息原文计算生成一个验证码，作为消息的一部分一并进行对称加密后传递，接收方解密后则将消息原文和对称秘钥再进行一次MAC制作，然后和接收到的MAC对比，一致就认定消息有效。例如可以使用MD5对some message + secret-key摘要式地生成一个MAC。</p>
+<blockquote>
+<p>A–&gt;B hello<br>B–&gt;A Hi, I’m Bob, bobs-certificate<br>A–&gt;B prove it<br>B–&gt;A Alice, This Is Bob{digest[Alice, This Is Bob] } bobs-private-key<br>A–&gt;B ok bob, here is a secret {secret} bobs-public-key<br>(B: MAC = Digest[some message, secret])<br>B–&gt;A {some message,MAC}secret-key</p>
+</blockquote>
+<h2 id="TLS"><a href="#TLS" class="headerlink" title="TLS"></a>TLS</h2><p><a href="https://zh.wikipedia.org/wiki/%E5%82%B3%E8%BC%B8%E5%B1%A4%E5%AE%89%E5%85%A8%E5%8D%94%E8%AD%B0" target="_blank" rel="noopener">TLS的维基百科</a>有满满的介绍，包括各个版本的更新点。</p>
+<p>从技术上讲，TLS 1.0与SSL 3.0的差异非常微小。但正如RFC所述</p>
+<blockquote>
+<p>the differences between this protocol and SSL 3.0 are not dramatic, but they are significant enough to preclude interoperability between TLS 1.0 and SSL 3.0.</p>
+</blockquote>
+<p><em>本协议和SSL 3.0之间的差异并不是显著，却足以排除TLS 1.0和SSL 3.0之间的互操作性。</em></p>
+<p>TLS 1.0包括可以降级到SSL 3.0的实现，这削弱了连接的安全性。</p>
+<p>2014年10月，Google发布在SSL 3.0中发现设计缺陷，建议禁用此一协议。攻击者可以向TLS发送虚假错误提示，然后将安全连接强行降级到过时且不安全的SSL 3.0，然后就可以利用其中的设计漏洞窃取敏感信息。Google在自己公司相关产品中陆续禁止向后兼容，强制使用TLS协议。Mozilla也在11月25日发布的Firefox 34中彻底禁用了SSL 3.0。微软同样发出了安全通告。</p>
+<h3 id="TLS与SSL的差异"><a href="#TLS与SSL的差异" class="headerlink" title="TLS与SSL的差异"></a>TLS与SSL的差异</h3><ul>
+<li>版本号：TLS记录格式与SSL记录格式相同，但版本号的值不同，TLS的版本1.0使用的版本号为SSLv3.1；</li>
+<li>报文鉴别码：SSLv3.0和TLS的MAC算法及MAC计算的范围不同。TLS使用了RFC-2104定义的HMAC算法；SSLv3.0使用了相似的算法，两者差别在于SSLv3.0中，填充字节与密钥之间采用的是连接运算，而HMAC算法采用的是异或运算。但是两者的安全程度是相同的；</li>
+<li>伪随机函数：TLS使用了称为PRF的伪随机函数来将密钥扩展成数据块，是更安全的方式；</li>
+<li>报警代码：TLS支持几乎所有的SSLv3.0报警代码，而且TLS还补充定义了很多报警代码，如解密失败（decryption_failed）、记录溢出（record_overflow）、未知CA（unknown_ca）、拒绝访问（access_denied）等；</li>
+<li>密文族和客户证书：SSLv3.0和TLS存在少量差别，即TLS不支持Fortezza密钥交换、加密算法和客户证书；</li>
+<li>certificate_verify和finished消息：SSLv3.0和TLS在用certificate_verify和finished消息计算MD5和SHA-1散列码时，计算的输入有少许差别，但安全性相当；</li>
+<li>加密计算：TLS与SSLv3.0在计算主密值（master secret）时采用的方式不同；</li>
+<li>填充：用户数据加密之前需要增加的填充字节。在SSL中，填充后的数据长度要达到密文块长度的最小整数倍。而在TLS中，填充后的数据长度可以是密文块长度的任意整数倍（但填充的最大长度为255字节），这种方式可以防止基于对报文长度进行分析的攻击。</li>
+</ul>
+<h3 id="TLS的主要目标"><a href="#TLS的主要目标" class="headerlink" title="TLS的主要目标"></a>TLS的主要目标</h3><p>就是使SSL更安全，并使协议的规范更精确和完善。</p>
+<ul>
+<li>更安全的MAC算法；</li>
+<li>更严密的警报；</li>
+<li>“灰色区域”规范的更明确的定义。</li>
+</ul>
+<h3 id="TLS对于安全性的改进"><a href="#TLS对于安全性的改进" class="headerlink" title="TLS对于安全性的改进"></a>TLS对于安全性的改进</h3><ul>
+<li>对于消息认证使用密钥散列法：TLS 使用“消息认证代码的密钥散列法”（HMAC），当记录在开放的网络（如因特网）上传送时，该代码确保记录不会被变更。SSLv3.0还提供键控消息认证，但HMAC比SSLv3.0使用的（消息认证代码）MAC 功能更安全；</li>
+<li>增强的伪随机功能（PRF）：PRF生成密钥数据。在TLS中，HMAC定义PRF。PRF使用两种散列算法保证其安全性。如果任一算法暴露了，只要第二种算法未暴露，则数据仍然是安全的；</li>
+<li>改进的已完成消息验证：TLS和SSLv3.0都对两个端点提供已完成的消息，该消息认证交换的消息没有被变更。然而，TLS将此已完成消息基于PRF和HMAC值之上，这也比SSLv3.0更安全；</li>
+<li>一致证书处理：与SSLv3.0不同，TLS试图指定必须在TLS之间实现交换的证书类型；</li>
+<li>特定警报消息：TLS提供更多的特定和附加警报，以指示任一会话端点检测到的问题。TLS还对何时应该发送某些警报进行记录。</li>
+</ul>
+<h2 id="证书"><a href="#证书" class="headerlink" title="证书"></a>证书</h2><p>证书分为2类：</p>
+<ul>
+<li>自签名证书</li>
+<li>CA证书</li>
+</ul>
+<p>自签名证书一般不能用来进行身份认证，如果一个server端使用自签名证书，client端要么被设置为无条件信任任何证书，要么需要将自签名证书的公钥和私钥加入受信任列表。</p>
+<p>CA 根证书。数字证书认证机构（Certificate Authority, CA）签署和管理的 CA 根证书，会被纳入到你的浏览器和操作系统的可信证书列表中，并由这个列表判断根证书是否可信。信任链中如果只含有有效证书并且以可信锚点（trusted anchor）结尾，那么这个证书就被认为是有效的。例如 GlobalSign Root CA 。</p>
+<p>花钱购买证书机构的签名。受信任的机构就可以用自己的私钥(sign.key)对其他人的证书进行签名。我们看到，只需要把证书请求(ssl.csr)发给证书机构，证书机构就可以生成出签名过的证书(ssl.crt)。目前购买证书签名服务的价格大约为100-400元/年。</p>
+<p>像我们平时创建苹果开发者证书的时候，需要在开发者的电脑上通过钥匙串中证书助理处的<code>从证书颁发机构请求证书</code>获取.certSigningRequest，然后上传到苹果的develop后台去生成.cer，其实质就是请求苹果信任的 CA 对开发者的证书进行签名，使开发者的证书合法。</p>
+<p>苹果develop后台创建.mobileprovision时，会将.cer的公钥附带上。在打包或者真机调试时，Xcode就会通过Bundle ID查找对应的.mobileprovision，然后利用Xcode指定的.cer的私钥加密生成一个签名去给.mobileprovision的公钥解密验证电脑的合法性。而.cer是不包含私钥的，.cer无法让别的电脑上正常地进行打包或者真机调试，但因为在创建.certSigningRequest时，证书源电脑本来持有的对应的私钥一直存在于其keychain上，所以证书源电脑能够正常工作。解决方法是将.cer导成.p12后给别的电脑安装，因为.p12里包含了公钥和私钥（安装了.p12后，别的电脑上的keychain中显示的cer就有了私钥）。</p>
+<h3 id="证书链"><a href="#证书链" class="headerlink" title="证书链"></a>证书链</h3><p>数字证书的生成是分层级的，下一级的证书需要其上一级证书的私钥签名的。所以后者是前者的证书颁发者，也就是说上一级证书的 Subject Name 是其下一级证书的 Issuer Name。</p>
+<ul>
+<li>server发送证书给client认证身份；</li>
+<li>client根据证书中的<code>颁发者</code>信息找该证书的上一级证书，然后验证该证书的合法性（即将该证书中的信息按其上级的<code>签名算法</code>计算签名，和使用上级证书的公钥解密该证书中的<code>数字签名</code>的原文作比较）；</li>
+<li>若合法，则继续历遍验证证书链中的所有证书，直到数字证书认证机构（Certificate Authority, CA）签署和管理的 CA 根证书为止，则认为证书合法。</li>
+</ul>
+<p>X.509 应该是比较流行的 SSL 数字证书标准，包含（但不限于）以下的字段：</p>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>值说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>对象名称（Subject Name）</td>
+<td>用于识别该数字证书的信息</td>
+</tr>
+<tr>
+<td>共有名称（Common Name）</td>
+<td>对于客户证书，通常是相应的域名</td>
+</tr>
+<tr>
+<td>证书颁发者（Issuer Name）</td>
+<td>发布并签署该证书的实体的信息</td>
+</tr>
+<tr>
+<td>签名算法（Signature Algorithm）</td>
+<td>签名所使用的算法</td>
+</tr>
+<tr>
+<td>序列号（Serial Number）</td>
+<td>由CA给予每一个证书分配的唯一的数字型编号</td>
+</tr>
+<tr>
+<td>数字证书机构（Certificate Authority， CA）</td>
+<td>给证书的唯一整数，一个数字证书一个序列号</td>
+</tr>
+<tr>
+<td>生效期（Not Valid Before）</td>
+<td>–</td>
+</tr>
+<tr>
+<td>失效期（Not Valid After）</td>
+<td>–</td>
+</tr>
+<tr>
+<td>公钥（Public Key）</td>
+<td>可公开的密钥</td>
+</tr>
+<tr>
+<td>签名（Signature）</td>
+<td>通过签名算法计算证书内容后得到的数据，用于验证证书是否被篡改</td>
+</tr>
+</tbody></table>
+<img src="/uncategorized/ATS详解/wikipedia_cert.png" title="wikipedia_cert">
+
+<h2 id="ATS（AppTransportSecurity）"><a href="#ATS（AppTransportSecurity）" class="headerlink" title="ATS（AppTransportSecurity）"></a>ATS（AppTransportSecurity）</h2><h3 id="ATS默认的条件"><a href="#ATS默认的条件" class="headerlink" title="ATS默认的条件"></a>ATS默认的条件</h3><ul>
+<li>服务器TLS版本至少是1.2版本</li>
+<li>连接加密只允许几种先进的加密</li>
+</ul>
+<blockquote>
+<p>TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384<br>TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256<br>TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384<br>TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA<br>TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256<br>TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA<br>TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384<br>TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256<br>TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384<br>TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256<br>TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA</p>
+</blockquote>
+<ul>
+<li>证书必须使用SHA256或者更好的哈希算法进行签名，要么是2048位或者更长的RSA密钥，要么就是256位或更长的ECC密钥。</li>
+</ul>
+<p>server需要提供HTTPS（TLS 1.2）的接口，可以在终端使用下面的命令验证server的API是否符合ATS标准。</p>
+<pre><code class="hljs undefined">nscurl --ats-diagnostics https://www.google.com</code></pre>
+
+<h3 id="ATS的Client配置"><a href="#ATS的Client配置" class="headerlink" title="ATS的Client配置"></a>ATS的Client配置</h3><p>在Xcode7或以上的版本中，新建的项目都默认使用ATS，即是访问的链接必须支持且使用HTTPS发起请求，否则将返回 的错误。</p>
+<p>如果server还不支持ATS，则需要在app的info.plist中做一些如下的调整，使app能正常请求HTTP。</p>
+<p>以下是info.plist里面与ATS有关的属性（分层级）</p>
+<pre><code class="hljs undefined">NSAppTransportSecurity
+	NSAllowsArbitraryLoads
+	NSExceptionDomains
+		&lt; domain-name-for-exception-as-string &gt;
+			NSExceptionMinimumTLSVerion
+			NSExceptionRequiresForwardSecrecy
+			NSExceptionAllowsInsecureHTTPLoads
+			NSIncludesSubdomains
+			NSThirdPartyExceptionMinimumTLSVersion
+			NSThirdPartyExceptionRequiresForwardSecrecy
+			NSThirdPartyExceptionAllowsInsecureHTTPLoads</code></pre>
+
+<ul>
+<li>NSAppTransportSecurity : 一个用于配置App Transport Security行为的属性，在Info.plist中是于Bundle Identifier同一级别的属性。</li>
+<li>NSAllowsArbitraryLoads : 一个用于针对不在NSExceptionDomains中的域的配置项。如果设置成YES，则对于那些不在NSExceptionDomains的域则不需要通过ATS的验证。默认值是No，这时对于不在NSExceptionDomains里的域则是需要通过ATS的验证。</li>
+<li>NSExceptionDomains : 用于配置例外的配置项。</li>
+<li>&lt; domain-name-for-exception-as-string &gt; : 需要添加例外的域名字符串，如:<a href="http://www.baidu.com" target="_blank" rel="noopener">www.baidu.com</a></li>
+<li>NSExceptionMinimumTLSVerion : 用于指定例外域名的TSL的版本号，可用的配置有TLSv1.0、TLSv1.1以及TLSv1.2三个配置项。</li>
+<li>NSExceptionRequiresForwardSecrecy ： 用于指定所配置的域协议是否使用ATS的所要求的证书加密算法签名，如果是NO， 则加密算法必须是以下这几种。默认值是YES。</li>
+</ul>
+<blockquote>
+<p>TLS_RSA_WITH_AES_256_GCM_SHA384<br>TLS_RSA_WITH_AES_128_GCM_SHA256<br>TLS_RSA_WITH_AES_256_CBC_SHA256<br>TLS_RSA_WITH_AES_256_CBC_SHA<br>TLS_RSA_WITH_AES_128_CBC_SHA256<br>TLS_RSA_WITH_AES_128_CBC_SHA</p>
+</blockquote>
+<ul>
+<li>NSExceptionAllowsInsecureHTTPLoads : 用于指明所配置的域是否HTTPS的服务器。用这个配置可用访问那些没有证书、自签名证书、过期证书以及证书与域名匹配不上的服务器。默认值是NO。</li>
+<li>NSIncludesSubdomains : 用于指明子域名是否使用同样的配置。默认值是NO。</li>
+<li>NSThirdPartyExceptionMinimumTLSVersion : 该变量在域名为第三方域名时，且开发人员无法控制的情况下进行配置。</li>
+<li>NSThirdPartyExceptionRequiresForwardSecrecy : 该变量在域名为第三方域名时，且开发人员无法控制的情况下进行配置。</li>
+<li>NSThirdPartyExceptionRequiresForwardSecrecy : 该变量在域名为第三方域名时，且开发人员无法控制的情况下进行配置。</li>
+</ul>
+<p><strong>举例</strong><br>使app请求的所有HTTP链接都能加载：</p>
+<pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">key</span>&gt;</span>NSAppTransportSecurity<span class="hljs-tag">&lt;/<span class="hljs-name">key</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">dict</span>&gt;</span>
+    <span class="hljs-comment">&lt;!--Connect to anything (this is probably BAD)--&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">key</span>&gt;</span>NSAllowsArbitraryLoads<span class="hljs-tag">&lt;/<span class="hljs-name">key</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">true</span>/&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">dict</span>&gt;</span></code></pre>
+
+<p>使app请求的部分（指定域名的）HTTP或者低版本的HTTPS(TLS 1.1/1.0)链接能加载：</p>
+<pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">key</span>&gt;</span>NSAppTransportSecurity<span class="hljs-tag">&lt;/<span class="hljs-name">key</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">dict</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">key</span>&gt;</span>NSAllowsArbitraryLoads<span class="hljs-tag">&lt;/<span class="hljs-name">key</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">true</span>/&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">key</span>&gt;</span>NSExceptionDomains<span class="hljs-tag">&lt;/<span class="hljs-name">key</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">dict</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">key</span>&gt;</span>yourserver.com<span class="hljs-tag">&lt;/<span class="hljs-name">key</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">dict</span>&gt;</span>
+      <span class="hljs-comment">&lt;!--Include to allow subdomains--&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">key</span>&gt;</span>NSIncludesSubdomains<span class="hljs-tag">&lt;/<span class="hljs-name">key</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">true</span>/&gt;</span>
+      <span class="hljs-comment">&lt;!--Include to allow insecure HTTP requests--&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">key</span>&gt;</span>NSTemporaryExceptionAllowsInsecureHTTPLoads<span class="hljs-tag">&lt;/<span class="hljs-name">key</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">true</span>/&gt;</span>
+      <span class="hljs-comment">&lt;!--Include to allow securecy encrypt arithmetic--&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">key</span>&gt;</span>NSExceptionRequiresForwardSecrecy<span class="hljs-tag">&lt;/<span class="hljs-name">key</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">true</span>/&gt;</span>
+      <span class="hljs-comment">&lt;!--Include to specify minimum TLS version--&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">key</span>&gt;</span>NSTemporaryExceptionMinimumTLSVersion<span class="hljs-tag">&lt;/<span class="hljs-name">key</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">string</span>&gt;</span>TLSv1.1<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">dict</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">dict</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">dict</span>&gt;</span></code></pre>
+
+<p>使app请求的指定域名的网址要经过ATS：</p>
+<pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">key</span>&gt;</span>NSAppTransportSecurity<span class="hljs-tag">&lt;/<span class="hljs-name">key</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">dict</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">key</span>&gt;</span>NSAllowsArbitraryLoads<span class="hljs-tag">&lt;/<span class="hljs-name">key</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">true</span>/&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">key</span>&gt;</span>NSExceptionDomains<span class="hljs-tag">&lt;/<span class="hljs-name">key</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">dict</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">key</span>&gt;</span>yourserver.com<span class="hljs-tag">&lt;/<span class="hljs-name">key</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">dict</span>&gt;</span>
+      <span class="hljs-comment">&lt;!--Include to allow subdomains--&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">key</span>&gt;</span>NSIncludesSubdomains<span class="hljs-tag">&lt;/<span class="hljs-name">key</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">true</span>/&gt;</span>
+      <span class="hljs-comment">&lt;!--Include to allow insecure HTTP requests--&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">key</span>&gt;</span>NSTemporaryExceptionAllowsInsecureHTTPLoads<span class="hljs-tag">&lt;/<span class="hljs-name">key</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">false</span>/&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">dict</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">dict</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">dict</span>&gt;</span></code></pre>
+
+<h3 id="自定义验证"><a href="#自定义验证" class="headerlink" title="自定义验证"></a>自定义验证</h3><h4 id="服务端验证客户端"><a href="#服务端验证客户端" class="headerlink" title="服务端验证客户端"></a>服务端验证客户端</h4><p>如果服务器的 <code>response</code> 中带有 <code>WWW-Authenticate</code> 的header信息，网络系统类就会调用它们的代理对象的代理方法去处理challenges。其它认证类型，例如 <code>proxy authentication</code> <code>TLS trust validation</code> 是不需要带上这个header也能触发。 </p>
+<p>在代码需要向认证的服务器请求资源时，服务器会使用http状态码401进行响应，即访问被拒绝需要验证。NSURLConnection会接收到响应并立刻使用认证challenge的一份副本来发送一条willSendRequestForAuthenticationChallenge:委托消息。过程如下所示：</p>
+<img src="/uncategorized/ATS详解/challenge.png" title="challenge">
+
+<pre><code class="hljs undefined">- (void)connection:(NSURLConnection *)connection willSendRequestForAuthenticationChallenge:(NSURLAuthenticationChallenge *)challenge &#123;
+	//以前的失败次数
+	if ([challenge previousFailureCount] == 0) &#123;
+		//身份认证的类 
+		NSURLCredential *newCredential;
+		newCredential = [NSURLCredential credentialWithUser:@&quot;账号&quot; password:@&quot;密码&quot; persistence:NSURLCredentialPersistenceNone];
+		[[challenge sender] useCredential:newCredential forAuthenticationChallenge:challenge];
+	&#125; else &#123;
+		[[challenge sender] cancelAuthenticationChallenge:challenge];
+	&#125;
+&#125;</code></pre>
+
+<p>NSURLCredential代表的是一个身份验证证书。URL Loading系统支持3种类型的证书：password-based user credentials, certificate-based user credentials, and certificate-based server credentials。NSURLCredential适合大多数的认证请求，因为它可以表示由用户名/密码组合、客户端证书及服务器信任创建的认证信息。</p>
+<p>为了认证，要创建一个含有服务端期望的认证信息的NSURLCredential对象。在系统提供的authentication challenge的protection space上调用 authenticationMethod 方法，可以获取服务器的认证方法。而<code>NSURLCredential</code>支持的authentication method有以下几种，可分别用括号中的<code>NSURLCredential</code>工厂方法创建对应的<code>NSURLCredential</code>对象。</p>
+<ul>
+<li>NSURLAuthenticationMethodHTTPBasic (credentialWithUser:password:persistence)</li>
+<li>NSURLAuthenticationMethodHTTPDigest(credentialWithUser:password:persistence)</li>
+<li>NSURLAuthenticationMethodClientCertificate(credentialWithIdentity:certificates:persistence)</li>
+<li>NSURLAuthenticationMethodServerTrust(credentialForTrust:)</li>
+</ul>
+<h4 id="客户端验证服务端"><a href="#客户端验证服务端" class="headerlink" title="客户端验证服务端"></a>客户端验证服务端</h4><p>-URLSession:didReceiveChallenge:completionHandler: 回调中会收到一个 challenge，也就是质询，服务端需要你提供认证信息才能完成连接。</p>
+<p>challenge 中还包含服务端提供的其自身的证明，可以通过 challenge.protectionSpace.authenticationMethod 取得保护空间要求我们认证的方式，如果这个值是 NSURLAuthenticationMethodServerTrust 的话，我们就可以插手 TLS 握手中“验证数字证书有效性”这一步，即是先验证服务端提供的身份，再返回客户端的认证信息给服务端建立SSL连接。</p>
+<p>系统的默认实现（也即代理不实现这个方法）是验证这个信任链的，结果是有效的话则根据 serverTrust 创建 credential 用于同服务端确立 SSL 连接。否则会得到 “The certificate for this server is invalid…” 这样的错误而无法访问。</p>
+<pre><code class="hljs objective-c">- (void)URLSession:(NSURLSession *)session didReceiveChallenge:(nonnull NSURLAuthenticationChallenge *)challenge completionHandler:(nonnull void (^)(NSURLSessionAuthChallengeDisposition, NSURLCredential * _Nullable))completionHandler&#123;
+//以前的失败次数
+	if ([challenge previousFailureCount] == 0) &#123;
+		NSURLCredential *credential = nil;
+		NSURLSessionAuthChallengeDisposition disposition = NSURLSessionAuthChallengePerformDefaultHandling;
+
+		if ([challenge.protectionSpace.authenticationMethod isEqualToString:NSURLAuthenticationMethodServerTrust]) &#123;
+			/* 调用自定义的验证过程 */ 
+			SecTrustRef trust = challenge.protectionSpace.serverTrust;
+			if ([self myCustomValidation:trust]) &#123; 
+				credential = [NSURLCredential credentialForTrust:challenge.protectionSpace.serverTrust];
+				 if (credential) &#123; 
+				 	disposition = NSURLSessionAuthChallengeUseCredential; 
+				 &#125; 
+			&#125; else &#123; 
+				/* 无效的话，取消 */ 
+				disposition = NSURLSessionAuthChallengeCancelAuthenticationChallenge 
+			&#125;
+			!completionHandler?:completionHandler(disposition,credential)
+		&#125; else &#123; 
+			//身份认证的类 
+			credential = [NSURLCredential credentialWithUser:@&quot;账号&quot; password:@&quot;密码&quot; persistence:NSURLCredentialPersistenceNone];
+			//以下调用的效果同执行completionHandler一样
+			[[challenge sender] useCredential:credential forAuthenticationChallenge:challenge]; 
+		&#125;
+	&#125; else &#123;
+		[[challenge sender] cancelAuthenticationChallenge:challenge]; 
+	&#125;
+&#125;</code></pre>
+
+<p>自定义的验证过程中，需要先读取challenge的protectionSpace<br>属性的serverTrust属性，serverTrust 是一个 SecTrustRef 对象，它是一种执行信任链验证的抽象实体，包含着验证策略（SecPolicyRef）以及一系列受信任的锚点证书，而我们能做的也是修改这两样东西而已。</p>
+<pre><code class="hljs objective-c">static BOOL myCustomValidation(SecTrustRef trust) &#123;
+	BOOL allowConnection = NO;
+        
+	// 假设验证结果是无效的
+	SecTrustResultType trustResult = kSecTrustResultInvalid;
+        
+	// 函数的内部递归地从叶节点证书到根证书的验证
+	OSStatus statue = SecTrustEvaluate(trust, &amp;trustResult);
+        
+	if (statue == noErr) &#123;
+		// kSecTrustResultUnspecified: 系统隐式地信任这个证书，即在证书链中找到 CA 颁发的证书
+		// kSecTrustResultProceed: 用户加入自己的信任锚点，显式地告诉系统这个证书是值得信任的
+		allowConnection = (trustResult == kSecTrustResultProceed || trustResult == kSecTrustResultUnspecified);
+	&#125;
+
+return allowConnection;
+&#125;</code></pre>
+
+<p>打印 policiesRef 后，你会发现默认的验证策略就包含了域名验证，即<font color="#FF0000">服务器证书上的域名和请求域名是否匹配</font>。如果你的一个证书需要用来连接不同域名的主机，或者你直接用 IP 地址去连接，那么你可以重设验证策略以忽略域名验证:</p>
+<pre><code class="hljs undefined">CFArrayRef policiesRef;
+//打印出CFArrayRef会发现验证策略中默认是包含域名认证
+SecTrustCopyPolicies(trust, &amp;policiesRef);
+
+NSMutableArray *policies = [NSMutableArray array]; 
+// BasicX509 不验证域名是否相同
+SecPolicyRef policy = SecPolicyCreateBasicX509();
+[policies addObject:(__bridge_transfer id)policy]; 
+SecTrustSetPolicies(trust, (__bridge CFArrayRef)policies);</code></pre>
+
+<p>然后再调用 myCustomValidation() 验证，SecTrustEvaluate函数就会根据trust的策略重新评估验证结果。</p>
+<h4 id="自签名证书验证"><a href="#自签名证书验证" class="headerlink" title="自签名证书验证"></a>自签名证书验证</h4><p>想要 App 防止中间人攻击，可以将公钥证书打包进 App 中，然后在收到服务端证书链的时候，能够有效地验证服务端是否可信，这也是验证自签名的证书链所必须做的。</p>
+<p>假设你的服务器返回：[你的自签名的根证书] – [你的二级证书] – [你的客户端证书]，系统是不信任这个三个证书的。所以你在验证的时候需要将这三个的其中一个设置为锚点证书，当然，多个也行。</p>
+<p>比如将 [你的二级证书] 作为锚点后，SecTrustEvaluate() 函数只要验证到 [你的客户端证书] 确实是由 [你的二级证书] 签署的，那么验证结果为 kSecTrustResultUnspecified，表明了 [你的客户端证书] 是可信的。下面是设置锚点证书的做法：</p>
+<pre><code class="hljs undefined">NSMutableArray *certificates = [NSMutableArray array]; 
+NSDate *cerData = /* 在 App Bundle 中你用来做锚点的证书数据，证书是 CER 编码的，常见扩展名有：cer, crt...*/ 
+SecCertificateRef cerRef = SecCertificateCreateWithData(NULL, (__bridge CFDataRef)cerData); 
+[certificates addObject:(__bridge_transfer id)cerRef]; 
+// 设置锚点证书。 
+SecTrustSetAnchorCertificates(trust, (__bridge CFArrayRef)certificates);</code></pre>
+
+<p>然后再调用 myCustomValidation() 验证。</p>
+<p>只调用 SecTrustSetAnchorCertificates () 这个函数的话，那么就只有作为参数被传入的证书作为锚点证书，连系统本身信任的 CA 证书都不能作为锚点验证的证书链。要想恢复系统中 CA 证书作为锚点的功能，还要再调用下面这个函数：</p>
+<pre><code class="hljs undefined">// true 代表仅被传入的证书作为锚点，false 允许系统 CA 证书也作为锚点
+SecTrustSetAnchorCertificatesOnly(trust, false);</code></pre>
+
+<h4 id="AFN的相关属性"><a href="#AFN的相关属性" class="headerlink" title="AFN的相关属性"></a>AFN的相关属性</h4><p>AFSecurityPolicy，内部有三个重要的属性，如下：</p>
+<ul>
+<li>AFSSLPinningMode SSLPinningMode;    //该属性标明了AFSecurityPolicy是以何种方式来验证</li>
+<li>BOOL allowInvalidCertificates;      //是否允许不信任的证书通过验证，默认为NO</li>
+<li>BOOL validatesDomainName;           //是否验证主机名，默认为YES</li>
+</ul>
+<p><code>AFSSLPinningMode</code>枚举类型有三个值，分别是：</p>
+<ul>
+<li><code>AFSSLPinningModeNone</code>代表了<code>AFSecurityPolicy</code>不做更严格的验证，”只要是系统信任的证书”就可以通过验证，不过，它受到<code>allowInvalidCertificates</code>和<code>validatesDomainName</code>的影响；</li>
+<li><code>AFSSLPinningModePublicKey</code>是通过比较证书当中公钥(PublicKey)部分来进行验证，通过<code>SecTrustCopyPublicKey</code>方法获取本地证书和服务器证书，然后进行比较，如果有一个相同，则通过验证，此方式主要适用于自建证书搭建的HTTPS服务器和需要较高安全要求的验证；</li>
+<li><code>AFSSLPinningModeCertificate</code>则是直接将本地的证书设置为信任的根证书，然后来进行判断，并且比较本地证书的内容和服务器证书内容是否相同，来进行二次判断，此方式适用于较高安全要求的验证。</li>
+</ul>
+<p>如果HTTPS服务器满足ATS默认的条件，而且SSL证书是通过权威的CA机构认证过的，那么什么都不用做。如果上面的条件中有任何一个不成立，那么都只能修改ATS配置。</p>
+<h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><p>完成这篇文章后，才发现自己之前对网路编程的认识有多显浅。也才真正发现总结出一篇文章的好处，整理知识更系统（当然还要看文章的排版分类），而且大脑的记忆有限，有了文章日后回顾也方便直接。反正有意义有价值的的事都比较折腾，贵在坚持！</p>
+<p><strong>参考文章</strong><br><a href="http://www.yesky.com/ServerIndex/77131904641400832/20040426/1791610.shtml" target="_blank" rel="noopener">SSL的工作原理</a><br><a href="http://hengstart.iteye.com/blog/840561" target="_blank" rel="noopener">SSL与TLS区别</a><br><a href="http://www.jianshu.com/p/31bcddf44b8d" target="_blank" rel="noopener">iOS 中对 HTTPS 证书链的验证</a><br><a href="http://www.pluto-y.com/ios9-nsapptransportsecurity/" target="_blank" rel="noopener">iOS9 - NSAppTransportSecurity</a><br><a href="http://www.cnblogs.com/begsec/p/5388616.html" target="_blank" rel="noopener">iOS9增加的ATS特性介绍</a><br><a href="https://developer.apple.com/library/content/documentation/Cocoa/Conceptual/URLLoadingSystem/Articles/AuthenticationChallenges.html#//apple_ref/doc/uid/TP40009507-SW1" target="_blank" rel="noopener">Authentication Challenges and TLS Chain Validation</a><br><a href="https://developer.apple.com/library/content/documentation/NetworkingInternet/Conceptual/NetworkingTopics/Articles/OverridingSSLChainValidationCorrectly.html" target="_blank" rel="noopener">Overriding TLS Chain Validation Correctly</a></p>
+
+      
+       <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 mingfungliu@gmail.com </span>
+    </div>
+</article>
+
+
+<p>
+    <a href="javascript:void(0)" class="dashang" onclick="dashangToggle()">赏</a>
+</p>
+
+
+
+<div class="article_copyright">
+    <p><span class="copy-title">文章标题:</span>ATS详解</p>
+    
+    <p><span class="copy-title">本文作者:</span><a href="javascript:void(0)" title="Mingfung">Mingfung</a></p>
+    <p><span class="copy-title">发布时间:</span>2017-07-22, 15:57:55</p>
+    <p><span class="copy-title">最后更新:</span>2019-10-10, 18:22:50</p>
+    <span class="copy-title">原始链接:</span><a class="post-url" href="/uncategorized/ATS详解/" title="ATS详解">http://blog.ifungfay.com/uncategorized/ATS详解/</a>
+    <p>
+        <span class="copy-title">版权声明:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+    </p>
+</div>
+
+
+
+
+    <script type="text/javascript">
+(function(d, s) {
+   var j, e = d.getElementsByTagName(s)[0];
+
+   if (typeof LivereTower === 'function') { return; }
+
+   j = d.createElement(s);
+   j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+   j.async = true;
+
+   e.parentNode.insertBefore(j, e);
+})(document, 'script');
+</script>
+<noscript> 为正常使用来必力评论功能请激活JavaScript</noscript>
+
+<iframe title="livere"   src="https://was.livere.me/comment/city?id=city&refer=http://blog.ifungfay.com/uncategorized/ATS详解/&uid=MTAyMC80NzAyOC8yMzUyOA==&site=http://blog.ifungfay.com/uncategorized/ATS详解/&title=ATS详解" scrolling="" frameborder="0" id="lv-comment-399" style="min-width: 100%; width: 100px; min-height: 400px; overflow: auto; border: 0px; z-index: 124212; height: 800px;" ></iframe>
+
+
+
+    
+
+
+
+
+    </div>
+    <div class="copyright">
+        <p class="footer-entry">©2016-2019 Mingfung</p>
+<p class="footer-entry">Built with <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/yelog/hexo-theme-3-hexo" target="_blank">3-hexo</a> theme</p>
+
+    </div>
+    <div class="full-toc">
+        <button class="full"><span class="min "></span></button>
+<button class="post-toc-menu"><span class="post-toc-menu-icons"></span></button>
+<div class="post-toc"><span class="post-toc-title">目录</span>
+    <div class="post-toc-content">
+
+    </div>
+</div>
+<a class="" id="rocket" href="javascript:void(0)"></a>
+    </div>
+</div>
+<div class="acParent"></div>
+
+<div class="hide_box" onclick="dashangToggle()"></div>
+<div class="shang_box">
+    <a class="shang_close" href="javascript:void(0)" onclick="dashangToggle()">×</a>
+    <div class="shang_tit">
+        <p>喜欢就点赞,疼爱就打赏</p>
+    </div>
+    <div class="shang_payimg">
+        <div class="pay_img">
+            <img src="/img/alipay.jpg" class="alipay" title="扫码支持">
+            <img src="/img/weixin.jpg" class="weixin" title="扫码支持">
+        </div>
+    </div>
+    <div class="shang_payselect">
+        <span><label><input type="radio" name="pay" checked value="alipay">支付宝</label></span><span><label><input type="radio" name="pay" value="weixin">微信</label></span>
+    </div>
+</div>
+
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/koharu.model.json"},"log":false});</script></body>
+<script src="/js/jquery.pjax.js?v=1.0.1" ></script>
+
+<script src="/js/script.js?v=1.0.1" ></script>
+<script>
+    var img_resize = 'default';
+    /*作者、标签的自动补全*/
+    $(function () {
+        $('.search').AutoComplete({
+            'data': ['#JSPatch','#JavaScriptCore','#property','#dynamic','#sythesize','#nonatomic','#iOS11','#Xcode9','#iPhoneX','#TLS','#SSL','#HTTPS','#ATS','#Java','#Android','#AndroidStudio','#adb','#反编译','#Gradle','#Module','#ProGuard','#Native','#JNI','#NDK','#AAR','#JAR','#html','#bootstrap','#css','#Flutter','#iOS','#Dart','#Git','#command','#Mac','#question','#PyCharm','#Django','#Python','#Anaconda','#Qgis','#vapor','#swift','#heroku','#cloud','#crypto','#console','#terminal','#database','#postgreSQL','#network','#http','#webSocket','#encoded','#leaf','#view','#session','#token','#verification','#越狱','#逆向','#工具','#安全','#CGI','#Servlet','#容器','#Docker','#Manager','#Model','#Role','#Target','#JSON','#Objective-C','#jekyll','#github','#blog','#Jenkins','#CI','#Test','#Ubuntu','#服务器','#Web App','#nginx','#supervisor','#fabric','#python','#mysql','#设计模式','#tool','#skill','#MVP','#Adapter','#Activity','#Fragment','#Layout','#Res','#Realm','#AIDL','#AsyncTask','#Thread','#Handler','#link','#register','#assembly','#library','#static','#memory','#runtime','#interrupt',],
+            'itemHeight': 20,
+            'width': 418
+        }).AutoComplete('show');
+    })
+    function initArticle() {
+        /*渲染对应的表格样式*/
+        
+            $(".post .pjax table").addClass("green_title");
+        
+
+        /*渲染打赏样式*/
+        
+        $("input[name=pay]").on("click", function () {
+            if($("input[name=pay]:checked").val()=="weixin"){
+                $(".shang_box .shang_payimg .pay_img").addClass("weixin_img");
+            } else {
+                $(".shang_box .shang_payimg .pay_img").removeClass("weixin_img");
+            }
+        })
+        
+
+        /*高亮代码块行号*/
+        
+        $('pre code').each(function(){
+            var lines = $(this).text().split('\n').length, widther='';
+            if (lines>99) {
+                widther = 'widther'
+            }
+            var $numbering = $('<ul/>').addClass('pre-numbering ' + widther).attr("unselectable","on");
+            $(this).addClass('has-numbering ' + widther)
+                    .parent()
+                    .append($numbering);
+            for(var i=1;i<=lines;i++){
+                $numbering.append($('<li/>').text(i));
+            }
+        });
+        
+
+        /*访问数量*/
+        
+        $.getScript("//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js");
+        
+
+        /*代码高亮，行号对齐*/
+        $('.pre-numbering').css('line-height',$('.has-numbering').css('line-height'));
+
+        
+    }
+
+    /*打赏页面隐藏与展示*/
+    
+    function dashangToggle() {
+        $(".shang_box").fadeToggle();
+        $(".hide_box").fadeToggle();
+    }
+    
+
+</script>
+
+<!--加入行号的高亮代码块样式-->
+
+<style>
+    pre{
+        position: relative;
+        margin-bottom: 24px;
+        border-radius: 10px;
+        border: 1px solid #e2dede;
+        background: #FFF;
+        overflow: hidden;
+    }
+    code.has-numbering{
+        margin-left: 30px;
+    }
+    code.has-numbering.widther{
+        margin-left: 35px;
+    }
+    .pre-numbering{
+        margin: 0px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 20px;
+        padding: 0.5em 3px 0.7em 5px;
+        border-right: 1px solid #C3CCD0;
+        text-align: right;
+        color: #AAA;
+        background-color: ;
+    }
+    .pre-numbering.widther {
+        width: 35px;
+    }
+</style>
+
+<!--自定义样式设置-->
+<style>
+    
+    
+    .nav {
+        width: 542px;
+    }
+    .nav.fullscreen {
+        margin-left: -542px;
+    }
+    .nav-left {
+        width: 120px;
+    }
+    
+    
+    @media screen and (max-width: 1468px) {
+        .nav {
+            width: 492px;
+        }
+        .nav.fullscreen {
+            margin-left: -492px;
+        }
+        .nav-left {
+            width: 100px;
+        }
+    }
+    
+    
+    @media screen and (max-width: 1024px) {
+        .nav {
+            width: 492px;
+            margin-left: -492px
+        }
+        .nav.fullscreen {
+            margin-left: 0;
+        }
+        .nav .hide-list.fullscreen {
+            left: 492px
+        }
+    }
+    
+    @media screen and (max-width: 426px) {
+        .nav {
+            width: 100%;
+        }
+        .nav-left {
+            width: 100%;
+        }
+    }
+    
+    
+    .nav-right .title-list nav a .post-title, .nav-right .title-list #local-search-result a .post-title {
+        color: #383636;
+    }
+    
+    
+    .nav-right .title-list nav a .post-date, .nav-right .title-list #local-search-result a .post-date {
+        color: #5e5e5f;
+    }
+    
+    
+    .nav-right nav a.hover, #local-search-result a.hover{
+        background-color: #e2e0e0;
+    }
+    
+    
+
+    /*列表样式*/
+    
+    .post .pjax article .article-entry>ol, .post .pjax article .article-entry>ul, .post .pjax article>ol, .post .pjax article>ul{
+        border: #e2dede solid 1px;
+        border-radius: 10px;
+        padding: 10px 32px 10px 56px;
+    }
+    .post .pjax article .article-entry li>ol, .post .pjax article .article-entry li>ul,.post .pjax article li>ol, .post .pjax article li>ul{
+        padding-top: 5px;
+        padding-bottom: 5px;
+    }
+    .post .pjax article .article-entry>ol>li, .post .pjax article .article-entry>ul>li,.post .pjax article>ol>li, .post .pjax article>ul>li{
+        margin-bottom: auto;
+        margin-left: auto;
+    }
+    .post .pjax article .article-entry li>ol>li, .post .pjax article .article-entry li>ul>li,.post .pjax article li>ol>li, .post .pjax article li>ul>li{
+        margin-bottom: auto;
+        margin-left: auto;
+    }
+    
+
+    /* 背景图样式 */
+    
+    
+
+
+    /*引用块样式*/
+    
+
+    /*文章列表背景图*/
+    
+    .nav-right:before {
+        content: ' ';
+        display: block;
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0.3;
+        background: url("null");
+        background-repeat: no-repeat;
+        background-position: 50% 0;
+        -ms-background-size: cover;
+        -o-background-size: cover;
+        -moz-background-size: cover;
+        -webkit-background-size: cover;
+        background-size: cover;
+    }
+    
+
+    
+</style>
+
+
+
+
+
+
+<div class="mobile-menus-out" >
+
+</div>
+<div class="mobile-menus">
+    
+    
+    <a class="dynamic-menu site_url"   href="/404.html">宝贝回家</a>
+    
+    
+    
+</div>
+
+
+</html>

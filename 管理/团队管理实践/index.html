@@ -1,0 +1,1653 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  <title>团队管理实践 | Mingfung&#39;s Blog</title>
+  <meta name="keywords" content=" Manager , Model , Role , Target ">
+  <meta name="description" content="团队管理实践 | Mingfung&#39;s Blog">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="description" content="关于iOS码农一枚">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Mingfung&#39;s Blog">
+<meta property="og:url" content="http://blog.ifungfay.com/about/index.html">
+<meta property="og:site_name" content="Mingfung&#39;s Blog">
+<meta property="og:description" content="关于iOS码农一枚">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-10-12T14:30:09.446Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Mingfung&#39;s Blog">
+<meta name="twitter:description" content="关于iOS码农一枚">
+
+
+<link rel="icon" href="/img/avatar.jpg">
+
+<link href="/css/style.css?v=1.0.1" rel="stylesheet">
+
+<link href="/css/hl_theme/zenbum.css?v=1.0.1" rel="stylesheet">
+
+<link href="//cdn.bootcss.com/animate.css/3.5.2/animate.min.css" rel="stylesheet">
+<link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+<script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="/js/jquery.autocomplete.min.js?v=1.0.1"></script>
+
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
+
+<script src="//cdn.bootcss.com/nprogress/0.2.0/nprogress.min.js"></script>
+
+
+
+<script src="/js/iconfont.js?v=1.0.1"></script>
+<!--鼠标点击爱心动画-->
+<script type="text/javascript" src="/js/clicklove.js"></script>
+</head>
+<div style="display: none">
+  <input class="theme_disqus_on" value="false">
+  <input class="theme_preload_comment" value="true">
+  <input class="theme_blog_path" value>
+</div>
+
+<body>
+<aside class="nav">
+    <div class="nav-left">
+        <a href="/" class="avatar_target">
+    <img class="avatar" src="/img/avatar.jpg" />
+</a>
+<div class="author">
+    <span>Mingfung</span>
+</div>
+
+<div class="icon">
+    
+        
+        <a title="rss" href="/atom.xml" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-rss"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+        <a title="github" href="https://github.com/leo9763" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-github"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+        <a title="facebook" href="https://www.facebook.com/ming.fung.liu.nero" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-facebook"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+    
+        
+    
+        
+        <a title="instagram" href="https://www.instagram.com/mingfungliu/" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-instagram"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+    
+        
+        <a title="weibo" href="https://weibo.com/neross" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-weibo"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+        <a title="jianshu" href="https://www.jianshu.com/u/007c5818ec78" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-jianshu"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+        <a title="zhihu" href="zhihu.com/people/mingfungliu" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-zhihu"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+    
+        
+    
+        
+        <a title="juejin" href="https://juejin.im/user/5b6b9b37f265da0f9f4e8df3" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-juejin"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+        <a title="email" href="mailto:mingfungliu@gmail.com" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-email"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+        <a title="qq" href="http://wpa.qq.com/msgrd?v=3&uin=52360086&site=qq&menu=yes" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-qq"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+    
+        
+    
+</div>
+
+
+
+<a class="more-menus">更多菜单</a>
+
+
+<ul>
+    <li><div class="all active">全部文章<small>(43)</small></div></li>
+    
+        
+            
+            <li><div data-rel="iOS">iOS<small>(6)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="Android">Android<small>(3)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="前端">前端<small>(4)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="工具">工具<small>(4)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="后端">后端<small>(12)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="管理">管理<small>(1)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="设计模式">设计模式<small>(7)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="系统">系统<small>(1)</small></div>
+                
+            </li>
+            
+        
+    
+</ul>
+<div class="left-bottom">
+    <div class="menus">
+    
+    
+    <a class="dynamic-menu site_url"   href="/404.html">宝贝回家</a>
+    
+    
+    
+    </div>
+    <div><a class="about  hasFriend  site_url"  href="/about">关于</a><a style="width: 50%"  class="friends">友链</a></div>
+</div>
+<input type="hidden" id="yelog_site_posts_number" value="43">
+
+<div style="display: none">
+    <span id="busuanzi_value_site_uv"></span>
+    <span id="busuanzi_value_site_pv"></span>
+</div>
+
+    </div>
+    <div class="nav-right">
+        <div class="friends-area">
+    <div class="friends-title">
+        友情链接
+        <i class="back-title-list"></i>
+    </div>
+    <div class="friends-content">
+        <ul>
+            
+            <li><a target="_blank" href="http://www.ifungfay.com">雪月风飞</a></li>
+            
+        </ul>
+    </div>
+</div>
+        <div class="title-list">
+    <form onkeydown="if(event.keyCode==13){return false;}">
+        <input class="search" type="text" placeholder="Search..." autocomplete="off"id="local-search-input" >
+        <i class="cross"></i>
+        <span>
+            <label for="tagswitch">Tags:</label>
+            <input id="tagswitch" type="checkbox" style="display: none" />
+            <i id="tagsWitchIcon"></i>
+        </span>
+    </form>
+    <div class="tags-list">
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">JSPatch</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">JavaScriptCore</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">property</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">dynamic</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">sythesize</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">nonatomic</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color1">iOS11</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">Xcode9</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">iPhoneX</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">TLS</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">SSL</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color1">HTTPS</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">ATS</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">Java</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">Android</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">AndroidStudio</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">adb</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">反编译</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">Gradle</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">Module</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">ProGuard</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">Native</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">JNI</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">NDK</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">AAR</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">JAR</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">html</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">bootstrap</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">css</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">Flutter</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">iOS</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">Dart</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">Git</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">command</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">Mac</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">question</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">PyCharm</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">Django</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">Python</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">Anaconda</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">Qgis</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color1">vapor</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color1">swift</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">heroku</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color1">cloud</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">crypto</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">console</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">terminal</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">database</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color1">postgreSQL</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">network</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">http</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">webSocket</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">encoded</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">leaf</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">view</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">session</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color1">token</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">verification</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">越狱</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">逆向</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">工具</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">安全</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">CGI</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">Servlet</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">容器</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">Docker</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">Manager</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color1">Model</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">Role</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">Target</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">JSON</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">Objective-C</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">jekyll</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">github</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">blog</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">Jenkins</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">CI</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">Test</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">Ubuntu</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">服务器</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">Web App</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color1">nginx</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color1">supervisor</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">fabric</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">python</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color1">mysql</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">设计模式</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">tool</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color1">skill</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">MVP</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">Adapter</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">Activity</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">Fragment</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">Layout</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">Res</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color1">Realm</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">AIDL</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">AsyncTask</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">Thread</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">Handler</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">link</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">register</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">assembly</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">library</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">static</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">memory</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">runtime</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">interrupt</a>
+    </li>
+    
+    <div class="clearfix"></div>
+</div>
+
+    
+    <nav id="title-list-nav">
+        
+        <a  class=""
+           href="/uncategorized/ATS详解/"
+           data-tag="TLS,SSL,HTTPS,ATS"
+           data-author="" >
+            <span class="post-title" title="ATS详解">ATS详解</span>
+            <span class="post-date" title="2017-07-22 15:57:55">2017/07/22</span>
+        </a>
+        
+        <a  class="Android "
+           href="/Android/Android原理入门/"
+           data-tag="Java,Android"
+           data-author="" >
+            <span class="post-title" title="Android原理入门">Android原理入门</span>
+            <span class="post-date" title="2019-08-14 00:22:11">2019/08/14</span>
+        </a>
+        
+        <a  class=""
+           href="/uncategorized/Android技巧入门/"
+           data-tag="AndroidStudio,adb,反编译"
+           data-author="" >
+            <span class="post-title" title="Android技巧入门">Android技巧入门</span>
+            <span class="post-date" title="2019-08-14 00:22:37">2019/08/14</span>
+        </a>
+        
+        <a  class="Android "
+           href="/Android/Android工程入门/"
+           data-tag="Gradle,Module,ProGuard,Native,JNI,NDK,AAR,JAR"
+           data-author="" >
+            <span class="post-title" title="Android工程入门">Android工程入门</span>
+            <span class="post-date" title="2019-02-24 13:44:00">2019/02/24</span>
+        </a>
+        
+        <a  class="前端 "
+           href="/前端/Bootstrap手册/"
+           data-tag="html,bootstrap,css"
+           data-author="" >
+            <span class="post-title" title="Bootstrap手册">Bootstrap手册</span>
+            <span class="post-date" title="2018-09-08 23:06:00">2018/09/08</span>
+        </a>
+        
+        <a  class="前端 "
+           href="/前端/Flutter开发（介绍篇）/"
+           data-tag="Android,Flutter,iOS,Dart"
+           data-author="" >
+            <span class="post-title" title="Flutter开发（介绍篇）">Flutter开发（介绍篇）</span>
+            <span class="post-date" title="2019-01-09 21:24:00">2019/01/09</span>
+        </a>
+        
+        <a  class="前端 "
+           href="/前端/Flutter开发（实践篇）/"
+           data-tag="Android,Flutter,iOS,Dart"
+           data-author="" >
+            <span class="post-title" title="Flutter开发（实践篇）">Flutter开发（实践篇）</span>
+            <span class="post-date" title="2019-01-09 23:06:00">2019/01/09</span>
+        </a>
+        
+        <a  class="工具 "
+           href="/工具/Git手册/"
+           data-tag="Git"
+           data-author="" >
+            <span class="post-title" title="Git手册">Git手册</span>
+            <span class="post-date" title="2019-01-28 21:35:00">2019/01/28</span>
+        </a>
+        
+        <a  class="工具 "
+           href="/工具/Mac命令行工具及其问题收录/"
+           data-tag="command,Mac,question"
+           data-author="" >
+            <span class="post-title" title="Mac命令行工具及其问题收录">Mac命令行工具及其问题收录</span>
+            <span class="post-date" title="2018-02-22 17:10:00">2018/02/22</span>
+        </a>
+        
+        <a  class="后端 "
+           href="/后端/Python的使用环境配置/"
+           data-tag="PyCharm,Django,Python,Anaconda,Qgis"
+           data-author="" >
+            <span class="post-title" title="Python的使用环境配置">Python的使用环境配置</span>
+            <span class="post-date" title="2018-05-24 19:30:00">2018/05/24</span>
+        </a>
+        
+        <a  class="后端 "
+           href="/后端/Vapor之初体验/"
+           data-tag="vapor,swift,heroku"
+           data-author="" >
+            <span class="post-title" title="Vapor之初体验">Vapor之初体验</span>
+            <span class="post-date" title="2018-01-05 21:49:00">2018/01/05</span>
+        </a>
+        
+        <a  class="后端 "
+           href="/后端/Vapor的部署/"
+           data-tag="vapor,swift,heroku,cloud"
+           data-author="" >
+            <span class="post-title" title="Vapor的部署">Vapor的部署</span>
+            <span class="post-date" title="2018-08-13 23:34:00">2018/08/13</span>
+        </a>
+        
+        <a  class="后端 "
+           href="/后端/Vapor（一）基础篇/"
+           data-tag="vapor,swift"
+           data-author="" >
+            <span class="post-title" title="Vapor（一）基础篇">Vapor（一）基础篇</span>
+            <span class="post-date" title="2018-08-13 23:34:00">2018/08/13</span>
+        </a>
+        
+        <a  class="后端 "
+           href="/后端/Vapor（七）工具篇/"
+           data-tag="command,vapor,swift,crypto,console,terminal"
+           data-author="" >
+            <span class="post-title" title="Vapor（七）工具篇">Vapor（七）工具篇</span>
+            <span class="post-date" title="2018-08-21 23:02:00">2018/08/21</span>
+        </a>
+        
+        <a  class="后端 "
+           href="/后端/Vapor（三）数据库篇/"
+           data-tag="vapor,swift,database,postgreSQL"
+           data-author="" >
+            <span class="post-title" title="Vapor（三）数据库篇">Vapor（三）数据库篇</span>
+            <span class="post-date" title="2018-08-15 21:33:00">2018/08/15</span>
+        </a>
+        
+        <a  class="后端 "
+           href="/后端/Vapor（二）进阶篇/"
+           data-tag="vapor,swift"
+           data-author="" >
+            <span class="post-title" title="Vapor（二）进阶篇">Vapor（二）进阶篇</span>
+            <span class="post-date" title="2018-08-14 21:20:00">2018/08/14</span>
+        </a>
+        
+        <a  class="后端 "
+           href="/后端/Vapor（五）网络篇/"
+           data-tag="vapor,swift,network,http,webSocket,encoded"
+           data-author="" >
+            <span class="post-title" title="Vapor（五）网络篇">Vapor（五）网络篇</span>
+            <span class="post-date" title="2018-08-17 20:30:00">2018/08/17</span>
+        </a>
+        
+        <a  class="后端 "
+           href="/后端/Vapor（六）视图篇/"
+           data-tag="vapor,swift,leaf,view"
+           data-author="" >
+            <span class="post-title" title="Vapor（六）视图篇">Vapor（六）视图篇</span>
+            <span class="post-date" title="2018-08-20 21:56:00">2018/08/20</span>
+        </a>
+        
+        <a  class="后端 "
+           href="/后端/Vapor（四）验证篇/"
+           data-tag="vapor,swift,session,token,verification"
+           data-author="" >
+            <span class="post-title" title="Vapor（四）验证篇">Vapor（四）验证篇</span>
+            <span class="post-date" title="2018-08-16 19:06:00">2018/08/16</span>
+        </a>
+        
+        <a  class=""
+           href="/uncategorized/hello-world/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Hello World">Hello World</span>
+            <span class="post-date" title="2018-01-07 14:45:35">2018/01/07</span>
+        </a>
+        
+        <a  class="iOS "
+           href="/iOS/iOS逆向（一）越狱篇/"
+           data-tag="iOS,越狱"
+           data-author="" >
+            <span class="post-title" title="iOS逆向（一）越狱篇">iOS逆向（一）越狱篇</span>
+            <span class="post-date" title="2018-09-13 22:39:01">2018/09/13</span>
+        </a>
+        
+        <a  class="iOS "
+           href="/iOS/iOS逆向（二）工具篇/"
+           data-tag="iOS,逆向,工具"
+           data-author="" >
+            <span class="post-title" title="iOS逆向（二）工具篇">iOS逆向（二）工具篇</span>
+            <span class="post-date" title="2018-09-13 22:39:02">2018/09/13</span>
+        </a>
+        
+        <a  class="iOS "
+           href="/iOS/iOS逆向（三）分析篇/"
+           data-tag="iOS,逆向"
+           data-author="" >
+            <span class="post-title" title="iOS逆向（三）分析篇">iOS逆向（三）分析篇</span>
+            <span class="post-date" title="2018-09-13 22:39:03">2018/09/13</span>
+        </a>
+        
+        <a  class="iOS "
+           href="/iOS/iOS逆向（五）总结篇/"
+           data-tag="iOS,逆向,安全"
+           data-author="" >
+            <span class="post-title" title="iOS逆向（五）总结篇">iOS逆向（五）总结篇</span>
+            <span class="post-date" title="2018-09-13 22:39:05">2018/09/13</span>
+        </a>
+        
+        <a  class="iOS "
+           href="/iOS/iOS逆向（四）实战篇/"
+           data-tag="iOS,逆向"
+           data-author="" >
+            <span class="post-title" title="iOS逆向（四）实战篇">iOS逆向（四）实战篇</span>
+            <span class="post-date" title="2018-09-13 22:39:04">2018/09/13</span>
+        </a>
+        
+        <a  class="后端 "
+           href="/后端/后端服务器概念了解下/"
+           data-tag="CGI,Servlet,容器,Docker"
+           data-author="" >
+            <span class="post-title" title="后端服务器概念了解下">后端服务器概念了解下</span>
+            <span class="post-date" title="2019-02-21 20:30:00">2019/02/21</span>
+        </a>
+        
+        <a  class=""
+           href="/uncategorized/利用Firebase实现的推送功能系统/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="利用Firebase实现的推送功能系统">利用Firebase实现的推送功能系统</span>
+            <span class="post-date" title="2018-01-17 19:33:41">2018/01/17</span>
+        </a>
+        
+        <a  class="管理 "
+           href="/管理/团队管理实践/"
+           data-tag="Manager,Model,Role,Target"
+           data-author="" >
+            <span class="post-title" title="团队管理实践">团队管理实践</span>
+            <span class="post-date" title="2019-02-23 23:50:00">2019/02/23</span>
+        </a>
+        
+        <a  class="iOS "
+           href="/iOS/处理服务端API返回JSON的总结/"
+           data-tag="iOS,JSON,Objective-C"
+           data-author="" >
+            <span class="post-title" title="处理服务端API返回JSON的总结">处理服务端API返回JSON的总结</span>
+            <span class="post-date" title="2018-01-09 14:35:00">2018/01/09</span>
+        </a>
+        
+        <a  class="前端 "
+           href="/前端/搭建Hexo博客/"
+           data-tag="jekyll,github,blog"
+           data-author="" >
+            <span class="post-title" title="搭建Hexo博客">搭建Hexo博客</span>
+            <span class="post-date" title="2017-07-18 21:50:14">2017/07/18</span>
+        </a>
+        
+        <a  class=""
+           href="/uncategorized/搭建Jekins/"
+           data-tag="Jenkins,CI,Test"
+           data-author="" >
+            <span class="post-title" title="搭建Jekins">搭建Jekins</span>
+            <span class="post-date" title="2017-08-26 22:59:36">2017/08/26</span>
+        </a>
+        
+        <a  class="工具 "
+           href="/工具/搭建博客图床/"
+           data-tag="blog"
+           data-author="" >
+            <span class="post-title" title="搭建博客图床">搭建博客图床</span>
+            <span class="post-date" title="2019-03-21 12:39:00">2019/03/21</span>
+        </a>
+        
+        <a  class="后端 "
+           href="/后端/搭建服务器/"
+           data-tag="Ubuntu,服务器,Web App,nginx,supervisor,fabric,python,mysql"
+           data-author="" >
+            <span class="post-title" title="搭建服务器">搭建服务器</span>
+            <span class="post-date" title="2019-04-06 00:00:00">2019/04/06</span>
+        </a>
+        
+        <a  class="设计模式 "
+           href="/设计模式/设计模式（一）策略模式 & 模板方法模式/"
+           data-tag="设计模式"
+           data-author="" >
+            <span class="post-title" title="设计模式（一）策略模式 &amp; 模板方法模式">设计模式（一）策略模式 &amp; 模板方法模式</span>
+            <span class="post-date" title="2019-01-13 23:41:00">2019/01/13</span>
+        </a>
+        
+        <a  class="工具 "
+           href="/工具/效率工具及技巧收录/"
+           data-tag="tool,skill"
+           data-author="" >
+            <span class="post-title" title="效率工具及技巧收录">效率工具及技巧收录</span>
+            <span class="post-date" title="2019-02-23 22:05:00">2019/02/23</span>
+        </a>
+        
+        <a  class="设计模式 "
+           href="/设计模式/设计模式（七）小总结/"
+           data-tag="设计模式"
+           data-author="" >
+            <span class="post-title" title="设计模式（七）小总结">设计模式（七）小总结</span>
+            <span class="post-date" title="2019-02-12 14:45:00">2019/02/12</span>
+        </a>
+        
+        <a  class="设计模式 "
+           href="/设计模式/设计模式（三）适配器模式 & 外观模式/"
+           data-tag="设计模式"
+           data-author="" >
+            <span class="post-title" title="设计模式（三）适配器模式 &amp; 外观模式">设计模式（三）适配器模式 &amp; 外观模式</span>
+            <span class="post-date" title="2019-02-11 15:10:00">2019/02/11</span>
+        </a>
+        
+        <a  class="设计模式 "
+           href="/设计模式/设计模式（二）迭代器模式 & 组合模式/"
+           data-tag="设计模式"
+           data-author="" >
+            <span class="post-title" title="设计模式（二）迭代器模式 &amp; 组合模式">设计模式（二）迭代器模式 &amp; 组合模式</span>
+            <span class="post-date" title="2019-02-11 09:59:00">2019/02/11</span>
+        </a>
+        
+        <a  class="设计模式 "
+           href="/设计模式/设计模式（五）工厂模式 & 装饰者模式/"
+           data-tag="设计模式"
+           data-author="" >
+            <span class="post-title" title="设计模式（五）工厂模式 &amp; 装饰者模式">设计模式（五）工厂模式 &amp; 装饰者模式</span>
+            <span class="post-date" title="2019-02-12 11:54:00">2019/02/12</span>
+        </a>
+        
+        <a  class="设计模式 "
+           href="/设计模式/设计模式（六）命令模式 & 观察者模式/"
+           data-tag="设计模式"
+           data-author="" >
+            <span class="post-title" title="设计模式（六）命令模式 &amp; 观察者模式">设计模式（六）命令模式 &amp; 观察者模式</span>
+            <span class="post-date" title="2019-02-12 14:28:00">2019/02/12</span>
+        </a>
+        
+        <a  class="设计模式 "
+           href="/设计模式/设计模式（四）状态模式 & 代理模式/"
+           data-tag="设计模式"
+           data-author="" >
+            <span class="post-title" title="设计模式（四）状态模式 &amp; 代理模式">设计模式（四）状态模式 &amp; 代理模式</span>
+            <span class="post-date" title="2019-02-12 13:12:00">2019/02/12</span>
+        </a>
+        
+        <a  class="Android "
+           href="/Android/开发一个Android-App/"
+           data-tag="MVP,Adapter,Activity,Fragment,Layout,Res,Realm,AIDL,AsyncTask,Thread,Handler"
+           data-author="" >
+            <span class="post-title" title="开发一个Android App">开发一个Android App</span>
+            <span class="post-date" title="2019-10-05 16:11:04">2019/10/05</span>
+        </a>
+        
+        <a  class="系统 "
+           href="/系统/链接、装载、库/"
+           data-tag="dynamic,link,register,assembly,library,static,memory,runtime,interrupt"
+           data-author="" >
+            <span class="post-title" title="链接、装载、库">链接、装载、库</span>
+            <span class="post-date" title="2019-06-05 08:53:00">2019/06/05</span>
+        </a>
+        
+    </nav>
+</div>
+    </div>
+    <div class="hide-list">
+        <div class="semicircle">
+            <div class="brackets first"><</div>
+            <div class="brackets">&gt;</div>
+        </div>
+    </div>
+</aside>
+<div class="post">
+    <div class="pjax">
+        <article id="post-团队管理实践" class="article article-type-post" itemscope itemprop="blogPost">
+    
+        <h1 class="article-title">团队管理实践</h1>
+    
+    <div class="article-meta">
+        
+        
+        
+        <span class="book">
+            
+                <a href="javascript:" data-rel="管理">管理</a>
+            
+        </span>
+        
+        
+        <span class="tag">
+            
+            <a href="javascript:" class="color3">Manager</a>
+            
+            <a href="javascript:" class="color1">Model</a>
+            
+            <a href="javascript:" class="color5">Role</a>
+            
+            <a href="javascript:" class="color2">Target</a>
+            
+        </span>
+        
+    </div>
+    <div class="article-meta">
+        
+        创建时间:<time class="date" title='更新时间: 2019-04-05 00:44:25'>2019-02-23 23:50</time>
+        
+    </div>
+    <div class="article-meta">
+        
+        
+        <span id="busuanzi_container_page_pv">
+            阅读:<span id="busuanzi_value_page_pv">
+                <span class="count-comment">
+                    <span class="spinner">
+                      <div class="cube1"></div>
+                      <div class="cube2"></div>
+                    </span>
+                </span>
+            </span>
+        </span>
+        
+        
+    </div>
+    
+    <div class="toc-ref">
+    
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#管理理论"><span class="toc-text">管理理论</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#定义"><span class="toc-text">定义</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#团队及个人类型"><span class="toc-text">团队及个人类型</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#团队的类型"><span class="toc-text">团队的类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#个人的角色"><span class="toc-text">个人的角色</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#目标"><span class="toc-text">目标</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#平衡矛盾"><span class="toc-text">平衡矛盾</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#秘籍及禁忌"><span class="toc-text">秘籍及禁忌</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#SMART"><span class="toc-text">SMART</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#大目标拆成阶段小目标"><span class="toc-text">大目标拆成阶段小目标</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#营造公平的团队氛围，明确团队制度"><span class="toc-text">营造公平的团队氛围，明确团队制度</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#帮助成员成长"><span class="toc-text">帮助成员成长</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#沟通反馈"><span class="toc-text">沟通反馈</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#管理团队情绪，学会授权和容忍"><span class="toc-text">管理团队情绪，学会授权和容忍</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#向上管理及人才储备"><span class="toc-text">向上管理及人才储备</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#模型"><span class="toc-text">模型</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#人岗匹配模型"><span class="toc-text">人岗匹配模型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#冰山模型"><span class="toc-text">冰山模型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3D-E模型"><span class="toc-text">3D+E模型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#团队成长模型"><span class="toc-text">团队成长模型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#管理者成长模型"><span class="toc-text">管理者成长模型</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#管理实践"><span class="toc-text">管理实践</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#划分团队类型"><span class="toc-text">划分团队类型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#设定目标"><span class="toc-text">设定目标</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#管理情绪"><span class="toc-text">管理情绪</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#打破子系统的稳定性-帮助成长"><span class="toc-text">打破子系统的稳定性(帮助成长)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#激励"><span class="toc-text">激励</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#任命"><span class="toc-text">任命</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#自我提升"><span class="toc-text">自我提升</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#制定团队的规则、原则"><span class="toc-text">制定团队的规则、原则</span></a></li></ol></li></ol>
+    
+<style>
+    .left-col .switch-btn,
+    .left-col .switch-area {
+        display: none;
+    }
+    .toc-level-3 i,
+    .toc-level-3 ol {
+        display: none !important;
+    }
+</style>
+</div>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <a id="more"></a>
+
+<h1 id="管理理论"><a href="#管理理论" class="headerlink" title="管理理论"></a>管理理论</h1><h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><p>管理的定义：界定企业的使命，并激励和组织人力资源去实现这个使命。</p>
+<p>核心本质是最大范围地激发他人的善意。</p>
+<p>管理 = 正确决策 + 100%服从意识 = (目标 + 组织) + 激励善意执行。</p>
+<h2 id="团队及个人类型"><a href="#团队及个人类型" class="headerlink" title="团队及个人类型"></a>团队及个人类型</h2><h3 id="团队的类型"><a href="#团队的类型" class="headerlink" title="团队的类型"></a>团队的类型</h3><ul>
+<li>棒球队：各司其职，非团队组合</li>
+<li>足球队：有分工有协作，目的一致</li>
+<li>网球队：灵活分工，要求严格的团队</li>
+</ul>
+<p>首先需要认清组员所属的团队类型，如果团队要转变必须突变，而不能渐变。<br>棒球队员不需要、也不喜欢太多跟别人配合，网球员追求最紧密的团队融合，足球队员前锋知道回防后卫知道助攻。</p>
+<p>安排原则不是绝对得对号入座，可以安排一些对于现有角色起锻炼作用的任务（双打网球）来互补他的意识。</p>
+<h3 id="个人的角色"><a href="#个人的角色" class="headerlink" title="个人的角色"></a>个人的角色</h3><ul>
+<li>管理者：通过他人完成工作，核心责任培养他人成长；</li>
+<li>领导者：营造氛围提高绩效，创造激励，提升企业文化；</li>
+<li>执行者：出结果。</li>
+</ul>
+<p>每个人身上都有以上三种角色。</p>
+<h2 id="目标"><a href="#目标" class="headerlink" title="目标"></a>目标</h2><p>只有协同工作不是团队，团队一定是目标致力于业绩。</p>
+<h2 id="平衡矛盾"><a href="#平衡矛盾" class="headerlink" title="平衡矛盾"></a>平衡矛盾</h2><p>要平衡好个人主义和团队的矛盾：</p>
+<ul>
+<li>容纳个人的不同与集体一致的目标；</li>
+<li>鼓励团队成员间的相互支持和对抗；</li>
+<li>业绩与学习发展；</li>
+<li>管理者权威与成员的判断力和自治力；</li>
+</ul>
+<p>“1358”管理精髓：关于管理的一个定义、管理的三大任务、管理者的五项工作和企业需要设定目标的八大领域。</p>
+<h2 id="秘籍及禁忌"><a href="#秘籍及禁忌" class="headerlink" title="秘籍及禁忌"></a>秘籍及禁忌</h2><h3 id="SMART"><a href="#SMART" class="headerlink" title="SMART"></a>SMART</h3><h3 id="大目标拆成阶段小目标"><a href="#大目标拆成阶段小目标" class="headerlink" title="大目标拆成阶段小目标"></a>大目标拆成阶段小目标</h3><h3 id="营造公平的团队氛围，明确团队制度"><a href="#营造公平的团队氛围，明确团队制度" class="headerlink" title="营造公平的团队氛围，明确团队制度"></a>营造公平的团队氛围，明确团队制度</h3><ul>
+<li>如果说目标导向的绩效考核是看得见的手，那么公平的团队氛围和制度化的制度，就是另外一只看不见的手。制度的发挥杠杆效应和持续效应的作用，能让你的团队持续科学的高效工作。</li>
+<li>成就激励、责任给予、信任、尊重认同、安全承诺、自由与授权、相对公平、个人公平、发展空间。<h3 id="帮助成员成长"><a href="#帮助成员成长" class="headerlink" title="帮助成员成长"></a>帮助成员成长</h3></li>
+<li>系统的稳定性是建立在子系统的不稳定性之上，大型组织最大的问题就是脆弱性变得极强，越复杂的组织脆弱性越强。</li>
+<li>复杂都是自下而上的产生，而不是自上而下。<h3 id="沟通反馈"><a href="#沟通反馈" class="headerlink" title="沟通反馈"></a>沟通反馈</h3></li>
+<li>乔哈里视窗-自我意识的发现：开放区、隐蔽区、盲目区、未知区。人的有效沟通就是这四个区域的有机融合；</li>
+<li>大家在沟通中一定要注意，非语言沟通的技巧性，在沟通中肢体和态度是远远超过语言的能力的；</li>
+<li>设定内部反馈机制：周会(总结)、月末会议。<h3 id="管理团队情绪，学会授权和容忍"><a href="#管理团队情绪，学会授权和容忍" class="headerlink" title="管理团队情绪，学会授权和容忍"></a>管理团队情绪，学会授权和容忍</h3></li>
+<li>学会授权和容忍才能提高团队凝聚力和归属感。</li>
+<li>授权后才是管理的开始。出错时要学会容忍，正确时要不要吝啬赞美。要知道，批评时才是最好的拉近你和成员关系的时刻，同时，要管理好团队情绪。</li>
+<li>4A模型：<ul>
+<li>识别情绪(Aware)关注行为变化，识别特征行为；</li>
+<li>接受情绪(Accept)接受而不压制，理解四个阶段；</li>
+<li>分析情绪(Analyze)找出情绪来源，抓住三种心态；</li>
+<li>调整情绪(Adjust)及时坦诚沟通，关注团队目标。<h3 id="向上管理及人才储备"><a href="#向上管理及人才储备" class="headerlink" title="向上管理及人才储备"></a>向上管理及人才储备</h3></li>
+</ul>
+</li>
+<li>维度划分：<ul>
+<li>向下—管理下属；</li>
+<li>向上—管理上司；</li>
+<li>水平—管理平级；</li>
+<li>向外—管理顾客、供应商等外部利益相关者；</li>
+<li>向内—管理自己。</li>
+</ul>
+</li>
+<li>管理者的禁忌（有效的管理者）：<ul>
+<li>不矫情骄傲；</li>
+<li>不装B；</li>
+<li>不装老大；</li>
+<li>不做缩头龟；</li>
+<li>不指手划脚；</li>
+<li>不拖后腿；</li>
+<li>不扰乱军心；</li>
+<li>不使坏；</li>
+<li>不内讧；</li>
+<li>不干操蛋事；</li>
+<li>不贬低别人；</li>
+<li>不各自为政。</li>
+</ul>
+</li>
+</ul>
+<h2 id="模型"><a href="#模型" class="headerlink" title="模型"></a>模型</h2><h3 id="人岗匹配模型"><a href="#人岗匹配模型" class="headerlink" title="人岗匹配模型"></a>人岗匹配模型</h3><ul>
+<li>价值观；</li>
+<li>知识技能；</li>
+<li>行为能力。</li>
+</ul>
+<h3 id="冰山模型"><a href="#冰山模型" class="headerlink" title="冰山模型"></a>冰山模型</h3><ul>
+<li>知识、技能；（表达能力、组织能力、决策能力、学习能力）</li>
+<li>——-水面上——-</li>
+<li>社会角色：态度、价值观；（管理者、专家、教师；合作精神、献身精神）</li>
+<li>自我概念；（自信心、乐观精神）</li>
+<li>特质、品质；（正直、诚实、责任心）</li>
+<li>动机。（成就需求、人际交往需求）</li>
+</ul>
+<h3 id="3D-E模型"><a href="#3D-E模型" class="headerlink" title="3D+E模型"></a>3D+E模型</h3><ul>
+<li>Do（职责）：岗位职责内容要求；</li>
+<li>Display（能力）：胜任素质要求；（专业知识、技能要求）</li>
+<li>Deliver（业绩）：绩效考核指标，岗位绩效表现；</li>
+<li>Experience（经验）：任职经验要求。</li>
+</ul>
+<h3 id="团队成长模型"><a href="#团队成长模型" class="headerlink" title="团队成长模型"></a>团队成长模型</h3><ol>
+<li>成立期：礼貌、松散观望、等待、保守、堤防；</li>
+<li>冲突期：互相争吵、冲突、问题出现、竞争、拉帮结派；</li>
+<li>发展期：有组织、技能增长、问题解决、冲突消除、输入和反馈、有限规则和方法；</li>
+<li>成熟期：合作、成熟、高效、灵活、开放、信任。</li>
+</ol>
+<h3 id="管理者成长模型"><a href="#管理者成长模型" class="headerlink" title="管理者成长模型"></a>管理者成长模型</h3><ul>
+<li>认知自我<ul>
+<li>领导角色认知</li>
+<li>卓越领导力模型</li>
+<li>领导风格与管理情境</li>
+</ul>
+</li>
+<li>管理自我<ul>
+<li>领导素养修炼</li>
+<li>性格与领导力</li>
+</ul>
+</li>
+<li>管理团队<ul>
+<li>团队业绩管理</li>
+<li>团队文化建设</li>
+<li>员工激励与授权</li>
+<li>员工培训辅导</li>
+<li>学习型团队建设</li>
+</ul>
+</li>
+<li>人际互动<ul>
+<li>沟通技巧（中、高级）</li>
+<li>高效会议管理</li>
+<li>跨部门沟通技巧</li>
+</ul>
+</li>
+</ul>
+<h1 id="管理实践"><a href="#管理实践" class="headerlink" title="管理实践"></a>管理实践</h1><h2 id="划分团队类型"><a href="#划分团队类型" class="headerlink" title="划分团队类型"></a>划分团队类型</h2><ol>
+<li>棒球型：<ul>
+<li>问题：缺乏共同维护一个“球”的意识，但前提是他们也交流得太少；（yc、lsy）</li>
+<li>安排：对接游戏，解决问题，研究；（偶尔安排互补任务-分享研究成果）</li>
+</ul>
+</li>
+<li>足球型：<ul>
+<li>问题：有维护一个“球”的意识，但只看见自己已知的部分，走不出圈子（tts、hzw、hwx）</li>
+<li>安排：开发对框架影响度低的中小型需求项目</li>
+</ul>
+</li>
+<li>网球型：<ul>
+<li>问题：既知道目标，也知道扩展，灵活变化(yjl、htc)，但可能存在主动性问题(czh)</li>
+<li>安排：架构设计、开发涉及面广的功能项目</li>
+</ul>
+</li>
+</ol>
+<h2 id="设定目标"><a href="#设定目标" class="headerlink" title="设定目标"></a>设定目标</h2><ul>
+<li>制定团队目标（组长给出规划）</li>
+<li>制定个人目标（需切合团队大目标的方向，由个人制定主管复审，不强制但与晋升挂钩）</li>
+</ul>
+<h2 id="管理情绪"><a href="#管理情绪" class="headerlink" title="管理情绪"></a>管理情绪</h2><ul>
+<li>应用4A模型（包括主管及所有下属，主管还需给下属做指引）；</li>
+<li>刻意保持记住，出错需要批判，但要注意忍住个人情绪，做得好要注意赞扬；</li>
+</ul>
+<h2 id="打破子系统的稳定性-帮助成长"><a href="#打破子系统的稳定性-帮助成长" class="headerlink" title="打破子系统的稳定性(帮助成长)"></a>打破子系统的稳定性(帮助成长)</h2><ul>
+<li>末尾淘汰制</li>
+<li>末尾的制度：排名维度(上级评、自评、互评)、考察岗(去绩效/降薪)？</li>
+</ul>
+<h2 id="激励"><a href="#激励" class="headerlink" title="激励"></a>激励</h2><ul>
+<li>根据个人制定的目标（自定kpi）的价值等级、完成质量及时间、对待结果的态度三方面进行评估，给相应的鼓励奖励。</li>
+<li>再划分一层整体利益、奖罚的绑定？</li>
+</ul>
+<h2 id="任命"><a href="#任命" class="headerlink" title="任命"></a>任命</h2><p>采用人岗匹配模型、冰山模型、3D+E模型评估</p>
+<h2 id="自我提升"><a href="#自我提升" class="headerlink" title="自我提升"></a>自我提升</h2><p>时刻注意管理者成长模型的塑造</p>
+<h2 id="制定团队的规则、原则"><a href="#制定团队的规则、原则" class="headerlink" title="制定团队的规则、原则"></a>制定团队的规则、原则</h2><p>。。。待</p>
+<p>REF：<br><a href="http://www.woshipm.com/operate/913041.html" target="_blank" rel="noopener">怎么才能做好团队管理｜方法论加模型案例</a></p>
+
+      
+       <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 mingfungliu@gmail.com </span>
+    </div>
+</article>
+
+
+<p>
+    <a href="javascript:void(0)" class="dashang" onclick="dashangToggle()">赏</a>
+</p>
+
+
+
+<div class="article_copyright">
+    <p><span class="copy-title">文章标题:</span>团队管理实践</p>
+    
+    <p><span class="copy-title">本文作者:</span><a href="javascript:void(0)" title="Mingfung">Mingfung</a></p>
+    <p><span class="copy-title">发布时间:</span>2019-02-23, 23:50:00</p>
+    <p><span class="copy-title">最后更新:</span>2019-04-05, 00:44:25</p>
+    <span class="copy-title">原始链接:</span><a class="post-url" href="/管理/团队管理实践/" title="团队管理实践">http://blog.ifungfay.com/管理/团队管理实践/</a>
+    <p>
+        <span class="copy-title">版权声明:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+    </p>
+</div>
+
+
+
+
+    <script type="text/javascript">
+(function(d, s) {
+   var j, e = d.getElementsByTagName(s)[0];
+
+   if (typeof LivereTower === 'function') { return; }
+
+   j = d.createElement(s);
+   j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+   j.async = true;
+
+   e.parentNode.insertBefore(j, e);
+})(document, 'script');
+</script>
+<noscript> 为正常使用来必力评论功能请激活JavaScript</noscript>
+
+<iframe title="livere"   src="https://was.livere.me/comment/city?id=city&refer=http://blog.ifungfay.com/管理/团队管理实践/&uid=MTAyMC80NzAyOC8yMzUyOA==&site=http://blog.ifungfay.com/管理/团队管理实践/&title=团队管理实践" scrolling="" frameborder="0" id="lv-comment-399" style="min-width: 100%; width: 100px; min-height: 400px; overflow: auto; border: 0px; z-index: 124212; height: 800px;" ></iframe>
+
+
+
+    
+
+
+
+
+    </div>
+    <div class="copyright">
+        <p class="footer-entry">©2016-2019 Mingfung</p>
+<p class="footer-entry">Built with <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/yelog/hexo-theme-3-hexo" target="_blank">3-hexo</a> theme</p>
+
+    </div>
+    <div class="full-toc">
+        <button class="full"><span class="min "></span></button>
+<button class="post-toc-menu"><span class="post-toc-menu-icons"></span></button>
+<div class="post-toc"><span class="post-toc-title">目录</span>
+    <div class="post-toc-content">
+
+    </div>
+</div>
+<a class="" id="rocket" href="javascript:void(0)"></a>
+    </div>
+</div>
+<div class="acParent"></div>
+
+<div class="hide_box" onclick="dashangToggle()"></div>
+<div class="shang_box">
+    <a class="shang_close" href="javascript:void(0)" onclick="dashangToggle()">×</a>
+    <div class="shang_tit">
+        <p>喜欢就点赞,疼爱就打赏</p>
+    </div>
+    <div class="shang_payimg">
+        <div class="pay_img">
+            <img src="/img/alipay.jpg" class="alipay" title="扫码支持">
+            <img src="/img/weixin.jpg" class="weixin" title="扫码支持">
+        </div>
+    </div>
+    <div class="shang_payselect">
+        <span><label><input type="radio" name="pay" checked value="alipay">支付宝</label></span><span><label><input type="radio" name="pay" value="weixin">微信</label></span>
+    </div>
+</div>
+
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/koharu.model.json"},"log":false});</script></body>
+<script src="/js/jquery.pjax.js?v=1.0.1" ></script>
+
+<script src="/js/script.js?v=1.0.1" ></script>
+<script>
+    var img_resize = 'default';
+    /*作者、标签的自动补全*/
+    $(function () {
+        $('.search').AutoComplete({
+            'data': ['#JSPatch','#JavaScriptCore','#property','#dynamic','#sythesize','#nonatomic','#iOS11','#Xcode9','#iPhoneX','#TLS','#SSL','#HTTPS','#ATS','#Java','#Android','#AndroidStudio','#adb','#反编译','#Gradle','#Module','#ProGuard','#Native','#JNI','#NDK','#AAR','#JAR','#html','#bootstrap','#css','#Flutter','#iOS','#Dart','#Git','#command','#Mac','#question','#PyCharm','#Django','#Python','#Anaconda','#Qgis','#vapor','#swift','#heroku','#cloud','#crypto','#console','#terminal','#database','#postgreSQL','#network','#http','#webSocket','#encoded','#leaf','#view','#session','#token','#verification','#越狱','#逆向','#工具','#安全','#CGI','#Servlet','#容器','#Docker','#Manager','#Model','#Role','#Target','#JSON','#Objective-C','#jekyll','#github','#blog','#Jenkins','#CI','#Test','#Ubuntu','#服务器','#Web App','#nginx','#supervisor','#fabric','#python','#mysql','#设计模式','#tool','#skill','#MVP','#Adapter','#Activity','#Fragment','#Layout','#Res','#Realm','#AIDL','#AsyncTask','#Thread','#Handler','#link','#register','#assembly','#library','#static','#memory','#runtime','#interrupt',],
+            'itemHeight': 20,
+            'width': 418
+        }).AutoComplete('show');
+    })
+    function initArticle() {
+        /*渲染对应的表格样式*/
+        
+            $(".post .pjax table").addClass("green_title");
+        
+
+        /*渲染打赏样式*/
+        
+        $("input[name=pay]").on("click", function () {
+            if($("input[name=pay]:checked").val()=="weixin"){
+                $(".shang_box .shang_payimg .pay_img").addClass("weixin_img");
+            } else {
+                $(".shang_box .shang_payimg .pay_img").removeClass("weixin_img");
+            }
+        })
+        
+
+        /*高亮代码块行号*/
+        
+        $('pre code').each(function(){
+            var lines = $(this).text().split('\n').length, widther='';
+            if (lines>99) {
+                widther = 'widther'
+            }
+            var $numbering = $('<ul/>').addClass('pre-numbering ' + widther).attr("unselectable","on");
+            $(this).addClass('has-numbering ' + widther)
+                    .parent()
+                    .append($numbering);
+            for(var i=1;i<=lines;i++){
+                $numbering.append($('<li/>').text(i));
+            }
+        });
+        
+
+        /*访问数量*/
+        
+        $.getScript("//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js");
+        
+
+        /*代码高亮，行号对齐*/
+        $('.pre-numbering').css('line-height',$('.has-numbering').css('line-height'));
+
+        
+    }
+
+    /*打赏页面隐藏与展示*/
+    
+    function dashangToggle() {
+        $(".shang_box").fadeToggle();
+        $(".hide_box").fadeToggle();
+    }
+    
+
+</script>
+
+<!--加入行号的高亮代码块样式-->
+
+<style>
+    pre{
+        position: relative;
+        margin-bottom: 24px;
+        border-radius: 10px;
+        border: 1px solid #e2dede;
+        background: #FFF;
+        overflow: hidden;
+    }
+    code.has-numbering{
+        margin-left: 30px;
+    }
+    code.has-numbering.widther{
+        margin-left: 35px;
+    }
+    .pre-numbering{
+        margin: 0px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 20px;
+        padding: 0.5em 3px 0.7em 5px;
+        border-right: 1px solid #C3CCD0;
+        text-align: right;
+        color: #AAA;
+        background-color: ;
+    }
+    .pre-numbering.widther {
+        width: 35px;
+    }
+</style>
+
+<!--自定义样式设置-->
+<style>
+    
+    
+    .nav {
+        width: 542px;
+    }
+    .nav.fullscreen {
+        margin-left: -542px;
+    }
+    .nav-left {
+        width: 120px;
+    }
+    
+    
+    @media screen and (max-width: 1468px) {
+        .nav {
+            width: 492px;
+        }
+        .nav.fullscreen {
+            margin-left: -492px;
+        }
+        .nav-left {
+            width: 100px;
+        }
+    }
+    
+    
+    @media screen and (max-width: 1024px) {
+        .nav {
+            width: 492px;
+            margin-left: -492px
+        }
+        .nav.fullscreen {
+            margin-left: 0;
+        }
+        .nav .hide-list.fullscreen {
+            left: 492px
+        }
+    }
+    
+    @media screen and (max-width: 426px) {
+        .nav {
+            width: 100%;
+        }
+        .nav-left {
+            width: 100%;
+        }
+    }
+    
+    
+    .nav-right .title-list nav a .post-title, .nav-right .title-list #local-search-result a .post-title {
+        color: #383636;
+    }
+    
+    
+    .nav-right .title-list nav a .post-date, .nav-right .title-list #local-search-result a .post-date {
+        color: #5e5e5f;
+    }
+    
+    
+    .nav-right nav a.hover, #local-search-result a.hover{
+        background-color: #e2e0e0;
+    }
+    
+    
+
+    /*列表样式*/
+    
+    .post .pjax article .article-entry>ol, .post .pjax article .article-entry>ul, .post .pjax article>ol, .post .pjax article>ul{
+        border: #e2dede solid 1px;
+        border-radius: 10px;
+        padding: 10px 32px 10px 56px;
+    }
+    .post .pjax article .article-entry li>ol, .post .pjax article .article-entry li>ul,.post .pjax article li>ol, .post .pjax article li>ul{
+        padding-top: 5px;
+        padding-bottom: 5px;
+    }
+    .post .pjax article .article-entry>ol>li, .post .pjax article .article-entry>ul>li,.post .pjax article>ol>li, .post .pjax article>ul>li{
+        margin-bottom: auto;
+        margin-left: auto;
+    }
+    .post .pjax article .article-entry li>ol>li, .post .pjax article .article-entry li>ul>li,.post .pjax article li>ol>li, .post .pjax article li>ul>li{
+        margin-bottom: auto;
+        margin-left: auto;
+    }
+    
+
+    /* 背景图样式 */
+    
+    
+
+
+    /*引用块样式*/
+    
+
+    /*文章列表背景图*/
+    
+    .nav-right:before {
+        content: ' ';
+        display: block;
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0.3;
+        background: url("null");
+        background-repeat: no-repeat;
+        background-position: 50% 0;
+        -ms-background-size: cover;
+        -o-background-size: cover;
+        -moz-background-size: cover;
+        -webkit-background-size: cover;
+        background-size: cover;
+    }
+    
+
+    
+</style>
+
+
+
+
+
+
+<div class="mobile-menus-out" >
+
+</div>
+<div class="mobile-menus">
+    
+    
+    <a class="dynamic-menu site_url"   href="/404.html">宝贝回家</a>
+    
+    
+    
+</div>
+
+
+</html>

@@ -1,0 +1,2076 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  <title>Android工程入门 | Mingfung&#39;s Blog</title>
+  <meta name="keywords" content=" Gradle , Module , ProGuard , Native , JNI , NDK , AAR , JAR ">
+  <meta name="description" content="Android工程入门 | Mingfung&#39;s Blog">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="description" content="关于iOS码农一枚">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Mingfung&#39;s Blog">
+<meta property="og:url" content="http://blog.ifungfay.com/about/index.html">
+<meta property="og:site_name" content="Mingfung&#39;s Blog">
+<meta property="og:description" content="关于iOS码农一枚">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-10-12T14:30:09.446Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Mingfung&#39;s Blog">
+<meta name="twitter:description" content="关于iOS码农一枚">
+
+
+<link rel="icon" href="/img/avatar.jpg">
+
+<link href="/css/style.css?v=1.0.1" rel="stylesheet">
+
+<link href="/css/hl_theme/zenbum.css?v=1.0.1" rel="stylesheet">
+
+<link href="//cdn.bootcss.com/animate.css/3.5.2/animate.min.css" rel="stylesheet">
+<link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+<script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="/js/jquery.autocomplete.min.js?v=1.0.1"></script>
+
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
+
+<script src="//cdn.bootcss.com/nprogress/0.2.0/nprogress.min.js"></script>
+
+
+
+<script src="/js/iconfont.js?v=1.0.1"></script>
+<!--鼠标点击爱心动画-->
+<script type="text/javascript" src="/js/clicklove.js"></script>
+</head>
+<div style="display: none">
+  <input class="theme_disqus_on" value="false">
+  <input class="theme_preload_comment" value="true">
+  <input class="theme_blog_path" value>
+</div>
+
+<body>
+<aside class="nav">
+    <div class="nav-left">
+        <a href="/" class="avatar_target">
+    <img class="avatar" src="/img/avatar.jpg" />
+</a>
+<div class="author">
+    <span>Mingfung</span>
+</div>
+
+<div class="icon">
+    
+        
+        <a title="rss" href="/atom.xml" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-rss"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+        <a title="github" href="https://github.com/leo9763" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-github"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+        <a title="facebook" href="https://www.facebook.com/ming.fung.liu.nero" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-facebook"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+    
+        
+    
+        
+        <a title="instagram" href="https://www.instagram.com/mingfungliu/" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-instagram"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+    
+        
+        <a title="weibo" href="https://weibo.com/neross" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-weibo"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+        <a title="jianshu" href="https://www.jianshu.com/u/007c5818ec78" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-jianshu"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+        <a title="zhihu" href="zhihu.com/people/mingfungliu" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-zhihu"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+    
+        
+    
+        
+        <a title="juejin" href="https://juejin.im/user/5b6b9b37f265da0f9f4e8df3" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-juejin"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+        <a title="email" href="mailto:mingfungliu@gmail.com" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-email"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+        <a title="qq" href="http://wpa.qq.com/msgrd?v=3&uin=52360086&site=qq&menu=yes" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-qq"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+    
+        
+    
+</div>
+
+
+
+<a class="more-menus">更多菜单</a>
+
+
+<ul>
+    <li><div class="all active">全部文章<small>(43)</small></div></li>
+    
+        
+            
+            <li><div data-rel="iOS">iOS<small>(6)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="Android">Android<small>(3)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="前端">前端<small>(4)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="工具">工具<small>(4)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="后端">后端<small>(12)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="管理">管理<small>(1)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="设计模式">设计模式<small>(7)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="系统">系统<small>(1)</small></div>
+                
+            </li>
+            
+        
+    
+</ul>
+<div class="left-bottom">
+    <div class="menus">
+    
+    
+    <a class="dynamic-menu site_url"   href="/404.html">宝贝回家</a>
+    
+    
+    
+    </div>
+    <div><a class="about  hasFriend  site_url"  href="/about">关于</a><a style="width: 50%"  class="friends">友链</a></div>
+</div>
+<input type="hidden" id="yelog_site_posts_number" value="43">
+
+<div style="display: none">
+    <span id="busuanzi_value_site_uv"></span>
+    <span id="busuanzi_value_site_pv"></span>
+</div>
+
+    </div>
+    <div class="nav-right">
+        <div class="friends-area">
+    <div class="friends-title">
+        友情链接
+        <i class="back-title-list"></i>
+    </div>
+    <div class="friends-content">
+        <ul>
+            
+            <li><a target="_blank" href="http://www.ifungfay.com">雪月风飞</a></li>
+            
+        </ul>
+    </div>
+</div>
+        <div class="title-list">
+    <form onkeydown="if(event.keyCode==13){return false;}">
+        <input class="search" type="text" placeholder="Search..." autocomplete="off"id="local-search-input" >
+        <i class="cross"></i>
+        <span>
+            <label for="tagswitch">Tags:</label>
+            <input id="tagswitch" type="checkbox" style="display: none" />
+            <i id="tagsWitchIcon"></i>
+        </span>
+    </form>
+    <div class="tags-list">
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">JSPatch</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">JavaScriptCore</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">property</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">dynamic</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">sythesize</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">nonatomic</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color1">iOS11</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">Xcode9</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">iPhoneX</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">TLS</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">SSL</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color1">HTTPS</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">ATS</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">Java</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">Android</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">AndroidStudio</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">adb</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">反编译</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">Gradle</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">Module</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">ProGuard</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">Native</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">JNI</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">NDK</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">AAR</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">JAR</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">html</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">bootstrap</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">css</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">Flutter</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">iOS</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">Dart</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">Git</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">command</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">Mac</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">question</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">PyCharm</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">Django</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">Python</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">Anaconda</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">Qgis</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color1">vapor</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color1">swift</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">heroku</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color1">cloud</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">crypto</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">console</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">terminal</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">database</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color1">postgreSQL</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">network</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">http</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">webSocket</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">encoded</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">leaf</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">view</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">session</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color1">token</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">verification</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">越狱</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">逆向</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">工具</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">安全</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">CGI</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">Servlet</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">容器</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">Docker</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">Manager</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color1">Model</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">Role</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">Target</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">JSON</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">Objective-C</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">jekyll</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">github</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">blog</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">Jenkins</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">CI</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">Test</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">Ubuntu</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">服务器</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">Web App</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color1">nginx</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color1">supervisor</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">fabric</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">python</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color1">mysql</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">设计模式</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">tool</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color1">skill</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">MVP</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">Adapter</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">Activity</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">Fragment</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">Layout</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">Res</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color1">Realm</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">AIDL</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">AsyncTask</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">Thread</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">Handler</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">link</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">register</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">assembly</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">library</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">static</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">memory</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">runtime</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">interrupt</a>
+    </li>
+    
+    <div class="clearfix"></div>
+</div>
+
+    
+    <nav id="title-list-nav">
+        
+        <a  class=""
+           href="/uncategorized/ATS详解/"
+           data-tag="TLS,SSL,HTTPS,ATS"
+           data-author="" >
+            <span class="post-title" title="ATS详解">ATS详解</span>
+            <span class="post-date" title="2017-07-22 15:57:55">2017/07/22</span>
+        </a>
+        
+        <a  class="Android "
+           href="/Android/Android原理入门/"
+           data-tag="Java,Android"
+           data-author="" >
+            <span class="post-title" title="Android原理入门">Android原理入门</span>
+            <span class="post-date" title="2019-08-14 00:22:11">2019/08/14</span>
+        </a>
+        
+        <a  class=""
+           href="/uncategorized/Android技巧入门/"
+           data-tag="AndroidStudio,adb,反编译"
+           data-author="" >
+            <span class="post-title" title="Android技巧入门">Android技巧入门</span>
+            <span class="post-date" title="2019-08-14 00:22:37">2019/08/14</span>
+        </a>
+        
+        <a  class="Android "
+           href="/Android/Android工程入门/"
+           data-tag="Gradle,Module,ProGuard,Native,JNI,NDK,AAR,JAR"
+           data-author="" >
+            <span class="post-title" title="Android工程入门">Android工程入门</span>
+            <span class="post-date" title="2019-02-24 13:44:00">2019/02/24</span>
+        </a>
+        
+        <a  class="前端 "
+           href="/前端/Bootstrap手册/"
+           data-tag="html,bootstrap,css"
+           data-author="" >
+            <span class="post-title" title="Bootstrap手册">Bootstrap手册</span>
+            <span class="post-date" title="2018-09-08 23:06:00">2018/09/08</span>
+        </a>
+        
+        <a  class="前端 "
+           href="/前端/Flutter开发（介绍篇）/"
+           data-tag="Android,Flutter,iOS,Dart"
+           data-author="" >
+            <span class="post-title" title="Flutter开发（介绍篇）">Flutter开发（介绍篇）</span>
+            <span class="post-date" title="2019-01-09 21:24:00">2019/01/09</span>
+        </a>
+        
+        <a  class="前端 "
+           href="/前端/Flutter开发（实践篇）/"
+           data-tag="Android,Flutter,iOS,Dart"
+           data-author="" >
+            <span class="post-title" title="Flutter开发（实践篇）">Flutter开发（实践篇）</span>
+            <span class="post-date" title="2019-01-09 23:06:00">2019/01/09</span>
+        </a>
+        
+        <a  class="工具 "
+           href="/工具/Git手册/"
+           data-tag="Git"
+           data-author="" >
+            <span class="post-title" title="Git手册">Git手册</span>
+            <span class="post-date" title="2019-01-28 21:35:00">2019/01/28</span>
+        </a>
+        
+        <a  class="工具 "
+           href="/工具/Mac命令行工具及其问题收录/"
+           data-tag="command,Mac,question"
+           data-author="" >
+            <span class="post-title" title="Mac命令行工具及其问题收录">Mac命令行工具及其问题收录</span>
+            <span class="post-date" title="2018-02-22 17:10:00">2018/02/22</span>
+        </a>
+        
+        <a  class="后端 "
+           href="/后端/Python的使用环境配置/"
+           data-tag="PyCharm,Django,Python,Anaconda,Qgis"
+           data-author="" >
+            <span class="post-title" title="Python的使用环境配置">Python的使用环境配置</span>
+            <span class="post-date" title="2018-05-24 19:30:00">2018/05/24</span>
+        </a>
+        
+        <a  class="后端 "
+           href="/后端/Vapor之初体验/"
+           data-tag="vapor,swift,heroku"
+           data-author="" >
+            <span class="post-title" title="Vapor之初体验">Vapor之初体验</span>
+            <span class="post-date" title="2018-01-05 21:49:00">2018/01/05</span>
+        </a>
+        
+        <a  class="后端 "
+           href="/后端/Vapor的部署/"
+           data-tag="vapor,swift,heroku,cloud"
+           data-author="" >
+            <span class="post-title" title="Vapor的部署">Vapor的部署</span>
+            <span class="post-date" title="2018-08-13 23:34:00">2018/08/13</span>
+        </a>
+        
+        <a  class="后端 "
+           href="/后端/Vapor（一）基础篇/"
+           data-tag="vapor,swift"
+           data-author="" >
+            <span class="post-title" title="Vapor（一）基础篇">Vapor（一）基础篇</span>
+            <span class="post-date" title="2018-08-13 23:34:00">2018/08/13</span>
+        </a>
+        
+        <a  class="后端 "
+           href="/后端/Vapor（七）工具篇/"
+           data-tag="command,vapor,swift,crypto,console,terminal"
+           data-author="" >
+            <span class="post-title" title="Vapor（七）工具篇">Vapor（七）工具篇</span>
+            <span class="post-date" title="2018-08-21 23:02:00">2018/08/21</span>
+        </a>
+        
+        <a  class="后端 "
+           href="/后端/Vapor（三）数据库篇/"
+           data-tag="vapor,swift,database,postgreSQL"
+           data-author="" >
+            <span class="post-title" title="Vapor（三）数据库篇">Vapor（三）数据库篇</span>
+            <span class="post-date" title="2018-08-15 21:33:00">2018/08/15</span>
+        </a>
+        
+        <a  class="后端 "
+           href="/后端/Vapor（二）进阶篇/"
+           data-tag="vapor,swift"
+           data-author="" >
+            <span class="post-title" title="Vapor（二）进阶篇">Vapor（二）进阶篇</span>
+            <span class="post-date" title="2018-08-14 21:20:00">2018/08/14</span>
+        </a>
+        
+        <a  class="后端 "
+           href="/后端/Vapor（五）网络篇/"
+           data-tag="vapor,swift,network,http,webSocket,encoded"
+           data-author="" >
+            <span class="post-title" title="Vapor（五）网络篇">Vapor（五）网络篇</span>
+            <span class="post-date" title="2018-08-17 20:30:00">2018/08/17</span>
+        </a>
+        
+        <a  class="后端 "
+           href="/后端/Vapor（六）视图篇/"
+           data-tag="vapor,swift,leaf,view"
+           data-author="" >
+            <span class="post-title" title="Vapor（六）视图篇">Vapor（六）视图篇</span>
+            <span class="post-date" title="2018-08-20 21:56:00">2018/08/20</span>
+        </a>
+        
+        <a  class="后端 "
+           href="/后端/Vapor（四）验证篇/"
+           data-tag="vapor,swift,session,token,verification"
+           data-author="" >
+            <span class="post-title" title="Vapor（四）验证篇">Vapor（四）验证篇</span>
+            <span class="post-date" title="2018-08-16 19:06:00">2018/08/16</span>
+        </a>
+        
+        <a  class=""
+           href="/uncategorized/hello-world/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Hello World">Hello World</span>
+            <span class="post-date" title="2018-01-07 14:45:35">2018/01/07</span>
+        </a>
+        
+        <a  class="iOS "
+           href="/iOS/iOS逆向（一）越狱篇/"
+           data-tag="iOS,越狱"
+           data-author="" >
+            <span class="post-title" title="iOS逆向（一）越狱篇">iOS逆向（一）越狱篇</span>
+            <span class="post-date" title="2018-09-13 22:39:01">2018/09/13</span>
+        </a>
+        
+        <a  class="iOS "
+           href="/iOS/iOS逆向（二）工具篇/"
+           data-tag="iOS,逆向,工具"
+           data-author="" >
+            <span class="post-title" title="iOS逆向（二）工具篇">iOS逆向（二）工具篇</span>
+            <span class="post-date" title="2018-09-13 22:39:02">2018/09/13</span>
+        </a>
+        
+        <a  class="iOS "
+           href="/iOS/iOS逆向（三）分析篇/"
+           data-tag="iOS,逆向"
+           data-author="" >
+            <span class="post-title" title="iOS逆向（三）分析篇">iOS逆向（三）分析篇</span>
+            <span class="post-date" title="2018-09-13 22:39:03">2018/09/13</span>
+        </a>
+        
+        <a  class="iOS "
+           href="/iOS/iOS逆向（五）总结篇/"
+           data-tag="iOS,逆向,安全"
+           data-author="" >
+            <span class="post-title" title="iOS逆向（五）总结篇">iOS逆向（五）总结篇</span>
+            <span class="post-date" title="2018-09-13 22:39:05">2018/09/13</span>
+        </a>
+        
+        <a  class="iOS "
+           href="/iOS/iOS逆向（四）实战篇/"
+           data-tag="iOS,逆向"
+           data-author="" >
+            <span class="post-title" title="iOS逆向（四）实战篇">iOS逆向（四）实战篇</span>
+            <span class="post-date" title="2018-09-13 22:39:04">2018/09/13</span>
+        </a>
+        
+        <a  class="后端 "
+           href="/后端/后端服务器概念了解下/"
+           data-tag="CGI,Servlet,容器,Docker"
+           data-author="" >
+            <span class="post-title" title="后端服务器概念了解下">后端服务器概念了解下</span>
+            <span class="post-date" title="2019-02-21 20:30:00">2019/02/21</span>
+        </a>
+        
+        <a  class=""
+           href="/uncategorized/利用Firebase实现的推送功能系统/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="利用Firebase实现的推送功能系统">利用Firebase实现的推送功能系统</span>
+            <span class="post-date" title="2018-01-17 19:33:41">2018/01/17</span>
+        </a>
+        
+        <a  class="管理 "
+           href="/管理/团队管理实践/"
+           data-tag="Manager,Model,Role,Target"
+           data-author="" >
+            <span class="post-title" title="团队管理实践">团队管理实践</span>
+            <span class="post-date" title="2019-02-23 23:50:00">2019/02/23</span>
+        </a>
+        
+        <a  class="iOS "
+           href="/iOS/处理服务端API返回JSON的总结/"
+           data-tag="iOS,JSON,Objective-C"
+           data-author="" >
+            <span class="post-title" title="处理服务端API返回JSON的总结">处理服务端API返回JSON的总结</span>
+            <span class="post-date" title="2018-01-09 14:35:00">2018/01/09</span>
+        </a>
+        
+        <a  class="前端 "
+           href="/前端/搭建Hexo博客/"
+           data-tag="jekyll,github,blog"
+           data-author="" >
+            <span class="post-title" title="搭建Hexo博客">搭建Hexo博客</span>
+            <span class="post-date" title="2017-07-18 21:50:14">2017/07/18</span>
+        </a>
+        
+        <a  class=""
+           href="/uncategorized/搭建Jekins/"
+           data-tag="Jenkins,CI,Test"
+           data-author="" >
+            <span class="post-title" title="搭建Jekins">搭建Jekins</span>
+            <span class="post-date" title="2017-08-26 22:59:36">2017/08/26</span>
+        </a>
+        
+        <a  class="工具 "
+           href="/工具/搭建博客图床/"
+           data-tag="blog"
+           data-author="" >
+            <span class="post-title" title="搭建博客图床">搭建博客图床</span>
+            <span class="post-date" title="2019-03-21 12:39:00">2019/03/21</span>
+        </a>
+        
+        <a  class="后端 "
+           href="/后端/搭建服务器/"
+           data-tag="Ubuntu,服务器,Web App,nginx,supervisor,fabric,python,mysql"
+           data-author="" >
+            <span class="post-title" title="搭建服务器">搭建服务器</span>
+            <span class="post-date" title="2019-04-06 00:00:00">2019/04/06</span>
+        </a>
+        
+        <a  class="设计模式 "
+           href="/设计模式/设计模式（一）策略模式 & 模板方法模式/"
+           data-tag="设计模式"
+           data-author="" >
+            <span class="post-title" title="设计模式（一）策略模式 &amp; 模板方法模式">设计模式（一）策略模式 &amp; 模板方法模式</span>
+            <span class="post-date" title="2019-01-13 23:41:00">2019/01/13</span>
+        </a>
+        
+        <a  class="工具 "
+           href="/工具/效率工具及技巧收录/"
+           data-tag="tool,skill"
+           data-author="" >
+            <span class="post-title" title="效率工具及技巧收录">效率工具及技巧收录</span>
+            <span class="post-date" title="2019-02-23 22:05:00">2019/02/23</span>
+        </a>
+        
+        <a  class="设计模式 "
+           href="/设计模式/设计模式（七）小总结/"
+           data-tag="设计模式"
+           data-author="" >
+            <span class="post-title" title="设计模式（七）小总结">设计模式（七）小总结</span>
+            <span class="post-date" title="2019-02-12 14:45:00">2019/02/12</span>
+        </a>
+        
+        <a  class="设计模式 "
+           href="/设计模式/设计模式（三）适配器模式 & 外观模式/"
+           data-tag="设计模式"
+           data-author="" >
+            <span class="post-title" title="设计模式（三）适配器模式 &amp; 外观模式">设计模式（三）适配器模式 &amp; 外观模式</span>
+            <span class="post-date" title="2019-02-11 15:10:00">2019/02/11</span>
+        </a>
+        
+        <a  class="设计模式 "
+           href="/设计模式/设计模式（二）迭代器模式 & 组合模式/"
+           data-tag="设计模式"
+           data-author="" >
+            <span class="post-title" title="设计模式（二）迭代器模式 &amp; 组合模式">设计模式（二）迭代器模式 &amp; 组合模式</span>
+            <span class="post-date" title="2019-02-11 09:59:00">2019/02/11</span>
+        </a>
+        
+        <a  class="设计模式 "
+           href="/设计模式/设计模式（五）工厂模式 & 装饰者模式/"
+           data-tag="设计模式"
+           data-author="" >
+            <span class="post-title" title="设计模式（五）工厂模式 &amp; 装饰者模式">设计模式（五）工厂模式 &amp; 装饰者模式</span>
+            <span class="post-date" title="2019-02-12 11:54:00">2019/02/12</span>
+        </a>
+        
+        <a  class="设计模式 "
+           href="/设计模式/设计模式（六）命令模式 & 观察者模式/"
+           data-tag="设计模式"
+           data-author="" >
+            <span class="post-title" title="设计模式（六）命令模式 &amp; 观察者模式">设计模式（六）命令模式 &amp; 观察者模式</span>
+            <span class="post-date" title="2019-02-12 14:28:00">2019/02/12</span>
+        </a>
+        
+        <a  class="设计模式 "
+           href="/设计模式/设计模式（四）状态模式 & 代理模式/"
+           data-tag="设计模式"
+           data-author="" >
+            <span class="post-title" title="设计模式（四）状态模式 &amp; 代理模式">设计模式（四）状态模式 &amp; 代理模式</span>
+            <span class="post-date" title="2019-02-12 13:12:00">2019/02/12</span>
+        </a>
+        
+        <a  class="Android "
+           href="/Android/开发一个Android-App/"
+           data-tag="MVP,Adapter,Activity,Fragment,Layout,Res,Realm,AIDL,AsyncTask,Thread,Handler"
+           data-author="" >
+            <span class="post-title" title="开发一个Android App">开发一个Android App</span>
+            <span class="post-date" title="2019-10-05 16:11:04">2019/10/05</span>
+        </a>
+        
+        <a  class="系统 "
+           href="/系统/链接、装载、库/"
+           data-tag="dynamic,link,register,assembly,library,static,memory,runtime,interrupt"
+           data-author="" >
+            <span class="post-title" title="链接、装载、库">链接、装载、库</span>
+            <span class="post-date" title="2019-06-05 08:53:00">2019/06/05</span>
+        </a>
+        
+    </nav>
+</div>
+    </div>
+    <div class="hide-list">
+        <div class="semicircle">
+            <div class="brackets first"><</div>
+            <div class="brackets">&gt;</div>
+        </div>
+    </div>
+</aside>
+<div class="post">
+    <div class="pjax">
+        <article id="post-Android工程入门" class="article article-type-post" itemscope itemprop="blogPost">
+    
+        <h1 class="article-title">Android工程入门</h1>
+    
+    <div class="article-meta">
+        
+        
+        
+        <span class="book">
+            
+                <a href="javascript:" data-rel="Android">Android</a>
+            
+        </span>
+        
+        
+        <span class="tag">
+            
+            <a href="javascript:" class="color2">Gradle</a>
+            
+            <a href="javascript:" class="color2">Module</a>
+            
+            <a href="javascript:" class="color4">ProGuard</a>
+            
+            <a href="javascript:" class="color2">Native</a>
+            
+            <a href="javascript:" class="color4">JNI</a>
+            
+            <a href="javascript:" class="color4">NDK</a>
+            
+            <a href="javascript:" class="color4">AAR</a>
+            
+            <a href="javascript:" class="color4">JAR</a>
+            
+        </span>
+        
+    </div>
+    <div class="article-meta">
+        
+        创建时间:<time class="date" title='更新时间: 2019-10-11 12:44:21'>2019-02-24 13:44</time>
+        
+    </div>
+    <div class="article-meta">
+        
+        
+        <span id="busuanzi_container_page_pv">
+            阅读:<span id="busuanzi_value_page_pv">
+                <span class="count-comment">
+                    <span class="spinner">
+                      <div class="cube1"></div>
+                      <div class="cube2"></div>
+                    </span>
+                </span>
+            </span>
+        </span>
+        
+        
+    </div>
+    
+    <div class="toc-ref">
+    
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#工程结构"><span class="toc-text">工程结构</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Project与Module的区别"><span class="toc-text">Project与Module的区别</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#第三方库引用"><span class="toc-text">第三方库引用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Gradle"><span class="toc-text">Gradle</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#执行流程"><span class="toc-text">执行流程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#build-gradle文件分析"><span class="toc-text">build.gradle文件分析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Task示例"><span class="toc-text">Task示例</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#其它实现"><span class="toc-text">其它实现</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#相关函数"><span class="toc-text">相关函数</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Maven"><span class="toc-text">Maven</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#抽取公共Gradle的实现"><span class="toc-text">抽取公共Gradle的实现</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ProGuard"><span class="toc-text">ProGuard</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#工作原理"><span class="toc-text">工作原理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#基本混淆"><span class="toc-text">基本混淆</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#第三方jar包"><span class="toc-text">第三方jar包</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#注意事项"><span class="toc-text">注意事项</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Native"><span class="toc-text">Native</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#JNI"><span class="toc-text">JNI</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#NDK"><span class="toc-text">NDK</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Gradle的配置"><span class="toc-text">Gradle的配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Make的配置"><span class="toc-text">Make的配置</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#AAR-amp-JAR"><span class="toc-text">AAR &amp; JAR</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#位置"><span class="toc-text">位置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#区别"><span class="toc-text">区别</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#使用"><span class="toc-text">使用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#多层Module依赖本地AAR"><span class="toc-text">多层Module依赖本地AAR</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#so加固"><span class="toc-text">so加固</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#JVM"><span class="toc-text">JVM</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#问题集"><span class="toc-text">问题集</span></a></li></ol>
+    
+<style>
+    .left-col .switch-btn,
+    .left-col .switch-area {
+        display: none;
+    }
+    .toc-level-3 i,
+    .toc-level-3 ol {
+        display: none !important;
+    }
+</style>
+</div>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>深入了解很多Android工程上的内容时，产生了很多疑惑，由于时间实在分不开来，本身没有先系统地学习，都是针对不懂的查查问问，所以这里算是来一个Android工程入门的杂谈吧（其实叫杂烩比较合乎），记录一些收集到的原理和方法、一些自己的观点和遇到的问题。</p>
+<a id="more"></a>
+
+
+<h1 id="工程结构"><a href="#工程结构" class="headerlink" title="工程结构"></a>工程结构</h1><h2 id="Project与Module的区别"><a href="#Project与Module的区别" class="headerlink" title="Project与Module的区别"></a>Project与Module的区别</h2><p>Project相当于Eclipse里面的工作区间，Module相当于Eclipse里面的project。AS里面的项目结构也可以像Eclipse一样，一个Project新建多个Module。</p>
+<p>一般的组件化管理下，都会在Project中建多个板块功能Module，App也作为其中一个Module来管理。Project中的build.gradle具有全局性，若Module的build.gradle与Project的有重复且冲突项，则以Project的为准。</p>
+<h2 id="第三方库引用"><a href="#第三方库引用" class="headerlink" title="第三方库引用"></a>第三方库引用</h2><ul>
+<li>project structure-&gt;app-&gt;Dependencies-&gt;”+”-&gt;Library dependency-&gt;Search-&gt;OK(自动build)</li>
+<li>切换为Project树结构-&gt;app/libs-&gt;放入jar包-&gt;Build</li>
+<li>project structure-&gt;app-&gt;Dependencies-&gt;”+”-&gt;Module dependency-&gt;选择Module-&gt;OK(自动build)</li>
+<li>build.gradle(Module:app)-&gt;dependencies-&gt;compile/implementation ‘package:name:ver’</li>
+<li>复制各架构的so到app/libs-&gt;build.gradle(Module:app)添加sourceSets {main {jniLibs.srcDirs =[‘libs’]}}-&gt;Build</li>
+<li>直接复制各架构的so到app/src/main/jniLibs</li>
+</ul>
+<h2 id="Gradle"><a href="#Gradle" class="headerlink" title="Gradle"></a>Gradle</h2><p>语法上是基于Groovy语言（基于JVM的敏捷开发语言，可以简单的理解为强类型语言Java的弱类型版本），在项目管理上是基于Ant(Java编译器)和Maven概念的项目自动化建构工具。</p>
+<p>Android多Moudule（也就是gradle中的多Project Multi-Projects Build）的基本项目结构：</p>
+<pre><code class="hljs undefined">├── app #Android App目录
+│   ├── app.iml
+│   ├── build #构建输出目录
+│   ├── build.gradle #构建脚本
+│   ├── libs #so相关库
+│   ├── proguard-rules.pro #proguard混淆配置
+│   └── src #源代码，资源等
+├── module #Android 另外一个module目录
+│   ├── module.iml
+│   ├── build #构建输出目录
+│   ├── build.gradle #构建脚本
+│   ├── libs #so相关库
+│   ├── proguard-rules.pro #proguard混淆配置
+│   └── src #源代码，资源等
+├── build
+│   └── intermediates
+├── build.gradle #工程构建文件
+├── gradle
+│   └── wrapper
+├── gradle.properties #gradle的配置
+├── gradlew #gradle wrapper linux shell脚本
+├── gradlew.bat
+├── LibSqlite.iml
+├── local.properties #配置Androod SDK位置文件
+└── settings.gradle #工程配置</code></pre>
+
+<p>Gradle多个Project的例子：</p>
+<pre><code class="hljs undefined">├── app 
+│   ├── build.gradle #构建脚本
+├── module 
+│   ├── build.gradle #构建脚本
+├── build.gradle #工程构建文件
+├── gradle
+│   └── wrapper    #先不去管它
+├── gradle.properties #gradle的配置
+├── gradlew #gradle wrapper linux shell脚本
+├── gradlew.bat
+└── settings.gradle #工程配置</code></pre>
+
+<p>build.gradle是Gradle默认的构建脚本文件，执行Gradle命令的时候，会默认加载当前目录下的build.gradle脚本文件。</p>
+<p>每次构建至少由一个project构成，一个project由一到多个task构成。项目结构中的每个build.gradle文件代表一个project，在这编译脚本文件中可以定义一系列的task；task 本质上又是由一组被顺序执行的Action对象构成，Action其实是一段代码块，类似于Java中的方法。</p>
+<h3 id="执行流程"><a href="#执行流程" class="headerlink" title="执行流程"></a>执行流程</h3><ul>
+<li><p>和Maven一样，Gradle只是提供了构建项目的一个框架，真正起作用的是Plugin。</p>
+</li>
+<li><p>Gradle在默认情况下为我们提供了许多常用的Plugin，其中包括有构建Java项目的Plugin，还有Android等。</p>
+</li>
+<li><p>与Maven不同的是，Gradle不提供内建的项目生命周期管理，只是java Plugin向Project中添加了许多Task，这些Task依次执行，为我们营造了一种如同Maven般项目构建周期。</p>
+</li>
+<li><p>Gradle是一种声明式的构建工具。在执行时，Gradle并不会一开始便顺序执行build.gradle文件中的内容，而是分为两个阶段，第一个阶段是配置阶段，然后才是实际的执行阶段。</p>
+</li>
+<li><p>配置阶段，Gradle将读取所有build.gradle文件的所有内容来配置Project和Task等，比如设置Project和Task的Property，处理Task之间的依赖关系等。</p>
+</li>
+<li><p>Gradle为每个build.gradle都会创建一个相应的Project领域对象，在编写Gradle脚本时，我们实际上是在操作诸如Project这样的Gradle领域对象。在多Project的项目中，我们会操作多个Project领域对象。Gradle提供了强大的多Project构建支持。</p>
+</li>
+<li><p>要创建多Project的Gradle项目，我们首先需要在根（Root）Project中加入名为settings.gradle的配置文件，该文件应该包含各个子Project的名称。Gradle中的Project可以简单的映射为AndroidStudio中的Module。</p>
+</li>
+<li><p>在最外层的build.gradle。一般干得活是：配置其他子Project的。比如为子Project添加一些属性。</p>
+</li>
+</ul>
+<p>每次构建的执行本质上是执行一系列的task，并且某些task还需要依赖其他task，这些task的依赖关系都是在构建阶段确定的。每次构建分为3个阶段：</p>
+<ul>
+<li>Initialization: 初始化阶段<ul>
+<li>这是创建Project阶段，构建工具根据每个build.gradle文件创建出一个Project实例。初始化阶段会执行项目根目录下的settings.gradle文件，来分析哪些项目参与构建。</li>
+</ul>
+</li>
+<li>Configuration:配置阶段<ul>
+<li>这个阶段，通过执行构建脚本来为每个project创建并配置Task。配置阶段会去加载所有参与构建的项目的build.gradle文件，会将每个build.gradle文件实例化为一个Gradle的project对象。然后分析project之间的依赖关系，下载依赖文件，分析project下的task之间的依赖关系。</li>
+</ul>
+</li>
+<li>Execution:执行阶段<ul>
+<li>这是Task真正被执行的阶段，Gradle会根据依赖关系决定哪些Task需要被执行，以及执行的先后顺序。task是Gradle中的最小执行单元，我们所有的构建，编译，打包，debug，test等都是执行了某一个task，一个project可以有多个task，task之间可以互相依赖。例如我有两个task，taskA和taskB，指定taskA依赖taskB，然后执行taskA，这时会先去执行taskB，taskB执行完毕后在执行taskA。在AS右侧的Gradle按钮中可以看到这一些列的task</li>
+</ul>
+</li>
+</ul>
+<h3 id="build-gradle文件分析"><a href="#build-gradle文件分析" class="headerlink" title="build.gradle文件分析"></a>build.gradle文件分析</h3><pre><code class="hljs undefined">apply plugin: &apos;com.android.application&apos;
+
+android &#123;
+    compileSdkVersion 25
+    buildToolsVersion &quot;25.0.0&quot;
+    defaultConfig &#123;
+        applicationId &quot;me.febsky.demo&quot;
+        minSdkVersion 15
+        targetSdkVersion 25
+        versionCode 1
+        versionName &quot;1.0&quot;
+        testInstrumentationRunner &quot;android.support.test.runner.AndroidJUnitRunner&quot;
+    &#125;
+    buildTypes &#123;
+        release &#123;
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile(&apos;proguard-android.txt&apos;), &apos;proguard-rules.pro&apos;
+        &#125;
+    &#125;
+&#125;
+
+dependencies &#123;
+    compile fileTree(dir: &apos;libs&apos;, include: [&apos;*.jar&apos;])
+    compile &apos;com.android.support:appcompat-v7:25.1.0&apos;
+&#125;</code></pre>
+
+<ul>
+<li>方法调用，圆括号可以省略 </li>
+<li>如果方法参数是个Map，方括号可以省略</li>
+<li>闭包作为函数的最后一个参数，可以在括号内或括号外，没括号时不用关注</li>
+<li>Groovy动态的为每一个字段都会自动生成getter和setter，并且我们可以通过像访问字段本身一样调用getter和setter。</li>
+</ul>
+<p>所以上面的<code>apply plugin: &#39;com.android.application&#39;</code>，可以看成是<code>apply([plugin: &#39;com.android.application&#39;])</code></p>
+<p>Gradle的Project之间的依赖关系是基于Task的，而不是整个Project的。</p>
+<p>Project:是Gradle最重要的一个领域对象，我们写的build.gradle脚本的全部作用，其实就是配置一个Project实例。在build.gradle脚本里，我们可以隐式的操纵Project实例，比如，apply插件、声明依赖、定义Task等，如上面build.gradle所示。apply、dependencies、task等实际上是Project的方法，参数是一个代码块。如果需要，也可以显示的操纵Project实例，比如：project.ext.myProp = ‘myValue’</p>
+<p>Task:Gradle中的Task要么是由不同的Plugin引入的，要么是我们自己在build.gradle文件中直接创建的。Gradle保证Task按照依赖顺序执行，并且每个Task最多只被执行一次。</p>
+<p>dependencies:在Project的gradle dependencies 中使用classpath一般是指添加buildscript本身需要运行的东西。buildScript是用来加载gradle脚本自身需要使用的资源，可以声明的资源包括依赖项、第三方插件、maven仓库地址等。 在App的gradle dependencies 中添加应用程序所需要的依赖包，也就是项目运行所需要的东西。</p>
+<ul>
+<li>项目根目录的 build.gradle 文件：用来配置针对所有模块的一些属性。它默认包含2个代码块：buildscript{…}和allprojects{…}。前者用于配置构建脚本所用到的代码库和依赖关系，后者用于定义所有模块需要用到的一些公共属性</li>
+<li>settings.gradle 文件：会在构建的 initialization 阶段被执行，它用于告诉构建系统哪些模块需要包含到构建过程中。对于单模块项目， settings.gradle 文件不是必需的。对于多模块项目，如果没有该文件，构建系统就不能知道该用到哪些模块。</li>
+<li>模块级配置文件 build.gradle ：针对每个moudle 的配置，如果这里的定义的选项和顶层 build.gradle定义的相同。它有3个重要的代码块：plugin，android 和 dependencies。</li>
+</ul>
+<h3 id="Task示例"><a href="#Task示例" class="headerlink" title="Task示例"></a>Task示例</h3><pre><code class="hljs undefined">task myTask &#123;  
+    doFirst &#123;  
+        println &apos;hello&apos;  
+    &#125;  
+    doLast &#123;  
+        println &apos;world&apos;  
+    &#125;  
+&#125;</code></pre>
+
+<p>这段代码的含义是给Project添加一个名为“myTask”的任务。用一个闭包来配置这个任务，Task提供了doFirst和doLast方法来给自己添加Action。</p>
+<p>其实build.gradle脚本的真正作用，就是配置一个Project实例。在执行build脚本之前，Gradle会为我们准备好一个Project实例，执行完脚本之后，Gradle会按照DAG依次执行任务。</p>
+<p>如果task声明在根Project的build.gradle中的allprojects()方法中，那么这个Task会应用于所有的Project。</p>
+<p>如果是Muliti-Project的模式，依赖关系要带着所属的Project，如taskA.dependsOn ‘:other-project:taskC’ 其中taskC位于和taskA不同的Project中，相对于AndroidStudio来说，就是位于不同的Module下的build.gradle中，而other-project为Module名字。</p>
+<h3 id="其它实现"><a href="#其它实现" class="headerlink" title="其它实现"></a>其它实现</h3><ul>
+<li><p>自定义Plugin：每一个自定义的Plugin都需要实现Plugin接口，除了给Project编写Plugin之外，我们还可以为其他Gradle类编写Plugin。该接口定义了一个apply()方法，在该方法中，我们可以操作Project，比如向其中加入Task，定义额外的Property等。</p>
+</li>
+<li><p>Gradle Wrapper：顾名思义，其实就是对Gradle的一层包装，便于在团队开发过程中统一Gradle构建的版本，然后提交到git上，然后别人可以下载下来，这样大家都可以使用统一的Gradle版本进行构建，避免因为Gradle版本不统一带来的不必要的问题。（所以要明白这个东西可以没有，有了只是为了统一管理，更加方便）</p>
+</li>
+<li><p>子Module的依赖展开：这样做的目的是为给其它子Module或者给父Project也能引用存在于当前子Module中的依赖libs。在根工程（即父Project）下的build.gradle中添加如下代码，核心部分是repositories中的flatDir</p>
+</li>
+</ul>
+<pre><code class="hljs undefined">allprojects &#123;    repositories &#123;        jcenter()        flatDir &#123;            dirs project(&apos;:sub_module&apos;).file(&apos;libs&apos;)         &#125;    &#125;&#125;</code></pre>
+
+<h3 id="相关函数"><a href="#相关函数" class="headerlink" title="相关函数"></a>相关函数</h3><p>Gradle plugin 3.0依赖方式增加了 implementation 和 api ，用以取代 compile。<br>有工程 A、B、C.让 A 依赖 B (implementation、api 都可以)。<br>若B  implementation C，则A 不能调用 C 的方法。<br>若 B  api C，则A 可以调用 C 的方法(同 compile)。</p>
+<h1 id="Maven"><a href="#Maven" class="headerlink" title="Maven"></a>Maven</h1><h2 id="抽取公共Gradle的实现"><a href="#抽取公共Gradle的实现" class="headerlink" title="抽取公共Gradle的实现"></a>抽取公共Gradle的实现</h2><p><img src="https://i.loli.net/2019/03/19/5c90ab203423f.png" alt></p>
+<p>在组件化的环境上应用Maven时，应将各个Module共有的关于Maven的配置和gradle脚本实现抽取。</p>
+<p>上图是将公共的Maven配置和脚本进行入库，每个Module需要应用Maven时就从git上clone它下来作为当前Module的子模块。</p>
+<p>maven_user.properties是存放通用的Maven配置（像Maven仓库的地址、帐密等），而maven_pom.properties是存放Module的Maven配置（可在工程中直接新建一个File，自定义后缀为.properties即可创建，包括像Module名称、描述、Maven组ID、打包方式、版本号等）</p>
+<p>工程导入这些gradle脚本后，像图中右侧的gradle栏中就会出现相关Task，包括默认的和自定义的（upload-uploadArchives就是maven_push.gradle中定义和实现的）</p>
+<h2 id="ProGuard"><a href="#ProGuard" class="headerlink" title="ProGuard"></a>ProGuard</h2><p>是AS SDK里自带的工具，主要作用是混淆代码，但包括以下4个功能：</p>
+<ul>
+<li>压缩(Shrink)：检测并移除代码中无用的类、字段、方法和特性（Attribute）。</li>
+<li>优化(Optimize)：对字节码进行优化，移除无用的指令。</li>
+<li>混淆(Obfuscate)：使用a，b，c，d这样简短而无意义的名称，对类、字段和方法进行重命名。</li>
+<li>预检(Preveirfy)：在Java平台上对处理后的代码进行预检，确保加载的class文件是可执行的。</li>
+</ul>
+<p>压缩环节会检测以及移除没有用到的类、字段、方法以及属性。优化环节会分析以及优化方法的字节码。混淆环节会用无意义的短变量去重命名类、变量、方法。这些步骤让代码更精简，更高效，也更难被逆向（破解）。</p>
+<h3 id="工作原理"><a href="#工作原理" class="headerlink" title="工作原理"></a>工作原理</h3><p>ProGuar由shrink、optimize、obfuscate和preveirfy四个步骤组成，每个步骤都是可选的，我们可以通过配置脚本来决定执行其中的哪几个步骤。<br><img src="http://ww1.sinaimg.cn/large/68cbdd35gy1g0hjrxfwr9j20rk063t9d.jpg" alt="image"></p>
+<p>混淆就是移除没有用到的代码，然后对代码里面的类、变量、方法重命名为人可读性很差的简短名字。<br>那么有一个问题，ProGuard怎么知道这个代码没有被用到呢？<br>这里引入一个Entry Point（入口点）概念，Entry Point是在ProGuard过程中不会被处理的类或方法。在压缩的步骤中，ProGuard会从上述的Entry Point开始递归遍历，搜索哪些类和类的成员在使用，对于没有被使用的类和类的成员，就会在压缩段丢弃，在接下来的优化过程中，那些非Entry Point的类、方法都会被设置为private、static或final，不使用的参数会被移除，此外，有些方法会被标记为内联的，在混淆的步骤中，ProGuard会对非Entry Point的类和方法进行重命名。<br>那么这个入口点怎么来呢？就是从ProGuard的配置文件来，只要这个配置了，那么就不会被移除。</p>
+<p>编写ProGuard文件的步骤：</p>
+<ul>
+<li>基本混淆</li>
+<li>针对APP的量身定制</li>
+<li>针对第三方jar包的解决方案</li>
+</ul>
+<h3 id="基本混淆"><a href="#基本混淆" class="headerlink" title="基本混淆"></a>基本混淆</h3><p>混淆文件的基本配置信息，任何APP都要使用，可以作为模板使用<br>1.基本指令</p>
+<pre><code class="hljs undefined"># 代码混淆压缩比，在0和7之间，默认为5，一般不需要改
+-optimizationpasses 5
+ 
+# 混淆时不使用大小写混合，混淆后的类名为小写
+-dontusemixedcaseclassnames
+ 
+# 指定不去忽略非公共的库的类
+-dontskipnonpubliclibraryclasses
+ 
+# 指定不去忽略非公共的库的类的成员
+-dontskipnonpubliclibraryclassmembers
+ 
+# 不做预校验，preverify是proguard的4个步骤之一
+# Android不需要preverify，去掉这一步可加快混淆速度
+-dontpreverify
+ 
+# 有了verbose这句话，混淆后就会生成映射文件
+# 包含有类名-&gt;混淆后类名的映射关系
+# 然后使用printmapping指定映射文件的名称
+-verbose
+-printmapping proguardMapping.txt
+ 
+# 指定混淆时采用的算法，后面的参数是一个过滤器
+# 这个过滤器是谷歌推荐的算法，一般不改变
+-optimizations !code/simplification/arithmetic,!field/*,!class/merging/*
+ 
+# 保护代码中的Annotation不被混淆，这在JSON实体映射时非常重要，比如fastJson
+-keepattributes *Annotation*
+ 
+# 避免混淆泛型，这在JSON实体映射时非常重要，比如fastJson
+-keepattributes Signature
+ 
+//抛出异常时保留代码行号，在异常分析中可以方便定位
+-keepattributes SourceFile,LineNumberTable
+
+-dontskipnonpubliclibraryclasses用于告诉ProGuard，不要跳过对非公开类的处理。默认情况下是跳过的，因为程序中不会引用它们，有些情况下人们编写的代码与类库中的类在同一个包下，并且对包中内容加以引用，此时需要加入此条声明。
+
+-dontusemixedcaseclassnames，这个是给Microsoft Windows用户的，因为ProGuard假定使用的操作系统是能区分两个只是大小写不同的文件名，但是Microsoft Windows不是这样的操作系统，所以必须为ProGuard指定-dontusemixedcaseclassnames选项</code></pre>
+
+<p>2.保留</p>
+<pre><code class="hljs undefined"># 保留所有的本地native方法不被混淆
+-keepclasseswithmembernames class * &#123;
+    native &lt;methods&gt;;
+&#125;
+ 
+# 保留了继承自Activity、Application这些类的子类
+# 因为这些子类，都有可能被外部调用
+# 比如说，第一行就保证了所有Activity的子类不要被混淆
+-keep public class * extends android.app.Activity
+-keep public class * extends android.app.Application
+-keep public class * extends android.app.Service
+-keep public class * extends android.content.BroadcastReceiver
+-keep public class * extends android.content.ContentProvider
+-keep public class * extends android.app.backup.BackupAgentHelper
+-keep public class * extends android.preference.Preference
+-keep public class * extends android.view.View
+-keep public class com.android.vending.licensing.ILicensingService
+ 
+# 如果有引用android-support-v4.jar包，可以添加下面这行
+-keep public class com.xxxx.app.ui.fragment.** &#123;*;&#125;
+ 
+# 保留在Activity中的方法参数是view的方法，
+# 从而我们在layout里面编写onClick就不会被影响
+-keepclassmembers class * extends android.app.Activity &#123;
+    public void *(android.view.View);
+&#125;
+ 
+# 枚举类不能被混淆
+-keepclassmembers enum * &#123;
+public static **[] values();
+public static ** valueOf(java.lang.String);
+&#125;
+ 
+# 保留自定义控件（继承自View）不被混淆
+-keep public class * extends android.view.View &#123;
+    *** get*();
+    void set*(***);
+    public &lt;init&gt;(android.content.Context);
+    public &lt;init&gt;(android.content.Context, android.util.AttributeSet);
+    public &lt;init&gt;(android.content.Context, android.util.AttributeSet, int);
+&#125;
+ 
+# 保留Parcelable序列化的类不被混淆
+-keep class * implements android.os.Parcelable &#123;
+    public static final android.os.Parcelable$Creator *;
+&#125;
+ 
+# 保留Serializable序列化的类不被混淆
+-keepclassmembers class * implements java.io.Serializable &#123;
+    static final long serialVersionUID;
+    private static final java.io.ObjectStreamField[] serialPersistentFields;
+    private void writeObject(java.io.ObjectOutputStream);
+    private void readObject(java.io.ObjectInputStream);
+    java.lang.Object writeReplace();
+    java.lang.Object readResolve();
+&#125;
+ 
+# 对于R（资源）下的所有类及其方法，都不能被混淆
+-keep class **.R$* &#123;
+    *;
+&#125;
+ 
+# 对于带有回调函数onXXEvent的，不能被混淆
+-keepclassmembers class * &#123;
+    void *(**On*Event);
+&#125;</code></pre>
+
+<p>3.定制</p>
+<pre><code class="hljs undefined"># 保留实体类和成员不被混淆(对于实体，保留它们的set和get方法，对于boolean型get方法，有人喜欢命名isXXX的方式)
+-keep public class com.xxxx.entity.** &#123;
+    public void set*(***);
+    public *** get*();
+    public *** is*();
+&#125;
+
+# 保留内嵌类不被混淆(内嵌类经常会被混淆，结果在调用的时候为空就崩溃了，最好的解决方法就是把这个内嵌类拿出来，单独成为一个类。如果一定要内置，那么这个类就必须在混淆的时候保留，$符号用来分割内嵌类与其母体的标志。)
+-keep class com.example.xxx.MainActivity$* &#123; *; &#125;
+
+# 对WebView的处理
+-keepclassmembers class * extends android.webkit.webViewClient &#123;
+    public void *(android.webkit.WebView, java.lang.String, android.graphics.Bitmap);
+    public boolean *(android.webkit.WebView, java.lang.String)
+&#125;
+-keepclassmembers class * extends android.webkit.webViewClient &#123;
+    public void *(android.webkit.webView, java.lang.String)
+&#125;
+
+# 保留JS方法不被混淆（JSInterface是MainActivity的子类）
+-keepclassmembers class com.example.xxx.MainActivity$JSInterface1 &#123;
+    &lt;methods&gt;;
+&#125;</code></pre>
+
+<p>4.处理反射<br>在程序中使用SomeClass.class.method这样的静态方法，在ProGuard中是在压缩过程中被保留的，那么对于Class.forName(“SomeClass”)呢，SomeClass不会被压缩过程中移除，它会检查程序中使用的Class.forName方法，对参数SomeClass法外开恩，不会被移除。但是在混淆过程中，无论是Class.forName(“SomeClass”)，还是SomeClass.class，都不能蒙混过关，SomeClass这个类名称会被混淆，因此，我们要在ProGuard.cfg文件中保留这个类名称。在混淆的时候，要在项目中搜索一下上述方法，将相应的类或者方法的名称进行保留而不被混淆。</p>
+<pre><code class="hljs undefined">Class.forName(&quot;SomeClass&quot;)
+SomeClass.class
+SomeClass.class.getField(&quot;someField&quot;)
+SomeClass.class.getDeclaredField(&quot;someField&quot;)
+SomeClass.class.getMethod(&quot;someMethod&quot;, new Class[] &#123;&#125;)
+SomeClass.class.getMethod(&quot;someMethod&quot;, new Class[] &#123; A.class &#125;)
+SomeClass.class.getMethod(&quot;someMethod&quot;, new Class[] &#123; A.class, B.class &#125;)
+SomeClass.class.getDeclaredMethod(&quot;someMethod&quot;, new Class[] &#123;&#125;)
+SomeClass.class.getDeclaredMethod(&quot;someMethod&quot;, new Class[] &#123; A.class &#125;)
+SomeClass.class.getDeclaredMethod(&quot;someMethod&quot;, new Class[] &#123; A.class, B.class &#125;)
+AtomicIntegerFieldUpdater.newUpdater(SomeClass.class, &quot;someField&quot;)
+AtomicLongFieldUpdater.newUpdater(SomeClass.class, &quot;someField&quot;)
+AtomicReferenceFieldUpdater.newUpdater(SomeClass.class, SomeType.class, &quot;someField&quot;)</code></pre>
+
+<p>5.自定义View<br>但凡在Layout目录下的XML布局文件配置的自定义View，都不能进行混淆。为此要遍历Layout下的所有的XML布局文件，找到那些自定义View，然后确认其是否在ProGuard文件中保留。有一种思路是，在我们使用自定义View时，前面都必须加上我们的包名，比如com.a.b.customeview，我们可以遍历所有Layout下的XML布局文件，查找所有匹配com.a.b的标签即可。</p>
+<h3 id="第三方jar包"><a href="#第三方jar包" class="headerlink" title="第三方jar包"></a>第三方jar包</h3><p>我们在Android项目中不可避免要使用很多第三方提供的SDK，一般而言，这些SDK是经过ProGuard混淆的，而我们所需要做的就是避免这些SDK的类和方法在我们APP被混淆。<br>1.针对android-support-v4.jar的解决方案</p>
+<pre><code class="hljs undefined"># 针对android-support-v4.jar的解决方案
+-libraryjars libs/android-support-v4.jar
+-dontwarn android.support.v4.**
+-keep class android.support.v4.**  &#123; *; &#125;
+-keep interface android.support.v4.app.** &#123; *; &#125;
+-keep public class * extends android.support.v4.**
+-keep public class * extends android.app.Fragment</code></pre>
+
+<p>2.其他的第三方jar包的解决方案<br>取决于第三方包的混淆策略，一般都有在各自的SDK中有关于混淆的说明文字，比如支付宝，值得注意的是，不是每个第三方SDK都需要-dontwarn 指令，这取决于混淆时第三方SDK是否出现警告，需要的时候再加上。</p>
+<pre><code class="hljs undefined"># 对alipay的混淆处理
+-libraryjars libs/alipaysdk.jar
+-dontwarn com.alipay.android.app.**
+-keep public class com.alipay.**  &#123; *; &#125;</code></pre>
+
+<h3 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h3><p>1.如何确保混淆不会对项目产生影响<br>测试工作要基于混淆包进行，才能尽早发现问题<br>每天开发团队的冒烟测试，也要基于混淆包<br>发版前，重点的功能和模块要额外的测试，包括推送，分享，打赏</p>
+<p>2.打包时忽略警告<br>当导出包的时候，发现很多could not reference class之类的warning信息，如果确认App在运行中和那些引用没有什么关系，可以添加-dontwarn 标签，就不会提示这些警告信息了</p>
+<p>3.对于自定义类库的混淆处理<br>比如我们引用了一个叫做AndroidLib的类库，我们需要对Lib也进行混淆，然后在主项目的混淆文件中保留AndroidLib中的类和类的成员。</p>
+<p>4.使用annotation避免混淆<br>另一种类或者属性被混淆的方式是，使用annotation</p>
+<pre><code class="hljs undefined">@keep
+@keepPublicGetterSetters
+public class Bean&#123;
+    public  boolean booleanProperty;
+    public  int intProperty;
+    public  String stringProperty;
+&#125;</code></pre>
+
+<p>5.在项目中指定混淆文件<br>到最后，发现没有介绍如何在项目中指定混淆文件。在项目中有一个project.properties文件，在其中写这么一句话，就可以确保每次手动打包生成的apk是混淆过的。<br>proguard.config=proguard.cfg<br>其中，proguard.cfg是混淆文件的名称。</p>
+<h1 id="Native"><a href="#Native" class="headerlink" title="Native"></a>Native</h1><h2 id="JNI"><a href="#JNI" class="headerlink" title="JNI"></a>JNI</h2><ul>
+<li>定义：Java Native Interface，即 Java本地接口</li>
+<li>作用：使得Java与本地其他类型语言（如C、C++）交互，即在Java代码里调用C、C++等语言的代码或C、C++代码调用 Java 代码</li>
+<li>特性：<ul>
+<li>JNI是Java调用Native语言的一种特性</li>
+<li>JNI是属于Java的，与Android无直接关系</li>
+</ul>
+</li>
+<li>实现：<ol>
+<li>在Java中声明Native方法（即需要调用的本地方法）</li>
+<li>编译上述Java源文件javac（得到 .class文件）</li>
+<li>通过javah命令导出JNI的头文件（.h文件）</li>
+<li>使用Java需要交互的本地代码实现在Java中声明的Native方法，如Java需要与C++交互，那么就用C++实现Java的Native方法</li>
+<li>编译.so库文件</li>
+<li>通过Java命令执行 Java程序，最终实现Java调用本地代码</li>
+</ol>
+</li>
+</ul>
+<p>在JNI_OnLoad中注册</p>
+<pre><code class="hljs undefined">jint JNI_OnLoad(JavaVM* vm, void* reserved) &#123;
+    //添加JNINativeMethod方法
+    static const JNINativeMethod gMethods[] = &#123;
+        &#123;&quot;getUrl&quot;, &quot;()Ljava/lang/String;&quot;, (jstring*)getUrl&#125;,
+        &#123;&quot;setData&quot;,&quot;([BI)V&quot;,(void*)setData&#125;
+    &#125;;
+
+    //注册
+    static string className = &quot;path/to/className&quot;;
+    gJavaVM = vm;
+    JNIEnv* env = NULL;
+    if ((*vm)-&gt;GetEnv(vm, (void**) &amp;env, JNI_VERSION_1_6) != JNI_OK) &#123;
+        return -1;
+    &#125;
+    assert(env != NULL);
+    jclass clazz = (*env)-&gt;FindClass(env, className);
+    if (clazz == NULL) &#123;
+        return -1;
+    &#125;
+    if ((*env)-&gt;RegisterNatives(env, clazz, gMethods, numMethods) &lt; 0) &#123;
+        return -1;
+    &#125;
+
+    return JNI_VERSION_1_6;
+&#125;</code></pre>
+
+<p><a href="http://journals.ecs.soton.ac.uk/java/tutorial/native1.1/implementing/method.html" target="_blank" rel="noopener">返回值及参数类型的通配说明</a></p>
+<h2 id="NDK"><a href="#NDK" class="headerlink" title="NDK"></a>NDK</h2><ul>
+<li>定义：Native Development Kit，是 Android的一个工具开发包，NDK是属于Android的，与Java并无直接关系</li>
+<li>作用：快速开发C、C+    * 作用：快速开发C、C+    * 作用：快速开发C、C++的动态库，并自动将so和应用一起打包成APK。即可通过NDK在Android中使用JNI与本地代码（如C、C++）交互</li>
+<li>实现：<ol>
+<li>配置Android NDK环境</li>
+<li>创建Android项目，并与NDK进行关联</li>
+<li>在Android 项目中声明所需要调用的Native方法</li>
+<li>使用Android需要交互的本地代码实现在Android中声明的Native方法，比如 Android 需要与C++交互，那么就用C++实现Java的Native方法</li>
+<li>通过 ndk - bulid 命令编译产生.so库文件</li>
+<li>编译 Android Studio工程，从而实现Android 调用本地代码</li>
+</ol>
+</li>
+</ul>
+<h2 id="Gradle的配置"><a href="#Gradle的配置" class="headerlink" title="Gradle的配置"></a>Gradle的配置</h2><p>Module的gradle文件:</p>
+<pre><code class="hljs undefined">apply plugin: &apos;com.android.library&apos;
+apply from: &quot;$&#123;project.rootDir&#125;/config/maven_push.gradle&quot;
+
+android &#123;
+    compileSdkVersion 28
+    buildToolsVersion &quot;28.0.3&quot;
+
+    defaultConfig &#123;
+        minSdkVersion 14
+        targetSdkVersion 28
+        ndk&#123;
+            moduleName &quot;framework&quot;
+        &#125;
+    &#125;
+
+    buildTypes &#123;
+        release &#123;
+            minifyEnabled false//缩减字符的混淆-针对java层
+        &#125;
+    &#125;
+
+    ...
+&#125;
+
+task clearJar(type: Delete) &#123;
+    delete &quot;build/outputs/libs/&quot;
+&#125;
+
+def getVersionName() &#123;
+    return project.ext.mCurVersion
+&#125;
+
+task makeJar(type: ProGuardTask, dependsOn: &quot;build&quot;) &#123;
+    // 未混淆的jar路径
+    injars &apos;build/intermediates/packaged-classes/release/classes.jar&apos;
+    // 混淆后的jar输出路径
+    outjars &quot;build/outputs/libs/efun-utils-$&#123;getVersionName()&#125;.jar&quot;
+    // 混淆协议
+    configuration &apos;proguard-rules.pro&apos;
+&#125;
+
+task makeJar(type: Copy) &#123;
+    from(&apos;build/intermediates/packaged-classes/release/&apos;)
+    into(&apos;build/outputs/libs/&apos;)
+    include(&apos;classes.jar&apos;)
+    rename (&apos;classes.jar&apos;, &quot;efun-task-$&#123;getVersionName()&#125;.jar&quot;)
+&#125;
+
+ext.ndk = &apos;ndk&apos;
+
+task localProperty &#123;
+    //注意：指定NDK实质路径是通过local.properties文件中的为准（也可以在project struct中设置-cmd+;）
+    ndk = &quot;/Path/to/android-ndk-r18b/ndk-build&quot;
+&#125;
+
+task buildJni &lt;&lt; &#123;
+    System.out.println(&quot;ndk:&quot;+ndk);
+    exec &#123;
+        commandLine ndk
+    &#125;
+&#125;
+
+preBuild.dependsOn buildJni</code></pre>
+
+<h2 id="Make的配置"><a href="#Make的配置" class="headerlink" title="Make的配置"></a>Make的配置</h2><p>在Linux下编译经常要写一个Makefile文件， 可以把这个Makefile文件理解成一个编译配置文件，它保存着如何编译的配置信息，即指导编译器如何来编译程序，并决定编译的结果是什么。</p>
+<p>而Android.mk文件是针对Android的Makefile文件，该文件是GNU Makefile的一小部分，会被编译系统解析一次或多次。可以在每一个Android.mk file中定义一个或多个模块，你也可以在几个模块中使用同一个源代码文件。编译系统为你处理许多细节问题。</p>
+<pre><code class="hljs undefined">LOCAL_PATH := $(call my-dir)
+include $(CLEAR_VARS)
+LOCAL_LDLIBS += -L$(SYSROOT)/usr/lib -llog
+LOCAL_MODULE    := efunframework-3.0
+LOCAL_SRC_FILES := certificate.c \
+                   md5.c \
+                   secret_key.c \
+include $(BUILD_SHARED_LIBRARY)</code></pre>
+
+<ul>
+<li>首先必须定义好<code>LOCAL_PATH</code>变量。然后清除所有LOCAL_XX变量的值。</li>
+<li>宏函数<code>my-dir</code>, 由编译系统提供，用于返回当前路径（即包含Android.mk file文件的目录）。</li>
+<li>宏<code>CLEAR_VARS</code>由编译系统提供，指定让GNU MAKEFILE为你清除许多LOCAL_XXX变量，因为所有的编译控制文件都在同一个GNU MAKE执行环境中，所有的变量都是全局的。</li>
+<li>LOCAL_SRC_FILES:是本次需要编译的源文件。</li>
+<li>LOCAL_SHARED_LIBRARIES:是本次编译需要链接的动态链接库文件，即.so文件。</li>
+<li>LOCAL_STATIC_LIBRARIES:是本次编译要链接的静态链接库。</li>
+<li>LOCAL_LDLIBS:是本次编译的链接选项，相当于gcc -l后的参数。</li>
+<li>LOCAL_CFLAGS:同样是编译选项，相当于gcc -O后面的参数。</li>
+<li>LOCAL_MODULE:是生成的模块名，这个变量必须定义，表示make后将要生成的文件的名字。</li>
+<li>include:多以这样的形式出现，如:include $( CLEAR_VARS)、include $(BUILD_SHARED_LIBRARY)，其实这个include可以理解成”执行”的意思，比如清除一些变量、生成共享库，即生成.so文件。</li>
+</ul>
+<h1 id="AAR-amp-JAR"><a href="#AAR-amp-JAR" class="headerlink" title="AAR &amp; JAR"></a>AAR &amp; JAR</h1><p>使用Android Studio对工程进行编译后，会同时生成jar与aar文件。</p>
+<h2 id="位置"><a href="#位置" class="headerlink" title="位置"></a>位置</h2><pre><code class="hljs undefined">jar: /build/intermediates/bundles/debug(release)/classes.jar
+aar: /build/outputs/aar/libraryname.aar</code></pre>
+
+<h2 id="区别"><a href="#区别" class="headerlink" title="区别"></a>区别</h2><ul>
+<li>jar 中只包含了class文件与清单文件。</li>
+<li>aar中除了包含jar中的class文件还包含工程中使用的所有资源，class及res资源文件全部包含。</li>
+</ul>
+<p>如果只是一个简单的类库那么使用生成的* .jar文件即可；如果你的是一个UI库，包含一些自己写的控件布局文件以及字体等资源文件那么就只能使用*.aar文件。</p>
+<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><p>jar 拷贝到 libs 目录，并在gradle文件中添加</p>
+<pre><code class="hljs undefined">dependencies &#123;
+        compile fileTree(include: [&apos;*.jar&apos;], dir: &apos;libs&apos;)
+        implementation fileTree(include: [&apos;*.jar&apos;], dir: &apos;libs&apos;) //gradle 3.0+
+&#125;</code></pre>
+
+<p>aar 有两种方式：</p>
+<ol>
+<li><p>本地使用：拷贝到libs目录，并在gradle文件中添加</p>
+<pre><code class="hljs undefined">repositories &#123;
+    flatDir &#123;
+        dirs &apos;libs&apos;
+    &#125;
+&#125;
+dependencies &#123;
+    compile(name:&apos;genius&apos;, ext:&apos;aar&apos;)
+&#125;</code></pre>
+</li>
+<li><p>网络加载：将aar发布到mavenCentral仓库，在gradle文件中添加</p>
+<pre><code class="hljs undefined">repositories &#123;
+    maven &#123;
+        url &quot;http://xxx.com/project&quot;
+    &#125;
+&#125;
+dependencies &#123;
+    classpath &apos;com.android.tools.build:gradle:3.2.1&apos;
+&#125;</code></pre>
+
+</li>
+</ol>
+<h2 id="多层Module依赖本地AAR"><a href="#多层Module依赖本地AAR" class="headerlink" title="多层Module依赖本地AAR"></a>多层Module依赖本地AAR</h2><p>Android Studio多层Module依赖本地AAR，在编译的时候出发生错误，找不到AAR（ModuleA libs中有c.aar，ModuleB依赖ModuleA）<br>此时需要在ModuleB的build.gradle中添加</p>
+<pre><code class="hljs undefined">repositories &#123;
+    flatDir &#123;
+        dirs &apos;../ModuleA/libs&apos;,&apos;libs&apos;
+    &#125;
+&#125;</code></pre>
+
+<p>同时在dependencies中添加aar名称</p>
+<pre><code class="hljs undefined">compile(name:&apos;c&apos;, ext:&apos;aar&apos;)</code></pre>
+
+<h1 id="so加固"><a href="#so加固" class="headerlink" title="so加固"></a>so加固</h1><p>so：shared object，即是由系统动态加载的共享目标文件。</p>
+<ul>
+<li>破坏ELF header或者删除Section header</li>
+<li>对要保护的so函数或者section进行加密，把解密函数放到另外一个so中</li>
+<li>自定义的section并加密，load so库时在main函数之前把自定义section解密</li>
+<li>NDK编译工具中可以集成LLVM-Obfuscator，需要修改交叉工具链的代码和一些配置参数，混淆代码</li>
+</ul>
+<p><a href="https://www.cnblogs.com/lanrenxinxin/p/4962470.html" target="_blank" rel="noopener">实现参考</a></p>
+<h1 id="JVM"><a href="#JVM" class="headerlink" title="JVM"></a>JVM</h1><p>java -server -Xms3550M -Xmx3550M -XX:ReservedCodeCacheSize=1024m -jar apktool_2.4.0.jar b ‘Path/to/unzip/document’</p>
+<p>-client，-server<br>这两个参数用于设置虚拟机使用何种运行模式，client模式启动比较快，但运行时性能和内存管理效率不如server模式，通常用于客户端应用程序。相反，server模式启动比client慢，但可获得更高的运行性能。<br>在 windows上，缺省的虚拟机类型为client模式，如果要使用 server模式，就需要在启动虚拟机时加-server参数，以获得更高性能，对服务器端应用，推荐采用server模式，尤其是多个CPU的系统。在 Linux，Solaris上缺省采用server模式。</p>
+<p>-Xms<size><br>设置虚拟机可用内存堆的初始大小，缺省单位为字节，该大小为1024的整数倍并且要大于1MB，可用k(K)或m(M)为单位来设置较大的内存数。初始堆大小为2MB。<br>例如：-Xms6400K，-Xms256M</size></p>
+<p>-Xmx<size><br>设置虚拟机内存堆的最大可用大小，缺省单位为字节。该值必须为1024整数倍，并且要大于2MB。可用k(K)或m(M)为单位来设置较大的内存数。缺省堆最大值为64MB。<br>例如：-Xmx81920K，-Xmx80M<br>当应用程序申请了大内存运行时虚拟机抛出java.lang.OutOfMemoryError: Java heap space错误，就需要使用-Xmx设置</size></p>
+<p>The -X options are non-standard and subject to change without notice.<br>输入指令 java -X 查看</p>
+<p><a href="https://xinklabi.iteye.com/blog/837435" target="_blank" rel="noopener">https://xinklabi.iteye.com/blog/837435</a></p>
+<h1 id="问题集"><a href="#问题集" class="headerlink" title="问题集"></a>问题集</h1><blockquote>
+<p>error=13, Permission denied</p>
+</blockquote>
+<p>在Mac的Android Studio IDE上，若提示该错误，可针对提示中的问题路径修改访问权限<br>chmod +x /Users/MyUserName/Library/Android/sdk/tools/android<br>chmod +x /Users/MyUserName/PathTo/Android/android-ndk-r18b</p>
+<blockquote>
+<p>You have not accepted the license agreements of the following SDK components</p>
+</blockquote>
+<p>自动同意所有下载的SDK的license即可解决，<br>yes | sdkmanager –licenses<br>yes | sudo ~/Library/Android/sdk/tools/bin/sdkmanager –licenses</p>
+
+      
+       <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 mingfungliu@gmail.com </span>
+    </div>
+</article>
+
+
+<p>
+    <a href="javascript:void(0)" class="dashang" onclick="dashangToggle()">赏</a>
+</p>
+
+
+
+<div class="article_copyright">
+    <p><span class="copy-title">文章标题:</span>Android工程入门</p>
+    
+    <p><span class="copy-title">本文作者:</span><a href="javascript:void(0)" title="Mingfung">Mingfung</a></p>
+    <p><span class="copy-title">发布时间:</span>2019-02-24, 13:44:00</p>
+    <p><span class="copy-title">最后更新:</span>2019-10-11, 12:44:21</p>
+    <span class="copy-title">原始链接:</span><a class="post-url" href="/Android/Android工程入门/" title="Android工程入门">http://blog.ifungfay.com/Android/Android工程入门/</a>
+    <p>
+        <span class="copy-title">版权声明:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+    </p>
+</div>
+
+
+
+
+    <script type="text/javascript">
+(function(d, s) {
+   var j, e = d.getElementsByTagName(s)[0];
+
+   if (typeof LivereTower === 'function') { return; }
+
+   j = d.createElement(s);
+   j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+   j.async = true;
+
+   e.parentNode.insertBefore(j, e);
+})(document, 'script');
+</script>
+<noscript> 为正常使用来必力评论功能请激活JavaScript</noscript>
+
+<iframe title="livere"   src="https://was.livere.me/comment/city?id=city&refer=http://blog.ifungfay.com/Android/Android工程入门/&uid=MTAyMC80NzAyOC8yMzUyOA==&site=http://blog.ifungfay.com/Android/Android工程入门/&title=Android工程入门" scrolling="" frameborder="0" id="lv-comment-399" style="min-width: 100%; width: 100px; min-height: 400px; overflow: auto; border: 0px; z-index: 124212; height: 800px;" ></iframe>
+
+
+
+    
+
+
+
+
+    </div>
+    <div class="copyright">
+        <p class="footer-entry">©2016-2019 Mingfung</p>
+<p class="footer-entry">Built with <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/yelog/hexo-theme-3-hexo" target="_blank">3-hexo</a> theme</p>
+
+    </div>
+    <div class="full-toc">
+        <button class="full"><span class="min "></span></button>
+<button class="post-toc-menu"><span class="post-toc-menu-icons"></span></button>
+<div class="post-toc"><span class="post-toc-title">目录</span>
+    <div class="post-toc-content">
+
+    </div>
+</div>
+<a class="" id="rocket" href="javascript:void(0)"></a>
+    </div>
+</div>
+<div class="acParent"></div>
+
+<div class="hide_box" onclick="dashangToggle()"></div>
+<div class="shang_box">
+    <a class="shang_close" href="javascript:void(0)" onclick="dashangToggle()">×</a>
+    <div class="shang_tit">
+        <p>喜欢就点赞,疼爱就打赏</p>
+    </div>
+    <div class="shang_payimg">
+        <div class="pay_img">
+            <img src="/img/alipay.jpg" class="alipay" title="扫码支持">
+            <img src="/img/weixin.jpg" class="weixin" title="扫码支持">
+        </div>
+    </div>
+    <div class="shang_payselect">
+        <span><label><input type="radio" name="pay" checked value="alipay">支付宝</label></span><span><label><input type="radio" name="pay" value="weixin">微信</label></span>
+    </div>
+</div>
+
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/koharu.model.json"},"log":false});</script></body>
+<script src="/js/jquery.pjax.js?v=1.0.1" ></script>
+
+<script src="/js/script.js?v=1.0.1" ></script>
+<script>
+    var img_resize = 'default';
+    /*作者、标签的自动补全*/
+    $(function () {
+        $('.search').AutoComplete({
+            'data': ['#JSPatch','#JavaScriptCore','#property','#dynamic','#sythesize','#nonatomic','#iOS11','#Xcode9','#iPhoneX','#TLS','#SSL','#HTTPS','#ATS','#Java','#Android','#AndroidStudio','#adb','#反编译','#Gradle','#Module','#ProGuard','#Native','#JNI','#NDK','#AAR','#JAR','#html','#bootstrap','#css','#Flutter','#iOS','#Dart','#Git','#command','#Mac','#question','#PyCharm','#Django','#Python','#Anaconda','#Qgis','#vapor','#swift','#heroku','#cloud','#crypto','#console','#terminal','#database','#postgreSQL','#network','#http','#webSocket','#encoded','#leaf','#view','#session','#token','#verification','#越狱','#逆向','#工具','#安全','#CGI','#Servlet','#容器','#Docker','#Manager','#Model','#Role','#Target','#JSON','#Objective-C','#jekyll','#github','#blog','#Jenkins','#CI','#Test','#Ubuntu','#服务器','#Web App','#nginx','#supervisor','#fabric','#python','#mysql','#设计模式','#tool','#skill','#MVP','#Adapter','#Activity','#Fragment','#Layout','#Res','#Realm','#AIDL','#AsyncTask','#Thread','#Handler','#link','#register','#assembly','#library','#static','#memory','#runtime','#interrupt',],
+            'itemHeight': 20,
+            'width': 418
+        }).AutoComplete('show');
+    })
+    function initArticle() {
+        /*渲染对应的表格样式*/
+        
+            $(".post .pjax table").addClass("green_title");
+        
+
+        /*渲染打赏样式*/
+        
+        $("input[name=pay]").on("click", function () {
+            if($("input[name=pay]:checked").val()=="weixin"){
+                $(".shang_box .shang_payimg .pay_img").addClass("weixin_img");
+            } else {
+                $(".shang_box .shang_payimg .pay_img").removeClass("weixin_img");
+            }
+        })
+        
+
+        /*高亮代码块行号*/
+        
+        $('pre code').each(function(){
+            var lines = $(this).text().split('\n').length, widther='';
+            if (lines>99) {
+                widther = 'widther'
+            }
+            var $numbering = $('<ul/>').addClass('pre-numbering ' + widther).attr("unselectable","on");
+            $(this).addClass('has-numbering ' + widther)
+                    .parent()
+                    .append($numbering);
+            for(var i=1;i<=lines;i++){
+                $numbering.append($('<li/>').text(i));
+            }
+        });
+        
+
+        /*访问数量*/
+        
+        $.getScript("//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js");
+        
+
+        /*代码高亮，行号对齐*/
+        $('.pre-numbering').css('line-height',$('.has-numbering').css('line-height'));
+
+        
+    }
+
+    /*打赏页面隐藏与展示*/
+    
+    function dashangToggle() {
+        $(".shang_box").fadeToggle();
+        $(".hide_box").fadeToggle();
+    }
+    
+
+</script>
+
+<!--加入行号的高亮代码块样式-->
+
+<style>
+    pre{
+        position: relative;
+        margin-bottom: 24px;
+        border-radius: 10px;
+        border: 1px solid #e2dede;
+        background: #FFF;
+        overflow: hidden;
+    }
+    code.has-numbering{
+        margin-left: 30px;
+    }
+    code.has-numbering.widther{
+        margin-left: 35px;
+    }
+    .pre-numbering{
+        margin: 0px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 20px;
+        padding: 0.5em 3px 0.7em 5px;
+        border-right: 1px solid #C3CCD0;
+        text-align: right;
+        color: #AAA;
+        background-color: ;
+    }
+    .pre-numbering.widther {
+        width: 35px;
+    }
+</style>
+
+<!--自定义样式设置-->
+<style>
+    
+    
+    .nav {
+        width: 542px;
+    }
+    .nav.fullscreen {
+        margin-left: -542px;
+    }
+    .nav-left {
+        width: 120px;
+    }
+    
+    
+    @media screen and (max-width: 1468px) {
+        .nav {
+            width: 492px;
+        }
+        .nav.fullscreen {
+            margin-left: -492px;
+        }
+        .nav-left {
+            width: 100px;
+        }
+    }
+    
+    
+    @media screen and (max-width: 1024px) {
+        .nav {
+            width: 492px;
+            margin-left: -492px
+        }
+        .nav.fullscreen {
+            margin-left: 0;
+        }
+        .nav .hide-list.fullscreen {
+            left: 492px
+        }
+    }
+    
+    @media screen and (max-width: 426px) {
+        .nav {
+            width: 100%;
+        }
+        .nav-left {
+            width: 100%;
+        }
+    }
+    
+    
+    .nav-right .title-list nav a .post-title, .nav-right .title-list #local-search-result a .post-title {
+        color: #383636;
+    }
+    
+    
+    .nav-right .title-list nav a .post-date, .nav-right .title-list #local-search-result a .post-date {
+        color: #5e5e5f;
+    }
+    
+    
+    .nav-right nav a.hover, #local-search-result a.hover{
+        background-color: #e2e0e0;
+    }
+    
+    
+
+    /*列表样式*/
+    
+    .post .pjax article .article-entry>ol, .post .pjax article .article-entry>ul, .post .pjax article>ol, .post .pjax article>ul{
+        border: #e2dede solid 1px;
+        border-radius: 10px;
+        padding: 10px 32px 10px 56px;
+    }
+    .post .pjax article .article-entry li>ol, .post .pjax article .article-entry li>ul,.post .pjax article li>ol, .post .pjax article li>ul{
+        padding-top: 5px;
+        padding-bottom: 5px;
+    }
+    .post .pjax article .article-entry>ol>li, .post .pjax article .article-entry>ul>li,.post .pjax article>ol>li, .post .pjax article>ul>li{
+        margin-bottom: auto;
+        margin-left: auto;
+    }
+    .post .pjax article .article-entry li>ol>li, .post .pjax article .article-entry li>ul>li,.post .pjax article li>ol>li, .post .pjax article li>ul>li{
+        margin-bottom: auto;
+        margin-left: auto;
+    }
+    
+
+    /* 背景图样式 */
+    
+    
+
+
+    /*引用块样式*/
+    
+
+    /*文章列表背景图*/
+    
+    .nav-right:before {
+        content: ' ';
+        display: block;
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0.3;
+        background: url("null");
+        background-repeat: no-repeat;
+        background-position: 50% 0;
+        -ms-background-size: cover;
+        -o-background-size: cover;
+        -moz-background-size: cover;
+        -webkit-background-size: cover;
+        background-size: cover;
+    }
+    
+
+    
+</style>
+
+
+
+
+
+
+<div class="mobile-menus-out" >
+
+</div>
+<div class="mobile-menus">
+    
+    
+    <a class="dynamic-menu site_url"   href="/404.html">宝贝回家</a>
+    
+    
+    
+</div>
+
+
+</html>

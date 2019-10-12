@@ -1,0 +1,1858 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  <title>Flutter开发（实践篇） | Mingfung&#39;s Blog</title>
+  <meta name="keywords" content=" Android , Flutter , iOS , Dart ">
+  <meta name="description" content="Flutter开发（实践篇） | Mingfung&#39;s Blog">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="description" content="关于iOS码农一枚">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Mingfung&#39;s Blog">
+<meta property="og:url" content="http://blog.ifungfay.com/about/index.html">
+<meta property="og:site_name" content="Mingfung&#39;s Blog">
+<meta property="og:description" content="关于iOS码农一枚">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-10-12T14:30:09.446Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Mingfung&#39;s Blog">
+<meta name="twitter:description" content="关于iOS码农一枚">
+
+
+<link rel="icon" href="/img/avatar.jpg">
+
+<link href="/css/style.css?v=1.0.1" rel="stylesheet">
+
+<link href="/css/hl_theme/zenbum.css?v=1.0.1" rel="stylesheet">
+
+<link href="//cdn.bootcss.com/animate.css/3.5.2/animate.min.css" rel="stylesheet">
+<link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+<script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="/js/jquery.autocomplete.min.js?v=1.0.1"></script>
+
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
+
+<script src="//cdn.bootcss.com/nprogress/0.2.0/nprogress.min.js"></script>
+
+
+
+<script src="/js/iconfont.js?v=1.0.1"></script>
+<!--鼠标点击爱心动画-->
+<script type="text/javascript" src="/js/clicklove.js"></script>
+</head>
+<div style="display: none">
+  <input class="theme_disqus_on" value="false">
+  <input class="theme_preload_comment" value="true">
+  <input class="theme_blog_path" value>
+</div>
+
+<body>
+<aside class="nav">
+    <div class="nav-left">
+        <a href="/" class="avatar_target">
+    <img class="avatar" src="/img/avatar.jpg" />
+</a>
+<div class="author">
+    <span>Mingfung</span>
+</div>
+
+<div class="icon">
+    
+        
+        <a title="rss" href="/atom.xml" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-rss"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+        <a title="github" href="https://github.com/leo9763" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-github"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+        <a title="facebook" href="https://www.facebook.com/ming.fung.liu.nero" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-facebook"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+    
+        
+    
+        
+        <a title="instagram" href="https://www.instagram.com/mingfungliu/" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-instagram"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+    
+        
+        <a title="weibo" href="https://weibo.com/neross" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-weibo"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+        <a title="jianshu" href="https://www.jianshu.com/u/007c5818ec78" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-jianshu"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+        <a title="zhihu" href="zhihu.com/people/mingfungliu" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-zhihu"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+    
+        
+    
+        
+        <a title="juejin" href="https://juejin.im/user/5b6b9b37f265da0f9f4e8df3" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-juejin"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+        <a title="email" href="mailto:mingfungliu@gmail.com" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-email"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+        <a title="qq" href="http://wpa.qq.com/msgrd?v=3&uin=52360086&site=qq&menu=yes" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-qq"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+    
+        
+    
+</div>
+
+
+
+<a class="more-menus">更多菜单</a>
+
+
+<ul>
+    <li><div class="all active">全部文章<small>(43)</small></div></li>
+    
+        
+            
+            <li><div data-rel="iOS">iOS<small>(6)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="Android">Android<small>(3)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="前端">前端<small>(4)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="工具">工具<small>(4)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="后端">后端<small>(12)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="管理">管理<small>(1)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="设计模式">设计模式<small>(7)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="系统">系统<small>(1)</small></div>
+                
+            </li>
+            
+        
+    
+</ul>
+<div class="left-bottom">
+    <div class="menus">
+    
+    
+    <a class="dynamic-menu site_url"   href="/404.html">宝贝回家</a>
+    
+    
+    
+    </div>
+    <div><a class="about  hasFriend  site_url"  href="/about">关于</a><a style="width: 50%"  class="friends">友链</a></div>
+</div>
+<input type="hidden" id="yelog_site_posts_number" value="43">
+
+<div style="display: none">
+    <span id="busuanzi_value_site_uv"></span>
+    <span id="busuanzi_value_site_pv"></span>
+</div>
+
+    </div>
+    <div class="nav-right">
+        <div class="friends-area">
+    <div class="friends-title">
+        友情链接
+        <i class="back-title-list"></i>
+    </div>
+    <div class="friends-content">
+        <ul>
+            
+            <li><a target="_blank" href="http://www.ifungfay.com">雪月风飞</a></li>
+            
+        </ul>
+    </div>
+</div>
+        <div class="title-list">
+    <form onkeydown="if(event.keyCode==13){return false;}">
+        <input class="search" type="text" placeholder="Search..." autocomplete="off"id="local-search-input" >
+        <i class="cross"></i>
+        <span>
+            <label for="tagswitch">Tags:</label>
+            <input id="tagswitch" type="checkbox" style="display: none" />
+            <i id="tagsWitchIcon"></i>
+        </span>
+    </form>
+    <div class="tags-list">
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">JSPatch</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">JavaScriptCore</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">property</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">dynamic</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">sythesize</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">nonatomic</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color1">iOS11</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">Xcode9</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">iPhoneX</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">TLS</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">SSL</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color1">HTTPS</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">ATS</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">Java</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">Android</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">AndroidStudio</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">adb</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">反编译</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">Gradle</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">Module</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">ProGuard</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">Native</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">JNI</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">NDK</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">AAR</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">JAR</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">html</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">bootstrap</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">css</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">Flutter</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">iOS</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">Dart</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">Git</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">command</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">Mac</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">question</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">PyCharm</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">Django</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">Python</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">Anaconda</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">Qgis</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color1">vapor</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color1">swift</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">heroku</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color1">cloud</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">crypto</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">console</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">terminal</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">database</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color1">postgreSQL</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">network</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">http</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">webSocket</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">encoded</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">leaf</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">view</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">session</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color1">token</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">verification</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">越狱</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">逆向</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">工具</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">安全</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">CGI</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">Servlet</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">容器</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">Docker</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">Manager</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color1">Model</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">Role</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">Target</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">JSON</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">Objective-C</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">jekyll</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">github</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">blog</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">Jenkins</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">CI</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">Test</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">Ubuntu</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">服务器</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">Web App</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color1">nginx</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color1">supervisor</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">fabric</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">python</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color1">mysql</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">设计模式</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">tool</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color1">skill</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">MVP</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">Adapter</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">Activity</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">Fragment</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">Layout</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">Res</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color1">Realm</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">AIDL</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">AsyncTask</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">Thread</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">Handler</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">link</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">register</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">assembly</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">library</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">static</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">memory</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">runtime</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">interrupt</a>
+    </li>
+    
+    <div class="clearfix"></div>
+</div>
+
+    
+    <nav id="title-list-nav">
+        
+        <a  class=""
+           href="/uncategorized/ATS详解/"
+           data-tag="TLS,SSL,HTTPS,ATS"
+           data-author="" >
+            <span class="post-title" title="ATS详解">ATS详解</span>
+            <span class="post-date" title="2017-07-22 15:57:55">2017/07/22</span>
+        </a>
+        
+        <a  class="Android "
+           href="/Android/Android原理入门/"
+           data-tag="Java,Android"
+           data-author="" >
+            <span class="post-title" title="Android原理入门">Android原理入门</span>
+            <span class="post-date" title="2019-08-14 00:22:11">2019/08/14</span>
+        </a>
+        
+        <a  class=""
+           href="/uncategorized/Android技巧入门/"
+           data-tag="AndroidStudio,adb,反编译"
+           data-author="" >
+            <span class="post-title" title="Android技巧入门">Android技巧入门</span>
+            <span class="post-date" title="2019-08-14 00:22:37">2019/08/14</span>
+        </a>
+        
+        <a  class="Android "
+           href="/Android/Android工程入门/"
+           data-tag="Gradle,Module,ProGuard,Native,JNI,NDK,AAR,JAR"
+           data-author="" >
+            <span class="post-title" title="Android工程入门">Android工程入门</span>
+            <span class="post-date" title="2019-02-24 13:44:00">2019/02/24</span>
+        </a>
+        
+        <a  class="前端 "
+           href="/前端/Bootstrap手册/"
+           data-tag="html,bootstrap,css"
+           data-author="" >
+            <span class="post-title" title="Bootstrap手册">Bootstrap手册</span>
+            <span class="post-date" title="2018-09-08 23:06:00">2018/09/08</span>
+        </a>
+        
+        <a  class="前端 "
+           href="/前端/Flutter开发（介绍篇）/"
+           data-tag="Android,Flutter,iOS,Dart"
+           data-author="" >
+            <span class="post-title" title="Flutter开发（介绍篇）">Flutter开发（介绍篇）</span>
+            <span class="post-date" title="2019-01-09 21:24:00">2019/01/09</span>
+        </a>
+        
+        <a  class="前端 "
+           href="/前端/Flutter开发（实践篇）/"
+           data-tag="Android,Flutter,iOS,Dart"
+           data-author="" >
+            <span class="post-title" title="Flutter开发（实践篇）">Flutter开发（实践篇）</span>
+            <span class="post-date" title="2019-01-09 23:06:00">2019/01/09</span>
+        </a>
+        
+        <a  class="工具 "
+           href="/工具/Git手册/"
+           data-tag="Git"
+           data-author="" >
+            <span class="post-title" title="Git手册">Git手册</span>
+            <span class="post-date" title="2019-01-28 21:35:00">2019/01/28</span>
+        </a>
+        
+        <a  class="工具 "
+           href="/工具/Mac命令行工具及其问题收录/"
+           data-tag="command,Mac,question"
+           data-author="" >
+            <span class="post-title" title="Mac命令行工具及其问题收录">Mac命令行工具及其问题收录</span>
+            <span class="post-date" title="2018-02-22 17:10:00">2018/02/22</span>
+        </a>
+        
+        <a  class="后端 "
+           href="/后端/Python的使用环境配置/"
+           data-tag="PyCharm,Django,Python,Anaconda,Qgis"
+           data-author="" >
+            <span class="post-title" title="Python的使用环境配置">Python的使用环境配置</span>
+            <span class="post-date" title="2018-05-24 19:30:00">2018/05/24</span>
+        </a>
+        
+        <a  class="后端 "
+           href="/后端/Vapor之初体验/"
+           data-tag="vapor,swift,heroku"
+           data-author="" >
+            <span class="post-title" title="Vapor之初体验">Vapor之初体验</span>
+            <span class="post-date" title="2018-01-05 21:49:00">2018/01/05</span>
+        </a>
+        
+        <a  class="后端 "
+           href="/后端/Vapor的部署/"
+           data-tag="vapor,swift,heroku,cloud"
+           data-author="" >
+            <span class="post-title" title="Vapor的部署">Vapor的部署</span>
+            <span class="post-date" title="2018-08-13 23:34:00">2018/08/13</span>
+        </a>
+        
+        <a  class="后端 "
+           href="/后端/Vapor（一）基础篇/"
+           data-tag="vapor,swift"
+           data-author="" >
+            <span class="post-title" title="Vapor（一）基础篇">Vapor（一）基础篇</span>
+            <span class="post-date" title="2018-08-13 23:34:00">2018/08/13</span>
+        </a>
+        
+        <a  class="后端 "
+           href="/后端/Vapor（七）工具篇/"
+           data-tag="command,vapor,swift,crypto,console,terminal"
+           data-author="" >
+            <span class="post-title" title="Vapor（七）工具篇">Vapor（七）工具篇</span>
+            <span class="post-date" title="2018-08-21 23:02:00">2018/08/21</span>
+        </a>
+        
+        <a  class="后端 "
+           href="/后端/Vapor（三）数据库篇/"
+           data-tag="vapor,swift,database,postgreSQL"
+           data-author="" >
+            <span class="post-title" title="Vapor（三）数据库篇">Vapor（三）数据库篇</span>
+            <span class="post-date" title="2018-08-15 21:33:00">2018/08/15</span>
+        </a>
+        
+        <a  class="后端 "
+           href="/后端/Vapor（二）进阶篇/"
+           data-tag="vapor,swift"
+           data-author="" >
+            <span class="post-title" title="Vapor（二）进阶篇">Vapor（二）进阶篇</span>
+            <span class="post-date" title="2018-08-14 21:20:00">2018/08/14</span>
+        </a>
+        
+        <a  class="后端 "
+           href="/后端/Vapor（五）网络篇/"
+           data-tag="vapor,swift,network,http,webSocket,encoded"
+           data-author="" >
+            <span class="post-title" title="Vapor（五）网络篇">Vapor（五）网络篇</span>
+            <span class="post-date" title="2018-08-17 20:30:00">2018/08/17</span>
+        </a>
+        
+        <a  class="后端 "
+           href="/后端/Vapor（六）视图篇/"
+           data-tag="vapor,swift,leaf,view"
+           data-author="" >
+            <span class="post-title" title="Vapor（六）视图篇">Vapor（六）视图篇</span>
+            <span class="post-date" title="2018-08-20 21:56:00">2018/08/20</span>
+        </a>
+        
+        <a  class="后端 "
+           href="/后端/Vapor（四）验证篇/"
+           data-tag="vapor,swift,session,token,verification"
+           data-author="" >
+            <span class="post-title" title="Vapor（四）验证篇">Vapor（四）验证篇</span>
+            <span class="post-date" title="2018-08-16 19:06:00">2018/08/16</span>
+        </a>
+        
+        <a  class=""
+           href="/uncategorized/hello-world/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Hello World">Hello World</span>
+            <span class="post-date" title="2018-01-07 14:45:35">2018/01/07</span>
+        </a>
+        
+        <a  class="iOS "
+           href="/iOS/iOS逆向（一）越狱篇/"
+           data-tag="iOS,越狱"
+           data-author="" >
+            <span class="post-title" title="iOS逆向（一）越狱篇">iOS逆向（一）越狱篇</span>
+            <span class="post-date" title="2018-09-13 22:39:01">2018/09/13</span>
+        </a>
+        
+        <a  class="iOS "
+           href="/iOS/iOS逆向（二）工具篇/"
+           data-tag="iOS,逆向,工具"
+           data-author="" >
+            <span class="post-title" title="iOS逆向（二）工具篇">iOS逆向（二）工具篇</span>
+            <span class="post-date" title="2018-09-13 22:39:02">2018/09/13</span>
+        </a>
+        
+        <a  class="iOS "
+           href="/iOS/iOS逆向（三）分析篇/"
+           data-tag="iOS,逆向"
+           data-author="" >
+            <span class="post-title" title="iOS逆向（三）分析篇">iOS逆向（三）分析篇</span>
+            <span class="post-date" title="2018-09-13 22:39:03">2018/09/13</span>
+        </a>
+        
+        <a  class="iOS "
+           href="/iOS/iOS逆向（五）总结篇/"
+           data-tag="iOS,逆向,安全"
+           data-author="" >
+            <span class="post-title" title="iOS逆向（五）总结篇">iOS逆向（五）总结篇</span>
+            <span class="post-date" title="2018-09-13 22:39:05">2018/09/13</span>
+        </a>
+        
+        <a  class="iOS "
+           href="/iOS/iOS逆向（四）实战篇/"
+           data-tag="iOS,逆向"
+           data-author="" >
+            <span class="post-title" title="iOS逆向（四）实战篇">iOS逆向（四）实战篇</span>
+            <span class="post-date" title="2018-09-13 22:39:04">2018/09/13</span>
+        </a>
+        
+        <a  class="后端 "
+           href="/后端/后端服务器概念了解下/"
+           data-tag="CGI,Servlet,容器,Docker"
+           data-author="" >
+            <span class="post-title" title="后端服务器概念了解下">后端服务器概念了解下</span>
+            <span class="post-date" title="2019-02-21 20:30:00">2019/02/21</span>
+        </a>
+        
+        <a  class=""
+           href="/uncategorized/利用Firebase实现的推送功能系统/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="利用Firebase实现的推送功能系统">利用Firebase实现的推送功能系统</span>
+            <span class="post-date" title="2018-01-17 19:33:41">2018/01/17</span>
+        </a>
+        
+        <a  class="管理 "
+           href="/管理/团队管理实践/"
+           data-tag="Manager,Model,Role,Target"
+           data-author="" >
+            <span class="post-title" title="团队管理实践">团队管理实践</span>
+            <span class="post-date" title="2019-02-23 23:50:00">2019/02/23</span>
+        </a>
+        
+        <a  class="iOS "
+           href="/iOS/处理服务端API返回JSON的总结/"
+           data-tag="iOS,JSON,Objective-C"
+           data-author="" >
+            <span class="post-title" title="处理服务端API返回JSON的总结">处理服务端API返回JSON的总结</span>
+            <span class="post-date" title="2018-01-09 14:35:00">2018/01/09</span>
+        </a>
+        
+        <a  class="前端 "
+           href="/前端/搭建Hexo博客/"
+           data-tag="jekyll,github,blog"
+           data-author="" >
+            <span class="post-title" title="搭建Hexo博客">搭建Hexo博客</span>
+            <span class="post-date" title="2017-07-18 21:50:14">2017/07/18</span>
+        </a>
+        
+        <a  class=""
+           href="/uncategorized/搭建Jekins/"
+           data-tag="Jenkins,CI,Test"
+           data-author="" >
+            <span class="post-title" title="搭建Jekins">搭建Jekins</span>
+            <span class="post-date" title="2017-08-26 22:59:36">2017/08/26</span>
+        </a>
+        
+        <a  class="工具 "
+           href="/工具/搭建博客图床/"
+           data-tag="blog"
+           data-author="" >
+            <span class="post-title" title="搭建博客图床">搭建博客图床</span>
+            <span class="post-date" title="2019-03-21 12:39:00">2019/03/21</span>
+        </a>
+        
+        <a  class="后端 "
+           href="/后端/搭建服务器/"
+           data-tag="Ubuntu,服务器,Web App,nginx,supervisor,fabric,python,mysql"
+           data-author="" >
+            <span class="post-title" title="搭建服务器">搭建服务器</span>
+            <span class="post-date" title="2019-04-06 00:00:00">2019/04/06</span>
+        </a>
+        
+        <a  class="设计模式 "
+           href="/设计模式/设计模式（一）策略模式 & 模板方法模式/"
+           data-tag="设计模式"
+           data-author="" >
+            <span class="post-title" title="设计模式（一）策略模式 &amp; 模板方法模式">设计模式（一）策略模式 &amp; 模板方法模式</span>
+            <span class="post-date" title="2019-01-13 23:41:00">2019/01/13</span>
+        </a>
+        
+        <a  class="工具 "
+           href="/工具/效率工具及技巧收录/"
+           data-tag="tool,skill"
+           data-author="" >
+            <span class="post-title" title="效率工具及技巧收录">效率工具及技巧收录</span>
+            <span class="post-date" title="2019-02-23 22:05:00">2019/02/23</span>
+        </a>
+        
+        <a  class="设计模式 "
+           href="/设计模式/设计模式（七）小总结/"
+           data-tag="设计模式"
+           data-author="" >
+            <span class="post-title" title="设计模式（七）小总结">设计模式（七）小总结</span>
+            <span class="post-date" title="2019-02-12 14:45:00">2019/02/12</span>
+        </a>
+        
+        <a  class="设计模式 "
+           href="/设计模式/设计模式（三）适配器模式 & 外观模式/"
+           data-tag="设计模式"
+           data-author="" >
+            <span class="post-title" title="设计模式（三）适配器模式 &amp; 外观模式">设计模式（三）适配器模式 &amp; 外观模式</span>
+            <span class="post-date" title="2019-02-11 15:10:00">2019/02/11</span>
+        </a>
+        
+        <a  class="设计模式 "
+           href="/设计模式/设计模式（二）迭代器模式 & 组合模式/"
+           data-tag="设计模式"
+           data-author="" >
+            <span class="post-title" title="设计模式（二）迭代器模式 &amp; 组合模式">设计模式（二）迭代器模式 &amp; 组合模式</span>
+            <span class="post-date" title="2019-02-11 09:59:00">2019/02/11</span>
+        </a>
+        
+        <a  class="设计模式 "
+           href="/设计模式/设计模式（五）工厂模式 & 装饰者模式/"
+           data-tag="设计模式"
+           data-author="" >
+            <span class="post-title" title="设计模式（五）工厂模式 &amp; 装饰者模式">设计模式（五）工厂模式 &amp; 装饰者模式</span>
+            <span class="post-date" title="2019-02-12 11:54:00">2019/02/12</span>
+        </a>
+        
+        <a  class="设计模式 "
+           href="/设计模式/设计模式（六）命令模式 & 观察者模式/"
+           data-tag="设计模式"
+           data-author="" >
+            <span class="post-title" title="设计模式（六）命令模式 &amp; 观察者模式">设计模式（六）命令模式 &amp; 观察者模式</span>
+            <span class="post-date" title="2019-02-12 14:28:00">2019/02/12</span>
+        </a>
+        
+        <a  class="设计模式 "
+           href="/设计模式/设计模式（四）状态模式 & 代理模式/"
+           data-tag="设计模式"
+           data-author="" >
+            <span class="post-title" title="设计模式（四）状态模式 &amp; 代理模式">设计模式（四）状态模式 &amp; 代理模式</span>
+            <span class="post-date" title="2019-02-12 13:12:00">2019/02/12</span>
+        </a>
+        
+        <a  class="Android "
+           href="/Android/开发一个Android-App/"
+           data-tag="MVP,Adapter,Activity,Fragment,Layout,Res,Realm,AIDL,AsyncTask,Thread,Handler"
+           data-author="" >
+            <span class="post-title" title="开发一个Android App">开发一个Android App</span>
+            <span class="post-date" title="2019-10-05 16:11:04">2019/10/05</span>
+        </a>
+        
+        <a  class="系统 "
+           href="/系统/链接、装载、库/"
+           data-tag="dynamic,link,register,assembly,library,static,memory,runtime,interrupt"
+           data-author="" >
+            <span class="post-title" title="链接、装载、库">链接、装载、库</span>
+            <span class="post-date" title="2019-06-05 08:53:00">2019/06/05</span>
+        </a>
+        
+    </nav>
+</div>
+    </div>
+    <div class="hide-list">
+        <div class="semicircle">
+            <div class="brackets first"><</div>
+            <div class="brackets">&gt;</div>
+        </div>
+    </div>
+</aside>
+<div class="post">
+    <div class="pjax">
+        <article id="post-Flutter开发（实践篇）" class="article article-type-post" itemscope itemprop="blogPost">
+    
+        <h1 class="article-title">Flutter开发（实践篇）</h1>
+    
+    <div class="article-meta">
+        
+        
+        
+        <span class="book">
+            
+                <a href="javascript:" data-rel="前端">前端</a>
+            
+        </span>
+        
+        
+        <span class="tag">
+            
+            <a href="javascript:" class="color3">Android</a>
+            
+            <a href="javascript:" class="color3">Flutter</a>
+            
+            <a href="javascript:" class="color4">iOS</a>
+            
+            <a href="javascript:" class="color5">Dart</a>
+            
+        </span>
+        
+    </div>
+    <div class="article-meta">
+        
+        创建时间:<time class="date" title='更新时间: 2019-10-11 12:36:22'>2019-01-09 23:06</time>
+        
+    </div>
+    <div class="article-meta">
+        
+        
+        <span id="busuanzi_container_page_pv">
+            阅读:<span id="busuanzi_value_page_pv">
+                <span class="count-comment">
+                    <span class="spinner">
+                      <div class="cube1"></div>
+                      <div class="cube2"></div>
+                    </span>
+                </span>
+            </span>
+        </span>
+        
+        
+    </div>
+    
+    <div class="toc-ref">
+    
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#环境搭建"><span class="toc-text">环境搭建</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#iOS"><span class="toc-text">iOS</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Android"><span class="toc-text">Android</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#创建工程"><span class="toc-text">创建工程</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#App开发"><span class="toc-text">App开发</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#包及插件开发"><span class="toc-text">包及插件开发</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#混合开发"><span class="toc-text">混合开发</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#运行调试"><span class="toc-text">运行调试</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#运行"><span class="toc-text">运行</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#编译"><span class="toc-text">编译</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#热重载"><span class="toc-text">热重载</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#遇到的问题"><span class="toc-text">遇到的问题</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#iOS-1"><span class="toc-text">iOS</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Android-1"><span class="toc-text">Android</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#功能实现问题"><span class="toc-text">功能实现问题</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#透明背景"><span class="toc-text">透明背景</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Flutter上调用原生桥接口报错没找到方法"><span class="toc-text">Flutter上调用原生桥接口报错没找到方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#拉伸listView子项"><span class="toc-text">拉伸listView子项</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#限制listView滑动"><span class="toc-text">限制listView滑动</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#原生跳转到Flutter白屏1秒"><span class="toc-text">原生跳转到Flutter白屏1秒</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#跳转Route无效"><span class="toc-text">跳转Route无效</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#从Native获取到的字典无法直接复制给Map"><span class="toc-text">从Native获取到的字典无法直接复制给Map</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#收起键盘且清除焦点"><span class="toc-text">收起键盘且清除焦点</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#为ScrollView添加滑动事件监听"><span class="toc-text">为ScrollView添加滑动事件监听</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#隐世滑动ScrollView到指定位置"><span class="toc-text">隐世滑动ScrollView到指定位置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#获取TextField的text值"><span class="toc-text">获取TextField的text值</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#TextField的装饰"><span class="toc-text">TextField的装饰</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#TextField输入密文"><span class="toc-text">TextField输入密文</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#为背景添加点击事件监听"><span class="toc-text">为背景添加点击事件监听</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#显示Textfield"><span class="toc-text">显示Textfield</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#按比例分割的自动约束"><span class="toc-text">按比例分割的自动约束</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#获取屏幕Size"><span class="toc-text">获取屏幕Size</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#定义可继承的成员变量"><span class="toc-text">定义可继承的成员变量</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#往Native传值"><span class="toc-text">往Native传值</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#渐变动画"><span class="toc-text">渐变动画</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#倒计时"><span class="toc-text">倒计时</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Indicator"><span class="toc-text">Indicator</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#获取平台信息"><span class="toc-text">获取平台信息</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#自定义路由跳转动画"><span class="toc-text">自定义路由跳转动画</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Android端的输入法不响应"><span class="toc-text">Android端的输入法不响应</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#桥"><span class="toc-text">桥</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#调试"><span class="toc-text">调试</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#其它"><span class="toc-text">其它</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#总结"><span class="toc-text">总结</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Ref"><span class="toc-text">Ref:</span></a></li></ol>
+    
+<style>
+    .left-col .switch-btn,
+    .left-col .switch-area {
+        display: none;
+    }
+    .toc-level-3 i,
+    .toc-level-3 ol {
+        display: none !important;
+    }
+</style>
+</div>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="环境搭建"><a href="#环境搭建" class="headerlink" title="环境搭建"></a>环境搭建</h1><h2 id="iOS"><a href="#iOS" class="headerlink" title="iOS"></a>iOS</h2><ol>
+<li>克隆Flutter项目<pre><code class="hljs undefined">git clone -b beta https://github.com/flutter/flutter.git</code></pre>
+
+</li>
+</ol>
+<a id="more"></a>
+
+<ol>
+<li><p>将flutter加入path<br>使用zsh的同学要注意，修改.zshrc才有效，而不是.bash_profile。</p>
+<pre><code class="hljs undefined">export PATH=[克隆项目的目录]/flutter/bin:$PATH</code></pre>
+</li>
+<li><p>安装iOS依赖的工具</p>
+<pre><code class="hljs undefined">$ brew install --HEAD libimobiledevice
+$ brew install ideviceinstaller ios-deploy cocoapods</code></pre>
+</li>
+<li><p>安装VS Code<br><a href="https://code.visualstudio.com" target="_blank" rel="noopener">下载地址</a></p>
+</li>
+<li><p>在VS中安装Dart以及Flutter<br>若Android也使用VS Code的话，也是同样需要该步骤。</p>
+</li>
+<li><p>运行Flutter的环境检查<br>第一次运行flutter指令时会下载额外的内容和编译出flutter工具，需要等一段时间。</p>
+<pre><code class="hljs undefined">flutter doctor</code></pre>
+
+</li>
+</ol>
+<h2 id="Android"><a href="#Android" class="headerlink" title="Android"></a>Android</h2><ol>
+<li><p>初始化项目<br>在AS的偏好设置的插件菜单中选择浏览仓库，再选择安装Flutter插件，同时也安装Dart插件，然后重启。<a href="https://flutter.io/docs/get-started/editor" target="_blank" rel="noopener">参考</a></p>
+</li>
+<li><p>安装adb及使用</p>
+<pre><code class="hljs undefined">brew cask install android-platform-tools
+adb devices
+adb install /Path/to/app-debug.apk</code></pre>
+</li>
+<li><p>通过flutter doctor的指引来同意lisence</p>
+</li>
+</ol>
+<h1 id="创建工程"><a href="#创建工程" class="headerlink" title="创建工程"></a>创建工程</h1><h2 id="App开发"><a href="#App开发" class="headerlink" title="App开发"></a>App开发</h2><p>创建纯Flutter的App工程</p>
+<pre><code class="hljs undefined">flutter create myApp</code></pre>
+
+<p>如果在App里导入了包(package)或者插件(plugin)，执行<code>flutter packages get</code>命令后，以iOS为例，插件的平台源码会在下图的新建路径上存放并引用，如下图<br> <div align="center"><img title="Flutter" src="https://i.loli.net/2019/01/10/5c36decbaa79a.png" width="60%" height="60%"></div></p>
+<p>原身在下面的路径中</p>
+<pre><code class="hljs undefined">/Users/user/.pub-cache/hosted/pub.dartlang.org</code></pre>
+
+<p>在App编译时，包或者插件的lib中的dart以及plugin中的platform(iOS/Android)代码就被一并编译到App.framework中</p>
+<h2 id="包及插件开发"><a href="#包及插件开发" class="headerlink" title="包及插件开发"></a>包及插件开发</h2><p>Flutter的包，是指通过利用pubspec.yaml文件发布版本的形式提供纯Dart的依赖Flutter框架实现的库给Flutter的App使用，或者提供给Native App中的Flutter Module使用。</p>
+<pre><code class="hljs undefined">flutter create --template=package hello</code></pre>
+
+<p>Flutter的插件，其实它也算是包的一种，是指提供可访问Native功能的Dart接口库，中间通过channel技术实现通信，插件同样可以通过发布版本提供。</p>
+<pre><code class="hljs undefined">flutter create --template=plugin -i objc -a java plugin_template</code></pre>
+
+<p>-i -a 参数是分别指定iOS和Android两平台代码使用的语言（预设到模板中）。</p>
+<h2 id="混合开发"><a href="#混合开发" class="headerlink" title="混合开发"></a>混合开发</h2><p>混合开发是在Native App的基础上，嵌入Flutter的模块，共同开发。</p>
+<pre><code class="hljs undefined">flutter create -t module my_flutter</code></pre>
+
+<p>若想在混合开发中解除对Flutter的依赖，可以先来看看Flutter它所依赖的文件：</p>
+<ol>
+<li>Flutter库和引擎：Flutter.framework（flutter.jar）；</li>
+<li>Flutter工程的产物：App.framework（vm/isolate_snapshot_data/instr），App和Module最后的产物都是这种形式；</li>
+<li>Flutter Plugin：编译出各种Plugin的framework，内含插件的Dart以及响应它的OC代码（iOS:GeneratedPluginRegistrant.m; Android:GeneratedPluginRegistrant.java）。</li>
+</ol>
+<p>将这三部分的编译结果抽取出来，打包成一个SDK依赖的形式提供给Native工程，就可以解除Native工程对Flutter工程的直接依赖了。</p>
+<h1 id="运行调试"><a href="#运行调试" class="headerlink" title="运行调试"></a>运行调试</h1><h2 id="运行"><a href="#运行" class="headerlink" title="运行"></a>运行</h2><pre><code class="hljs undefined">flutter run</code></pre>
+
+<h2 id="编译"><a href="#编译" class="headerlink" title="编译"></a>编译</h2><pre><code class="hljs undefined">flutter build ios --no-codesign [--simulator] #针对模拟器
+flutter build apk</code></pre>
+
+<p>第一次打开Flutter的Android工程后，点击<code>make project</code>按钮先构造项目，实质就是通过gradle拉取对应依赖的库，而iOS工程若无podfile则可以直接运行编译，否则需先执行<code>pod install</code>命令。 </p>
+<h2 id="热重载"><a href="#热重载" class="headerlink" title="热重载"></a>热重载</h2><p>ctrl+s/cmd+s，保存文件变更，即可触发热重载，或者点击运行时工具栏中的reload按钮。</p>
+<p>但是在以下情况会导致重载失败：</p>
+<ul>
+<li>编译错误；</li>
+<li>控件类型从StatelessWidget到StatefulWidget的转换；</li>
+<li>全局变量和静态成员变量的变更。</li>
+<li>修改了main函数中创建的根控件节点；</li>
+<li>某个类从普通类型转换成枚举类型，或者类型的泛型参数列表变化；</li>
+</ul>
+<h2 id="遇到的问题"><a href="#遇到的问题" class="headerlink" title="遇到的问题"></a>遇到的问题</h2><h3 id="iOS-1"><a href="#iOS-1" class="headerlink" title="iOS"></a>iOS</h3><ol>
+<li><p>在iOS端跑pod install时，提示<code>/Path/To/ExistingApp/Flutter/engine</code>路径无效，需要自行先在ExistingApp项目根目录下创建Flutter文件夹；</p>
+</li>
+<li><p>iOS编译报错，FlutterPluginRegistrant Target中的GeneratedPluginRegistrant.h提示<code>#import &lt;Flutter/Flutter.h&gt;</code>找不到，可以手动为该Target引用上Flutter.framework，或将App Build Phases中的Run Script移到Check Pods Mnifest.lock之后；</p>
+</li>
+<li><p>iOS编译报错，提示 <code>/packages/flutter_tools/bin/xcode_backend.sh: No such file or directory</code>，此时要在BuildSettings中的User-Defined中设置环境变量FLUTTER_ROOT，值flutter sdk的路径（包含packages文件夹），其对应App Run Script脚本中的$FLUTTER_ROOT；</p>
+</li>
+<li><p>如何切换设备，若Mac上有多个Xcode，且VScode使用最新版本的iPhone模拟器时，会有以下报错，此时，在VScode最底下的工具条中点击设备进行切换，如下图中的iPhoneX 12.0(ios)可切换为iPhoneX(ios Emulator)<img src="https://lh3.googleusercontent.com/-FesfMmkCfmw/W6IRbS7BFpI/AAAAAAAAAUQ/f1KuWrt8GUUM8dJmpk0hlG9Jt7k_fIoEQCHMYCw/I/vs-code-flutter-tool-bar.png" alt="vs-code-flutter-tool-bar"></p>
+<blockquote>
+<p>Code Signing Warning: “Runner” isn’t code signed but requires entitlements. It is not possible to add entitlements to a binary without signing it.</p>
+</blockquote>
+</li>
+<li><p>Xcode10运行报错，在File-&gt;Workspace Settings-&gt;Build System 改成 Legacy Build System即可。<a href="https://github.com/flutter/flutter/issues/20685" target="_blank" rel="noopener">参考</a></p>
+<blockquote>
+<p>Multiple commands produce ‘/Users/Library/Developer/Xcode/DerivedData/Runner-dunimcekkdlkcxevvsirtjrlpkdg/Build/Products/Debug-iphonesimulator/Runner.app/Frameworks/Flutter.framework’:</p>
+</blockquote>
+<p>1) Target ‘Runner’ has copy command from ‘/Users/Flutter/plugin_template/example/ios/Flutter/Flutter.framework’ to ‘/Users/Library/Developer/Xcode/DerivedData/Runner-dunimcekkdlkcxevvsirtjrlpkdg/Build/Products/Debug-iphonesimulator/Runner.app/Frameworks/Flutter.framework’<br>2) That command depends on command in Target ‘Runner’: script phase “[CP] Embed Pods Frameworks”</p>
+</li>
+<li><p>App.framework中的dart代码没更新时，在debug模式下在vs上reload一下即可。</p>
+</li>
+<li><p>运行崩溃，提示 Image Not Found。Flutter工程生成的App.framework和Flutter.framework导入应用工程后运行崩溃。在Embedded Binaries中添加上App.framework和Flutter.framework即可解决。</p>
+<blockquote>
+<p>Library not loaded: @rpath/App.framework. Reason: Image Not Found</p>
+</blockquote>
+</li>
+<li><p>展示FlutterViewController后没有内容显示，同时报错了。将Flutter(插件)工程中的flutter_assets复制到应用工程，且以绝对路径添加，flutter_assets在与二进制文件同级目录下。</p>
+<blockquote>
+<p>[VERBOSE-2:engine.cc(112)]Engine run configuration was invalid.<br>[VERBOSE-2:FlutterViewController.mm(437)] Could not launch engine with configuration.</p>
+</blockquote>
+</li>
+<li><p>无法在模拟器上跑release相关的代码<br>暂时还不支持在模拟器上启动release模式或跑引用了release模式下生成的Flutter App库的项目。而又为什么一定要跑release模式呢，因为debug模式生成的Flutter.framework含dart的虚拟机进行JIT，苹果暂时还不允许该动态编译（可以的话热更也就已经用上了）。debug模式是方便我们reload调试，不用重复停止和运行工程项目。<a href="https://github.com/flutter/flutter/issues/11754" target="_blank" rel="noopener">参考</a></p>
+</li>
+<li><p>无法在真机上安装<br>编译通过后在安装阶段报错，替换为debug模式下生成的App.framework和Flutter.framework则能正常安装（但运行时会崩溃，因为debug模式下导出的App.framework不含arm7s和arm64的真机框架）。而换回自行在<code>Generated.xcconfig</code>修改<code>FLUTTER_BUILD_MODE</code>和<code>FLUTTER_FRAMEWORK_DIR</code>为release值(具体值为release和path/to/flutter/bin/cache/artifacts/engine/ios-release)，通过运行Flutter项目后提出的App.framework和Flutter.framework则继续报错。后来通过以下方式编译Flutter项目再提取App.framework和Flutter.framework即解决。<br>执行下面这条指令会自动更新<code>Generated.xcconfig</code>中上述提到的项为release值，这样编译得到的framework才有效。</p>
+<pre><code class="hljs undefined">flutter build ios --no-codesign --release</code></pre>
+
+</li>
+</ol>
+<p><a href="https://github.com/flutter/flutter/issues/21073" target="_blank" rel="noopener">参考链接</a><br><a href="https://github.com/flutter/flutter/issues/9607" target="_blank" rel="noopener">参考链接</a></p>
+<blockquote>
+<p>app installation failed. Could not inspect the application package</p>
+</blockquote>
+<h3 id="Android-1"><a href="#Android-1" class="headerlink" title="Android"></a>Android</h3><ol>
+<li><p>Android在gradle build时提示错误，将<code>.flutter/packages/flutter_tools/gradle/flutter.gradle</code>中的<code>maven {...}</code>一段移到<code>jcenter()</code>之上即可。<a href="https://stackoverflow.com/questions/52945041/couldnt-locate-lint-gradle-api-26-1-2-jar-for-flutter-project" target="_blank" rel="noopener">参考</a></p>
+<blockquote>
+<p>flutter Could not find lint-gradle-api.jar com.android.tools.lint:lint-gradle-api:26.1.2`</p>
+</blockquote>
+</li>
+<li><p>Configuration(Target)的Android App中提示<code>Please select Android SDK</code>，此时运行选项 File -&gt; Sync Project with Gradle Files（在主面板的右上角也有便捷按钮）即可解决。<a href="https://stackoverflow.com/questions/34353220/android-studio-please-select-android-sdk" target="_blank" rel="noopener">参考</a></p>
+</li>
+<li><p>Android下，<code>No Target Device Found</code>，没有设备可用，在 Edit Configurations中，右下方的 Deployment Target 选项选择<code>Open Select Deployment Target Dialog</code>即可。<a href="https://stackoverflow.com/questions/40022679/android-studio-no-target-device-found/40084389" target="_blank" rel="noopener">参考</a></p>
+</li>
+<li><p>构建及定位Android的apk文件。菜单选项 Build-&gt;Build APK：是随机生成签名的构建，而 Build-&gt;Generate Signed APK：是指定签名的构建(签名为sha1文件)。构建完毕后，在弹出的Tips中点击Local链接可找到APK所在位置（flutterProject/build/host/outputs/apk）</p>
+</li>
+</ol>
+<h1 id="功能实现问题"><a href="#功能实现问题" class="headerlink" title="功能实现问题"></a>功能实现问题</h1><h2 id="透明背景"><a href="#透明背景" class="headerlink" title="透明背景"></a>透明背景</h2><p>官方探究中（跟进）: <a href="https://github.com/flutter/flutter/issues/9321" target="_blank" rel="noopener">https://github.com/flutter/flutter/issues/9321</a></p>
+<h2 id="Flutter上调用原生桥接口报错没找到方法"><a href="#Flutter上调用原生桥接口报错没找到方法" class="headerlink" title="Flutter上调用原生桥接口报错没找到方法"></a>Flutter上调用原生桥接口报错没找到方法</h2><blockquote>
+<p>Dart Error Unhandled exception MissingPluginException No implementation found for method</p>
+</blockquote>
+<p>由于添加channel的注册表对象没与作为Flutter视图显示的对象（实现FlutterPlugin协议的FlutterViewController）一致。</p>
+<p>即是下面该方法中，生成register的flutterViewController（register=[flutterViewController registrarForPlugin:pluginName]）在显示时，才能使用<code>efun_flutter_plugin</code>该channel名调用EFFlutterModule中的代理方法</p>
+<pre><code class="hljs undefined">+ (void)registerWithRegistrar:(NSObject&lt;FlutterPluginRegistrar&gt;*)registrar &#123;
+    
+    FlutterMethodChannel* channel = [FlutterMethodChannel methodChannelWithName:@&quot;efun_flutter_plugin&quot;
+                                                                binaryMessenger:[registrar messenger]];
+    [registrar addMethodCallDelegate:[EFFlutterModule shareInstance] channel:channel];
+&#125;</code></pre>
+
+<h2 id="拉伸listView子项"><a href="#拉伸listView子项" class="headerlink" title="拉伸listView子项"></a>拉伸listView子项</h2><p>使用itemExtent属性，为listView内容指定高度。</p>
+<h2 id="限制listView滑动"><a href="#限制listView滑动" class="headerlink" title="限制listView滑动"></a>限制listView滑动</h2><p>将itemExtent设为指定高度后，再配合shrinkWrap设为true，但此时仍可能还是可以手动滑动到listView，这时将listView的padding设为EdgeInsets.zero即可解决，因为listView内容的底部默认多出一个padding的白色栏，若此高度超出屏幕的话listView还是可以被手动滑动，然后还有设置上controller属性（无需实现监听），这样就既能限制滑动也能有效使键盘弹出后界面自动上移。</p>
+<h2 id="原生跳转到Flutter白屏1秒"><a href="#原生跳转到Flutter白屏1秒" class="headerlink" title="原生跳转到Flutter白屏1秒"></a>原生跳转到Flutter白屏1秒</h2><ul>
+<li>提早注册</li>
+<li>采用release下的AOT模式</li>
+</ul>
+<h2 id="跳转Route无效"><a href="#跳转Route无效" class="headerlink" title="跳转Route无效"></a>跳转Route无效</h2><pre><code>Navigator.pushNamed(context, arguments[&apos;route&apos;]);</code></pre><p>以上的context必须为当前渲染View中的context，否则push无效。</p>
+<h2 id="从Native获取到的字典无法直接复制给Map"><a href="#从Native获取到的字典无法直接复制给Map" class="headerlink" title="从Native获取到的字典无法直接复制给Map"></a>从Native获取到的字典无法直接复制给Map</h2><blockquote>
+<p>_InternalLinkedHashMap&lt;dynamic, dynamic&gt;’ is not a subtype of type ‘Map&lt;String, dynamic&gt;</p>
+</blockquote>
+<pre><code>var resultValues = Map&lt;String, String&gt;.from(result);</code></pre><p><a href="https://github.com/flutter/flutter/issues/16589" target="_blank" rel="noopener">参考</a></p>
+<h2 id="收起键盘且清除焦点"><a href="#收起键盘且清除焦点" class="headerlink" title="收起键盘且清除焦点"></a>收起键盘且清除焦点</h2><pre><code>FocusScope.of(context).requestFocus(new FocusNode());</code></pre><h2 id="为ScrollView添加滑动事件监听"><a href="#为ScrollView添加滑动事件监听" class="headerlink" title="为ScrollView添加滑动事件监听"></a>为ScrollView添加滑动事件监听</h2><pre><code>ScrollController scrollController = ScrollController();
+scrollController.addListener(scrolledListView);
+ListView(controller: scrollController,...);
+
+Null scrolledListView() {
+    scrollController.jumpTo(scrollController.position.minScrollExtent);
+}</code></pre><h2 id="隐世滑动ScrollView到指定位置"><a href="#隐世滑动ScrollView到指定位置" class="headerlink" title="隐世滑动ScrollView到指定位置"></a>隐世滑动ScrollView到指定位置</h2><pre><code>scrollController.jumpTo(scrollController.position.minScrollExtent);</code></pre><h2 id="获取TextField的text值"><a href="#获取TextField的text值" class="headerlink" title="获取TextField的text值"></a>获取TextField的text值</h2><pre><code>var textController = TextEditingController(); 
+textfield = TextField(
+                controller: controller,
+                ...
+                );
+String wanted = textController.text</code></pre><h2 id="TextField的装饰"><a href="#TextField的装饰" class="headerlink" title="TextField的装饰"></a>TextField的装饰</h2><pre><code>TextField(
+  decoration: InputDecoration(
+    hintText: placeholder,
+    fillColor: Colors.white,
+    filled: true,
+    contentPadding: EdgeInsets.fromLTRB(5.0, 5.0, 5.0, 5.0),
+    border: new OutlineInputBorder(
+      borderRadius: BorderRadius.circular(5.0),
+    ),
+  )
+);</code></pre><h2 id="TextField输入密文"><a href="#TextField输入密文" class="headerlink" title="TextField输入密文"></a>TextField输入密文</h2><pre><code>TextField(
+    obscureText: true,
+    ...
+);</code></pre><h2 id="为背景添加点击事件监听"><a href="#为背景添加点击事件监听" class="headerlink" title="为背景添加点击事件监听"></a>为背景添加点击事件监听</h2><pre><code>GestureDetector(
+    onTap: () {},
+    child: backgroundWidget
+)</code></pre><h2 id="显示Textfield"><a href="#显示Textfield" class="headerlink" title="显示Textfield"></a>显示Textfield</h2><p>Flutter中的Textfield必须用MaterialApp包裹的Scaffold包裹的Widget来包裹，才能显示，否则渲染报错。</p>
+<h2 id="按比例分割的自动约束"><a href="#按比例分割的自动约束" class="headerlink" title="按比例分割的自动约束"></a>按比例分割的自动约束</h2><p>在Column或者Row中，的Widget均使用Expanded包裹，且对每个Expanded设置其flex属性，其比例就等于它的flex在其所在的Column或Row中所有Expanded的flex总和的占比，同时在Expanded中的控件则会被自动伸缩。</p>
+<p>均匀分布Colomn或Row的子项：</p>
+<pre><code>mainAxisAlignment: MainAxisAlignment.spaceEvenly</code></pre><h2 id="获取屏幕Size"><a href="#获取屏幕Size" class="headerlink" title="获取屏幕Size"></a>获取屏幕Size</h2><pre><code>Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
+    ...
+    return widget
+}</code></pre><h2 id="定义可继承的成员变量"><a href="#定义可继承的成员变量" class="headerlink" title="定义可继承的成员变量"></a>定义可继承的成员变量</h2><pre><code>final platformMethodChannel = MethodChannel(&apos;com.fun.global/ui&apos;);</code></pre><h2 id="往Native传值"><a href="#往Native传值" class="headerlink" title="往Native传值"></a>往Native传值</h2><pre><code>try {
+    Map&lt;String, String&gt; map = {
+        &quot;email&quot;: email,
+        &quot;password&quot;: password
+    };
+
+    final String result = await methodChannel.invokeMethod(&apos;#methodName&apos;,map);
+    //不一定返回String，现为示例
+    print(result);
+} on PlatformException catch (e) {
+   String message = &quot;exception: ${e.message}.&quot;;
+   print(message);
+}  </code></pre><h2 id="渐变动画"><a href="#渐变动画" class="headerlink" title="渐变动画"></a>渐变动画</h2><pre><code>Navigator.push(
+  context, 
+  PageRouteBuilder(
+    pageBuilder: (BuildContext context, _, __) {
+      return EmailLoginView();
+    },
+    transitionsBuilder: (___, Animation&lt;double&gt; animation, ____, Widget child) {
+      return FadeTransition(
+        opacity: Tween&lt;double&gt;(begin: 0.0, end: 1.0).animate(animation),
+        child: child,
+      );
+    },
+  transitionDuration: Duration(milliseconds: 500),),
+);</code></pre><p><a href="https://stackoverflow.com/questions/46062422/how-do-i-add-custom-transitions-to-my-flutter-route-in-my-flutter-app" target="_blank" rel="noopener">参考</a></p>
+<h2 id="倒计时"><a href="#倒计时" class="headerlink" title="倒计时"></a>倒计时</h2><pre><code class="hljs undefined">Future&lt;Null&gt; onTapSendVerificationCodeButton() async &#123;
+    if (_seconds == 0) &#123;
+      setState(() &#123;
+        _startTimer();
+      &#125;);
+    else &#123;
+      return;
+    &#125;
+&#125;
+
+_startTimer() &#123;
+    _seconds = 60;
+    _timer = new Timer.periodic(new Duration(seconds: 1), (timer) &#123;
+      if (_seconds == 0) &#123;
+        _cancelTimer();
+        return;
+      &#125;
+      _seconds--;
+      _sendButtonTitle = &apos;$_seconds(s)&apos;;
+      setState(() &#123;&#125;);
+      if (_seconds == 0) &#123;
+        _sendButtonTitle = &apos;发送验证码&apos;;
+      &#125;
+    &#125;);
+&#125;
+
+_cancelTimer() &#123;
+    _timer?.cancel();
+&#125;</code></pre>
+
+<h2 id="Indicator"><a href="#Indicator" class="headerlink" title="Indicator"></a>Indicator</h2><p>先对State调用setState((){…})对界面刷新，在setState的回调块中将Indicator添加到Stack的顶层(children的最后一个元素，前面的元素为原来Widget)，一般通过一个状态变量控制该Stack是否要添加Indicator。<br><a href="https://codingwithjoe.com/flutter-how-to-build-a-modal-progress-indicator/" target="_blank" rel="noopener">https://codingwithjoe.com/flutter-how-to-build-a-modal-progress-indicator/</a></p>
+<h2 id="获取平台信息"><a href="#获取平台信息" class="headerlink" title="获取平台信息"></a>获取平台信息</h2><pre><code>import &apos;dart:io&apos;;
+Platform.isIOS;</code></pre><h2 id="自定义路由跳转动画"><a href="#自定义路由跳转动画" class="headerlink" title="自定义路由跳转动画"></a>自定义路由跳转动画</h2><pre><code class="hljs undefined">class MyCustomRoute&lt;T&gt; extends MaterialPageRoute&lt;T&gt; &#123;
+  MyCustomRoute(&#123; WidgetBuilder builder, RouteSettings settings &#125;)
+      : super(builder: builder, settings: settings);
+
+  @override
+  Widget buildTransitions(BuildContext context,
+      Animation&lt;double&gt; animation,
+      Animation&lt;double&gt; secondaryAnimation,
+      Widget child) &#123;
+    if (settings.isInitialRoute)
+      return child;
+    // Fades between routes. (If you don&apos;t want any animation, 
+    // just return child.)
+    return new FadeTransition(opacity: animation, child: child);
+  &#125;
+&#125;
+
+class MyApp extends StatelessWidget &#123;
+  @override
+  Widget build(BuildContext context) &#123;
+    return new MaterialApp(
+      onGenerateRoute:(RouteSettings settings) &#123;
+        switch (settings.name) &#123;
+          case &apos;/&apos;: return new MyCustomRoute(
+            builder: (_) =&gt; new HomeView(),
+            settings: settings,
+          );
+          case &apos;/emailLoginView&apos;: return new MyCustomRoute(
+            builder: (_) =&gt; EmailLoginView(),
+            settings: settings,
+          );
+        &#125;
+      &#125;,
+    );
+  &#125;
+&#125;</code></pre>
+
+<p>注意MaterialApp中的home和routes参数对onGenerateRoute的影响。</p>
+<h2 id="Android端的输入法不响应"><a href="#Android端的输入法不响应" class="headerlink" title="Android端的输入法不响应"></a>Android端的输入法不响应</h2><p>在activity生命周期onResume之后创建显示的flutterView，输入法不会响应。这个是flutter的bug。解决方法是，改一下window的可见性（Visibility），例如隐藏再显示。</p>
+<h2 id="桥"><a href="#桥" class="headerlink" title="桥"></a>桥</h2><p>Flutter 侧：</p>
+<pre><code class="hljs undefined">class GlobalBridge &#123;
+    static const MethodChannel global_ui_channel = const MethodChannel(&apos;com.fun.global/ui&apos;);
+    
+    //设置通道对Flutter的回调
+    static void registerChannel() &#123;
+        global_ui_channel.setMethodCallHandler(handleMethodCall);
+    &#125;
+    
+    //原生调Flutter的处理
+    static Future&lt;dynamic&gt; handleMethodCall(MethodCall methodCall) async &#123;
+        if (method == &apos;xxx&apos;) &#123;
+            ...
+        &#125;
+    &#125;
+    
+    //Flutter调Native
+    static Future&lt;dynamic&gt; callMethod(String method,[dynamic arguments]) &#123;
+        return global_ui_channel.invokeMethod(method,arguments);
+    &#125;</code></pre>
+
+<p>Native 侧（iOS）：</p>
+<pre><code class="hljs undefined">//设置Flutter的插件名
++ (void)registerWithRegistry:(NSObject&lt;FlutterPluginRegistry&gt;*)registry &#123;
+    NSObject&lt;FlutterPluginRegistrar&gt;* registrar = [registry registrarForPlugin:@&quot;global_plugin&quot;];
+    [[self class] registerWithRegistrar:registrar];
+&#125;
+
+//获取桥通道并设置通道对Native的回调
++ (void)registerWithRegistrar:(NSObject&lt;FlutterPluginRegistrar&gt;*)registrar &#123;
+    FlutterMethodChannel *globalUiChannel = [FlutterMethodChannel methodChannelWithName:@&quot;com.fun.global/ui&quot; binaryMessenger:[registrar messenger]];
+    [registrar addMethodCallDelegate:[EFNGlViewNavigator sharedNavigator] channel:globalUiChannel];
+    [EFNGlViewNavigator sharedNavigator].globalUiChannel = globalUiChannel;
+&#125;
+
+//Flutter调原生的处理
+- (void)handleMethodCall:(FlutterMethodCall*)call result:(FlutterResult)result &#123;
+    NSString *method = call.method;
+    if ([method isEqualToString:@&quot;#request_bindFacebook&quot;]) &#123;
+        [SomeClass requestWithCompletion:^(NSDictionary * _Nullable resultDict, NSError * _Nullable error) &#123;
+            result(resultDict);
+        &#125;];
+    &#125;
+&#125;
+
+//原生调Flutter
+- (void)callFlutterMethod:(NSString *)method arguments:(id)arguments result:(nullable FlutterResult)callback &#123;
+    if (method.length&gt;0) &#123;
+        [self.globalUiChannel invokeMethod:method arguments:arguments result:callback];
+    &#125;
+&#125;</code></pre>
+
+<h2 id="调试"><a href="#调试" class="headerlink" title="调试"></a>调试</h2><p>在main函数中设置debugPaintSizeEnabled为true</p>
+<pre><code>import &apos;dart:developer&apos;;
+void main() {
+  debugPaintSizeEnabled=true;
+}</code></pre><p><code>cmd+shift+p</code>，然后输入Flutter Toggle Debug Painting，开启Debug Painting模式</p>
+<p><a href="https://juejin.im/post/5bb9b8a75188255c791b1984" target="_blank" rel="noopener">参考</a></p>
+<h2 id="其它"><a href="#其它" class="headerlink" title="其它"></a>其它</h2><p>国际化：<a href="https://www.jianshu.com/p/8356a3bc8f6c" target="_blank" rel="noopener">参考</a><br>异步：<a href="https://segmentfault.com/a/1190000014396421" target="_blank" rel="noopener">参考</a><br>构造：<a href="https://juejin.im/post/5b2b4c36f265da59b243cac9" target="_blank" rel="noopener">参考</a><br>alertDialog：<a href="https://medium.com/@nils.backe/flutter-alert-dialogs-9b0bb9b01d28" target="_blank" rel="noopener">参考</a><br>正则表达式：<a href="https://kylinhuang.github.io/2018/08/26/android/Flutter/dart/Dart%20%E5%85%A5%E9%97%A8%E5%9F%BA%E7%A1%80%20%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" target="_blank" rel="noopener">参考</a><br>AppUiDemo：<a href="https://www.jianshu.com/p/f7a9b8c84d26" target="_blank" rel="noopener">参考</a><br>效率：<a href="https://juejin.im/post/5bc2e8cb5188255c930e03fa" target="_blank" rel="noopener">参考</a><br>隐藏状态栏：<a href="https://stackoverflow.com/questions/43877288/hide-android-status-bar-on-flutter-app" target="_blank" rel="noopener">参考</a></p>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>整体的环境搭建、开发流程并不复杂，Dart语言上手也很快。热重载对于调试App的UI真的是一大福音，不过在Module的混合开发模式下，要想与原生起到联调且能继续使用热重载功能的这部分还没搞清楚怎么弄。Flutter的UI搭建体验上也很好，经过封装，整体结构还是可以很清晰地被阅读，既有高的搭建效率也有高的易读性。这次实践主要是与原生交互、Flutter UI效果，后续还要了解网络、数据存储等一些关键部分。希望Flutter能继续保持现在高热的状态发展，造福跨平台的开发者，不要在某天和哪个平台的财主闹翻了而抛弃兼容影响大家。</p>
+<h1 id="Ref"><a href="#Ref" class="headerlink" title="Ref:"></a>Ref:</h1><p><a href="https://flutterchina.club/" target="_blank" rel="noopener">Flutter中文网</a></p>
+<p><a href="https://www.jianshu.com/p/5216778fc8eb" target="_blank" rel="noopener">Flutter iOS环境搭建</a></p>
+<p><a href="https://www.youtube.com/watch?v=9tQUqOwBpy0" target="_blank" rel="noopener">介绍视频</a></p>
+<p><a href="https://tech.meituan.com/waimai-flutter-practice.html" target="_blank" rel="noopener">Flutter原理与实践</a></p>
+<p><a href="https://zhuanlan.zhihu.com/p/38025807" target="_blank" rel="noopener">不要一知半解，深入理解flutter的编译原理，好吗</a></p>
+<p><a href="http://www.infoq.com/cn/articles/why-flutter-uses-dart" target="_blank" rel="noopener">为什么Flutter会选择 Dart ？</a></p>
+<p><a href="https://www.oschina.net/translate/what-is-llvm-the-power-behind-swift-rust-clang-and-more" target="_blank" rel="noopener">什么是 LLVM？Swift, Rust, Clang 等语言背后的支持</a></p>
+<p><a href="https://medium.com/dartlang/dart-on-llvm-b82e83f99a70" target="_blank" rel="noopener">Dart-on-LLVM</a><br><a href="https://juejin.im/post/5bc80ef7f265da0a857aa924" target="_blank" rel="noopener">揭秘Flutter Hot Reload</a></p>
+<p><a href="https://flutterchina.club/developing-packages/" target="_blank" rel="noopener">开发包与插件</a><br><a href="https://github.com/flutter/flutter/wiki/Add-Flutter-to-existing-apps" target="_blank" rel="noopener">Add-Flutter-to-existing-apps</a></p>
+<p>[iOS原生项目集成](Flutter <a href="https://juejin.im/post/5b4615576fb9a04fb614d382" target="_blank" rel="noopener">https://juejin.im/post/5b4615576fb9a04fb614d382</a>)</p>
+<p><a href="https://zhuanlan.zhihu.com/p/40528502" target="_blank" rel="noopener">闲鱼flutter混合工程持续集成的最佳实践</a></p>
+<p><a href="https://yq.aliyun.com/articles/626069" target="_blank" rel="noopener">Flutter新锐专家之路：混合开发篇</a></p>
+<p><a href="https://medium.com/@najeira/change-ios-rootviewcontroller-with-flutter-fc4234f37105" target="_blank" rel="noopener">Change iOS rootViewController with Flutter</a></p>
+<p><a href="https://www.jianshu.com/p/213bfa3d40dd" target="_blank" rel="noopener">Flutter框架基础</a></p>
+<p><a href="https://flutterchina.club/tutorials/layout/" target="_blank" rel="noopener">在Flutter中构建布局</a></p>
+<p><a href="https://juejin.im/post/5b5ed06b5188251aa30c790c" target="_blank" rel="noopener">MaterialApp使用详解</a></p>
+<p><a href="https://hicc.me/flutter-state-management/" target="_blank" rel="noopener">Flutter中的状态管理</a></p>
+<p><a href="https://medium.com/flutter-io/hummingbird-building-flutter-for-the-web-e687c2a023a8" target="_blank" rel="noopener">Hummingbird: Building Flutter for the Web</a></p>
+
+      
+       <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 mingfungliu@gmail.com </span>
+    </div>
+</article>
+
+
+<p>
+    <a href="javascript:void(0)" class="dashang" onclick="dashangToggle()">赏</a>
+</p>
+
+
+
+<div class="article_copyright">
+    <p><span class="copy-title">文章标题:</span>Flutter开发（实践篇）</p>
+    
+    <p><span class="copy-title">本文作者:</span><a href="javascript:void(0)" title="Mingfung">Mingfung</a></p>
+    <p><span class="copy-title">发布时间:</span>2019-01-09, 23:06:00</p>
+    <p><span class="copy-title">最后更新:</span>2019-10-11, 12:36:22</p>
+    <span class="copy-title">原始链接:</span><a class="post-url" href="/前端/Flutter开发（实践篇）/" title="Flutter开发（实践篇）">http://blog.ifungfay.com/前端/Flutter开发（实践篇）/</a>
+    <p>
+        <span class="copy-title">版权声明:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+    </p>
+</div>
+
+
+
+
+    <script type="text/javascript">
+(function(d, s) {
+   var j, e = d.getElementsByTagName(s)[0];
+
+   if (typeof LivereTower === 'function') { return; }
+
+   j = d.createElement(s);
+   j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+   j.async = true;
+
+   e.parentNode.insertBefore(j, e);
+})(document, 'script');
+</script>
+<noscript> 为正常使用来必力评论功能请激活JavaScript</noscript>
+
+<iframe title="livere"   src="https://was.livere.me/comment/city?id=city&refer=http://blog.ifungfay.com/前端/Flutter开发（实践篇）/&uid=MTAyMC80NzAyOC8yMzUyOA==&site=http://blog.ifungfay.com/前端/Flutter开发（实践篇）/&title=Flutter开发（实践篇）" scrolling="" frameborder="0" id="lv-comment-399" style="min-width: 100%; width: 100px; min-height: 400px; overflow: auto; border: 0px; z-index: 124212; height: 800px;" ></iframe>
+
+
+
+    
+
+
+
+
+    </div>
+    <div class="copyright">
+        <p class="footer-entry">©2016-2019 Mingfung</p>
+<p class="footer-entry">Built with <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/yelog/hexo-theme-3-hexo" target="_blank">3-hexo</a> theme</p>
+
+    </div>
+    <div class="full-toc">
+        <button class="full"><span class="min "></span></button>
+<button class="post-toc-menu"><span class="post-toc-menu-icons"></span></button>
+<div class="post-toc"><span class="post-toc-title">目录</span>
+    <div class="post-toc-content">
+
+    </div>
+</div>
+<a class="" id="rocket" href="javascript:void(0)"></a>
+    </div>
+</div>
+<div class="acParent"></div>
+
+<div class="hide_box" onclick="dashangToggle()"></div>
+<div class="shang_box">
+    <a class="shang_close" href="javascript:void(0)" onclick="dashangToggle()">×</a>
+    <div class="shang_tit">
+        <p>喜欢就点赞,疼爱就打赏</p>
+    </div>
+    <div class="shang_payimg">
+        <div class="pay_img">
+            <img src="/img/alipay.jpg" class="alipay" title="扫码支持">
+            <img src="/img/weixin.jpg" class="weixin" title="扫码支持">
+        </div>
+    </div>
+    <div class="shang_payselect">
+        <span><label><input type="radio" name="pay" checked value="alipay">支付宝</label></span><span><label><input type="radio" name="pay" value="weixin">微信</label></span>
+    </div>
+</div>
+
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/koharu.model.json"},"log":false});</script></body>
+<script src="/js/jquery.pjax.js?v=1.0.1" ></script>
+
+<script src="/js/script.js?v=1.0.1" ></script>
+<script>
+    var img_resize = 'default';
+    /*作者、标签的自动补全*/
+    $(function () {
+        $('.search').AutoComplete({
+            'data': ['#JSPatch','#JavaScriptCore','#property','#dynamic','#sythesize','#nonatomic','#iOS11','#Xcode9','#iPhoneX','#TLS','#SSL','#HTTPS','#ATS','#Java','#Android','#AndroidStudio','#adb','#反编译','#Gradle','#Module','#ProGuard','#Native','#JNI','#NDK','#AAR','#JAR','#html','#bootstrap','#css','#Flutter','#iOS','#Dart','#Git','#command','#Mac','#question','#PyCharm','#Django','#Python','#Anaconda','#Qgis','#vapor','#swift','#heroku','#cloud','#crypto','#console','#terminal','#database','#postgreSQL','#network','#http','#webSocket','#encoded','#leaf','#view','#session','#token','#verification','#越狱','#逆向','#工具','#安全','#CGI','#Servlet','#容器','#Docker','#Manager','#Model','#Role','#Target','#JSON','#Objective-C','#jekyll','#github','#blog','#Jenkins','#CI','#Test','#Ubuntu','#服务器','#Web App','#nginx','#supervisor','#fabric','#python','#mysql','#设计模式','#tool','#skill','#MVP','#Adapter','#Activity','#Fragment','#Layout','#Res','#Realm','#AIDL','#AsyncTask','#Thread','#Handler','#link','#register','#assembly','#library','#static','#memory','#runtime','#interrupt',],
+            'itemHeight': 20,
+            'width': 418
+        }).AutoComplete('show');
+    })
+    function initArticle() {
+        /*渲染对应的表格样式*/
+        
+            $(".post .pjax table").addClass("green_title");
+        
+
+        /*渲染打赏样式*/
+        
+        $("input[name=pay]").on("click", function () {
+            if($("input[name=pay]:checked").val()=="weixin"){
+                $(".shang_box .shang_payimg .pay_img").addClass("weixin_img");
+            } else {
+                $(".shang_box .shang_payimg .pay_img").removeClass("weixin_img");
+            }
+        })
+        
+
+        /*高亮代码块行号*/
+        
+        $('pre code').each(function(){
+            var lines = $(this).text().split('\n').length, widther='';
+            if (lines>99) {
+                widther = 'widther'
+            }
+            var $numbering = $('<ul/>').addClass('pre-numbering ' + widther).attr("unselectable","on");
+            $(this).addClass('has-numbering ' + widther)
+                    .parent()
+                    .append($numbering);
+            for(var i=1;i<=lines;i++){
+                $numbering.append($('<li/>').text(i));
+            }
+        });
+        
+
+        /*访问数量*/
+        
+        $.getScript("//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js");
+        
+
+        /*代码高亮，行号对齐*/
+        $('.pre-numbering').css('line-height',$('.has-numbering').css('line-height'));
+
+        
+    }
+
+    /*打赏页面隐藏与展示*/
+    
+    function dashangToggle() {
+        $(".shang_box").fadeToggle();
+        $(".hide_box").fadeToggle();
+    }
+    
+
+</script>
+
+<!--加入行号的高亮代码块样式-->
+
+<style>
+    pre{
+        position: relative;
+        margin-bottom: 24px;
+        border-radius: 10px;
+        border: 1px solid #e2dede;
+        background: #FFF;
+        overflow: hidden;
+    }
+    code.has-numbering{
+        margin-left: 30px;
+    }
+    code.has-numbering.widther{
+        margin-left: 35px;
+    }
+    .pre-numbering{
+        margin: 0px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 20px;
+        padding: 0.5em 3px 0.7em 5px;
+        border-right: 1px solid #C3CCD0;
+        text-align: right;
+        color: #AAA;
+        background-color: ;
+    }
+    .pre-numbering.widther {
+        width: 35px;
+    }
+</style>
+
+<!--自定义样式设置-->
+<style>
+    
+    
+    .nav {
+        width: 542px;
+    }
+    .nav.fullscreen {
+        margin-left: -542px;
+    }
+    .nav-left {
+        width: 120px;
+    }
+    
+    
+    @media screen and (max-width: 1468px) {
+        .nav {
+            width: 492px;
+        }
+        .nav.fullscreen {
+            margin-left: -492px;
+        }
+        .nav-left {
+            width: 100px;
+        }
+    }
+    
+    
+    @media screen and (max-width: 1024px) {
+        .nav {
+            width: 492px;
+            margin-left: -492px
+        }
+        .nav.fullscreen {
+            margin-left: 0;
+        }
+        .nav .hide-list.fullscreen {
+            left: 492px
+        }
+    }
+    
+    @media screen and (max-width: 426px) {
+        .nav {
+            width: 100%;
+        }
+        .nav-left {
+            width: 100%;
+        }
+    }
+    
+    
+    .nav-right .title-list nav a .post-title, .nav-right .title-list #local-search-result a .post-title {
+        color: #383636;
+    }
+    
+    
+    .nav-right .title-list nav a .post-date, .nav-right .title-list #local-search-result a .post-date {
+        color: #5e5e5f;
+    }
+    
+    
+    .nav-right nav a.hover, #local-search-result a.hover{
+        background-color: #e2e0e0;
+    }
+    
+    
+
+    /*列表样式*/
+    
+    .post .pjax article .article-entry>ol, .post .pjax article .article-entry>ul, .post .pjax article>ol, .post .pjax article>ul{
+        border: #e2dede solid 1px;
+        border-radius: 10px;
+        padding: 10px 32px 10px 56px;
+    }
+    .post .pjax article .article-entry li>ol, .post .pjax article .article-entry li>ul,.post .pjax article li>ol, .post .pjax article li>ul{
+        padding-top: 5px;
+        padding-bottom: 5px;
+    }
+    .post .pjax article .article-entry>ol>li, .post .pjax article .article-entry>ul>li,.post .pjax article>ol>li, .post .pjax article>ul>li{
+        margin-bottom: auto;
+        margin-left: auto;
+    }
+    .post .pjax article .article-entry li>ol>li, .post .pjax article .article-entry li>ul>li,.post .pjax article li>ol>li, .post .pjax article li>ul>li{
+        margin-bottom: auto;
+        margin-left: auto;
+    }
+    
+
+    /* 背景图样式 */
+    
+    
+
+
+    /*引用块样式*/
+    
+
+    /*文章列表背景图*/
+    
+    .nav-right:before {
+        content: ' ';
+        display: block;
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0.3;
+        background: url("null");
+        background-repeat: no-repeat;
+        background-position: 50% 0;
+        -ms-background-size: cover;
+        -o-background-size: cover;
+        -moz-background-size: cover;
+        -webkit-background-size: cover;
+        background-size: cover;
+    }
+    
+
+    
+</style>
+
+
+
+
+
+
+<div class="mobile-menus-out" >
+
+</div>
+<div class="mobile-menus">
+    
+    
+    <a class="dynamic-menu site_url"   href="/404.html">宝贝回家</a>
+    
+    
+    
+</div>
+
+
+</html>

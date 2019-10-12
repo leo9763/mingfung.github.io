@@ -1,0 +1,2091 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  <title>Bootstrap手册 | Mingfung&#39;s Blog</title>
+  <meta name="keywords" content=" html , bootstrap , css ">
+  <meta name="description" content="Bootstrap手册 | Mingfung&#39;s Blog">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="description" content="关于iOS码农一枚">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Mingfung&#39;s Blog">
+<meta property="og:url" content="http://blog.ifungfay.com/about/index.html">
+<meta property="og:site_name" content="Mingfung&#39;s Blog">
+<meta property="og:description" content="关于iOS码农一枚">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-10-12T14:30:09.446Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Mingfung&#39;s Blog">
+<meta name="twitter:description" content="关于iOS码农一枚">
+
+
+<link rel="icon" href="/img/avatar.jpg">
+
+<link href="/css/style.css?v=1.0.1" rel="stylesheet">
+
+<link href="/css/hl_theme/zenbum.css?v=1.0.1" rel="stylesheet">
+
+<link href="//cdn.bootcss.com/animate.css/3.5.2/animate.min.css" rel="stylesheet">
+<link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+<script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="/js/jquery.autocomplete.min.js?v=1.0.1"></script>
+
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
+
+<script src="//cdn.bootcss.com/nprogress/0.2.0/nprogress.min.js"></script>
+
+
+
+<script src="/js/iconfont.js?v=1.0.1"></script>
+<!--鼠标点击爱心动画-->
+<script type="text/javascript" src="/js/clicklove.js"></script>
+</head>
+<div style="display: none">
+  <input class="theme_disqus_on" value="false">
+  <input class="theme_preload_comment" value="true">
+  <input class="theme_blog_path" value>
+</div>
+
+<body>
+<aside class="nav">
+    <div class="nav-left">
+        <a href="/" class="avatar_target">
+    <img class="avatar" src="/img/avatar.jpg" />
+</a>
+<div class="author">
+    <span>Mingfung</span>
+</div>
+
+<div class="icon">
+    
+        
+        <a title="rss" href="/atom.xml" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-rss"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+        <a title="github" href="https://github.com/leo9763" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-github"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+        <a title="facebook" href="https://www.facebook.com/ming.fung.liu.nero" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-facebook"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+    
+        
+    
+        
+        <a title="instagram" href="https://www.instagram.com/mingfungliu/" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-instagram"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+    
+        
+        <a title="weibo" href="https://weibo.com/neross" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-weibo"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+        <a title="jianshu" href="https://www.jianshu.com/u/007c5818ec78" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-jianshu"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+        <a title="zhihu" href="zhihu.com/people/mingfungliu" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-zhihu"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+    
+        
+    
+        
+        <a title="juejin" href="https://juejin.im/user/5b6b9b37f265da0f9f4e8df3" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-juejin"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+        <a title="email" href="mailto:mingfungliu@gmail.com" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-email"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+        <a title="qq" href="http://wpa.qq.com/msgrd?v=3&uin=52360086&site=qq&menu=yes" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-qq"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+    
+        
+    
+</div>
+
+
+
+<a class="more-menus">更多菜单</a>
+
+
+<ul>
+    <li><div class="all active">全部文章<small>(43)</small></div></li>
+    
+        
+            
+            <li><div data-rel="iOS">iOS<small>(6)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="Android">Android<small>(3)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="前端">前端<small>(4)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="工具">工具<small>(4)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="后端">后端<small>(12)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="管理">管理<small>(1)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="设计模式">设计模式<small>(7)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="系统">系统<small>(1)</small></div>
+                
+            </li>
+            
+        
+    
+</ul>
+<div class="left-bottom">
+    <div class="menus">
+    
+    
+    <a class="dynamic-menu site_url"   href="/404.html">宝贝回家</a>
+    
+    
+    
+    </div>
+    <div><a class="about  hasFriend  site_url"  href="/about">关于</a><a style="width: 50%"  class="friends">友链</a></div>
+</div>
+<input type="hidden" id="yelog_site_posts_number" value="43">
+
+<div style="display: none">
+    <span id="busuanzi_value_site_uv"></span>
+    <span id="busuanzi_value_site_pv"></span>
+</div>
+
+    </div>
+    <div class="nav-right">
+        <div class="friends-area">
+    <div class="friends-title">
+        友情链接
+        <i class="back-title-list"></i>
+    </div>
+    <div class="friends-content">
+        <ul>
+            
+            <li><a target="_blank" href="http://www.ifungfay.com">雪月风飞</a></li>
+            
+        </ul>
+    </div>
+</div>
+        <div class="title-list">
+    <form onkeydown="if(event.keyCode==13){return false;}">
+        <input class="search" type="text" placeholder="Search..." autocomplete="off"id="local-search-input" >
+        <i class="cross"></i>
+        <span>
+            <label for="tagswitch">Tags:</label>
+            <input id="tagswitch" type="checkbox" style="display: none" />
+            <i id="tagsWitchIcon"></i>
+        </span>
+    </form>
+    <div class="tags-list">
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">JSPatch</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">JavaScriptCore</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">property</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">dynamic</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">sythesize</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">nonatomic</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color1">iOS11</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">Xcode9</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">iPhoneX</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">TLS</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">SSL</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color1">HTTPS</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">ATS</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">Java</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">Android</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">AndroidStudio</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">adb</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">反编译</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">Gradle</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">Module</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">ProGuard</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">Native</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">JNI</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">NDK</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">AAR</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">JAR</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">html</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">bootstrap</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">css</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">Flutter</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">iOS</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">Dart</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">Git</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">command</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">Mac</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">question</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">PyCharm</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">Django</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">Python</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">Anaconda</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">Qgis</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color1">vapor</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color1">swift</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">heroku</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color1">cloud</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">crypto</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">console</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">terminal</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">database</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color1">postgreSQL</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">network</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">http</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">webSocket</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">encoded</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">leaf</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">view</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">session</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color1">token</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">verification</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">越狱</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">逆向</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">工具</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">安全</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">CGI</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">Servlet</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">容器</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">Docker</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">Manager</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color1">Model</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">Role</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">Target</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">JSON</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">Objective-C</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">jekyll</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">github</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">blog</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">Jenkins</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">CI</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">Test</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">Ubuntu</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">服务器</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">Web App</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color1">nginx</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color1">supervisor</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">fabric</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">python</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color1">mysql</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">设计模式</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">tool</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color1">skill</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">MVP</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">Adapter</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">Activity</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">Fragment</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">Layout</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">Res</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color1">Realm</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">AIDL</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">AsyncTask</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">Thread</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">Handler</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">link</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">register</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">assembly</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">library</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">static</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">memory</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">runtime</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">interrupt</a>
+    </li>
+    
+    <div class="clearfix"></div>
+</div>
+
+    
+    <nav id="title-list-nav">
+        
+        <a  class=""
+           href="/uncategorized/ATS详解/"
+           data-tag="TLS,SSL,HTTPS,ATS"
+           data-author="" >
+            <span class="post-title" title="ATS详解">ATS详解</span>
+            <span class="post-date" title="2017-07-22 15:57:55">2017/07/22</span>
+        </a>
+        
+        <a  class="Android "
+           href="/Android/Android原理入门/"
+           data-tag="Java,Android"
+           data-author="" >
+            <span class="post-title" title="Android原理入门">Android原理入门</span>
+            <span class="post-date" title="2019-08-14 00:22:11">2019/08/14</span>
+        </a>
+        
+        <a  class=""
+           href="/uncategorized/Android技巧入门/"
+           data-tag="AndroidStudio,adb,反编译"
+           data-author="" >
+            <span class="post-title" title="Android技巧入门">Android技巧入门</span>
+            <span class="post-date" title="2019-08-14 00:22:37">2019/08/14</span>
+        </a>
+        
+        <a  class="Android "
+           href="/Android/Android工程入门/"
+           data-tag="Gradle,Module,ProGuard,Native,JNI,NDK,AAR,JAR"
+           data-author="" >
+            <span class="post-title" title="Android工程入门">Android工程入门</span>
+            <span class="post-date" title="2019-02-24 13:44:00">2019/02/24</span>
+        </a>
+        
+        <a  class="前端 "
+           href="/前端/Bootstrap手册/"
+           data-tag="html,bootstrap,css"
+           data-author="" >
+            <span class="post-title" title="Bootstrap手册">Bootstrap手册</span>
+            <span class="post-date" title="2018-09-08 23:06:00">2018/09/08</span>
+        </a>
+        
+        <a  class="前端 "
+           href="/前端/Flutter开发（介绍篇）/"
+           data-tag="Android,Flutter,iOS,Dart"
+           data-author="" >
+            <span class="post-title" title="Flutter开发（介绍篇）">Flutter开发（介绍篇）</span>
+            <span class="post-date" title="2019-01-09 21:24:00">2019/01/09</span>
+        </a>
+        
+        <a  class="前端 "
+           href="/前端/Flutter开发（实践篇）/"
+           data-tag="Android,Flutter,iOS,Dart"
+           data-author="" >
+            <span class="post-title" title="Flutter开发（实践篇）">Flutter开发（实践篇）</span>
+            <span class="post-date" title="2019-01-09 23:06:00">2019/01/09</span>
+        </a>
+        
+        <a  class="工具 "
+           href="/工具/Git手册/"
+           data-tag="Git"
+           data-author="" >
+            <span class="post-title" title="Git手册">Git手册</span>
+            <span class="post-date" title="2019-01-28 21:35:00">2019/01/28</span>
+        </a>
+        
+        <a  class="工具 "
+           href="/工具/Mac命令行工具及其问题收录/"
+           data-tag="command,Mac,question"
+           data-author="" >
+            <span class="post-title" title="Mac命令行工具及其问题收录">Mac命令行工具及其问题收录</span>
+            <span class="post-date" title="2018-02-22 17:10:00">2018/02/22</span>
+        </a>
+        
+        <a  class="后端 "
+           href="/后端/Python的使用环境配置/"
+           data-tag="PyCharm,Django,Python,Anaconda,Qgis"
+           data-author="" >
+            <span class="post-title" title="Python的使用环境配置">Python的使用环境配置</span>
+            <span class="post-date" title="2018-05-24 19:30:00">2018/05/24</span>
+        </a>
+        
+        <a  class="后端 "
+           href="/后端/Vapor之初体验/"
+           data-tag="vapor,swift,heroku"
+           data-author="" >
+            <span class="post-title" title="Vapor之初体验">Vapor之初体验</span>
+            <span class="post-date" title="2018-01-05 21:49:00">2018/01/05</span>
+        </a>
+        
+        <a  class="后端 "
+           href="/后端/Vapor的部署/"
+           data-tag="vapor,swift,heroku,cloud"
+           data-author="" >
+            <span class="post-title" title="Vapor的部署">Vapor的部署</span>
+            <span class="post-date" title="2018-08-13 23:34:00">2018/08/13</span>
+        </a>
+        
+        <a  class="后端 "
+           href="/后端/Vapor（一）基础篇/"
+           data-tag="vapor,swift"
+           data-author="" >
+            <span class="post-title" title="Vapor（一）基础篇">Vapor（一）基础篇</span>
+            <span class="post-date" title="2018-08-13 23:34:00">2018/08/13</span>
+        </a>
+        
+        <a  class="后端 "
+           href="/后端/Vapor（七）工具篇/"
+           data-tag="command,vapor,swift,crypto,console,terminal"
+           data-author="" >
+            <span class="post-title" title="Vapor（七）工具篇">Vapor（七）工具篇</span>
+            <span class="post-date" title="2018-08-21 23:02:00">2018/08/21</span>
+        </a>
+        
+        <a  class="后端 "
+           href="/后端/Vapor（三）数据库篇/"
+           data-tag="vapor,swift,database,postgreSQL"
+           data-author="" >
+            <span class="post-title" title="Vapor（三）数据库篇">Vapor（三）数据库篇</span>
+            <span class="post-date" title="2018-08-15 21:33:00">2018/08/15</span>
+        </a>
+        
+        <a  class="后端 "
+           href="/后端/Vapor（二）进阶篇/"
+           data-tag="vapor,swift"
+           data-author="" >
+            <span class="post-title" title="Vapor（二）进阶篇">Vapor（二）进阶篇</span>
+            <span class="post-date" title="2018-08-14 21:20:00">2018/08/14</span>
+        </a>
+        
+        <a  class="后端 "
+           href="/后端/Vapor（五）网络篇/"
+           data-tag="vapor,swift,network,http,webSocket,encoded"
+           data-author="" >
+            <span class="post-title" title="Vapor（五）网络篇">Vapor（五）网络篇</span>
+            <span class="post-date" title="2018-08-17 20:30:00">2018/08/17</span>
+        </a>
+        
+        <a  class="后端 "
+           href="/后端/Vapor（六）视图篇/"
+           data-tag="vapor,swift,leaf,view"
+           data-author="" >
+            <span class="post-title" title="Vapor（六）视图篇">Vapor（六）视图篇</span>
+            <span class="post-date" title="2018-08-20 21:56:00">2018/08/20</span>
+        </a>
+        
+        <a  class="后端 "
+           href="/后端/Vapor（四）验证篇/"
+           data-tag="vapor,swift,session,token,verification"
+           data-author="" >
+            <span class="post-title" title="Vapor（四）验证篇">Vapor（四）验证篇</span>
+            <span class="post-date" title="2018-08-16 19:06:00">2018/08/16</span>
+        </a>
+        
+        <a  class=""
+           href="/uncategorized/hello-world/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Hello World">Hello World</span>
+            <span class="post-date" title="2018-01-07 14:45:35">2018/01/07</span>
+        </a>
+        
+        <a  class="iOS "
+           href="/iOS/iOS逆向（一）越狱篇/"
+           data-tag="iOS,越狱"
+           data-author="" >
+            <span class="post-title" title="iOS逆向（一）越狱篇">iOS逆向（一）越狱篇</span>
+            <span class="post-date" title="2018-09-13 22:39:01">2018/09/13</span>
+        </a>
+        
+        <a  class="iOS "
+           href="/iOS/iOS逆向（二）工具篇/"
+           data-tag="iOS,逆向,工具"
+           data-author="" >
+            <span class="post-title" title="iOS逆向（二）工具篇">iOS逆向（二）工具篇</span>
+            <span class="post-date" title="2018-09-13 22:39:02">2018/09/13</span>
+        </a>
+        
+        <a  class="iOS "
+           href="/iOS/iOS逆向（三）分析篇/"
+           data-tag="iOS,逆向"
+           data-author="" >
+            <span class="post-title" title="iOS逆向（三）分析篇">iOS逆向（三）分析篇</span>
+            <span class="post-date" title="2018-09-13 22:39:03">2018/09/13</span>
+        </a>
+        
+        <a  class="iOS "
+           href="/iOS/iOS逆向（五）总结篇/"
+           data-tag="iOS,逆向,安全"
+           data-author="" >
+            <span class="post-title" title="iOS逆向（五）总结篇">iOS逆向（五）总结篇</span>
+            <span class="post-date" title="2018-09-13 22:39:05">2018/09/13</span>
+        </a>
+        
+        <a  class="iOS "
+           href="/iOS/iOS逆向（四）实战篇/"
+           data-tag="iOS,逆向"
+           data-author="" >
+            <span class="post-title" title="iOS逆向（四）实战篇">iOS逆向（四）实战篇</span>
+            <span class="post-date" title="2018-09-13 22:39:04">2018/09/13</span>
+        </a>
+        
+        <a  class="后端 "
+           href="/后端/后端服务器概念了解下/"
+           data-tag="CGI,Servlet,容器,Docker"
+           data-author="" >
+            <span class="post-title" title="后端服务器概念了解下">后端服务器概念了解下</span>
+            <span class="post-date" title="2019-02-21 20:30:00">2019/02/21</span>
+        </a>
+        
+        <a  class=""
+           href="/uncategorized/利用Firebase实现的推送功能系统/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="利用Firebase实现的推送功能系统">利用Firebase实现的推送功能系统</span>
+            <span class="post-date" title="2018-01-17 19:33:41">2018/01/17</span>
+        </a>
+        
+        <a  class="管理 "
+           href="/管理/团队管理实践/"
+           data-tag="Manager,Model,Role,Target"
+           data-author="" >
+            <span class="post-title" title="团队管理实践">团队管理实践</span>
+            <span class="post-date" title="2019-02-23 23:50:00">2019/02/23</span>
+        </a>
+        
+        <a  class="iOS "
+           href="/iOS/处理服务端API返回JSON的总结/"
+           data-tag="iOS,JSON,Objective-C"
+           data-author="" >
+            <span class="post-title" title="处理服务端API返回JSON的总结">处理服务端API返回JSON的总结</span>
+            <span class="post-date" title="2018-01-09 14:35:00">2018/01/09</span>
+        </a>
+        
+        <a  class="前端 "
+           href="/前端/搭建Hexo博客/"
+           data-tag="jekyll,github,blog"
+           data-author="" >
+            <span class="post-title" title="搭建Hexo博客">搭建Hexo博客</span>
+            <span class="post-date" title="2017-07-18 21:50:14">2017/07/18</span>
+        </a>
+        
+        <a  class=""
+           href="/uncategorized/搭建Jekins/"
+           data-tag="Jenkins,CI,Test"
+           data-author="" >
+            <span class="post-title" title="搭建Jekins">搭建Jekins</span>
+            <span class="post-date" title="2017-08-26 22:59:36">2017/08/26</span>
+        </a>
+        
+        <a  class="工具 "
+           href="/工具/搭建博客图床/"
+           data-tag="blog"
+           data-author="" >
+            <span class="post-title" title="搭建博客图床">搭建博客图床</span>
+            <span class="post-date" title="2019-03-21 12:39:00">2019/03/21</span>
+        </a>
+        
+        <a  class="后端 "
+           href="/后端/搭建服务器/"
+           data-tag="Ubuntu,服务器,Web App,nginx,supervisor,fabric,python,mysql"
+           data-author="" >
+            <span class="post-title" title="搭建服务器">搭建服务器</span>
+            <span class="post-date" title="2019-04-06 00:00:00">2019/04/06</span>
+        </a>
+        
+        <a  class="设计模式 "
+           href="/设计模式/设计模式（一）策略模式 & 模板方法模式/"
+           data-tag="设计模式"
+           data-author="" >
+            <span class="post-title" title="设计模式（一）策略模式 &amp; 模板方法模式">设计模式（一）策略模式 &amp; 模板方法模式</span>
+            <span class="post-date" title="2019-01-13 23:41:00">2019/01/13</span>
+        </a>
+        
+        <a  class="工具 "
+           href="/工具/效率工具及技巧收录/"
+           data-tag="tool,skill"
+           data-author="" >
+            <span class="post-title" title="效率工具及技巧收录">效率工具及技巧收录</span>
+            <span class="post-date" title="2019-02-23 22:05:00">2019/02/23</span>
+        </a>
+        
+        <a  class="设计模式 "
+           href="/设计模式/设计模式（七）小总结/"
+           data-tag="设计模式"
+           data-author="" >
+            <span class="post-title" title="设计模式（七）小总结">设计模式（七）小总结</span>
+            <span class="post-date" title="2019-02-12 14:45:00">2019/02/12</span>
+        </a>
+        
+        <a  class="设计模式 "
+           href="/设计模式/设计模式（三）适配器模式 & 外观模式/"
+           data-tag="设计模式"
+           data-author="" >
+            <span class="post-title" title="设计模式（三）适配器模式 &amp; 外观模式">设计模式（三）适配器模式 &amp; 外观模式</span>
+            <span class="post-date" title="2019-02-11 15:10:00">2019/02/11</span>
+        </a>
+        
+        <a  class="设计模式 "
+           href="/设计模式/设计模式（二）迭代器模式 & 组合模式/"
+           data-tag="设计模式"
+           data-author="" >
+            <span class="post-title" title="设计模式（二）迭代器模式 &amp; 组合模式">设计模式（二）迭代器模式 &amp; 组合模式</span>
+            <span class="post-date" title="2019-02-11 09:59:00">2019/02/11</span>
+        </a>
+        
+        <a  class="设计模式 "
+           href="/设计模式/设计模式（五）工厂模式 & 装饰者模式/"
+           data-tag="设计模式"
+           data-author="" >
+            <span class="post-title" title="设计模式（五）工厂模式 &amp; 装饰者模式">设计模式（五）工厂模式 &amp; 装饰者模式</span>
+            <span class="post-date" title="2019-02-12 11:54:00">2019/02/12</span>
+        </a>
+        
+        <a  class="设计模式 "
+           href="/设计模式/设计模式（六）命令模式 & 观察者模式/"
+           data-tag="设计模式"
+           data-author="" >
+            <span class="post-title" title="设计模式（六）命令模式 &amp; 观察者模式">设计模式（六）命令模式 &amp; 观察者模式</span>
+            <span class="post-date" title="2019-02-12 14:28:00">2019/02/12</span>
+        </a>
+        
+        <a  class="设计模式 "
+           href="/设计模式/设计模式（四）状态模式 & 代理模式/"
+           data-tag="设计模式"
+           data-author="" >
+            <span class="post-title" title="设计模式（四）状态模式 &amp; 代理模式">设计模式（四）状态模式 &amp; 代理模式</span>
+            <span class="post-date" title="2019-02-12 13:12:00">2019/02/12</span>
+        </a>
+        
+        <a  class="Android "
+           href="/Android/开发一个Android-App/"
+           data-tag="MVP,Adapter,Activity,Fragment,Layout,Res,Realm,AIDL,AsyncTask,Thread,Handler"
+           data-author="" >
+            <span class="post-title" title="开发一个Android App">开发一个Android App</span>
+            <span class="post-date" title="2019-10-05 16:11:04">2019/10/05</span>
+        </a>
+        
+        <a  class="系统 "
+           href="/系统/链接、装载、库/"
+           data-tag="dynamic,link,register,assembly,library,static,memory,runtime,interrupt"
+           data-author="" >
+            <span class="post-title" title="链接、装载、库">链接、装载、库</span>
+            <span class="post-date" title="2019-06-05 08:53:00">2019/06/05</span>
+        </a>
+        
+    </nav>
+</div>
+    </div>
+    <div class="hide-list">
+        <div class="semicircle">
+            <div class="brackets first"><</div>
+            <div class="brackets">&gt;</div>
+        </div>
+    </div>
+</aside>
+<div class="post">
+    <div class="pjax">
+        <article id="post-Bootstrap手册" class="article article-type-post" itemscope itemprop="blogPost">
+    
+        <h1 class="article-title">Bootstrap手册</h1>
+    
+    <div class="article-meta">
+        
+        
+        
+        <span class="book">
+            
+                <a href="javascript:" data-rel="前端">前端</a>
+            
+        </span>
+        
+        
+        <span class="tag">
+            
+            <a href="javascript:" class="color5">html</a>
+            
+            <a href="javascript:" class="color5">bootstrap</a>
+            
+            <a href="javascript:" class="color4">css</a>
+            
+        </span>
+        
+    </div>
+    <div class="article-meta">
+        
+        创建时间:<time class="date" title='更新时间: 2018-09-13 23:21:04'>2018-09-08 23:06</time>
+        
+    </div>
+    <div class="article-meta">
+        
+        
+        <span id="busuanzi_container_page_pv">
+            阅读:<span id="busuanzi_value_page_pv">
+                <span class="count-comment">
+                    <span class="spinner">
+                      <div class="cube1"></div>
+                      <div class="cube2"></div>
+                    </span>
+                </span>
+            </span>
+        </span>
+        
+        
+    </div>
+    
+    <div class="toc-ref">
+    
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#介绍"><span class="toc-text">介绍</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#开发环境"><span class="toc-text">开发环境</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#网格系统"><span class="toc-text">网格系统</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#字体"><span class="toc-text">字体</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#表格"><span class="toc-text">表格</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#图片"><span class="toc-text">图片</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#按钮"><span class="toc-text">按钮</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#表单"><span class="toc-text">表单</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#下拉表单"><span class="toc-text">下拉表单</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#进度条"><span class="toc-text">进度条</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#巨幕"><span class="toc-text">巨幕</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#警告框"><span class="toc-text">警告框</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#嵌井"><span class="toc-text">嵌井</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#标记-标签"><span class="toc-text">标记 标签</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#媒体对象"><span class="toc-text">媒体对象</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#跑马灯"><span class="toc-text">跑马灯</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#模态框"><span class="toc-text">模态框</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#悬浮"><span class="toc-text">悬浮</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#分组按钮"><span class="toc-text">分组按钮</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#列表组"><span class="toc-text">列表组</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#嵌板"><span class="toc-text">嵌板</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#折叠"><span class="toc-text">折叠</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#页标"><span class="toc-text">页标</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#路径导航"><span class="toc-text">路径导航</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#翻页器"><span class="toc-text">翻页器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#导航栏"><span class="toc-text">导航栏</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#滚动"><span class="toc-text">滚动</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#其它"><span class="toc-text">其它</span></a></li></ol>
+    
+<style>
+    .left-col .switch-btn,
+    .left-col .switch-area {
+        display: none;
+    }
+    .toc-level-3 i,
+    .toc-level-3 ol {
+        display: none !important;
+    }
+</style>
+</div>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>Bootstrap是Twitter推出的一个用于前端开发的开源工具包。它由Twitter的设计师Mark Otto和Jacob Thornton合作开发，是一个CSS/HTML/JS框架，用于开发响应式布局、移动设备优先的 WEB 项目。</p>
+<ul>
+<li><p>支持预处理脚本：可以直接使用 Bootstrap 提供的 CSS 样式表，同时 Bootstrap 的源码是基于最流行的 CSS 预处理脚本 - Less 和 Sass 开发的。你可以采用预编译的 CSS 文件快速开发，也可以从源码定制自己需要的样式。</p>
+</li>
+<li><p>一个框架、多种设备：网站和应用能在 Bootstrap 的帮助下通过同一份代码快速、有效适配手机、平板、PC 设备，这一切都是 CSS 媒体查询（Media Query）的功劳。</p>
+</li>
+</ul>
+<p><a href="https://v3.bootcss.com/" target="_blank" rel="noopener">Bootstrap3官网</a></p>
+<a id="more"></a>
+
+<h2 id="开发环境"><a href="#开发环境" class="headerlink" title="开发环境"></a>开发环境</h2><pre><code class="hljs undefined">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+	&lt;head&gt;
+		&lt;meta charset=&quot;utf-8&quot;&gt;
+		&lt;!--Responsive--&gt;
+		&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width,initial-scale=1&quot;&gt;
+		&lt;!--CSS--&gt;
+		&lt;link rel=&quot;stylesheet&quot; href=&quot;https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css&quot;&gt;
+		&lt;!--jQuery--&gt;
+		&lt;script src=&quot;https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js&quot;&gt;&lt;/script&gt;
+		&lt;!--JavaScript--&gt;
+		&lt;script src=&quot;https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js&quot;&gt;&lt;/script&gt;
+	&lt;/head&gt;
+	&lt;body&gt;
+	...
+	&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+
+<h2 id="网格系统"><a href="#网格系统" class="headerlink" title="网格系统"></a>网格系统</h2><p><img src="https://i.loli.net/2018/09/08/5b93f0fe18f84.jpg" alt="image"></p>
+<pre><code class="hljs undefined">&lt;!--
+1.网格系统
+flexbox支持一页12列；大屏幕时横放，小屏幕时竖放；若一行中不足12列，其它列可以扩展宽度；
+包含四种列尺寸：xs=屏宽小于768px(phones)、sm=屏宽大于等于768px(tablets)、md=屏宽大于等于992px(small laptops)、lg=屏宽大于等于1200px(laptops/desktops)
+两种容器类：container=响应式容器，在不同的屏幕宽度下，均有对应的固定尺寸，一般至于最外层做整体布局，有水平滚动条；container-fluid=用于100% 宽度，占据全部视口（viewport）的容器，没有水平滚动条
+div类格式：col-*-#，*=网格种类(尺寸)，#=所占列数
+--&gt;
+&lt;div class=&quot;container&quot;&gt;
+	&lt;div class=&quot;row&quot;&gt;
+		&lt;div class=&quot;col-xs-6&quot;&gt;6 cols&lt;/div&gt;
+		&lt;div class=&quot;col-xs-1&quot;&gt;6 cols&lt;/div&gt;
+	&lt;/div&gt;
+	&lt;div class=&quot;row&quot;&gt;
+		&lt;div class=&quot;col-xs-4&quot;&gt;4 cols&lt;/div&gt;
+		&lt;div class=&quot;col-xs-8&quot;&gt;8 cols&lt;/div&gt;
+	&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+<h2 id="字体"><a href="#字体" class="headerlink" title="字体"></a>字体</h2><p><img src="https://i.loli.net/2018/09/08/5b93f0fea55d3.jpg" alt="image"></p>
+<pre><code class="hljs undefined">&lt;!-- 
+2.字体
+默认字体大小：14px；行高：1.428(&lt;body&gt;或&lt;p&gt;)；底间距：行高的一半或最小10px(&lt;p&gt;)
+&lt;h1&gt;至&lt;h6&gt;是从36px至12px
+&lt;small&gt;更小、更浅的标题
+&lt;mark&gt;浅色的高亮标签
+&lt;abbr&gt;CSS提示信息
+&lt;blockquote&gt;包含&lt;footer&gt;代表引用中的长破折号以及浅色文案，用于引用中最后说明出处，若class=&quot;blockquote-reverse&quot;则标签右对齐
+&lt;dl&gt; &lt;dt&gt; 列出强调的元素
+&lt;code&gt; 高亮代码
+&lt;kbd&gt;高亮键盘字符(黑底框)
+&lt;p&gt;中可使用text-muted、text-primary、text-success、text-info、text-warning、text-danger、bg-primary、bg-success、bg-info、bg-warning、bg-danger设置文字颜色和背景颜色，也可以使用text-left、text-justify、text-center、ext-nowrap、text-right对齐文字
+--&gt;
+&lt;div class=&quot;container&quot;&gt;
+	&lt;h3&gt;Miscellaneous&lt;small&gt;stuff&lt;/small&gt;&lt;/h3&gt;
+	&lt;p class=&quot;bg-info&quot;&gt;The Gutenberg Press 1454&lt;/p&gt;
+	&lt;p class=&quot;text-success&quot;&gt;revolutionized printing&lt;/p&gt;
+	&lt;blockquote&gt;
+		&lt;p&gt;The only source of knowledge is experience.&lt;/p&gt;
+		&lt;footer&gt;Albert Einstein&lt;/footer&gt;
+	&lt;/blockquote&gt;
+	&lt;p&gt;&lt;kbd&gt;Enter&lt;/kbd&gt; is a &lt;code&gt;kbd&lt;/code&gt; element&lt;/p&gt;
+	&lt;p class=&quot;bg-warning text-center&quot;&gt;Paragraph formats&lt;/p&gt;
+&lt;/div&gt;</code></pre>
+
+<h2 id="表格"><a href="#表格" class="headerlink" title="表格"></a>表格</h2><p><img src="https://i.loli.net/2018/09/08/5b93f0febc604.jpg" alt="image"></p>
+<pre><code class="hljs undefined">&lt;!--
+3.表格
+table-border=所有边有边框
+table-condensed=压缩列表，缩减单元格的内边距
+table-striped=交替的行阴影(像斑马条纹)
+table-hover=在每行的周边添加灰色背景
+table-responsive=创建响应式表格，当设备屏宽小于768px时表格会变为横向滑动
+--&gt;
+&lt;div class=&quot;container table-responsive&quot;&gt;
+	&lt;table class=&quot;table table-striped&quot;&gt;
+		&lt;thead&gt;
+			&lt;tr&gt;
+				&lt;th&gt;Column 1&lt;/th&gt;
+				&lt;th&gt;Column 2&lt;/th&gt;
+				&lt;th&gt;Column 3&lt;/th&gt;
+				&lt;th&gt;Column 4&lt;/th&gt;
+				&lt;th&gt;Column 5&lt;/th&gt;
+				&lt;th&gt;Column 7&lt;/th&gt;
+				&lt;th&gt;Column 8&lt;/th&gt;
+			&lt;/tr&gt;
+		&lt;/thead&gt;
+		&lt;tbody&gt;
+			&lt;tr&gt;
+				&lt;td&gt;1&lt;/td&gt;
+				&lt;td&gt;2&lt;/td&gt;
+				&lt;td&gt;3&lt;/td&gt;
+				&lt;td&gt;4&lt;/td&gt;
+				&lt;td&gt;5&lt;/td&gt;
+				&lt;td&gt;6&lt;/td&gt;
+				&lt;td&gt;7&lt;/td&gt;
+				&lt;td&gt;8&lt;/td&gt;
+			&lt;/tr&gt;
+			&lt;tr&gt;
+				&lt;td&gt;1&lt;/td&gt;
+				&lt;td&gt;2&lt;/td&gt;
+				&lt;td&gt;3&lt;/td&gt;
+				&lt;td&gt;4&lt;/td&gt;
+				&lt;td&gt;5&lt;/td&gt;
+				&lt;td&gt;6&lt;/td&gt;
+				&lt;td&gt;7&lt;/td&gt;
+				&lt;td&gt;8&lt;/td&gt;
+			&lt;/tr&gt;
+		&lt;/tbody&gt;
+	&lt;/table&gt;
+&lt;/div&gt;</code></pre>
+
+<h2 id="图片"><a href="#图片" class="headerlink" title="图片"></a>图片</h2><p><img src="https://i.loli.net/2018/09/08/5b93f0fed0131.jpg" alt="image"></p>
+<pre><code class="hljs undefined">&lt;!--
+4.图片
+img-rounded=圆角图
+img-circle=圆形图
+img-thumbnail=极小图(自带自适应屏宽特性)
+img-responsive=创建响应式表格，当设备屏宽小于768px时图片自动调整尺寸适配屏幕大小
+--&gt;
+&lt;div class=&quot;container&quot;&gt;
+	&lt;img src=&quot;http://images.freeimages.com/images/large-previews/b3d/flowers-1375316.jpg&quot; width=&quot;200&quot; height=&quot;200&quot; class=&quot;img-rounded img-responsive&quot;/&gt;&lt;br&gt;&lt;br&gt;
+	&lt;img src=&quot;http://images.freeimages.com/images/large-previews/b3d/flowers-1375316.jpg&quot; width=&quot;200&quot; height=&quot;200&quot; class=&quot;img-circle&quot;/&gt;&lt;br&gt;&lt;br&gt;
+	&lt;img src=&quot;http://images.freeimages.com/images/large-previews/b3d/flowers-1375316.jpg&quot; width=&quot;200&quot; height=&quot;200&quot; class=&quot;img-thumbnail&quot;/&gt;
+&lt;/div&gt;</code></pre>
+
+<h2 id="按钮"><a href="#按钮" class="headerlink" title="按钮"></a>按钮</h2><p><img src="https://i.loli.net/2018/09/08/5b93f0ff212ed.jpg" alt="image"></p>
+<pre><code class="hljs undefined">&lt;!--
+5.按钮
+button该class可以用在&lt;button&gt;、&lt;a&gt;、&lt;input&gt;元素上
+可用种类：
+btn-default、btn-primary、btn-success、btn-warning、btn-danger、btn-info、btn-link（以上其实与文字的种类类似，主要设置颜色特性）；
+btn-xs、btn-sm、btn-md、btn-lg（以上与网格列宽特性类似，设置按钮大小特性）；
+active=可用（与其它种类配套使用，像 class=&quot;btn-default btn-xs active&quot;）
+disabled=不可用
+btn-block=与父容器宽一致。
+--&gt;
+&lt;div class=&quot;container&quot;&gt;
+	&lt;button type=&quot;button&quot; class=&quot;btn&quot;&gt;Basic&lt;/button&gt;
+	&lt;button type=&quot;button&quot; class=&quot;btn btn-default&quot;&gt;Default&lt;/button&gt;
+	&lt;button type=&quot;button&quot; class=&quot;btn btn-primary&quot;&gt;Primary&lt;/button&gt;
+	&lt;button type=&quot;button&quot; class=&quot;btn btn-success&quot;&gt;Success&lt;/button&gt;
+	&lt;button type=&quot;button&quot; class=&quot;btn btn-warning&quot;&gt;Warning&lt;/button&gt;
+	&lt;button type=&quot;button&quot; class=&quot;btn btn-danger&quot;&gt;Danger&lt;/button&gt;
+	&lt;button type=&quot;button&quot; class=&quot;btn btn-info&quot;&gt;Info&lt;/button&gt;
+	&lt;button type=&quot;button&quot; class=&quot;btn btn-link&quot;&gt;Link&lt;/button&gt;
+
+	&lt;button type=&quot;button&quot; class=&quot;btn btn-xs&quot;&gt;Extra Small&lt;/button&gt;
+	&lt;button type=&quot;button&quot; class=&quot;btn btn-sm&quot;&gt;Small&lt;/button&gt;
+	&lt;button type=&quot;button&quot; class=&quot;btn btn-md&quot;&gt;Medium&lt;/button&gt;
+	&lt;button type=&quot;button&quot; class=&quot;btn btn-lg&quot;&gt;Large&lt;/button&gt;
+
+	&lt;button type=&quot;button&quot; class=&quot;btn active&quot;&gt;Active&lt;/button&gt;
+	&lt;button type=&quot;button&quot; class=&quot;btn disabled&quot;&gt;Disabled&lt;/button&gt;
+	&lt;button type=&quot;button&quot; class=&quot;btn btn-block&quot;&gt;Block&lt;/button&gt;
+
+	&lt;button type=&quot;button&quot; class=&quot;btn btn-success btn-xs active btn-block&quot;&gt;Combine&lt;/button&gt;
+&lt;/div&gt;</code></pre>
+
+<h2 id="表单"><a href="#表单" class="headerlink" title="表单"></a>表单</h2><p><img src="https://i.loli.net/2018/09/08/5b93f0ff1f36d.jpg" alt="image"></p>
+<pre><code class="hljs undefined">&lt;!--
+6.表单
+* 表单用于接收输入，可以包括多行文本输入、选择性列表、单选按钮、多选框。默认都是垂直布局。
+* 用&lt;form&gt;包裹整个表单。
+* 用form-group类的&lt;div&gt;包裹普通输入&lt;input&gt;，文本输入&lt;textarea&gt;，选择列表&lt;radio&gt;或&lt;checkbox&gt;。
+* 文本类输入需使用form-control类(&lt;textarea&gt;是用其作为type)。
+* 可以将&lt;input&gt;放入&lt;label&gt;来创建一个多选或单选按钮，可各自放到checkbox类或radio类的&lt;div&gt;里，组成一个列表。
+* 要在单行中显示多选或单选按钮组，则不能使用&lt;div&gt;包括选项按钮，并且要增加checkbox-inline类或radio-inline类到所有行内的label元素上。
+* Bootstrap支持HTML5的输入type，包括：email、text、password、datetime、datetime-local、date、month、time、week、number、url、search、tel、color。
+* &lt;form&gt;可以使用form-line类来使所有form内的元素在单行显示，单行显示的form会在屏宽少于768px时转换为竖表形式。
+--&gt;
+&lt;div class=&quot;container&quot;&gt;
+	&lt;form&gt;
+		&lt;div class=&quot;form-group&quot;&gt;
+			&lt;label for=&quot;email&quot;&gt;Email:&lt;/label&gt;
+			&lt;input type=&quot;email&quot; class=&quot;form-control&quot; id=&quot;email&quot;&gt;
+		&lt;/div&gt;
+		&lt;div class=&quot;form-group&quot;&gt;
+			&lt;label for=&quot;info&quot;&gt;Info:&lt;/label&gt;
+			&lt;textarea type=&quot;form-control&quot; rows=&quot;3&quot; id=&quot;info&quot;&gt;&lt;/textarea&gt;
+		&lt;/div&gt;
+		&lt;div class=&quot;form-group&quot;&gt;
+			&lt;label for=&quot;sellist&quot;&gt;Select One&lt;/label&gt;
+			&lt;select class=&quot;form-control&quot; id=&quot;sellist&quot;&gt;
+				&lt;option&gt;A&lt;/option&gt;
+				&lt;option&gt;B&lt;/option&gt;
+			&lt;/select&gt;
+		&lt;/div&gt;
+		&lt;label class=&quot;radio-inline&quot;&gt;&lt;input type=&quot;radio&quot; name=&quot;rb&quot;&gt;Radio 1&lt;/label&gt;
+		&lt;label class=&quot;radio-inline&quot;&gt;&lt;input type=&quot;radio&quot; name=&quot;rb&quot;&gt;Radio 2&lt;/label&gt;
+		&lt;div class=&quot;checkbox&quot;&gt;
+			&lt;label&gt;&lt;input type=&quot;checkbox&quot;&gt;Checkbox 1&lt;/label&gt;
+			&lt;label&gt;&lt;input type=&quot;checkbox&quot;&gt;Checkbox 2&lt;/label&gt;
+		&lt;/div&gt;
+	&lt;/form&gt;	
+&lt;/div&gt;</code></pre>
+
+<h2 id="下拉表单"><a href="#下拉表单" class="headerlink" title="下拉表单"></a>下拉表单</h2><p><img src="https://i.loli.net/2018/09/08/5b93f0ff301f9.jpg" alt="image"></p>
+<pre><code class="hljs undefined">&lt;!--
+7.下拉表单
+* 将一个触发按钮和选项列表包裹在dropdown类的&lt;div&gt;内；
+* 触发按钮要设置为dropdown-toggle类（可搭配其它类设置样式），以及data-toggle属性为dropdown；
+* 在触发按钮里还需创建一个&lt;span&gt;元素，设其为caret类，让按钮右侧带有导三角指示符；
+* 创建类属性为dropdown-menu的ul列表元素；
+* 在ul列表中还是可以通过divider类和dropdown-header类的&lt;li&gt;做列表中的分隔线和分隔标题，还有active和disabled类，可对选项设置可用性。
+--&gt;
+&lt;div class=&quot;container&quot;&gt;
+	&lt;div class=&quot;dropdown&quot;&gt;
+		&lt;button class=&quot;btn btn-primary dropdown-toggle&quot; data-toggle=&quot;dropdown&quot;&gt;
+			Languages
+			&lt;span class=&quot;caret&quot;&gt;&lt;/span&gt;
+		&lt;/button&gt;
+		&lt;ul class=&quot;dropdown-menu&quot;&gt;
+			&lt;li&gt;English&lt;/li&gt;
+			&lt;li&gt;Spanish&lt;/li&gt;
+			&lt;li class=&quot;divider&quot;&gt;&lt;/li&gt;
+			&lt;li class=&quot;dropdown-header&quot;&gt;Coding&lt;/li&gt;
+			&lt;li&gt;C++&lt;/li&gt;
+			&lt;li&gt;Java&lt;/li&gt;
+		&lt;/ul&gt;
+	&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+<h2 id="进度条"><a href="#进度条" class="headerlink" title="进度条"></a>进度条</h2><p><img src="https://i.loli.net/2018/09/08/5b93f0ff3c747.jpg" alt="image"></p>
+<pre><code class="hljs undefined">&lt;!--
+8.进度条
+* 将progress-bar类的&lt;div&gt;放在progress类的&lt;div&gt;里，progress类的&lt;div&gt;相当于进度条的外框，默认总长是100%，progress-bar类的&lt;div&gt;相当于进度条内的一个进度对象，可放入多个进度对象，会在进度条框中堆叠；
+* progress-bar类的&lt;div&gt;还需设置role属性为progressbar，设置style属性的宽度为当前进度的百分比；
+* progress-bar类的&lt;div&gt;还可设置普通的HTML进度条属性value、min、max，分别对应aria-valuenow、aria-valuemin、aria-valuemax，均为可选的属性;
+* 额外的样式还包括：progress-bar-info、progress-bar-success、progress-bar-warning、progress-bar-danger、progress-bar-striped；
+--&gt;
+&lt;div class=&quot;container&quot;&gt;
+	&lt;div class=&quot;progress&quot;&gt;
+		&lt;div class=&quot;progress-bar&quot; role=&quot;progressbar&quot; aria-valuenow=&quot;59&quot; aria-valuemin=&quot;0&quot; aria-valuemax=&quot;100&quot; style=&quot;width: 59%&quot;&gt;	59% Complete!
+		&lt;/div&gt;
+	&lt;/div&gt;
+	&lt;div class=&quot;progress&quot;&gt;
+		&lt;div class=&quot;progress-bar progress-bar-success&quot; role=&quot;progressbar&quot; style=&quot;width: 50%&quot;&gt;50&lt;/div&gt;
+		&lt;div class=&quot;progress-bar progress-bar-warning&quot; role=&quot;progressbar&quot; style=&quot;width: 20%&quot;&gt;25&lt;/div&gt;
+		&lt;div class=&quot;progress-bar progress-bar-danger&quot; role=&quot;progressbar&quot; style=&quot;width: 10%&quot;&gt;10&lt;/div&gt;
+	&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+<h2 id="巨幕"><a href="#巨幕" class="headerlink" title="巨幕"></a>巨幕</h2><p><img src="https://i.loli.net/2018/09/08/5b93f0ffa1b85.jpg" alt="image"></p>
+<pre><code class="hljs undefined">&lt;!--
+9.超大屏
+一个圆角的灰色大框；区分开当前页面的其它元素，突出显示；框内的文本也会被放大；若放到container之外，会扩展到屏幕的各个边界。
+--&gt;
+&lt;div class=&quot;container&quot;&gt;
+	&lt;div class=&quot;jumbotron&quot;&gt;
+		&lt;h1&gt;SoloLearn&lt;/h1&gt;
+		&lt;p&gt;Learn to code for FREE!&lt;/p&gt;
+	&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+<h2 id="警告框"><a href="#警告框" class="headerlink" title="警告框"></a>警告框</h2><p><img src="https://i.loli.net/2018/09/08/5b93f0ffe86ba.jpg" alt="image"></p>
+<pre><code class="hljs undefined">&lt;!--
+10.警告框
+* 警告框必须使用以下样式中的其中一个指定:alert-info、alert-success、alert-warning、alert-danger;
+* 若需要alert是可消失的，需对类型属性添加alert-dismissable类，然后在alert中的&lt;link&gt;或&lt;button&gt;中添加class=&quot;close&quot;和data-dismiss=&quot;alert&quot;，使其触发能同时关闭alert；
+--&gt;
+&lt;div class=&quot;container&quot;&gt;
+	&lt;div class=&quot;alert alert-success&quot;&gt;Success Alert!&lt;/div&gt;
+	&lt;div class=&quot;alert alert-warning&quot;&gt;Warning Alert!&lt;/div&gt;
+	&lt;div class=&quot;alert alert-danger&quot;&gt;Danger Alert!&lt;/div&gt;
+	&lt;div class=&quot;alert alert-info alert-dismissable&quot;&gt;
+		&lt;a class=&quot;close&quot; data-dismiss=&quot;alert&quot; href=&quot;#&quot;&gt;Close&lt;/a&gt;
+		Information Alert!
+	&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+<h2 id="嵌井"><a href="#嵌井" class="headerlink" title="嵌井"></a>嵌井</h2><p><img src="https://i.loli.net/2018/09/08/5b93f12df3f07.jpg" alt="image"></p>
+<pre><code class="hljs undefined">&lt;!--
+11.嵌井
+一个圆角的灰色框，可以通过指定类控制其显示尺寸：well-sm、well-lg;
+通常用于给元素一个嵌入的简单效果。
+--&gt;
+&lt;div class=&quot;container&quot;&gt;
+	&lt;div class=&quot;well well-sm&quot;&gt;Small well&lt;/div&gt;
+	&lt;div class=&quot;well&quot;&gt;Normal well&lt;/div&gt;
+	&lt;div class=&quot;well well-lg&quot;&gt;Large well&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+<h2 id="标记-标签"><a href="#标记-标签" class="headerlink" title="标记 标签"></a>标记 标签</h2><p><img src="https://i.loli.net/2018/09/08/5b93f12e11c8f.jpg" alt="image"></p>
+<pre><code class="hljs undefined">&lt;!--
+12.标记 标签
+* 标记badge类可以给一个元素附上数值显示;
+* 标签label类可以给一个元素附上其它信息显示，且必须指定其中一个样式：label-default、label-primary、label-info、label-success、label-warning、label-danger；
+* 以上均使用span附加（放入）到要附加显示的元素上
+--&gt;
+&lt;div class=&quot;container&quot;&gt;
+	&lt;button class=&quot;btn&quot;&gt;
+		Click&lt;span class=&quot;badge&quot;&gt;59&lt;/span&gt;
+	&lt;/button&gt;
+	&lt;p&gt;
+		Paragraph
+		&lt;span class=&quot;label label-primary&quot;&gt;Label&lt;/span&gt;
+	&lt;/p&gt;
+	&lt;p&gt;
+		Paragraph
+		&lt;span class=&quot;label label-info&quot;&gt;Label&lt;/span&gt;
+	&lt;/p&gt;
+&lt;/div&gt;</code></pre>
+
+<h2 id="媒体对象"><a href="#媒体对象" class="headerlink" title="媒体对象"></a>媒体对象</h2><p><img src="https://i.loli.net/2018/09/08/5b93f12e4238f.jpg" alt="image"></p>
+<pre><code class="hljs undefined">&lt;!--
+13.媒体对象
+* 为便于对齐媒体对象
+* 使用media类的&lt;div&gt;包裹所有要对齐的所有内容；
+* 使用类media-left、media-right、media-top、media-middle、media-bottom(后三者一般用于当内容很大的情况)的&lt;div&gt;来包裹要对齐媒体标签，媒体标签的类且需为media-object；
+* 内容需要使用media-body类的&lt;div&gt;包裹；
+* 内容中的标题可以使用media-heading类设定；
+* 需要注意包裹内容和媒体的&lt;div&gt;顺序，根据其所设定的位置。
+--&gt;
+&lt;div class=&quot;container&quot;&gt;
+	&lt;div class=&quot;media&quot;&gt;
+		&lt;div class=&quot;media-left&quot;&gt;
+			&lt;img src=&quot;http://www.sololearn.com/images/fb-story-icon.jpg&quot; width=&quot;40&quot; height=&quot;40&quot; class=&quot;media-object&quot;&gt;
+		&lt;/div&gt;
+		&lt;div class=&quot;media-body&quot;&gt;
+			&lt;h4 class=&quot;media-heading&quot;&gt;SoloLearn&lt;/h4&gt;
+			Let&apos;s Collaborate!
+		&lt;/div&gt;
+	&lt;/div&gt;
+
+	&lt;div class=&quot;media&quot;&gt;
+		&lt;div class=&quot;media-body&quot;&gt;
+			&lt;h4 class=&quot;media-heading&quot;&gt;FreeCodeCamp&lt;/h4&gt;
+			Let&apos;s Collaborate!
+		&lt;/div&gt;
+		&lt;div class=&quot;media-right&quot;&gt;
+			&lt;img src=&quot;http://avatars3.githubusercontent.com/u/9892522&quot; width=&quot;40&quot; height=&quot;40&quot; class=&quot;media-object&quot;&gt;
+		&lt;/div&gt;
+	&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+<h2 id="跑马灯"><a href="#跑马灯" class="headerlink" title="跑马灯"></a>跑马灯</h2><p><img src="https://i.loli.net/2018/09/08/5b93f13122b83.jpg" alt="image"></p>
+<pre><code class="hljs undefined">&lt;!--
+14.跑马灯
+* 默认样式中，有小圆形的指示器标出各滑块的序号、当前激活的滑块；可手工来回切换幻灯片；
+* 用自定义id的&lt;div&gt;包裹所有跑马灯内容，&lt;div&gt;的类属性需要指定为carousel(可配合指定为slide，会带有过渡动画)，然后还要指定data-ride属性标记轮播在页面加载时就开始动画播放；
+* 在上述div里的外层内容，会包括指示器、媒体内容、控制器；
+* 指示器使用类carousel-indicators的&lt;ol&gt;实现，里面的每一项&lt;li&gt;都需要有属性data-target指向跑马灯div的id，和属性data-slide-to指出点击时显示哪个对应的滑块；
+* 媒体内容用carousel-inner类的div包裹，然后将不同的媒体用item类的div分离，同时指定active类表明当前显示的媒体；
+* item类div里除了包裹媒体，还包裹carousel-caption类的div，承载当前媒体滑块外的额外内容，item在carousel-inner类的div里是位于中下方；
+* 在carousel-inner类div里，也可以添加另外的&lt;a&gt;控件来控制切换，类属性设置为carousel-control(一般配合left或right类定控件在当前跑马灯上的位置)，href要指向跑马灯的id，同时要设置一个data-slide属性prev或next指定触发切换的向前一页还是向后一页。控件中可以指定指示图标&lt;span&gt;，默认可直接点击控件的阴影范围触发；
+* glyphicon来自于Glyphicon Halfings，Carousel是一个插件，在Bootstrap的JS文件中。
+--&gt;
+&lt;div class=&quot;container&quot;&gt;
+	&lt;div id=&quot;logoCarousel&quot; class=&quot;carousel&quot; data-ride=&quot;carousel&quot;&gt;
+		&lt;ol class=&quot;carousel-indicators black&quot;&gt;
+			&lt;li data-target=&quot;#logoCarousel&quot; data-slide-to=&quot;0&quot; class=&quot;active&quot;&gt;&lt;/li&gt;
+			&lt;li data-target=&quot;#logoCarousel&quot; data-slide-to=&quot;1&quot;&gt;&lt;/li&gt;
+		&lt;/ol&gt;
+	
+		&lt;div class=&quot;carousel-inner&quot;&gt;
+			&lt;div class=&quot;item active&quot;&gt;
+				&lt;img src=&quot;https://images.freeimages.com/images/large-previews/9fc/yet-another-flower-1399208.jpg&quot; style=&quot;width: 100%&quot;&gt;
+				&lt;div class=&quot;carousel-caption&quot;&gt;
+					&lt;h3&gt;Caption 1&lt;/h3&gt;
+				&lt;/div&gt;
+			&lt;/div&gt;
+			&lt;div class=&quot;item&quot;&gt;
+				&lt;img src=&quot;https://images.freeimages.com/images/large-previews/b3d/flowers-1375316.jpg&quot; style=&quot;width: 100%&quot;&gt;
+				&lt;div class=&quot;carousel-caption&quot;&gt;
+					&lt;h3&gt;Caption 2&lt;/h3&gt;
+				&lt;/div&gt;
+			&lt;/div&gt;
+			&lt;a class=&quot;left carousel-control&quot; href=&quot;#logoCarousel&quot; data-slide=&quot;prev&quot;&gt;
+				&lt;span class=&quot;glyphicon glyphicon-chevron-left&quot;&gt;&lt;/span&gt;
+			&lt;/a&gt;
+			&lt;a class=&quot;right carousel-control&quot; href=&quot;#logoCarousel&quot; data-slide=&quot;next&quot;&gt;
+				&lt;span class=&quot;glyphicon glyphicon-chevron-right&quot;&gt;&lt;/span&gt;
+			&lt;/a&gt;
+		&lt;/div&gt;
+	&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+<h2 id="模态框"><a href="#模态框" class="headerlink" title="模态框"></a>模态框</h2><p><img src="https://i.loli.net/2018/09/08/5b93f1318579a.jpg" alt="image"></p>
+<pre><code class="hljs undefined">&lt;!--
+15.模态框
+弹出一个显示在当前页面顶部对话窗/框，是一个插件。
+通过指定按钮button的data-toogle属性为modal，data-target属性为modal类的div的id，那么按钮点击时就能触发出该modal类div的模态对象；
+* 模态对象中包裹模态对话框modal-dialog；
+* 模态框中包裹模态内容modal-content；
+* 模态内容可包括：modal-header(可在其中包含modal-title)、modal-boody、mode-footer，来指定模态窗中的不同部位内容;
+* 可以指定关闭模态框的按钮，按钮需要设定属性data-dismiss=&quot;modal&quot;才能在触发按钮时关闭模态框。
+--&gt;
+&lt;div class=&quot;container&quot;&gt;
+	&lt;button type=&quot;button&quot; data-toggle=&quot;modal&quot; data-target=&quot;#myModal&quot;&gt;Open Modal&lt;/button&gt;
+	&lt;div id=&quot;myModal&quot; class=&quot;modal&quot;&gt;
+		&lt;div class=&quot;modal-dialog&quot;&gt;
+			&lt;div class=&quot;modal-content&quot;&gt;
+				&lt;div class=&quot;modal-header&quot;&gt;
+					&lt;h3 class=&quot;modal-title&quot;&gt;Header&lt;/h3&gt;
+					&lt;button data-dismiss=&quot;modal&quot;&gt;X&lt;/button&gt;
+				&lt;/div&gt;
+				&lt;div class=&quot;modal-body&quot;&gt;Body&lt;/div&gt;
+				&lt;div class=&quot;modal-footer&quot;&gt;Footer&lt;/div&gt;
+			&lt;/div&gt;
+		&lt;/div&gt;
+	&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+<h2 id="悬浮"><a href="#悬浮" class="headerlink" title="悬浮"></a>悬浮</h2><p><img src="https://i.loli.net/2018/09/09/5b93f80aa3d0a.jpg" alt="image"></p>
+<pre><code class="hljs undefined">&lt;!--
+16.悬浮
+将一个元素贴在页面的一个区域上，滚动页面时该悬浮元素保持固定在这个指定区域不动。
+（放在该位置上可能因跑马灯的缘故无法显示，放置到页面初始显示的位置时能正常悬浮显示）
+--&gt;
+&lt;div class=&quot;container&quot;&gt;
+	&lt;div id=&quot;affixed&quot; data-spy=&quot;affix&quot;&gt;Affix&lt;/div&gt;
+	&lt;div class=&quot;jumbotron&quot;&gt;Content for Scrolling&lt;/div&gt;
+	&lt;div class=&quot;jumbotron&quot;&gt;Content for Scrolling&lt;/div&gt;
+	&lt;div class=&quot;jumbotron&quot;&gt;Content for Scrolling&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+<h2 id="分组按钮"><a href="#分组按钮" class="headerlink" title="分组按钮"></a>分组按钮</h2><p><img src="https://i.loli.net/2018/09/08/5b93f1321e65d.jpg" alt="image"></p>
+<pre><code class="hljs undefined">&lt;!--
+17.分组按钮
+btn-group类的div为默认横排按钮组，btn-group-vertical为竖排。
+按钮组的尺寸可以使用类指定包括btn-group-xs、btn-group-sm、btn-group-lg。
+btn-group-justified类可使按钮组宽度根据屏宽适配。
+--&gt;
+&lt;div class=&quot;container&quot;&gt;
+	&lt;div class=&quot;btn-group btn-group-xs&quot;&gt;
+		&lt;button class=&quot;btn btn-success&quot;&gt;h1&lt;/button&gt;
+		&lt;button class=&quot;btn btn-warning&quot;&gt;h2&lt;/button&gt;
+		&lt;button class=&quot;btn btn-danger&quot;&gt;h3&lt;/button&gt;
+	&lt;/div&gt;
+	&lt;br&gt;&lt;br&gt;
+	&lt;div class=&quot;btn-group-vertical&quot;&gt;
+		&lt;button class=&quot;btn btn-success&quot;&gt;v1&lt;/button&gt;
+		&lt;button class=&quot;btn btn-warning&quot;&gt;v2&lt;/button&gt;
+		&lt;button class=&quot;btn btn-danger&quot;&gt;v3&lt;/button&gt;
+	&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+<h2 id="列表组"><a href="#列表组" class="headerlink" title="列表组"></a>列表组</h2><p><img src="https://i.loli.net/2018/09/08/5b93f132338a4.jpg" alt="image"></p>
+<pre><code class="hljs undefined">&lt;!--
+18.列表组
+* 对&lt;ul&gt;的类属性指定为list-group，对&lt;li&gt;的类属性指定为list-group-item；
+* 可继续对&lt;li&gt;指定类属性为active或disabled；
+* 样式可以继续使用以下类设置：list-group-item-success、list-group-item-info、list-group-item-warning、list-group-item-danger;
+* 也可以使用div或a组成列表组，不局限于ul和li。
+--&gt;
+&lt;div class=&quot;container&quot;&gt;
+	&lt;ul class=&quot;list-group&quot;&gt;
+		&lt;li class=&quot;list-group-item active&quot;&gt;HTML&lt;/li&gt;
+		&lt;li class=&quot;list-group-item disabled&quot;&gt;CSS&lt;/li&gt;
+		&lt;li class=&quot;list-group-item list-group-item-success&quot;&gt;JS&lt;/li&gt;
+	&lt;/ul&gt;
+&lt;/div&gt;</code></pre>
+
+<h2 id="嵌板"><a href="#嵌板" class="headerlink" title="嵌板"></a>嵌板</h2><p><img src="https://i.loli.net/2018/09/08/5b93f1326a463.jpg" alt="image"><br><img src="https://i.loli.net/2018/09/08/5b93f1329e272.jpg" alt="image"></p>
+<pre><code class="hljs undefined">&lt;!--
+19.嵌板
+* 镶边框，先用panel类的div包裹一层，同时有以下种类可以设样式：panel-default、panel-primary、panel-success、panel-info、panel-warning、panel-danger；
+* 然后用以下类添加第二层div：panel-heading、panel-body、panel-footer；
+* 可以用panel-group类的div组织起panel类的div。
+--&gt;
+&lt;div class=&quot;container&quot;&gt;
+	&lt;div class=&quot;panel panel-success&quot;&gt;
+		&lt;div class=&quot;panel-heading&quot;&gt;Head&lt;/div&gt;
+		&lt;div class=&quot;panel-body&quot;&gt;Body&lt;/div&gt;
+		&lt;div class=&quot;panel-footer&quot;&gt;Foot&lt;/div&gt;
+	&lt;/div&gt;
+	&lt;div class=&quot;panel panel-danger&quot;&gt;
+		&lt;div class=&quot;panel-heading&quot;&gt;Head&lt;/div&gt;
+		&lt;div class=&quot;panel-body&quot;&gt;Body&lt;/div&gt;
+		&lt;div class=&quot;panel-footer&quot;&gt;Foot&lt;/div&gt;
+	&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+<h2 id="折叠"><a href="#折叠" class="headerlink" title="折叠"></a>折叠</h2><p><img src="https://i.loli.net/2018/09/08/5b93f132ae6ec.jpg" alt="image"></p>
+<pre><code class="hljs undefined">&lt;!--
+20.折叠
+收纳或显示大量的内容，通过按钮触发
+--&gt;
+&lt;div class=&quot;container&quot;&gt;
+	&lt;button data-toggle=&quot;collapse&quot; data-target=&quot;#myCollapsible&quot; class=&quot;btn btn-warning&quot;&gt;Show/Hide&lt;/button&gt;
+	&lt;div id=&quot;myCollapsible&quot; class=&quot;collapse&quot;&gt;Bootstrap Collapsibel&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+<h2 id="页标"><a href="#页标" class="headerlink" title="页标"></a>页标</h2><p><img src="https://i.loli.net/2018/09/08/5b93f152ee553.jpg" alt="image"></p>
+<pre><code class="hljs undefined">&lt;!--
+21.页标
+尺寸大小可以使用这些类控制：pagination-sm、pagination-lg
+--&gt;
+&lt;div class=&quot;container&quot;&gt;
+	&lt;ul class=&quot;pagination&quot;&gt;
+		&lt;li&gt;&lt;a href=&quot;#&quot;&gt;1&lt;/a&gt;&lt;/li&gt;
+		&lt;li class=&quot;disabled&quot;&gt;&lt;a href=&quot;#&quot;&gt;2&lt;/a&gt;&lt;/li&gt;
+		&lt;li class=&quot;active&quot;&gt;&lt;a href=&quot;#&quot;&gt;3&lt;/a&gt;&lt;/li&gt;
+		&lt;li&gt;&lt;a href=&quot;#&quot;&gt;4&lt;/a&gt;&lt;/li&gt;
+	&lt;/ul&gt;
+&lt;/div&gt;</code></pre>
+
+<h2 id="路径导航"><a href="#路径导航" class="headerlink" title="路径导航"></a>路径导航</h2><p><img src="https://i.loli.net/2018/09/08/5b93f15363bae.jpg" alt="image"></p>
+<pre><code class="hljs undefined">&lt;!--
+22.痕迹导航
+作为分层导航表单的一种页标，即是导航的路径
+--&gt;
+&lt;div class=&quot;container&quot;&gt;
+	&lt;ul class=&quot;breadcrumb&quot;&gt;
+		&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Languages&lt;/a&gt;&lt;/li&gt;
+		&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Programming&lt;/a&gt;&lt;/li&gt;
+		&lt;li&gt;&lt;a href=&quot;#&quot;&gt;C&lt;/a&gt;&lt;/li&gt;
+		&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Intro&lt;/a&gt;&lt;/li&gt;
+	&lt;/ul&gt;
+&lt;/div&gt;</code></pre>
+
+<h2 id="翻页器"><a href="#翻页器" class="headerlink" title="翻页器"></a>翻页器</h2><p><img src="https://i.loli.net/2018/09/08/5b93f1537027f.jpg" alt="image"></p>
+<pre><code class="hljs undefined">&lt;!--
+23.翻页器
+* 上一页、下一页；
+* 若要分别将上一页和下一页按钮放在屏幕左边和右边，给li的类属性设为对应的previous和next。
+--&gt;
+&lt;div class=&quot;container&quot;&gt;
+	&lt;ul class=&quot;pager&quot;&gt;
+		&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Previous&lt;/a&gt;&lt;/li&gt;
+		&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Next&lt;/a&gt;&lt;/li&gt;
+	&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class=&quot;container&quot;&gt;
+	&lt;ul class=&quot;pager&quot;&gt;
+		&lt;li class=&quot;previous&quot;&gt;&lt;a href=&quot;#&quot;&gt;Previous&lt;/a&gt;&lt;/li&gt;
+		&lt;li class=&quot;next&quot;&gt;&lt;a href=&quot;#&quot;&gt;Next&lt;/a&gt;&lt;/li&gt;
+	&lt;/ul&gt;
+&lt;/div&gt;</code></pre>
+
+<h2 id="导航栏"><a href="#导航栏" class="headerlink" title="导航栏"></a>导航栏</h2><p><img src="https://i.loli.net/2018/09/08/5b93f1537d14e.jpg" alt="image"></p>
+<pre><code class="hljs undefined">&lt;!--
+24.导航栏
+* 使用&lt;nav&gt;标签，并设置类属性为navbar和navbar-default/navbar-inverse（即默认或倒置样式）；
+* 在&lt;nav&gt;里创建类属性为navbar-header的&lt;div&gt;，并在其中创建类属性为navbar-brand的&lt;a&gt;元素作为主要的头项；
+* 在&lt;nav&gt;里继续创类属性为nav和navbar-nav的&lt;ul&gt;，作为次要的子项列表；
+* 可以对项指定类属性active或disabled设定是否可用；
+* 可使用navbar-right作为子项列表的类属性，来设置子项列表在导航栏中的对齐方向；
+* 使用navbar-fixed-top、navbar-fixed-bottom作为&lt;nav&gt;的类属性可以设定导航栏固定在页面的顶部或底部，不会在滚动时移出页面。
+--&gt;
+&lt;div class=&quot;container&quot;&gt;
+	&lt;nav class=&quot;navbar navbar-default&quot;&gt;
+		&lt;div class=&quot;navbar-header&quot;&gt;
+			&lt;a href=&quot;#&quot; class=&quot;navbar-brand&quot;&gt;Home&lt;/a&gt;
+		&lt;/div&gt;
+		&lt;ul class=&quot;nav navbar-nav&quot;&gt;
+			&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Page0&lt;/a&gt;&lt;/li&gt;
+			&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Page1&lt;/a&gt;&lt;/li&gt;
+			&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Page2&lt;/a&gt;&lt;/li&gt;
+		&lt;/ul&gt;
+		&lt;ul class=&quot;nav navbar-nav navbar-right&quot;&gt;
+			&lt;li class=&quot;active&quot;&gt;&lt;a href=&quot;#&quot;&gt;Page 4&lt;/a&gt;&lt;/li&gt;
+		&lt;/ul&gt;
+	&lt;/nav&gt;
+&lt;/div&gt;</code></pre>
+
+<h2 id="滚动"><a href="#滚动" class="headerlink" title="滚动"></a>滚动</h2><pre><code class="hljs undefined">&lt;!--
+25.滚动
+* 为自动更新在基于滚动位置的导航栏中的链接，可以使用scrollspy；
+* &lt;body&gt;的数据监测属性设为scroll，数据偏移属性设为20（预留导航栏高度）；
+* 可滚动区域需要CSS的位置属性是与scrollspy关联才有效；
+* 是一个JS插件。
+--&gt;
+&lt;body data-spy=&quot;scroll&quot; data-offset=&quot;20&quot;&gt;
+	&lt;div class=&quot;container&quot;&gt;
+		&lt;nav class=&quot;navbar navbar-inverse navbar-fixed-top&quot;&gt;
+			&lt;div class=&quot;navbar-header&quot;&gt;
+				&lt;a href=&quot;#&quot; class=&quot;navbar-brand&quot;&gt;Home&lt;/a&gt;
+			&lt;/div&gt;
+			&lt;ul class=&quot;nav navbar-nav&quot;&gt;
+				&lt;li class=&quot;active&quot;&gt;&lt;a href=&quot;#p0&quot;&gt;Part 0&lt;/a&gt;&lt;/li&gt;
+				&lt;li&gt;&lt;a href=&quot;#p1&quot;&gt;Part 1&lt;/a&gt;&lt;/li&gt;
+				&lt;li&gt;&lt;a href=&quot;#p2&quot;&gt;Part 2&lt;/a&gt;&lt;/li&gt;
+			&lt;/ul&gt;
+		&lt;/nav&gt;
+		&lt;div id=&quot;p0&quot;&gt;0:Scroll and See the Navigation Bar&lt;/div&gt;
+		&lt;div id=&quot;p1&quot;&gt;1:Scroll and See the Navigation Bar&lt;/div&gt;
+		&lt;div id=&quot;p2&quot;&gt;2:Scroll and See the Navigation Bar&lt;/div&gt;
+	&lt;/div&gt;
+&lt;/body&gt;</code></pre>
+
+<h2 id="其它"><a href="#其它" class="headerlink" title="其它"></a>其它</h2><pre><code class="hljs undefined">&lt;!--
+26.其它
+* 选项卡：tabbable、nav-tabs、tab-content、tab-pane
+* 手风琴切换：panel-collapse 
+--&gt;</code></pre>
+
+<p>代码参考自SoloLearn</p>
+
+      
+       <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 mingfungliu@gmail.com </span>
+    </div>
+</article>
+
+
+<p>
+    <a href="javascript:void(0)" class="dashang" onclick="dashangToggle()">赏</a>
+</p>
+
+
+
+<div class="article_copyright">
+    <p><span class="copy-title">文章标题:</span>Bootstrap手册</p>
+    
+    <p><span class="copy-title">本文作者:</span><a href="javascript:void(0)" title="Mingfung">Mingfung</a></p>
+    <p><span class="copy-title">发布时间:</span>2018-09-08, 23:06:00</p>
+    <p><span class="copy-title">最后更新:</span>2018-09-13, 23:21:04</p>
+    <span class="copy-title">原始链接:</span><a class="post-url" href="/前端/Bootstrap手册/" title="Bootstrap手册">http://blog.ifungfay.com/前端/Bootstrap手册/</a>
+    <p>
+        <span class="copy-title">版权声明:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+    </p>
+</div>
+
+
+
+
+    <script type="text/javascript">
+(function(d, s) {
+   var j, e = d.getElementsByTagName(s)[0];
+
+   if (typeof LivereTower === 'function') { return; }
+
+   j = d.createElement(s);
+   j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+   j.async = true;
+
+   e.parentNode.insertBefore(j, e);
+})(document, 'script');
+</script>
+<noscript> 为正常使用来必力评论功能请激活JavaScript</noscript>
+
+<iframe title="livere"   src="https://was.livere.me/comment/city?id=city&refer=http://blog.ifungfay.com/前端/Bootstrap手册/&uid=MTAyMC80NzAyOC8yMzUyOA==&site=http://blog.ifungfay.com/前端/Bootstrap手册/&title=Bootstrap手册" scrolling="" frameborder="0" id="lv-comment-399" style="min-width: 100%; width: 100px; min-height: 400px; overflow: auto; border: 0px; z-index: 124212; height: 800px;" ></iframe>
+
+
+
+    
+
+
+
+
+    </div>
+    <div class="copyright">
+        <p class="footer-entry">©2016-2019 Mingfung</p>
+<p class="footer-entry">Built with <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/yelog/hexo-theme-3-hexo" target="_blank">3-hexo</a> theme</p>
+
+    </div>
+    <div class="full-toc">
+        <button class="full"><span class="min "></span></button>
+<button class="post-toc-menu"><span class="post-toc-menu-icons"></span></button>
+<div class="post-toc"><span class="post-toc-title">目录</span>
+    <div class="post-toc-content">
+
+    </div>
+</div>
+<a class="" id="rocket" href="javascript:void(0)"></a>
+    </div>
+</div>
+<div class="acParent"></div>
+
+<div class="hide_box" onclick="dashangToggle()"></div>
+<div class="shang_box">
+    <a class="shang_close" href="javascript:void(0)" onclick="dashangToggle()">×</a>
+    <div class="shang_tit">
+        <p>喜欢就点赞,疼爱就打赏</p>
+    </div>
+    <div class="shang_payimg">
+        <div class="pay_img">
+            <img src="/img/alipay.jpg" class="alipay" title="扫码支持">
+            <img src="/img/weixin.jpg" class="weixin" title="扫码支持">
+        </div>
+    </div>
+    <div class="shang_payselect">
+        <span><label><input type="radio" name="pay" checked value="alipay">支付宝</label></span><span><label><input type="radio" name="pay" value="weixin">微信</label></span>
+    </div>
+</div>
+
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/koharu.model.json"},"log":false});</script></body>
+<script src="/js/jquery.pjax.js?v=1.0.1" ></script>
+
+<script src="/js/script.js?v=1.0.1" ></script>
+<script>
+    var img_resize = 'default';
+    /*作者、标签的自动补全*/
+    $(function () {
+        $('.search').AutoComplete({
+            'data': ['#JSPatch','#JavaScriptCore','#property','#dynamic','#sythesize','#nonatomic','#iOS11','#Xcode9','#iPhoneX','#TLS','#SSL','#HTTPS','#ATS','#Java','#Android','#AndroidStudio','#adb','#反编译','#Gradle','#Module','#ProGuard','#Native','#JNI','#NDK','#AAR','#JAR','#html','#bootstrap','#css','#Flutter','#iOS','#Dart','#Git','#command','#Mac','#question','#PyCharm','#Django','#Python','#Anaconda','#Qgis','#vapor','#swift','#heroku','#cloud','#crypto','#console','#terminal','#database','#postgreSQL','#network','#http','#webSocket','#encoded','#leaf','#view','#session','#token','#verification','#越狱','#逆向','#工具','#安全','#CGI','#Servlet','#容器','#Docker','#Manager','#Model','#Role','#Target','#JSON','#Objective-C','#jekyll','#github','#blog','#Jenkins','#CI','#Test','#Ubuntu','#服务器','#Web App','#nginx','#supervisor','#fabric','#python','#mysql','#设计模式','#tool','#skill','#MVP','#Adapter','#Activity','#Fragment','#Layout','#Res','#Realm','#AIDL','#AsyncTask','#Thread','#Handler','#link','#register','#assembly','#library','#static','#memory','#runtime','#interrupt',],
+            'itemHeight': 20,
+            'width': 418
+        }).AutoComplete('show');
+    })
+    function initArticle() {
+        /*渲染对应的表格样式*/
+        
+            $(".post .pjax table").addClass("green_title");
+        
+
+        /*渲染打赏样式*/
+        
+        $("input[name=pay]").on("click", function () {
+            if($("input[name=pay]:checked").val()=="weixin"){
+                $(".shang_box .shang_payimg .pay_img").addClass("weixin_img");
+            } else {
+                $(".shang_box .shang_payimg .pay_img").removeClass("weixin_img");
+            }
+        })
+        
+
+        /*高亮代码块行号*/
+        
+        $('pre code').each(function(){
+            var lines = $(this).text().split('\n').length, widther='';
+            if (lines>99) {
+                widther = 'widther'
+            }
+            var $numbering = $('<ul/>').addClass('pre-numbering ' + widther).attr("unselectable","on");
+            $(this).addClass('has-numbering ' + widther)
+                    .parent()
+                    .append($numbering);
+            for(var i=1;i<=lines;i++){
+                $numbering.append($('<li/>').text(i));
+            }
+        });
+        
+
+        /*访问数量*/
+        
+        $.getScript("//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js");
+        
+
+        /*代码高亮，行号对齐*/
+        $('.pre-numbering').css('line-height',$('.has-numbering').css('line-height'));
+
+        
+    }
+
+    /*打赏页面隐藏与展示*/
+    
+    function dashangToggle() {
+        $(".shang_box").fadeToggle();
+        $(".hide_box").fadeToggle();
+    }
+    
+
+</script>
+
+<!--加入行号的高亮代码块样式-->
+
+<style>
+    pre{
+        position: relative;
+        margin-bottom: 24px;
+        border-radius: 10px;
+        border: 1px solid #e2dede;
+        background: #FFF;
+        overflow: hidden;
+    }
+    code.has-numbering{
+        margin-left: 30px;
+    }
+    code.has-numbering.widther{
+        margin-left: 35px;
+    }
+    .pre-numbering{
+        margin: 0px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 20px;
+        padding: 0.5em 3px 0.7em 5px;
+        border-right: 1px solid #C3CCD0;
+        text-align: right;
+        color: #AAA;
+        background-color: ;
+    }
+    .pre-numbering.widther {
+        width: 35px;
+    }
+</style>
+
+<!--自定义样式设置-->
+<style>
+    
+    
+    .nav {
+        width: 542px;
+    }
+    .nav.fullscreen {
+        margin-left: -542px;
+    }
+    .nav-left {
+        width: 120px;
+    }
+    
+    
+    @media screen and (max-width: 1468px) {
+        .nav {
+            width: 492px;
+        }
+        .nav.fullscreen {
+            margin-left: -492px;
+        }
+        .nav-left {
+            width: 100px;
+        }
+    }
+    
+    
+    @media screen and (max-width: 1024px) {
+        .nav {
+            width: 492px;
+            margin-left: -492px
+        }
+        .nav.fullscreen {
+            margin-left: 0;
+        }
+        .nav .hide-list.fullscreen {
+            left: 492px
+        }
+    }
+    
+    @media screen and (max-width: 426px) {
+        .nav {
+            width: 100%;
+        }
+        .nav-left {
+            width: 100%;
+        }
+    }
+    
+    
+    .nav-right .title-list nav a .post-title, .nav-right .title-list #local-search-result a .post-title {
+        color: #383636;
+    }
+    
+    
+    .nav-right .title-list nav a .post-date, .nav-right .title-list #local-search-result a .post-date {
+        color: #5e5e5f;
+    }
+    
+    
+    .nav-right nav a.hover, #local-search-result a.hover{
+        background-color: #e2e0e0;
+    }
+    
+    
+
+    /*列表样式*/
+    
+    .post .pjax article .article-entry>ol, .post .pjax article .article-entry>ul, .post .pjax article>ol, .post .pjax article>ul{
+        border: #e2dede solid 1px;
+        border-radius: 10px;
+        padding: 10px 32px 10px 56px;
+    }
+    .post .pjax article .article-entry li>ol, .post .pjax article .article-entry li>ul,.post .pjax article li>ol, .post .pjax article li>ul{
+        padding-top: 5px;
+        padding-bottom: 5px;
+    }
+    .post .pjax article .article-entry>ol>li, .post .pjax article .article-entry>ul>li,.post .pjax article>ol>li, .post .pjax article>ul>li{
+        margin-bottom: auto;
+        margin-left: auto;
+    }
+    .post .pjax article .article-entry li>ol>li, .post .pjax article .article-entry li>ul>li,.post .pjax article li>ol>li, .post .pjax article li>ul>li{
+        margin-bottom: auto;
+        margin-left: auto;
+    }
+    
+
+    /* 背景图样式 */
+    
+    
+
+
+    /*引用块样式*/
+    
+
+    /*文章列表背景图*/
+    
+    .nav-right:before {
+        content: ' ';
+        display: block;
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0.3;
+        background: url("null");
+        background-repeat: no-repeat;
+        background-position: 50% 0;
+        -ms-background-size: cover;
+        -o-background-size: cover;
+        -moz-background-size: cover;
+        -webkit-background-size: cover;
+        background-size: cover;
+    }
+    
+
+    
+</style>
+
+
+
+
+
+
+<div class="mobile-menus-out" >
+
+</div>
+<div class="mobile-menus">
+    
+    
+    <a class="dynamic-menu site_url"   href="/404.html">宝贝回家</a>
+    
+    
+    
+</div>
+
+
+</html>

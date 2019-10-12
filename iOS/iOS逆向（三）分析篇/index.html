@@ -1,0 +1,1822 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  <title>iOS逆向（三）分析篇 | Mingfung&#39;s Blog</title>
+  <meta name="keywords" content=" iOS , 逆向 ">
+  <meta name="description" content="iOS逆向（三）分析篇 | Mingfung&#39;s Blog">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="description" content="关于iOS码农一枚">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Mingfung&#39;s Blog">
+<meta property="og:url" content="http://blog.ifungfay.com/about/index.html">
+<meta property="og:site_name" content="Mingfung&#39;s Blog">
+<meta property="og:description" content="关于iOS码农一枚">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-10-12T14:30:09.446Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Mingfung&#39;s Blog">
+<meta name="twitter:description" content="关于iOS码农一枚">
+
+
+<link rel="icon" href="/img/avatar.jpg">
+
+<link href="/css/style.css?v=1.0.1" rel="stylesheet">
+
+<link href="/css/hl_theme/zenbum.css?v=1.0.1" rel="stylesheet">
+
+<link href="//cdn.bootcss.com/animate.css/3.5.2/animate.min.css" rel="stylesheet">
+<link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+<script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="/js/jquery.autocomplete.min.js?v=1.0.1"></script>
+
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
+
+<script src="//cdn.bootcss.com/nprogress/0.2.0/nprogress.min.js"></script>
+
+
+
+<script src="/js/iconfont.js?v=1.0.1"></script>
+<!--鼠标点击爱心动画-->
+<script type="text/javascript" src="/js/clicklove.js"></script>
+</head>
+<div style="display: none">
+  <input class="theme_disqus_on" value="false">
+  <input class="theme_preload_comment" value="true">
+  <input class="theme_blog_path" value>
+</div>
+
+<body>
+<aside class="nav">
+    <div class="nav-left">
+        <a href="/" class="avatar_target">
+    <img class="avatar" src="/img/avatar.jpg" />
+</a>
+<div class="author">
+    <span>Mingfung</span>
+</div>
+
+<div class="icon">
+    
+        
+        <a title="rss" href="/atom.xml" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-rss"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+        <a title="github" href="https://github.com/leo9763" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-github"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+        <a title="facebook" href="https://www.facebook.com/ming.fung.liu.nero" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-facebook"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+    
+        
+    
+        
+        <a title="instagram" href="https://www.instagram.com/mingfungliu/" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-instagram"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+    
+        
+        <a title="weibo" href="https://weibo.com/neross" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-weibo"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+        <a title="jianshu" href="https://www.jianshu.com/u/007c5818ec78" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-jianshu"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+        <a title="zhihu" href="zhihu.com/people/mingfungliu" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-zhihu"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+    
+        
+    
+        
+        <a title="juejin" href="https://juejin.im/user/5b6b9b37f265da0f9f4e8df3" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-juejin"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+        <a title="email" href="mailto:mingfungliu@gmail.com" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-email"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+        <a title="qq" href="http://wpa.qq.com/msgrd?v=3&uin=52360086&site=qq&menu=yes" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-qq"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+    
+        
+    
+</div>
+
+
+
+<a class="more-menus">更多菜单</a>
+
+
+<ul>
+    <li><div class="all active">全部文章<small>(43)</small></div></li>
+    
+        
+            
+            <li><div data-rel="iOS">iOS<small>(6)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="Android">Android<small>(3)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="前端">前端<small>(4)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="工具">工具<small>(4)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="后端">后端<small>(12)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="管理">管理<small>(1)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="设计模式">设计模式<small>(7)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="系统">系统<small>(1)</small></div>
+                
+            </li>
+            
+        
+    
+</ul>
+<div class="left-bottom">
+    <div class="menus">
+    
+    
+    <a class="dynamic-menu site_url"   href="/404.html">宝贝回家</a>
+    
+    
+    
+    </div>
+    <div><a class="about  hasFriend  site_url"  href="/about">关于</a><a style="width: 50%"  class="friends">友链</a></div>
+</div>
+<input type="hidden" id="yelog_site_posts_number" value="43">
+
+<div style="display: none">
+    <span id="busuanzi_value_site_uv"></span>
+    <span id="busuanzi_value_site_pv"></span>
+</div>
+
+    </div>
+    <div class="nav-right">
+        <div class="friends-area">
+    <div class="friends-title">
+        友情链接
+        <i class="back-title-list"></i>
+    </div>
+    <div class="friends-content">
+        <ul>
+            
+            <li><a target="_blank" href="http://www.ifungfay.com">雪月风飞</a></li>
+            
+        </ul>
+    </div>
+</div>
+        <div class="title-list">
+    <form onkeydown="if(event.keyCode==13){return false;}">
+        <input class="search" type="text" placeholder="Search..." autocomplete="off"id="local-search-input" >
+        <i class="cross"></i>
+        <span>
+            <label for="tagswitch">Tags:</label>
+            <input id="tagswitch" type="checkbox" style="display: none" />
+            <i id="tagsWitchIcon"></i>
+        </span>
+    </form>
+    <div class="tags-list">
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">JSPatch</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">JavaScriptCore</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">property</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">dynamic</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">sythesize</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">nonatomic</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color1">iOS11</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">Xcode9</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">iPhoneX</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">TLS</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">SSL</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color1">HTTPS</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">ATS</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">Java</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">Android</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">AndroidStudio</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">adb</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">反编译</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">Gradle</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">Module</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">ProGuard</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">Native</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">JNI</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">NDK</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">AAR</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">JAR</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">html</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">bootstrap</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">css</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">Flutter</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">iOS</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">Dart</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">Git</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">command</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">Mac</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">question</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">PyCharm</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">Django</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">Python</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">Anaconda</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">Qgis</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color1">vapor</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color1">swift</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">heroku</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color1">cloud</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">crypto</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">console</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">terminal</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">database</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color1">postgreSQL</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">network</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">http</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">webSocket</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">encoded</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">leaf</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">view</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">session</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color1">token</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">verification</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">越狱</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">逆向</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">工具</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">安全</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">CGI</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">Servlet</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">容器</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">Docker</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">Manager</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color1">Model</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">Role</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">Target</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">JSON</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">Objective-C</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">jekyll</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">github</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">blog</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">Jenkins</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">CI</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">Test</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">Ubuntu</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">服务器</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">Web App</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color1">nginx</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color1">supervisor</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">fabric</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">python</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color1">mysql</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">设计模式</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">tool</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color1">skill</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">MVP</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">Adapter</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">Activity</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">Fragment</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">Layout</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">Res</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color1">Realm</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">AIDL</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">AsyncTask</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">Thread</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">Handler</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">link</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">register</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">assembly</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">library</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">static</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">memory</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">runtime</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">interrupt</a>
+    </li>
+    
+    <div class="clearfix"></div>
+</div>
+
+    
+    <nav id="title-list-nav">
+        
+        <a  class=""
+           href="/uncategorized/ATS详解/"
+           data-tag="TLS,SSL,HTTPS,ATS"
+           data-author="" >
+            <span class="post-title" title="ATS详解">ATS详解</span>
+            <span class="post-date" title="2017-07-22 15:57:55">2017/07/22</span>
+        </a>
+        
+        <a  class="Android "
+           href="/Android/Android原理入门/"
+           data-tag="Java,Android"
+           data-author="" >
+            <span class="post-title" title="Android原理入门">Android原理入门</span>
+            <span class="post-date" title="2019-08-14 00:22:11">2019/08/14</span>
+        </a>
+        
+        <a  class=""
+           href="/uncategorized/Android技巧入门/"
+           data-tag="AndroidStudio,adb,反编译"
+           data-author="" >
+            <span class="post-title" title="Android技巧入门">Android技巧入门</span>
+            <span class="post-date" title="2019-08-14 00:22:37">2019/08/14</span>
+        </a>
+        
+        <a  class="Android "
+           href="/Android/Android工程入门/"
+           data-tag="Gradle,Module,ProGuard,Native,JNI,NDK,AAR,JAR"
+           data-author="" >
+            <span class="post-title" title="Android工程入门">Android工程入门</span>
+            <span class="post-date" title="2019-02-24 13:44:00">2019/02/24</span>
+        </a>
+        
+        <a  class="前端 "
+           href="/前端/Bootstrap手册/"
+           data-tag="html,bootstrap,css"
+           data-author="" >
+            <span class="post-title" title="Bootstrap手册">Bootstrap手册</span>
+            <span class="post-date" title="2018-09-08 23:06:00">2018/09/08</span>
+        </a>
+        
+        <a  class="前端 "
+           href="/前端/Flutter开发（介绍篇）/"
+           data-tag="Android,Flutter,iOS,Dart"
+           data-author="" >
+            <span class="post-title" title="Flutter开发（介绍篇）">Flutter开发（介绍篇）</span>
+            <span class="post-date" title="2019-01-09 21:24:00">2019/01/09</span>
+        </a>
+        
+        <a  class="前端 "
+           href="/前端/Flutter开发（实践篇）/"
+           data-tag="Android,Flutter,iOS,Dart"
+           data-author="" >
+            <span class="post-title" title="Flutter开发（实践篇）">Flutter开发（实践篇）</span>
+            <span class="post-date" title="2019-01-09 23:06:00">2019/01/09</span>
+        </a>
+        
+        <a  class="工具 "
+           href="/工具/Git手册/"
+           data-tag="Git"
+           data-author="" >
+            <span class="post-title" title="Git手册">Git手册</span>
+            <span class="post-date" title="2019-01-28 21:35:00">2019/01/28</span>
+        </a>
+        
+        <a  class="工具 "
+           href="/工具/Mac命令行工具及其问题收录/"
+           data-tag="command,Mac,question"
+           data-author="" >
+            <span class="post-title" title="Mac命令行工具及其问题收录">Mac命令行工具及其问题收录</span>
+            <span class="post-date" title="2018-02-22 17:10:00">2018/02/22</span>
+        </a>
+        
+        <a  class="后端 "
+           href="/后端/Python的使用环境配置/"
+           data-tag="PyCharm,Django,Python,Anaconda,Qgis"
+           data-author="" >
+            <span class="post-title" title="Python的使用环境配置">Python的使用环境配置</span>
+            <span class="post-date" title="2018-05-24 19:30:00">2018/05/24</span>
+        </a>
+        
+        <a  class="后端 "
+           href="/后端/Vapor之初体验/"
+           data-tag="vapor,swift,heroku"
+           data-author="" >
+            <span class="post-title" title="Vapor之初体验">Vapor之初体验</span>
+            <span class="post-date" title="2018-01-05 21:49:00">2018/01/05</span>
+        </a>
+        
+        <a  class="后端 "
+           href="/后端/Vapor的部署/"
+           data-tag="vapor,swift,heroku,cloud"
+           data-author="" >
+            <span class="post-title" title="Vapor的部署">Vapor的部署</span>
+            <span class="post-date" title="2018-08-13 23:34:00">2018/08/13</span>
+        </a>
+        
+        <a  class="后端 "
+           href="/后端/Vapor（一）基础篇/"
+           data-tag="vapor,swift"
+           data-author="" >
+            <span class="post-title" title="Vapor（一）基础篇">Vapor（一）基础篇</span>
+            <span class="post-date" title="2018-08-13 23:34:00">2018/08/13</span>
+        </a>
+        
+        <a  class="后端 "
+           href="/后端/Vapor（七）工具篇/"
+           data-tag="command,vapor,swift,crypto,console,terminal"
+           data-author="" >
+            <span class="post-title" title="Vapor（七）工具篇">Vapor（七）工具篇</span>
+            <span class="post-date" title="2018-08-21 23:02:00">2018/08/21</span>
+        </a>
+        
+        <a  class="后端 "
+           href="/后端/Vapor（三）数据库篇/"
+           data-tag="vapor,swift,database,postgreSQL"
+           data-author="" >
+            <span class="post-title" title="Vapor（三）数据库篇">Vapor（三）数据库篇</span>
+            <span class="post-date" title="2018-08-15 21:33:00">2018/08/15</span>
+        </a>
+        
+        <a  class="后端 "
+           href="/后端/Vapor（二）进阶篇/"
+           data-tag="vapor,swift"
+           data-author="" >
+            <span class="post-title" title="Vapor（二）进阶篇">Vapor（二）进阶篇</span>
+            <span class="post-date" title="2018-08-14 21:20:00">2018/08/14</span>
+        </a>
+        
+        <a  class="后端 "
+           href="/后端/Vapor（五）网络篇/"
+           data-tag="vapor,swift,network,http,webSocket,encoded"
+           data-author="" >
+            <span class="post-title" title="Vapor（五）网络篇">Vapor（五）网络篇</span>
+            <span class="post-date" title="2018-08-17 20:30:00">2018/08/17</span>
+        </a>
+        
+        <a  class="后端 "
+           href="/后端/Vapor（六）视图篇/"
+           data-tag="vapor,swift,leaf,view"
+           data-author="" >
+            <span class="post-title" title="Vapor（六）视图篇">Vapor（六）视图篇</span>
+            <span class="post-date" title="2018-08-20 21:56:00">2018/08/20</span>
+        </a>
+        
+        <a  class="后端 "
+           href="/后端/Vapor（四）验证篇/"
+           data-tag="vapor,swift,session,token,verification"
+           data-author="" >
+            <span class="post-title" title="Vapor（四）验证篇">Vapor（四）验证篇</span>
+            <span class="post-date" title="2018-08-16 19:06:00">2018/08/16</span>
+        </a>
+        
+        <a  class=""
+           href="/uncategorized/hello-world/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Hello World">Hello World</span>
+            <span class="post-date" title="2018-01-07 14:45:35">2018/01/07</span>
+        </a>
+        
+        <a  class="iOS "
+           href="/iOS/iOS逆向（一）越狱篇/"
+           data-tag="iOS,越狱"
+           data-author="" >
+            <span class="post-title" title="iOS逆向（一）越狱篇">iOS逆向（一）越狱篇</span>
+            <span class="post-date" title="2018-09-13 22:39:01">2018/09/13</span>
+        </a>
+        
+        <a  class="iOS "
+           href="/iOS/iOS逆向（二）工具篇/"
+           data-tag="iOS,逆向,工具"
+           data-author="" >
+            <span class="post-title" title="iOS逆向（二）工具篇">iOS逆向（二）工具篇</span>
+            <span class="post-date" title="2018-09-13 22:39:02">2018/09/13</span>
+        </a>
+        
+        <a  class="iOS "
+           href="/iOS/iOS逆向（三）分析篇/"
+           data-tag="iOS,逆向"
+           data-author="" >
+            <span class="post-title" title="iOS逆向（三）分析篇">iOS逆向（三）分析篇</span>
+            <span class="post-date" title="2018-09-13 22:39:03">2018/09/13</span>
+        </a>
+        
+        <a  class="iOS "
+           href="/iOS/iOS逆向（五）总结篇/"
+           data-tag="iOS,逆向,安全"
+           data-author="" >
+            <span class="post-title" title="iOS逆向（五）总结篇">iOS逆向（五）总结篇</span>
+            <span class="post-date" title="2018-09-13 22:39:05">2018/09/13</span>
+        </a>
+        
+        <a  class="iOS "
+           href="/iOS/iOS逆向（四）实战篇/"
+           data-tag="iOS,逆向"
+           data-author="" >
+            <span class="post-title" title="iOS逆向（四）实战篇">iOS逆向（四）实战篇</span>
+            <span class="post-date" title="2018-09-13 22:39:04">2018/09/13</span>
+        </a>
+        
+        <a  class="后端 "
+           href="/后端/后端服务器概念了解下/"
+           data-tag="CGI,Servlet,容器,Docker"
+           data-author="" >
+            <span class="post-title" title="后端服务器概念了解下">后端服务器概念了解下</span>
+            <span class="post-date" title="2019-02-21 20:30:00">2019/02/21</span>
+        </a>
+        
+        <a  class=""
+           href="/uncategorized/利用Firebase实现的推送功能系统/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="利用Firebase实现的推送功能系统">利用Firebase实现的推送功能系统</span>
+            <span class="post-date" title="2018-01-17 19:33:41">2018/01/17</span>
+        </a>
+        
+        <a  class="管理 "
+           href="/管理/团队管理实践/"
+           data-tag="Manager,Model,Role,Target"
+           data-author="" >
+            <span class="post-title" title="团队管理实践">团队管理实践</span>
+            <span class="post-date" title="2019-02-23 23:50:00">2019/02/23</span>
+        </a>
+        
+        <a  class="iOS "
+           href="/iOS/处理服务端API返回JSON的总结/"
+           data-tag="iOS,JSON,Objective-C"
+           data-author="" >
+            <span class="post-title" title="处理服务端API返回JSON的总结">处理服务端API返回JSON的总结</span>
+            <span class="post-date" title="2018-01-09 14:35:00">2018/01/09</span>
+        </a>
+        
+        <a  class="前端 "
+           href="/前端/搭建Hexo博客/"
+           data-tag="jekyll,github,blog"
+           data-author="" >
+            <span class="post-title" title="搭建Hexo博客">搭建Hexo博客</span>
+            <span class="post-date" title="2017-07-18 21:50:14">2017/07/18</span>
+        </a>
+        
+        <a  class=""
+           href="/uncategorized/搭建Jekins/"
+           data-tag="Jenkins,CI,Test"
+           data-author="" >
+            <span class="post-title" title="搭建Jekins">搭建Jekins</span>
+            <span class="post-date" title="2017-08-26 22:59:36">2017/08/26</span>
+        </a>
+        
+        <a  class="工具 "
+           href="/工具/搭建博客图床/"
+           data-tag="blog"
+           data-author="" >
+            <span class="post-title" title="搭建博客图床">搭建博客图床</span>
+            <span class="post-date" title="2019-03-21 12:39:00">2019/03/21</span>
+        </a>
+        
+        <a  class="后端 "
+           href="/后端/搭建服务器/"
+           data-tag="Ubuntu,服务器,Web App,nginx,supervisor,fabric,python,mysql"
+           data-author="" >
+            <span class="post-title" title="搭建服务器">搭建服务器</span>
+            <span class="post-date" title="2019-04-06 00:00:00">2019/04/06</span>
+        </a>
+        
+        <a  class="设计模式 "
+           href="/设计模式/设计模式（一）策略模式 & 模板方法模式/"
+           data-tag="设计模式"
+           data-author="" >
+            <span class="post-title" title="设计模式（一）策略模式 &amp; 模板方法模式">设计模式（一）策略模式 &amp; 模板方法模式</span>
+            <span class="post-date" title="2019-01-13 23:41:00">2019/01/13</span>
+        </a>
+        
+        <a  class="工具 "
+           href="/工具/效率工具及技巧收录/"
+           data-tag="tool,skill"
+           data-author="" >
+            <span class="post-title" title="效率工具及技巧收录">效率工具及技巧收录</span>
+            <span class="post-date" title="2019-02-23 22:05:00">2019/02/23</span>
+        </a>
+        
+        <a  class="设计模式 "
+           href="/设计模式/设计模式（七）小总结/"
+           data-tag="设计模式"
+           data-author="" >
+            <span class="post-title" title="设计模式（七）小总结">设计模式（七）小总结</span>
+            <span class="post-date" title="2019-02-12 14:45:00">2019/02/12</span>
+        </a>
+        
+        <a  class="设计模式 "
+           href="/设计模式/设计模式（三）适配器模式 & 外观模式/"
+           data-tag="设计模式"
+           data-author="" >
+            <span class="post-title" title="设计模式（三）适配器模式 &amp; 外观模式">设计模式（三）适配器模式 &amp; 外观模式</span>
+            <span class="post-date" title="2019-02-11 15:10:00">2019/02/11</span>
+        </a>
+        
+        <a  class="设计模式 "
+           href="/设计模式/设计模式（二）迭代器模式 & 组合模式/"
+           data-tag="设计模式"
+           data-author="" >
+            <span class="post-title" title="设计模式（二）迭代器模式 &amp; 组合模式">设计模式（二）迭代器模式 &amp; 组合模式</span>
+            <span class="post-date" title="2019-02-11 09:59:00">2019/02/11</span>
+        </a>
+        
+        <a  class="设计模式 "
+           href="/设计模式/设计模式（五）工厂模式 & 装饰者模式/"
+           data-tag="设计模式"
+           data-author="" >
+            <span class="post-title" title="设计模式（五）工厂模式 &amp; 装饰者模式">设计模式（五）工厂模式 &amp; 装饰者模式</span>
+            <span class="post-date" title="2019-02-12 11:54:00">2019/02/12</span>
+        </a>
+        
+        <a  class="设计模式 "
+           href="/设计模式/设计模式（六）命令模式 & 观察者模式/"
+           data-tag="设计模式"
+           data-author="" >
+            <span class="post-title" title="设计模式（六）命令模式 &amp; 观察者模式">设计模式（六）命令模式 &amp; 观察者模式</span>
+            <span class="post-date" title="2019-02-12 14:28:00">2019/02/12</span>
+        </a>
+        
+        <a  class="设计模式 "
+           href="/设计模式/设计模式（四）状态模式 & 代理模式/"
+           data-tag="设计模式"
+           data-author="" >
+            <span class="post-title" title="设计模式（四）状态模式 &amp; 代理模式">设计模式（四）状态模式 &amp; 代理模式</span>
+            <span class="post-date" title="2019-02-12 13:12:00">2019/02/12</span>
+        </a>
+        
+        <a  class="Android "
+           href="/Android/开发一个Android-App/"
+           data-tag="MVP,Adapter,Activity,Fragment,Layout,Res,Realm,AIDL,AsyncTask,Thread,Handler"
+           data-author="" >
+            <span class="post-title" title="开发一个Android App">开发一个Android App</span>
+            <span class="post-date" title="2019-10-05 16:11:04">2019/10/05</span>
+        </a>
+        
+        <a  class="系统 "
+           href="/系统/链接、装载、库/"
+           data-tag="dynamic,link,register,assembly,library,static,memory,runtime,interrupt"
+           data-author="" >
+            <span class="post-title" title="链接、装载、库">链接、装载、库</span>
+            <span class="post-date" title="2019-06-05 08:53:00">2019/06/05</span>
+        </a>
+        
+    </nav>
+</div>
+    </div>
+    <div class="hide-list">
+        <div class="semicircle">
+            <div class="brackets first"><</div>
+            <div class="brackets">&gt;</div>
+        </div>
+    </div>
+</aside>
+<div class="post">
+    <div class="pjax">
+        <article id="post-iOS逆向（三）分析篇" class="article article-type-post" itemscope itemprop="blogPost">
+    
+        <h1 class="article-title">iOS逆向（三）分析篇</h1>
+    
+    <div class="article-meta">
+        
+        
+        
+        <span class="book">
+            
+                <a href="javascript:" data-rel="iOS">iOS</a>
+            
+        </span>
+        
+        
+        <span class="tag">
+            
+            <a href="javascript:" class="color4">iOS</a>
+            
+            <a href="javascript:" class="color3">逆向</a>
+            
+        </span>
+        
+    </div>
+    <div class="article-meta">
+        
+        创建时间:<time class="date" title='更新时间: 2018-09-13 23:22:49'>2018-09-13 22:39</time>
+        
+    </div>
+    <div class="article-meta">
+        
+        
+        <span id="busuanzi_container_page_pv">
+            阅读:<span id="busuanzi_value_page_pv">
+                <span class="count-comment">
+                    <span class="spinner">
+                      <div class="cube1"></div>
+                      <div class="cube2"></div>
+                    </span>
+                </span>
+            </span>
+        </span>
+        
+        
+    </div>
+    
+    <div class="toc-ref">
+    
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#需求分析"><span class="toc-text">需求分析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#网络分析"><span class="toc-text">网络分析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#砸壳"><span class="toc-text">砸壳</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#动态分析"><span class="toc-text">动态分析</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#定位目标函数的方法"><span class="toc-text">定位目标函数的方法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#分析函数地址的方法"><span class="toc-text">分析函数地址的方法</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#静态分析"><span class="toc-text">静态分析</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#头文件分析"><span class="toc-text">头文件分析</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Mach-O分析"><span class="toc-text">Mach-O分析</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Tweak开发"><span class="toc-text">Tweak开发</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Tweak创建"><span class="toc-text">Tweak创建</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Tweak编写"><span class="toc-text">Tweak编写</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Tweak编译"><span class="toc-text">Tweak编译</span></a></li></ol></li></ol>
+    
+<style>
+    .left-col .switch-btn,
+    .left-col .switch-area {
+        display: none;
+    }
+    .toc-level-3 i,
+    .toc-level-3 ol {
+        display: none !important;
+    }
+</style>
+</div>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>在逆向环境、工具准备得七七八八后，就开始学习一下逆向的套路。先要定位一个逆向的目标App和需要Tweak它的功能点，然后通过网络分析、动态分析、静态分析、沙盒分析等方法，来看看一般是如何给一个App做逆向的，怎么找出题目的位置、有什么解法。知道题该怎么解后，接着是学习怎么造Tweak，怎么把别人App的功能扭曲成自己想要的效果。</p>
+<a id="more"></a>
+
+<h3 id="需求分析"><a href="#需求分析" class="headerlink" title="需求分析"></a>需求分析</h3><p>目标应用是一个关于协助起名字的App，通过提供指定的起名条件，例如双名还是单名，姓，出生年月，性别的信息，来获取（符合风水命理的）对应的名字组合。</p>
+<p>结果中会有小吉名，大吉名，和大师推荐名的分类，其中大吉名和大师推荐名是要分别付款解锁才能查看的。</p>
+<img src="https://i.loli.net/2018/07/25/5b5810b561335.png" width="50%" height="50%">
+
+<img src="https://i.loli.net/2018/07/25/5b5813030ea79.png" width="50%" height="50%">
+
+<p>下面就针对这两个付款功能，尝试破解。</p>
+<h3 id="网络分析"><a href="#网络分析" class="headerlink" title="网络分析"></a>网络分析</h3><p>无论是启动应用的初始化请求，还是起名分析请求（已经请求过的起名条件则不会重复发起网络请求），都会带有下面这些参数</p>
+<pre><code class="hljs undefined">appname	    naming_fugui_iphone
+client      iPhone
+device      iPhone
+openudid    FD7925AB-92C0-438C-B6E1-C58339553B57
+idfa	       332C7245-BCD7-458A-BB1F-BC25F6C2D541
+sign        600D1E13A20AEADE3C5485E78418DC3E
+ver	1.2</code></pre>
+
+<ul>
+<li>appname代表当前App名称，估计其作用为区分不同的马甲包；</li>
+<li>client和device估计是区分操作系统、操作终端、设备类型等；</li>
+<li>openudid估计用户的唯一标识；</li>
+<li>idfa则是熟知的广告ID；</li>
+<li>sign估计就是对部分参数值按一定顺序（如appname+client+device+openudid+secretkey），加入密钥key进行签名后的序列（因为尝试修改了它，或者以上参数后就无法获取数据了）</li>
+</ul>
+<p>在初始化请求中返回的data主要是一些动态控制的设置内容，如广告、好评、定时本地推送、跑马灯、支付渠道等等。</p>
+<p>其次，起名分析请求获得的结果如下，其中tjm字段对应推荐名板块、zxm字段对应小吉名板块、info字段对应资料分析板块，对应大吉名板块的数据并没有返回。然后还有一个叫product的字段，里面包含了三个类似品项的对象，其中一个值得注意的是product_identifier为test的对象，它的价格只需0.01，萌生第一个试想：购买大吉名时换成这个商品ID是否行得通。</p>
+<pre><code class="hljs undefined">&#123;
+	&quot;code&quot;: &quot;E00000000&quot;,
+	&quot;msg&quot;: &quot;\u64cd\u4f5c\u6210\u529f\u3002&quot;,
+	&quot;data&quot;: &#123;
+		&quot;tjm&quot;: [...],
+		&quot;zxm&quot;: [...],
+		&quot;info&quot;: &#123;...&#125;,
+		&quot;product&quot;: &#123;
+			&quot;jiMing&quot;: &#123;
+				&quot;product_identifier&quot;: &quot;zhangjingfuguiqiming001&quot;,
+				&quot;product_name&quot;: &quot;...&quot;,
+				&quot;product_desc&quot;: &quot;...&quot;,
+				&quot;product_price&quot;: 25
+			&#125;,
+			&quot;tuiJian&quot;: &#123;
+				&quot;product_identifier&quot;: &quot;zhangjingfuguiqiming002&quot;,
+				&quot;product_name&quot;: &quot;...&quot;,
+				&quot;product_desc&quot;: &quot;...&quot;,
+				&quot;product_price&quot;: 40
+			&#125;,
+			&quot;tianJiang&quot;: &#123;
+				&quot;product_identifier&quot;: &quot;test&quot;,
+				&quot;product_name&quot;: &quot;...&quot;,
+				&quot;product_price&quot;: 0.01
+			&#125;
+		&#125;
+	&#125;
+&#125;</code></pre>
+
+<h3 id="砸壳"><a href="#砸壳" class="headerlink" title="砸壳"></a>砸壳</h3><p>先ssh到手机上</p>
+<pre><code class="hljs undefined">$ iproxy 4567 22
+$ ssh -p 4567 root@127.0.0.1</code></pre>
+
+<p>先定位出其可执行文件所在的目录路径。在手机打开Target App，然后通过当前运行的进程查找</p>
+<pre><code class="hljs undefined">iPhone:~ root# ps -e | grep /Applications</code></pre>
+
+<blockquote>
+<p>PID TTY TIME CMD<br>1234 ?? 0:08.97 /var/containers/Bundle/Application/XXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX/Target.app/Target</p>
+</blockquote>
+<p>Appstore App可执行文件是在<code>/var/containers/Bundle/Application/</code>样式的路径里面，再通过对比其相关的.app文件名含义就不难找到正确的路径。</p>
+<p>然后是定位Target App的Documents目录路径。<br>利用cycript进入Target App的进程后，使用cycript的语法获取当前沙盒目录中Documents的路径</p>
+<pre><code class="hljs undefined">iPhone:~ root# cycript -p targetAppPID
+cy# [[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask][0]</code></pre>
+
+<p>最后就是将<code>dumpdecrypted.dylib</code>拷贝到Target App的Documents目录下(开启iproxy中)</p>
+<pre><code class="hljs undefined">$ rsync -avz -e &quot;ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -p 4567&quot; --progress /Path/to/dumpdecrypted.dylib  root@127.0.0.1:/var/mobile/Containers/Data/Application/YYYYYYY-YYYY-YYYY-YYYY-YYYYYYYYYYYY/Documents/</code></pre>
+
+<p>开始砸壳</p>
+<pre><code class="hljs undefined">iPhone:~ root# cd 
+iPhone:/path/to/Documents root# DYLD_INSERT_LIBRARIES=dumpdecrypted.dylib /var/containers/Bundle/Application/XXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX/Target.app/Target</code></pre>
+
+<blockquote>
+<p>dyld: could not load inserted library ‘dumpdecrypted.dylib’ because no suitable image found.  Did find:</p>
+</blockquote>
+<blockquote>
+<p>dumpdecrypted.dylib: required code signature missing for ‘dumpdecrypted.dylib’<br>    /private/var/mobile/Containers/Data/Application/YYYYYYY-YYYY-YYYY-YYYY-YYYYYYYYYYYY/Documents/dumpdecrypted.dylib: required code signature missing for ‘/private/var/mobile/Containers/Data/Application/YYYYYYY-YYYY-YYYY-YYYY-YYYYYYYYYYYY/Documents/dumpdecrypted.dylib’<br>Abort trap: 6</p>
+</blockquote>
+<p>若报以上错误，可参考<a href="http://www.iosre.com/t/dumpdecrypted-ios-10-1/6228/11" target="_blank" rel="noopener">这里</a>解决，思路就是使用MacOS上任何一个有效的证书对<code>dumpdecrypted.dylib</code>先做一个签名再拷贝到Target App的Documents</p>
+<pre><code class="hljs undefined">## 列出可签名证书
+$ security find-identity -v -p codesigning
+## 为dumpecrypted.dylib签名
+$ codesign --force --verify --verbose --sign &quot;iPhone Developer: xxx xxxx (xxxxxxxxxx)&quot; dumpdecrypted.dylib</code></pre>
+
+<p>再次砸壳，就成功了</p>
+<blockquote>
+<p>mach-o decryption dumper</p>
+</blockquote>
+<blockquote>
+<p>DISCLAIMER: This tool is only meant for security research purposes, not for application crackers.</p>
+</blockquote>
+<blockquote>
+<p>[+] detected 64bit ARM binary in memory.<br>[+] offset to cryptid found: @0x1000b0c08(from 0x1000b0000) = c08<br>[+] Found encrypted data at address 00004000 of length 3801088 bytes - type 1.<br>[+] Opening /private/var/containers/Bundle/Application/4E0F7779-AD12-4634-9758-BB398648BBA6/XDQiMing.app/XDQiMing for reading.<br>[+] Reading header<br>[+] Detecting header type<br>[+] Executable is a plain MACH-O image<br>[+] Opening XDQiMing.decrypted for writing.<br>[+] Copying the not encrypted start of the file<br>[+] Dumping the decrypted data into the file<br>[+] Copying the not encrypted remainder of the file<br>[+] Setting the LC_ENCRYPTION_INFO-&gt;cryptid to 0 at offset c08<br>[+] Closing original file<br>[+] Closing dump file</p>
+</blockquote>
+<p>最后的最后，就是将砸壳后的文件 <code>Target.decrypted</code> 拷贝回MacOS上。</p>
+<h3 id="动态分析"><a href="#动态分析" class="headerlink" title="动态分析"></a>动态分析</h3><h4 id="定位目标函数的方法"><a href="#定位目标函数的方法" class="headerlink" title="定位目标函数的方法"></a>定位目标函数的方法</h4><p>主要是利用cycript实现。</p>
+<p><strong>1.注入进程</strong></p>
+<pre><code class="hljs undefined">iPhone:~ root# ps -e | grep /Applications
+5288 ??         0:05.52 /var/containers/Bundle/Application/4E0F7779-AD12-4634-9758-BB398648BBA6/TargetApp.app/TargetApp
+ 5296 ttys001    0:00.00 grep /var/containers/Bundle/Application/
+iPhone:~ root# cycript -p 5288</code></pre>
+
+<p><strong>2.分析UI层次结构</strong></p>
+<p>先打开TargetApp到需要定位的功能页面</p>
+<img src="https://i.loli.net/2018/07/25/5b57f46619d21.png" width="50%" height="50%">
+
+<p>然后使用历遍打印排查的方式，将逐级界面上的控件列表输出分析</p>
+<pre><code class="hljs undefined">cy# [[UIApp keyWindow] recursiveDescription].toString()</code></pre>
+
+<p>ps：加.toString()是为了格式化换行符等符号，使输出更易于阅读，以往让cycript开启翻译格式符号功能的<code>?expand</code>指令已经失效了。</p>
+<p>得出的结果是这个样子的<br><img src="https://i.loli.net/2018/07/25/5b57f46619e41.png" alt="image"></p>
+<p>其中，发现有一个LCTableView，其包含的XDPayCell里有显示<code>微信</code>和<code>推荐已安装微信的用户使用</code>这两个文案的Unicode，所以可以基本确定LCTableView就是选择支付方式的列表。</p>
+<pre><code class="hljs undefined">&lt;LCTableView: 0x101a72600; baseClass = UITableView; frame = (0 192; 320 153.6); clipsToBounds = YES; gestureRecognizers = &lt;NSArray: 0x17045b0f0&gt;; layer = &lt;CALayer: 0x17043a820&gt;; contentOffset: &#123;0, 0&#125;; contentSize: &#123;320, 153.60000228881836&#125;&gt;
+    &lt;UITableViewWrapperView: 0x1018fd400; frame = (0 0; 320 153.6); gestureRecognizers = &lt;NSArray: 0x17045b420&gt;; layer = &lt;CALayer: 0x17043a860&gt;; contentOffset: &#123;0, 0&#125;; contentSize: &#123;320, 153.59999999999999&#125;&gt;
+        &lt;XDPayCell: 0x101a73000; baseClass = UITableViewCell; frame = (0 0; 320 51.2); autoresize = W; layer = &lt;CALayer: 0x17043b760&gt;&gt;
+            &lt;UITableViewCellContentView: 0x10c22ced0; frame = (0 0; 320 51.2); gestureRecognizers = &lt;NSArray: 0x17045ce00&gt;; layer = &lt;CALayer: 0x17043bce0&gt;&gt;
+            &lt;UIView: 0x10c22ccd0; frame = (0 0; 320 46.9333); layer = &lt;CALayer: 0x17043bb20&gt;&gt;
+                &lt;UIImageView: 0x100779510; frame = (12.8 8.53333; 29.8667 29.8667); opaque = NO; userInteractionEnabled = NO; layer = &lt;CALayer: 0x17043bbc0&gt;&gt;
+                &lt;UILabel: 0x10c22d1d0; frame = (55.4667 8.53333; 85.3333 12.8); text = &apos;\u5fae\u4fe1&apos;; userInteractionEnabled = NO; layer = &lt;_UILabelLayer: 0x170481ae0&gt;&gt;
+                    &lt;_UILabelContentLayer: 0x17442e6e0&gt; (layer)
+                &lt;UILabel: 0x10c22d460; frame = (55.4667 27.3067; 320 11.0933); text = &apos;\u63a8\u8350\u5df2\u5b89\u88c5\u5fae\u4fe1\u7684\u7528\u6237\u4f7f\u7528&apos;; userInteractionEnabled = NO; layer = &lt;_UILabelLayer: 0x170480050&gt;&gt;
+                    &lt;_UILabelContentLayer: 0x17442e6c0&gt; (layer)
+                &lt;UIImageView: 0x10c22d820; frame = (288 0; 19.2 46.9333); opaque = NO; userInteractionEnabled = NO; layer = &lt;CALayer: 0x17043bb00&gt;&gt;
+
+...
+
+&lt;UIButton: 0x10c22b490; frame = (12.8 362.667; 294.4 38.4); opaque = NO; layer = &lt;CALayer: 0x17043acc0&gt;&gt;
+    &lt;UIButtonLabel: 0x10c22ca20; frame = (110.5 8.5; 73.5 21.5); text = &apos;\u786e\u8ba4\u652f\u4ed8&apos;; opaque = NO; userInteractionEnabled = NO; layer = &lt;_UILabelLayer: 0x170480af0&gt;&gt;
+    &lt;_UILabelContentLayer: 0x17043be80&gt; (layer)</code></pre>
+
+<p>然后与LCTableView同级的还有一个UIButton，也基本可以猜测到其就是<code>确认支付</code>按钮，下面来验证一下</p>
+<pre><code class="hljs undefined">cy# button=#0x10c22b490
+cy# [button setHidden:YES]</code></pre>
+
+<p>发现<code>确认支付</code>按钮隐藏了，证实 #0x10c22b490 就是我们要找的对象。</p>
+<p>如果界面布局比较复杂，控件繁多又没有什么标识能识别的时候，可以换个角度，通过找其相关的更易定位的控件或容器来间接寻找，同样是使用setHidden这种方式，配合上<code>subviews</code>和<code>superView</code>方法。</p>
+<p>如果怀疑是一个独立的window时，可以使用<code>[UIApp windows]</code>来获取。</p>
+<p><strong>3.定位函数</strong></p>
+<pre><code class="hljs undefined">cy# [button allTargets]
+[NSSet setWithArray:@[#&quot;&lt;XDPayViewController: 0x101194000&gt;&quot;]]]
+cy# [button allControlEvents]
+64
+cy# [button actionsForTarget:#0x101194000 forControlEvent:64]
+@[&quot;clickDetermineBtn&quot;]</code></pre>
+
+<p>这样就能定位到函数的实现是在 <code>XDPayViewController</code>类 的 <code>clickDetermineBtn</code>方法里。</p>
+<h4 id="分析函数地址的方法"><a href="#分析函数地址的方法" class="headerlink" title="分析函数地址的方法"></a>分析函数地址的方法</h4><p>** 计算真实地址 **<br>真实的地址其实就是偏移后的基地址</p>
+<p>偏移后的基地址 =  偏移前的基地址 + ASLR偏移</p>
+<p>ASLR偏移可以在lldb下使用以下指令获得</p>
+<pre><code class="hljs undefined">(lldb) image list -o -f
+[  0] 0x00000000000c8000 /var/containers/Bundle/Application/4E0F7779-AD12-4634-9758-BB398648BBA6/Target.app/TargetApp(0x00000001000c8000)
+[  1] 0x00000001005d0000 /Users/nero/Library/Developer/Xcode/iOS DeviceSupport/10.3.3 (14G60)/Symbols/usr/lib/dyld
+...</code></pre>
+
+<p>在[序号]左边紧挨的地址就是 ASLR偏移</p>
+<p>偏移前的基地址则需要在IDA/Hopper里查看</p>
+<p><img src="https://i.loli.net/2018/08/14/5b724ec39c97d.png" alt="image"><br><img src="https://i.loli.net/2018/08/14/5b724ec39fd42.png" alt="image"></p>
+<p>就拿上面XDPayViewController实现的paymentQueue:updatedTransactions:方法为例，其偏移后的地址就是 0xC8000 + 0x10006D5F8，即0x1001355F8。</p>
+<p>需要注意ASLR偏移的选取，这里因为XDPayViewController属于TargetApp这个模块，所以选择TargetApp的ASLR偏移，即是ASLR偏移要根目标类所在的模块来决定。</p>
+<p>真是需要动静结合才能获得真实的地址啊，而拿真实地址的主要目的是下断点</p>
+<pre><code class="hljs undefined">(lldb) b 0x100079ba4
+Breakpoint 1: where = XDQiMing`_mh_execute_header + 154532, address = 0x0000000100079060</code></pre>
+
+<p>这里的where是不会直接显示相应的符号，这是因为OC方法没有符号，而lldb则用上了一个有符号的函数+offset来表示。</p>
+<p>然后恢复进程继续运行，操作界面使断点所在函数触发，再结合使用lldb的调试指令就能获取或更改该函数运行时的变量数据</p>
+<pre><code class="hljs undefined">(lldb) c
+Process PID resuming
+Process 3255 stopped
+* thread #1, queue = &apos;com.apple.main-thread&apos;, stop reason = breakpoint 2.1
+    frame #0: 0x0000000100079ba4 XDQiMing`_mh_execute_header + 154532
+XDQiMing`_mh_execute_header:
+-&gt;  0x100079ba4 &lt;+154532&gt;: sub    sp, sp, #0xb0             ; =0xb0 
+    0x100079ba8 &lt;+154536&gt;: stp    d11, d10, [sp, #0x30]
+    0x100079bac &lt;+154540&gt;: stp    d9, d8, [sp, #0x40]
+    0x100079bb0 &lt;+154544&gt;: stp    x28, x27, [sp, #0x50]
+Target 0: (XDQiMing) stopped.
+(lldb) ni
+(lldb) si
+(lldb) p (char *)$r1 
+(lldb) register write $rn x</code></pre>
+
+<p>还有一种可以不用派上IDA就能知道真实地址的方法</p>
+<pre><code class="hljs undefined">(lldb) po [XDBigNameViewController _shortMethodDescription]
+&lt;XDBigNameViewController: 0x1004e33e0&gt;:
+in XDBigNameViewController:
+	Properties:
+		@property (retain, nonatomic) LCCollectionView* collectionView;  (@synthesize collectionView = _collectionView;)
+		...
+	Instance Methods:
+		- (void) initData; (0x100079a00)
+		...
+in LCViewController:
+	Properties:
+		@property (retain, nonatomic) UIImageView* imageView;  (@synthesize imageView = _imageView;)
+		...
+	Instance Methods:
+		- (void) pushViewControllerClass:(Class)arg1 Param:(id)arg2 Animated:(BOOL)arg3; (0x100141efc)
+		...</code></pre>
+
+<p>更多的黑科技请参阅<a href="http://iosre.com/t/powerful-private-methods-for-debugging-in-cycript-lldb/3414" target="_blank" rel="noopener">这个链接</a>。</p>
+<h3 id="静态分析"><a href="#静态分析" class="headerlink" title="静态分析"></a>静态分析</h3><h4 id="头文件分析"><a href="#头文件分析" class="headerlink" title="头文件分析"></a>头文件分析</h4><p>利用class-dump这款工具就能够将破壳的二进制文件中的所有头文件导出，然后建立一个空的Xcode工程导入这些头文件来翻看，方便阅读和查找内容</p>
+<pre><code class="hljs undefined">class-dump -H /Users/mac/Desktop/Payload/Kt.app -o /Users/mac/Desktop/Payload</code></pre>
+
+<h4 id="Mach-O分析"><a href="#Mach-O分析" class="headerlink" title="Mach-O分析"></a>Mach-O分析</h4><p>Mach-O为Machine Object文件，是一种可执行文件、目标代码、动态库、内核转储的文件格式，利用IDA或者Hopper Disassembeler等交互式反汇编工具能实现对二进制代码的反汇编，他们能支持多种操作系统和多种CPU指令集反编译。</p>
+<p>要注意反编译的可执行的二进制文件是fat binary还是thin binary，若是fat binary则应先减肥，指定保留一个架构（与IDA中选择反编译的架构需一致，但最新版本的IDA好像已经支持导入fat binary，可以免去对二进制文件减肥的步骤）</p>
+<pre><code class="hljs undefined">$ lipo -info /path/to/execution
+Non-fat file: /path/to/execution is architecture: arm64
+$ lipo -thin armv7 execution -output execution_armv7</code></pre>
+
+<p><strong>IDA</strong><br>收费版的IDA还有一个很好用的功能，就是传说中的F5（Pseudocode）</p>
+<p>作用就是将下图汇编样式的语法转换为下下图中的c样式语法表示，阅读代码时更直观方便，不用再去ARM官网查指令、分析寄存器的交替（其实这是基本功，先了解其原理还是有好处）。<br><img src="https://i.loli.net/2018/08/14/5b7278b3908db.png" alt="image"></p>
+<p><img src="https://i.loli.net/2018/08/14/5b7278b38f4c8.png" alt="image"></p>
+<p>这里有更详细的<a href="https://wizardforcel.gitbooks.io/ios-sec-wiki/chapter3/issue3-7.html" target="_blank" rel="noopener">IDA介绍</a>和<a href="https://www.jianshu.com/p/b36d5a2f3c60" target="_blank" rel="noopener">IDA使用说明</a>可供参考。</p>
+<p><strong>ARM汇编</strong><br>在调用方法前，常用R0<del>R3（x0</del>x3）寄存器保存objc_msgSend中的各个参数，分别是调用者、selector、参数1、参数2，在调用方法后，返回结果会存到R0，若有超过两个的参数时，多出的参数会存在栈中，地址是*SP、 *(SP+sizeOfLastArg)、…。</p>
+<p>更多的汇编指令和详细说明可以参考<a href="http://infocenter.arm.com" target="_blank" rel="noopener">ARM官方文档</a>。</p>
+<h3 id="Tweak开发"><a href="#Tweak开发" class="headerlink" title="Tweak开发"></a>Tweak开发</h3><h4 id="Tweak创建"><a href="#Tweak创建" class="headerlink" title="Tweak创建"></a>Tweak创建</h4><p>配置环境变量</p>
+<pre><code class="hljs undefined">export THEOS=/opt/theos</code></pre>
+
+<p>若不先配置环境变量的话，当make的时候会提示以下错误</p>
+<blockquote>
+<p>Makefile:1: /makefiles/common.mk: No such file or directory<br>Makefile:6: /tweak.mk: No such file or directory</p>
+</blockquote>
+<p>创建theos工程</p>
+<pre><code class="hljs undefined">/opt/theos/bin/nic.pl</code></pre>
+
+<p>1.选择模板=&gt;2.tweak项目名=&gt;3.deb包名=&gt;4.作者名=&gt;5.tweak作用对象（bundleID表示）=&gt;6.安装后需重启的应用（进程名表示）</p>
+<h4 id="Tweak编写"><a href="#Tweak编写" class="headerlink" title="Tweak编写"></a>Tweak编写</h4><p>创建Tweak项目后，tweak.xm里的自带模板如下</p>
+<pre><code class="hljs undefined">/* How to Hook with Logos
+Hooks are written with syntax similar to that of an Objective-C @implementation.
+You don&apos;t need to #include &lt;substrate.h&gt;, it will be done automatically, as will
+the generation of a class list and an automatic constructor.
+
+%hook ClassName
+
+// Hooking a class method
++ (id)sharedInstance &#123;
+	return %orig;
+&#125;
+
+// Hooking an instance method with an argument.
+- (void)messageName:(int)argument &#123;
+	%log; // Write a message about this call, including its class, name and arguments, to the system log.
+
+	%orig; // Call through to the original function with its original arguments.
+	%orig(nil); // Call through to the original function with a custom argument.
+
+	// If you use %orig(), you MUST supply all arguments (except for self and _cmd, the automatically generated ones.)
+&#125;
+
+// Hooking an instance method with no arguments.
+- (id)noArguments &#123;
+	%log;
+	id awesome = %orig;
+	[awesome doSomethingElse];
+
+	return awesome;
+&#125;
+
+// Always make sure you clean up after yourself; Not doing so could have grave consequences!
+%end
+*/</code></pre>
+
+<p>涉及到函数语法包括：</p>
+<ul>
+<li>%hook：指定要hook的class，以%end结尾</li>
+<li>%log：将函数的类名、参数等写入syslog</li>
+<li>%orig：调用hook的原函数</li>
+<li>%group：将%hook分组</li>
+<li>%init：初始化某个%group</li>
+<li>%ctor：显式定义调用%init</li>
+<li>%new：添加新函数</li>
+<li>%c：作用等同于NSClassFromString</li>
+</ul>
+<h4 id="Tweak编译"><a href="#Tweak编译" class="headerlink" title="Tweak编译"></a>Tweak编译</h4><p>编译</p>
+<pre><code class="hljs undefined">make</code></pre>
+
+<blockquote>
+<p>Making all for tweak Nero_first_iosre…<br>make[2]: Nothing to be done for `internal-library-compile’.</p>
+</blockquote>
+<p>若手动删除了obj文件后再make出现以上报错的话，将和obj同一个目录的.theos里面的东西删掉就能解决。</p>
+<p>若发现<code>make</code>后的obj里没有.dylib文件，那是因为新版本的Theos已经将它放到了obj同目录下的.theo/obj/debug/<br><a href="http://bbs.iosre.com/t/obj/3197" target="_blank" rel="noopener">http://bbs.iosre.com/t/obj/3197</a></p>
+<blockquote>
+<p>clang: warning: libstdc++ is deprecated; move to libc++ with a minimum deployment target of iOS 7</p>
+</blockquote>
+<p>如果是出现以上warning的话，狗神说不用管。</p>
+<blockquote>
+<p>warning: no debug symbols in executable</p>
+</blockquote>
+<p>出现以上warning的话，可先尝试安装一下LZMA</p>
+<blockquote>
+<p>make[3]: <strong>* No rule to make target ‘/path/to/project.dylib’. Stop.<br>make[2]: *</strong> [/path/to/project.dylib] Error 2<br>make[1]: <strong>* [internal-library-all_] Error 2<br>make: *</strong> [project.all.tweak.variables] Error 2</p>
+</blockquote>
+<p>出现上面error的话，检查项目路径是否带有中文。</p>
+<pre><code class="hljs undefined">sudo cpan IO::Compress::Lzma</code></pre>
+
+<p>不过我安装了仍然存在该警告，但不影响打包 - -。</p>
+<p>打包</p>
+<pre><code class="hljs undefined">make package</code></pre>
+
+<blockquote>
+<p>dm.pl: building package <code>com.nero.firstproject:iphoneos-arm&#39; in</code>./packages/com.nero.firstproject_0.0.1-1+debug_iphoneos-arm.deb’</p>
+</blockquote>
+<p>看到上面的输出，即代表已经生成了可发布及安装的deb包了，在项目根目录下的packages文件夹中。</p>
+<p>另外，可以使用dpkg查看deb包的结构</p>
+<pre><code class="hljs undefined">cd packages
+dpkg -c com.nero.firstproject_0.0.1-1+debug_iphoneos-arm.deb</code></pre>
+
+<blockquote>
+<p>drwxr-xr-x root/wheel        0 2018-07-20 12:40 .<br>drwxr-xr-x root/wheel        0 2018-07-20 12:40 ./Library<br>drwxr-xr-x root/wheel        0 2018-07-20 12:40 ./Library/MobileSubstrate<br>drwxr-xr-x root/wheel        0 2018-07-20 12:40 ./Library/MobileSubstrate/DynamicLibraries<br>-rwxr-xr-x root/wheel    98704 2018-07-20 12:40 ./Library/MobileSubstrate/DynamicLibraries/firstproject.dylib<br>-rw-r–r– root/wheel       57 2018-07-20 12:40 ./Library/MobileSubstrate/DynamicLibraries/firstproject.plist</p>
+</blockquote>
+<p>若要重新编译，可使用下面指令，并清除.theos文件夹里的所有内容</p>
+<pre><code class="hljs undefined">make clean</code></pre>
+
+<p>然后是把deb安装到手机上。当然也可以手动用scp或者iFunbox拷贝deb到手机上再通过iFile安装。</p>
+<pre><code class="hljs undefined">make install</code></pre>
+
+<blockquote>
+<p>THEOS_DEVICE_IP = 192.168.1.231<br>ARCHS = arm64 armv7s<br>TARGET = iphone:latest:8.0</p>
+</blockquote>
+<p>有网友提到使用<code>make install</code>要注意的坑是将上面三行内容写在Makefile（相当于app项目中的info.plist文件）的最开头位置，原理也是通过scp完成。</p>
+<p>安装deb后可以在Cydia的已安装-&gt;专业人士一栏里找到该deb，点击进去能查看详细的信息</p>
+<img src="https://i.loli.net/2018/08/30/5b8786ab2f275.png" width="50%" height="50%">
+
+
+      
+       <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 mingfungliu@gmail.com </span>
+    </div>
+</article>
+
+
+<p>
+    <a href="javascript:void(0)" class="dashang" onclick="dashangToggle()">赏</a>
+</p>
+
+
+
+<div class="article_copyright">
+    <p><span class="copy-title">文章标题:</span>iOS逆向（三）分析篇</p>
+    
+    <p><span class="copy-title">本文作者:</span><a href="javascript:void(0)" title="Mingfung">Mingfung</a></p>
+    <p><span class="copy-title">发布时间:</span>2018-09-13, 22:39:03</p>
+    <p><span class="copy-title">最后更新:</span>2018-09-13, 23:22:49</p>
+    <span class="copy-title">原始链接:</span><a class="post-url" href="/iOS/iOS逆向（三）分析篇/" title="iOS逆向（三）分析篇">http://blog.ifungfay.com/iOS/iOS逆向（三）分析篇/</a>
+    <p>
+        <span class="copy-title">版权声明:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+    </p>
+</div>
+
+
+
+
+    <script type="text/javascript">
+(function(d, s) {
+   var j, e = d.getElementsByTagName(s)[0];
+
+   if (typeof LivereTower === 'function') { return; }
+
+   j = d.createElement(s);
+   j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+   j.async = true;
+
+   e.parentNode.insertBefore(j, e);
+})(document, 'script');
+</script>
+<noscript> 为正常使用来必力评论功能请激活JavaScript</noscript>
+
+<iframe title="livere"   src="https://was.livere.me/comment/city?id=city&refer=http://blog.ifungfay.com/iOS/iOS逆向（三）分析篇/&uid=MTAyMC80NzAyOC8yMzUyOA==&site=http://blog.ifungfay.com/iOS/iOS逆向（三）分析篇/&title=iOS逆向（三）分析篇" scrolling="" frameborder="0" id="lv-comment-399" style="min-width: 100%; width: 100px; min-height: 400px; overflow: auto; border: 0px; z-index: 124212; height: 800px;" ></iframe>
+
+
+
+    
+
+
+
+
+    </div>
+    <div class="copyright">
+        <p class="footer-entry">©2016-2019 Mingfung</p>
+<p class="footer-entry">Built with <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/yelog/hexo-theme-3-hexo" target="_blank">3-hexo</a> theme</p>
+
+    </div>
+    <div class="full-toc">
+        <button class="full"><span class="min "></span></button>
+<button class="post-toc-menu"><span class="post-toc-menu-icons"></span></button>
+<div class="post-toc"><span class="post-toc-title">目录</span>
+    <div class="post-toc-content">
+
+    </div>
+</div>
+<a class="" id="rocket" href="javascript:void(0)"></a>
+    </div>
+</div>
+<div class="acParent"></div>
+
+<div class="hide_box" onclick="dashangToggle()"></div>
+<div class="shang_box">
+    <a class="shang_close" href="javascript:void(0)" onclick="dashangToggle()">×</a>
+    <div class="shang_tit">
+        <p>喜欢就点赞,疼爱就打赏</p>
+    </div>
+    <div class="shang_payimg">
+        <div class="pay_img">
+            <img src="/img/alipay.jpg" class="alipay" title="扫码支持">
+            <img src="/img/weixin.jpg" class="weixin" title="扫码支持">
+        </div>
+    </div>
+    <div class="shang_payselect">
+        <span><label><input type="radio" name="pay" checked value="alipay">支付宝</label></span><span><label><input type="radio" name="pay" value="weixin">微信</label></span>
+    </div>
+</div>
+
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/koharu.model.json"},"log":false});</script></body>
+<script src="/js/jquery.pjax.js?v=1.0.1" ></script>
+
+<script src="/js/script.js?v=1.0.1" ></script>
+<script>
+    var img_resize = 'default';
+    /*作者、标签的自动补全*/
+    $(function () {
+        $('.search').AutoComplete({
+            'data': ['#JSPatch','#JavaScriptCore','#property','#dynamic','#sythesize','#nonatomic','#iOS11','#Xcode9','#iPhoneX','#TLS','#SSL','#HTTPS','#ATS','#Java','#Android','#AndroidStudio','#adb','#反编译','#Gradle','#Module','#ProGuard','#Native','#JNI','#NDK','#AAR','#JAR','#html','#bootstrap','#css','#Flutter','#iOS','#Dart','#Git','#command','#Mac','#question','#PyCharm','#Django','#Python','#Anaconda','#Qgis','#vapor','#swift','#heroku','#cloud','#crypto','#console','#terminal','#database','#postgreSQL','#network','#http','#webSocket','#encoded','#leaf','#view','#session','#token','#verification','#越狱','#逆向','#工具','#安全','#CGI','#Servlet','#容器','#Docker','#Manager','#Model','#Role','#Target','#JSON','#Objective-C','#jekyll','#github','#blog','#Jenkins','#CI','#Test','#Ubuntu','#服务器','#Web App','#nginx','#supervisor','#fabric','#python','#mysql','#设计模式','#tool','#skill','#MVP','#Adapter','#Activity','#Fragment','#Layout','#Res','#Realm','#AIDL','#AsyncTask','#Thread','#Handler','#link','#register','#assembly','#library','#static','#memory','#runtime','#interrupt',],
+            'itemHeight': 20,
+            'width': 418
+        }).AutoComplete('show');
+    })
+    function initArticle() {
+        /*渲染对应的表格样式*/
+        
+            $(".post .pjax table").addClass("green_title");
+        
+
+        /*渲染打赏样式*/
+        
+        $("input[name=pay]").on("click", function () {
+            if($("input[name=pay]:checked").val()=="weixin"){
+                $(".shang_box .shang_payimg .pay_img").addClass("weixin_img");
+            } else {
+                $(".shang_box .shang_payimg .pay_img").removeClass("weixin_img");
+            }
+        })
+        
+
+        /*高亮代码块行号*/
+        
+        $('pre code').each(function(){
+            var lines = $(this).text().split('\n').length, widther='';
+            if (lines>99) {
+                widther = 'widther'
+            }
+            var $numbering = $('<ul/>').addClass('pre-numbering ' + widther).attr("unselectable","on");
+            $(this).addClass('has-numbering ' + widther)
+                    .parent()
+                    .append($numbering);
+            for(var i=1;i<=lines;i++){
+                $numbering.append($('<li/>').text(i));
+            }
+        });
+        
+
+        /*访问数量*/
+        
+        $.getScript("//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js");
+        
+
+        /*代码高亮，行号对齐*/
+        $('.pre-numbering').css('line-height',$('.has-numbering').css('line-height'));
+
+        
+    }
+
+    /*打赏页面隐藏与展示*/
+    
+    function dashangToggle() {
+        $(".shang_box").fadeToggle();
+        $(".hide_box").fadeToggle();
+    }
+    
+
+</script>
+
+<!--加入行号的高亮代码块样式-->
+
+<style>
+    pre{
+        position: relative;
+        margin-bottom: 24px;
+        border-radius: 10px;
+        border: 1px solid #e2dede;
+        background: #FFF;
+        overflow: hidden;
+    }
+    code.has-numbering{
+        margin-left: 30px;
+    }
+    code.has-numbering.widther{
+        margin-left: 35px;
+    }
+    .pre-numbering{
+        margin: 0px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 20px;
+        padding: 0.5em 3px 0.7em 5px;
+        border-right: 1px solid #C3CCD0;
+        text-align: right;
+        color: #AAA;
+        background-color: ;
+    }
+    .pre-numbering.widther {
+        width: 35px;
+    }
+</style>
+
+<!--自定义样式设置-->
+<style>
+    
+    
+    .nav {
+        width: 542px;
+    }
+    .nav.fullscreen {
+        margin-left: -542px;
+    }
+    .nav-left {
+        width: 120px;
+    }
+    
+    
+    @media screen and (max-width: 1468px) {
+        .nav {
+            width: 492px;
+        }
+        .nav.fullscreen {
+            margin-left: -492px;
+        }
+        .nav-left {
+            width: 100px;
+        }
+    }
+    
+    
+    @media screen and (max-width: 1024px) {
+        .nav {
+            width: 492px;
+            margin-left: -492px
+        }
+        .nav.fullscreen {
+            margin-left: 0;
+        }
+        .nav .hide-list.fullscreen {
+            left: 492px
+        }
+    }
+    
+    @media screen and (max-width: 426px) {
+        .nav {
+            width: 100%;
+        }
+        .nav-left {
+            width: 100%;
+        }
+    }
+    
+    
+    .nav-right .title-list nav a .post-title, .nav-right .title-list #local-search-result a .post-title {
+        color: #383636;
+    }
+    
+    
+    .nav-right .title-list nav a .post-date, .nav-right .title-list #local-search-result a .post-date {
+        color: #5e5e5f;
+    }
+    
+    
+    .nav-right nav a.hover, #local-search-result a.hover{
+        background-color: #e2e0e0;
+    }
+    
+    
+
+    /*列表样式*/
+    
+    .post .pjax article .article-entry>ol, .post .pjax article .article-entry>ul, .post .pjax article>ol, .post .pjax article>ul{
+        border: #e2dede solid 1px;
+        border-radius: 10px;
+        padding: 10px 32px 10px 56px;
+    }
+    .post .pjax article .article-entry li>ol, .post .pjax article .article-entry li>ul,.post .pjax article li>ol, .post .pjax article li>ul{
+        padding-top: 5px;
+        padding-bottom: 5px;
+    }
+    .post .pjax article .article-entry>ol>li, .post .pjax article .article-entry>ul>li,.post .pjax article>ol>li, .post .pjax article>ul>li{
+        margin-bottom: auto;
+        margin-left: auto;
+    }
+    .post .pjax article .article-entry li>ol>li, .post .pjax article .article-entry li>ul>li,.post .pjax article li>ol>li, .post .pjax article li>ul>li{
+        margin-bottom: auto;
+        margin-left: auto;
+    }
+    
+
+    /* 背景图样式 */
+    
+    
+
+
+    /*引用块样式*/
+    
+
+    /*文章列表背景图*/
+    
+    .nav-right:before {
+        content: ' ';
+        display: block;
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0.3;
+        background: url("null");
+        background-repeat: no-repeat;
+        background-position: 50% 0;
+        -ms-background-size: cover;
+        -o-background-size: cover;
+        -moz-background-size: cover;
+        -webkit-background-size: cover;
+        background-size: cover;
+    }
+    
+
+    
+</style>
+
+
+
+
+
+
+<div class="mobile-menus-out" >
+
+</div>
+<div class="mobile-menus">
+    
+    
+    <a class="dynamic-menu site_url"   href="/404.html">宝贝回家</a>
+    
+    
+    
+</div>
+
+
+</html>
