@@ -325,8 +325,11 @@ $('#tagsWitchIcon').on('click', function () {
 /*是否展示标签列表*/
 $("#tagswitch").on("change", function (e) {
     $(".nav-right .tags-list").css("display", $(this).prop("checked") ? "block" : "none");
+    // <% if(){%>style="height: 300px; overflow-y: scroll;"<%}%>  
+    $(".tags-list").css("height", $(window).height()/3);
+    $(".tags-list").css("overflow-y", "scroll");
     // 51 为 .tags-list 的 margin-top + margin-bottom + form 的 border-bottom  || 1 为 form 的 border-bottom
-    var top = $(this).prop("checked") ? $(".nav-right form").height() + $(".nav-right .tags-list").height() + 51 : $(".nav-right form").height() + 1;
+    var top = $(this).prop("checked") ? $(".nav-right .title-list form").height() + $(".tags-list").height() + 51 : $(".nav-right .title-list form").height() + 1;
     if ($(window).width() > 426) {
         var height = $(document).height() - top - 11;// 11 为nav的border-top + padding-bottom
     }  else {
