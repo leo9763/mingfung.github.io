@@ -1,0 +1,2053 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  <title>搭建Jenkins | Mingfung&#39;s Blog</title>
+  <meta name="keywords" content=" Jenkins , CI , Test ">
+  <meta name="description" content="搭建Jenkins | Mingfung&#39;s Blog">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="description" content="以铜为镜可正衣冠，以史为镜可知兴替，以人为镜可明得失">
+<meta property="og:type" content="website">
+<meta property="og:title" content="categories">
+<meta property="og:url" content="http://blog.ifungfay.com/categories/index.html">
+<meta property="og:site_name" content="Mingfung&#39;s Blog">
+<meta property="og:description" content="以铜为镜可正衣冠，以史为镜可知兴替，以人为镜可明得失">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2017-07-18T10:00:58.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="categories">
+<meta name="twitter:description" content="以铜为镜可正衣冠，以史为镜可知兴替，以人为镜可明得失">
+
+
+<link rel="icon" href="/img/avatar.jpg">
+
+<link href="/css/style.css?v=1.0.1" rel="stylesheet">
+
+<link href="/css/hl_theme/zenbum.css?v=1.0.1" rel="stylesheet">
+
+<link href="//cdn.bootcss.com/animate.css/3.5.2/animate.min.css" rel="stylesheet">
+<link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+<script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="/js/jquery.autocomplete.min.js?v=1.0.1"></script>
+
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
+
+<script src="//cdn.bootcss.com/nprogress/0.2.0/nprogress.min.js"></script>
+
+
+
+<script src="/js/iconfont.js?v=1.0.1"></script>
+<!--鼠标点击爱心动画-->
+<script type="text/javascript" src="/js/clicklove.js"></script>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-102751023-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', UA-102751023-1);
+</script>
+
+<!-- Tencent Analytics -->
+
+<script type="text/javascript" src="http://tajs.qq.com/stats?sId=66478371" charset="UTF-8"></script>
+
+</head>
+<div style="display: none">
+  <input class="theme_disqus_on" value="false">
+  <input class="theme_preload_comment" value="true">
+  <input class="theme_blog_path" value>
+</div>
+
+<body>
+<aside class="nav">
+    <div class="nav-left">
+        <a href="/" class="avatar_target">
+    <img class="avatar" src="/img/avatar.jpg" />
+</a>
+<div class="author">
+    <span>Mingfung</span>
+</div>
+
+<div class="icon">
+    
+        
+        <a title="rss" href="/atom.xml" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-rss"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+        <a title="github" href="https://github.com/ming-fung" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-github"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+        <a title="facebook" href="https://www.facebook.com/ming.fung.liu.nero" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-facebook"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+        <a title="twitter" href="https://twitter.com/Nero_Milk" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-twitter"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+    
+        
+        <a title="instagram" href="https://www.instagram.com/mingfungliu/" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-instagram"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+    
+        
+        <a title="weibo" href="https://weibo.com/neross" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-weibo"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+        <a title="jianshu" href="https://www.jianshu.com/u/007c5818ec78" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-jianshu"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+        <a title="zhihu" href="zhihu.com/people/mingfungliu" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-zhihu"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+    
+        
+    
+        
+        <a title="juejin" href="https://juejin.im/user/5b6b9b37f265da0f9f4e8df3" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-juejin"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+        <a title="email" href="mailto:mingfungliu@gmail.com" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-email"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+        <a title="qq" href="http://wpa.qq.com/msgrd?v=3&uin=52360086&site=qq&menu=yes" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-qq"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+    
+        
+    
+</div>
+
+
+
+<a class="more-menus">更多菜单</a>
+
+
+<ul>
+    <li><div class="all active">全部文章<small>(53)</small></div></li>
+    
+        
+            
+            <li><div data-rel="iOS">iOS<small>(6)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="Android">Android<small>(3)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="前端">前端<small>(4)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="工具">工具<small>(4)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="后端">后端<small>(13)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="书"><i class="fold iconfont icon-right"></i>书<small>(3)</small></div>
+                
+                    <ul class="sub hide">
+                        
+                        <li><div data-rel="听书后感">听书后感<small>(2)</small></div>
+                            
+                        </li>
+                            
+                        <li><div data-rel="书单">书单<small>(1)</small></div>
+                            
+                        </li>
+                            
+                    </ul>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="管理">管理<small>(2)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="设计模式">设计模式<small>(7)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+            <li><div data-rel="系统">系统<small>(1)</small></div>
+                
+            </li>
+            
+        
+    
+</ul>
+<div class="left-bottom">
+    <div class="menus">
+    
+    
+    <a class="dynamic-menu site_url"   href="/404.html">宝贝回家</a>
+    
+    
+    
+    </div>
+    <div><a class="about  hasFriend  site_url"  href="/about">关于</a><a style="width: 50%"  class="friends">友链</a></div>
+</div>
+<input type="hidden" id="yelog_site_posts_number" value="53">
+<input type="hidden" id="yelog_site_word_count" value="168.9k">
+<div style="display: none">
+    <span id="busuanzi_value_site_uv"></span>
+    <span id="busuanzi_value_site_pv"></span>
+</div>
+
+    </div>
+    <div class="nav-right">
+        <div class="friends-area">
+    <div class="friends-title">
+        友情链接
+        <i class="back-title-list"></i>
+    </div>
+    <div class="friends-content">
+        <ul>
+            
+            <li><a target="_blank" href="http://www.ifungfay.com">雪月风飞</a></li>
+            
+        </ul>
+    </div>
+</div>
+        <div class="title-list">
+    <form onkeydown="if(event.keyCode==13){return false;}">
+        <input class="search" type="text" placeholder="Search..." autocomplete="off"id="local-search-input" >
+        <i class="cross"></i>
+        <span>
+            <label for="tagswitch">Tags:</label>
+            <input id="tagswitch" type="checkbox" style="display: none" />
+            <i id="tagsWitchIcon"></i>
+        </span>
+    </form>
+    <div class="tags-list">
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color2">Ubuntu</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color1">Nexus</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color1">Maven</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color2">Gitlab</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color3">JSPatch</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color5">JavaScriptCore</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color4">property</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color3">dynamic</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color5">sythesize</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color5">nonatomic</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color1">iOS11</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color2">Xcode9</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color3">iPhoneX</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color5">Java</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color3">Android</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color2">Gradle</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color2">Module</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color4">ProGuard</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color2">Native</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color4">JNI</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color4">NDK</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color4">AAR</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color4">JAR</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color4">TLS</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color4">SSL</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color1">HTTPS</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color4">ATS</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color4">AndroidStudio</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color4">adb</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color4">反编译</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color5">html</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color5">bootstrap</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color4">css</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color2">Python</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color2">Django</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color3">Flutter</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color4">iOS</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color5">Dart</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color4">Git</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color3">command</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color4">Mac</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color4">question</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color3">PyCharm</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color4">Anaconda</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color5">Qgis</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color1">vapor</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color1">swift</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color2">heroku</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color1">cloud</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color2">crypto</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color3">console</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color4">terminal</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color4">database</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color1">postgreSQL</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color3">network</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color5">http</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color5">webSocket</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color3">encoded</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color5">leaf</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color5">view</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color3">session</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color1">token</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color3">verification</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color3">越狱</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color3">逆向</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color3">工具</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color3">安全</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color3">育儿</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color3">管理</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color3">Manager</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color1">Model</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color5">Role</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color2">Target</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color5">JSON</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color2">Objective-C</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color4">CGI</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color3">Servlet</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color3">容器</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color2">Docker</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color2">jekyll</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color2">github</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color5">blog</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color5">tool</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color1">skill</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color3">Jenkins</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color3">CI</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color5">Test</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color5">设计模式</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color4">服务器</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color3">Web App</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color1">nginx</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color1">supervisor</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color2">fabric</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color2">python</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color1">mysql</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color3">面试</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color4">MVP</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color3">Adapter</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color4">Activity</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color4">Fragment</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color2">Layout</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color4">Res</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color1">Realm</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color5">AIDL</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color5">AsyncTask</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color2">Thread</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color3">Handler</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color5">link</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color4">register</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color4">assembly</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color3">library</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color2">static</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color2">memory</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color3">runtime</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color5">interrupt</a>
+    </li>
+    
+    <div class="clearfix"></div>
+</div>
+
+    
+    <nav id="title-list-nav">
+        
+
+        
+            
+        
+            
+        
+            
+        
+            
+            <a id="top" class=""
+               href="/uncategorized/写博有道可循/"
+               data-tag=""
+               data-author="" >
+                <span class="post-title" title="写博有道可循">写博有道可循</span>
+                <span class="post-date" title="2019-10-17 22:04:00">2019/10/17</span>
+            </a>
+            
+        
+            
+        
+            
+        
+            
+            <a id="top" class="书 书单 "
+               href="/书/书单/书单/"
+               data-tag=""
+               data-author="" >
+                <span class="post-title" title="书单">书单</span>
+                <span class="post-date" title="2019-10-16 01:02:57">2019/10/16</span>
+            </a>
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+
+        
+            
+                <a class="管理 "
+                   href="/管理/《做有益于孩子成长的父母》学习后感/"
+                   data-tag="育儿,管理"
+                   data-author="" >
+                    <span class="post-title" title="《做有益于孩子成长的父母》学习后感">《做有益于孩子成长的父母》学习后感</span>
+                    <span class="post-date" title="2020-10-27 08:24:00">2020/10/27</span>
+                </a>
+            
+        
+            
+                <a class=""
+                   href="/uncategorized/Android开发知识小集/"
+                   data-tag="Android"
+                   data-author="" >
+                    <span class="post-title" title="Android开发知识小集">Android开发知识小集</span>
+                    <span class="post-date" title="2019-12-18 10:29:00">2019/12/18</span>
+                </a>
+            
+        
+            
+                <a class="书 听书后感 "
+                   href="/书/听书后感/TED 管理系列/"
+                   data-tag=""
+                   data-author="" >
+                    <span class="post-title" title="TED 管理系列">TED 管理系列</span>
+                    <span class="post-date" title="2019-11-28 12:28:00">2019/11/28</span>
+                </a>
+            
+        
+            
+        
+            
+                <a class=""
+                   href="/uncategorized/面试之道/"
+                   data-tag="面试"
+                   data-author="" >
+                    <span class="post-title" title="招聘的面试之道">招聘的面试之道</span>
+                    <span class="post-date" title="2019-10-17 13:54:00">2019/10/17</span>
+                </a>
+            
+        
+            
+                <a class="书 听书后感 "
+                   href="/书/听书后感/《资治通鉴》听书后感/"
+                   data-tag=""
+                   data-author="" >
+                    <span class="post-title" title="《资治通鉴》听书后感">《资治通鉴》听书后感</span>
+                    <span class="post-date" title="2019-10-16 01:23:13">2019/10/16</span>
+                </a>
+            
+        
+            
+        
+            
+                <a class=""
+                   href="/uncategorized/前端开发知识小集/"
+                   data-tag=""
+                   data-author="" >
+                    <span class="post-title" title="前端开发知识小集">前端开发知识小集</span>
+                    <span class="post-date" title="2019-10-15 14:41:00">2019/10/15</span>
+                </a>
+            
+        
+            
+                <a class="Android "
+                   href="/Android/开发一个Android-App/"
+                   data-tag="MVP,Adapter,Activity,Fragment,Layout,Res,Realm,AIDL,AsyncTask,Thread,Handler"
+                   data-author="" >
+                    <span class="post-title" title="开发一个Android App">开发一个Android App</span>
+                    <span class="post-date" title="2019-10-05 16:11:04">2019/10/05</span>
+                </a>
+            
+        
+            
+                <a class=""
+                   href="/uncategorized/Android技巧入门/"
+                   data-tag="AndroidStudio,adb,反编译"
+                   data-author="" >
+                    <span class="post-title" title="Android技巧入门">Android技巧入门</span>
+                    <span class="post-date" title="2019-08-14 00:22:37">2019/08/14</span>
+                </a>
+            
+        
+            
+                <a class="Android "
+                   href="/Android/Android原理入门/"
+                   data-tag="Java,Android"
+                   data-author="" >
+                    <span class="post-title" title="Android原理入门">Android原理入门</span>
+                    <span class="post-date" title="2019-08-14 00:22:11">2019/08/14</span>
+                </a>
+            
+        
+            
+                <a class="系统 "
+                   href="/系统/链接、装载、库/"
+                   data-tag="dynamic,link,register,assembly,library,static,memory,runtime,interrupt"
+                   data-author="" >
+                    <span class="post-title" title="链接、装载、库">链接、装载、库</span>
+                    <span class="post-date" title="2019-06-05 08:53:00">2019/06/05</span>
+                </a>
+            
+        
+            
+                <a class=""
+                   href="/uncategorized/Django开发/"
+                   data-tag="Python,Django"
+                   data-author="" >
+                    <span class="post-title" title="Django开发">Django开发</span>
+                    <span class="post-date" title="2019-05-15 12:33:00">2019/05/15</span>
+                </a>
+            
+        
+            
+                <a class="后端 "
+                   href="/后端/搭建服务器/"
+                   data-tag="Ubuntu,服务器,Web App,nginx,supervisor,fabric,python,mysql"
+                   data-author="" >
+                    <span class="post-title" title="搭建服务器">搭建服务器</span>
+                    <span class="post-date" title="2019-04-06 00:00:00">2019/04/06</span>
+                </a>
+            
+        
+            
+                <a class="工具 "
+                   href="/工具/搭建博客图床/"
+                   data-tag="blog"
+                   data-author="" >
+                    <span class="post-title" title="搭建博客图床">搭建博客图床</span>
+                    <span class="post-date" title="2019-03-21 12:39:00">2019/03/21</span>
+                </a>
+            
+        
+            
+                <a class="Android "
+                   href="/Android/Android工程入门/"
+                   data-tag="Gradle,Module,ProGuard,Native,JNI,NDK,AAR,JAR"
+                   data-author="" >
+                    <span class="post-title" title="Android工程入门">Android工程入门</span>
+                    <span class="post-date" title="2019-02-24 13:44:00">2019/02/24</span>
+                </a>
+            
+        
+            
+                <a class="管理 "
+                   href="/管理/团队管理实践/"
+                   data-tag="Manager,Model,Role,Target"
+                   data-author="" >
+                    <span class="post-title" title="团队管理实践">团队管理实践</span>
+                    <span class="post-date" title="2019-02-23 23:50:00">2019/02/23</span>
+                </a>
+            
+        
+            
+                <a class="工具 "
+                   href="/工具/效率工具及技巧收录/"
+                   data-tag="tool,skill"
+                   data-author="" >
+                    <span class="post-title" title="效率工具及技巧收录">效率工具及技巧收录</span>
+                    <span class="post-date" title="2019-02-23 22:05:00">2019/02/23</span>
+                </a>
+            
+        
+            
+                <a class="后端 "
+                   href="/后端/后端服务器概念了解下/"
+                   data-tag="CGI,Servlet,容器,Docker"
+                   data-author="" >
+                    <span class="post-title" title="后端服务器概念了解下">后端服务器概念了解下</span>
+                    <span class="post-date" title="2019-02-21 20:30:00">2019/02/21</span>
+                </a>
+            
+        
+            
+                <a class="设计模式 "
+                   href="/设计模式/设计模式（七）小总结/"
+                   data-tag="设计模式"
+                   data-author="" >
+                    <span class="post-title" title="设计模式（七）小总结">设计模式（七）小总结</span>
+                    <span class="post-date" title="2019-02-12 14:45:00">2019/02/12</span>
+                </a>
+            
+        
+            
+                <a class="设计模式 "
+                   href="/设计模式/设计模式（六）命令模式 & 观察者模式/"
+                   data-tag="设计模式"
+                   data-author="" >
+                    <span class="post-title" title="设计模式（六）命令模式 &amp; 观察者模式">设计模式（六）命令模式 &amp; 观察者模式</span>
+                    <span class="post-date" title="2019-02-12 14:28:00">2019/02/12</span>
+                </a>
+            
+        
+            
+                <a class="设计模式 "
+                   href="/设计模式/设计模式（四）状态模式 & 代理模式/"
+                   data-tag="设计模式"
+                   data-author="" >
+                    <span class="post-title" title="设计模式（四）状态模式 &amp; 代理模式">设计模式（四）状态模式 &amp; 代理模式</span>
+                    <span class="post-date" title="2019-02-12 13:12:00">2019/02/12</span>
+                </a>
+            
+        
+            
+                <a class="设计模式 "
+                   href="/设计模式/设计模式（五）工厂模式 & 装饰者模式/"
+                   data-tag="设计模式"
+                   data-author="" >
+                    <span class="post-title" title="设计模式（五）工厂模式 &amp; 装饰者模式">设计模式（五）工厂模式 &amp; 装饰者模式</span>
+                    <span class="post-date" title="2019-02-12 11:54:00">2019/02/12</span>
+                </a>
+            
+        
+            
+                <a class="设计模式 "
+                   href="/设计模式/设计模式（三）适配器模式 & 外观模式/"
+                   data-tag="设计模式"
+                   data-author="" >
+                    <span class="post-title" title="设计模式（三）适配器模式 &amp; 外观模式">设计模式（三）适配器模式 &amp; 外观模式</span>
+                    <span class="post-date" title="2019-02-11 15:10:00">2019/02/11</span>
+                </a>
+            
+        
+            
+                <a class="设计模式 "
+                   href="/设计模式/设计模式（二）迭代器模式 & 组合模式/"
+                   data-tag="设计模式"
+                   data-author="" >
+                    <span class="post-title" title="设计模式（二）迭代器模式 &amp; 组合模式">设计模式（二）迭代器模式 &amp; 组合模式</span>
+                    <span class="post-date" title="2019-02-11 09:59:00">2019/02/11</span>
+                </a>
+            
+        
+            
+                <a class="工具 "
+                   href="/工具/Git手册/"
+                   data-tag="Git"
+                   data-author="" >
+                    <span class="post-title" title="Git手册">Git手册</span>
+                    <span class="post-date" title="2019-01-28 21:35:00">2019/01/28</span>
+                </a>
+            
+        
+            
+                <a class="设计模式 "
+                   href="/设计模式/设计模式（一）策略模式 & 模板方法模式/"
+                   data-tag="设计模式"
+                   data-author="" >
+                    <span class="post-title" title="设计模式（一）策略模式 &amp; 模板方法模式">设计模式（一）策略模式 &amp; 模板方法模式</span>
+                    <span class="post-date" title="2019-01-13 23:41:00">2019/01/13</span>
+                </a>
+            
+        
+            
+                <a class="前端 "
+                   href="/前端/Flutter开发（实践篇）/"
+                   data-tag="Android,Flutter,iOS,Dart"
+                   data-author="" >
+                    <span class="post-title" title="Flutter开发（实践篇）">Flutter开发（实践篇）</span>
+                    <span class="post-date" title="2019-01-09 23:06:00">2019/01/09</span>
+                </a>
+            
+        
+            
+                <a class="前端 "
+                   href="/前端/Flutter开发（介绍篇）/"
+                   data-tag="Android,Flutter,iOS,Dart"
+                   data-author="" >
+                    <span class="post-title" title="Flutter开发（介绍篇）">Flutter开发（介绍篇）</span>
+                    <span class="post-date" title="2019-01-09 21:24:00">2019/01/09</span>
+                </a>
+            
+        
+            
+                <a class="iOS "
+                   href="/iOS/iOS逆向（五）总结篇/"
+                   data-tag="iOS,逆向,安全"
+                   data-author="" >
+                    <span class="post-title" title="iOS逆向（五）总结篇">iOS逆向（五）总结篇</span>
+                    <span class="post-date" title="2018-09-13 22:39:05">2018/09/13</span>
+                </a>
+            
+        
+            
+                <a class="iOS "
+                   href="/iOS/iOS逆向（四）实战篇/"
+                   data-tag="iOS,逆向"
+                   data-author="" >
+                    <span class="post-title" title="iOS逆向（四）实战篇">iOS逆向（四）实战篇</span>
+                    <span class="post-date" title="2018-09-13 22:39:04">2018/09/13</span>
+                </a>
+            
+        
+            
+                <a class="iOS "
+                   href="/iOS/iOS逆向（三）分析篇/"
+                   data-tag="iOS,逆向"
+                   data-author="" >
+                    <span class="post-title" title="iOS逆向（三）分析篇">iOS逆向（三）分析篇</span>
+                    <span class="post-date" title="2018-09-13 22:39:03">2018/09/13</span>
+                </a>
+            
+        
+            
+                <a class="iOS "
+                   href="/iOS/iOS逆向（二）工具篇/"
+                   data-tag="iOS,逆向,工具"
+                   data-author="" >
+                    <span class="post-title" title="iOS逆向（二）工具篇">iOS逆向（二）工具篇</span>
+                    <span class="post-date" title="2018-09-13 22:39:02">2018/09/13</span>
+                </a>
+            
+        
+            
+                <a class="iOS "
+                   href="/iOS/iOS逆向（一）越狱篇/"
+                   data-tag="iOS,越狱"
+                   data-author="" >
+                    <span class="post-title" title="iOS逆向（一）越狱篇">iOS逆向（一）越狱篇</span>
+                    <span class="post-date" title="2018-09-13 22:39:01">2018/09/13</span>
+                </a>
+            
+        
+            
+                <a class="前端 "
+                   href="/前端/Bootstrap手册/"
+                   data-tag="html,bootstrap,css"
+                   data-author="" >
+                    <span class="post-title" title="Bootstrap手册">Bootstrap手册</span>
+                    <span class="post-date" title="2018-09-08 23:06:00">2018/09/08</span>
+                </a>
+            
+        
+            
+                <a class="后端 "
+                   href="/后端/Vapor（七）工具篇/"
+                   data-tag="command,vapor,swift,crypto,console,terminal"
+                   data-author="" >
+                    <span class="post-title" title="Vapor（七）工具篇">Vapor（七）工具篇</span>
+                    <span class="post-date" title="2018-08-21 23:02:00">2018/08/21</span>
+                </a>
+            
+        
+            
+                <a class="后端 "
+                   href="/后端/Vapor（六）视图篇/"
+                   data-tag="vapor,swift,leaf,view"
+                   data-author="" >
+                    <span class="post-title" title="Vapor（六）视图篇">Vapor（六）视图篇</span>
+                    <span class="post-date" title="2018-08-20 21:56:00">2018/08/20</span>
+                </a>
+            
+        
+            
+                <a class="后端 "
+                   href="/后端/Vapor（五）网络篇/"
+                   data-tag="vapor,swift,network,http,webSocket,encoded"
+                   data-author="" >
+                    <span class="post-title" title="Vapor（五）网络篇">Vapor（五）网络篇</span>
+                    <span class="post-date" title="2018-08-17 20:30:00">2018/08/17</span>
+                </a>
+            
+        
+            
+                <a class="后端 "
+                   href="/后端/Vapor（四）验证篇/"
+                   data-tag="vapor,swift,session,token,verification"
+                   data-author="" >
+                    <span class="post-title" title="Vapor（四）验证篇">Vapor（四）验证篇</span>
+                    <span class="post-date" title="2018-08-16 19:06:00">2018/08/16</span>
+                </a>
+            
+        
+            
+                <a class="后端 "
+                   href="/后端/Python知识小集/"
+                   data-tag="Python,PyCharm"
+                   data-author="" >
+                    <span class="post-title" title="Python 小问题收集">Python 小问题收集</span>
+                    <span class="post-date" title="2018-08-16 00:00:00">2018/08/16</span>
+                </a>
+            
+        
+            
+                <a class="后端 "
+                   href="/后端/Vapor（三）数据库篇/"
+                   data-tag="vapor,swift,database,postgreSQL"
+                   data-author="" >
+                    <span class="post-title" title="Vapor（三）数据库篇">Vapor（三）数据库篇</span>
+                    <span class="post-date" title="2018-08-15 21:33:00">2018/08/15</span>
+                </a>
+            
+        
+            
+                <a class="后端 "
+                   href="/后端/Vapor（二）进阶篇/"
+                   data-tag="vapor,swift"
+                   data-author="" >
+                    <span class="post-title" title="Vapor（二）进阶篇">Vapor（二）进阶篇</span>
+                    <span class="post-date" title="2018-08-14 21:20:00">2018/08/14</span>
+                </a>
+            
+        
+            
+                <a class="后端 "
+                   href="/后端/Vapor的部署/"
+                   data-tag="vapor,swift,heroku,cloud"
+                   data-author="" >
+                    <span class="post-title" title="Vapor的部署">Vapor的部署</span>
+                    <span class="post-date" title="2018-08-13 23:34:00">2018/08/13</span>
+                </a>
+            
+        
+            
+                <a class="后端 "
+                   href="/后端/Vapor（一）基础篇/"
+                   data-tag="vapor,swift"
+                   data-author="" >
+                    <span class="post-title" title="Vapor（一）基础篇">Vapor（一）基础篇</span>
+                    <span class="post-date" title="2018-08-13 23:34:00">2018/08/13</span>
+                </a>
+            
+        
+            
+                <a class="后端 "
+                   href="/后端/Python的使用环境配置/"
+                   data-tag="Python,Django,PyCharm,Anaconda,Qgis"
+                   data-author="" >
+                    <span class="post-title" title="Python的使用环境配置">Python的使用环境配置</span>
+                    <span class="post-date" title="2018-05-24 19:30:00">2018/05/24</span>
+                </a>
+            
+        
+            
+                <a class="工具 "
+                   href="/工具/Mac命令行工具及其问题收录/"
+                   data-tag="command,Mac,question"
+                   data-author="" >
+                    <span class="post-title" title="Mac命令行工具及其问题收录">Mac命令行工具及其问题收录</span>
+                    <span class="post-date" title="2018-02-22 17:10:00">2018/02/22</span>
+                </a>
+            
+        
+            
+                <a class=""
+                   href="/uncategorized/利用Firebase实现的推送功能系统/"
+                   data-tag=""
+                   data-author="" >
+                    <span class="post-title" title="利用Firebase实现的推送功能系统">利用Firebase实现的推送功能系统</span>
+                    <span class="post-date" title="2018-01-17 19:33:41">2018/01/17</span>
+                </a>
+            
+        
+            
+                <a class="iOS "
+                   href="/iOS/处理服务端API返回JSON的总结/"
+                   data-tag="iOS,JSON,Objective-C"
+                   data-author="" >
+                    <span class="post-title" title="处理服务端API返回JSON的总结">处理服务端API返回JSON的总结</span>
+                    <span class="post-date" title="2018-01-09 14:35:00">2018/01/09</span>
+                </a>
+            
+        
+            
+                <a class=""
+                   href="/uncategorized/hello-world/"
+                   data-tag=""
+                   data-author="" >
+                    <span class="post-title" title="Hello World">Hello World</span>
+                    <span class="post-date" title="2018-01-07 14:45:35">2018/01/07</span>
+                </a>
+            
+        
+            
+                <a class="后端 "
+                   href="/后端/Vapor之初体验/"
+                   data-tag="vapor,swift,heroku"
+                   data-author="" >
+                    <span class="post-title" title="Vapor之初体验">Vapor之初体验</span>
+                    <span class="post-date" title="2018-01-05 21:49:00">2018/01/05</span>
+                </a>
+            
+        
+            
+                <a class=""
+                   href="/uncategorized/搭建Jenkins/"
+                   data-tag="Jenkins,CI,Test"
+                   data-author="" >
+                    <span class="post-title" title="搭建Jenkins">搭建Jenkins</span>
+                    <span class="post-date" title="2017-08-26 22:59:36">2017/08/26</span>
+                </a>
+            
+        
+            
+                <a class=""
+                   href="/uncategorized/ATS详解/"
+                   data-tag="TLS,SSL,HTTPS,ATS"
+                   data-author="" >
+                    <span class="post-title" title="ATS详解">ATS详解</span>
+                    <span class="post-date" title="2017-07-22 15:57:55">2017/07/22</span>
+                </a>
+            
+        
+            
+                <a class="前端 "
+                   href="/前端/搭建Hexo博客/"
+                   data-tag="jekyll,github,blog"
+                   data-author="" >
+                    <span class="post-title" title="搭建Hexo博客">搭建Hexo博客</span>
+                    <span class="post-date" title="2017-07-18 21:50:14">2017/07/18</span>
+                </a>
+            
+        
+    </nav>
+</div>
+    </div>
+    <div class="hide-list">
+        <div class="semicircle">
+            <div class="brackets first"><</div>
+            <div class="brackets">&gt;</div>
+        </div>
+    </div>
+</aside>
+<div class="post">
+    <div class="pjax">
+        <article id="post-搭建Jenkins" class="article article-type-post" itemscope itemprop="blogPost">
+    
+        <h1 class="article-title">搭建Jenkins</h1>
+    
+    <div class="article-meta">
+        
+        
+        
+        
+        <span class="tag">
+            
+            <a href="javascript:" class="color3">Jenkins</a>
+            
+            <a href="javascript:" class="color3">CI</a>
+            
+            <a href="javascript:" class="color5">Test</a>
+            
+        </span>
+        
+    </div>
+    <div class="article-meta">
+        
+        创建时间:<time class="date" title='更新时间: 2019-11-21 11:06:23'>2017-08-26 22:59</time>
+        
+    </div>
+    <div class="article-meta">
+        
+        <span>字数:4k</span>
+        
+        
+        <span id="busuanzi_container_page_pv">
+            阅读:<span id="busuanzi_value_page_pv">
+                <span class="count-comment">
+                    <span class="spinner">
+                      <div class="cube1"></div>
+                      <div class="cube2"></div>
+                    </span>
+                </span>
+            </span>
+        </span>
+        
+        
+    </div>
+    
+    <div class="toc-ref">
+    
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#介绍"><span class="toc-text">介绍</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#安装"><span class="toc-text">安装</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#JDK"><span class="toc-text">JDK</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Jenkins"><span class="toc-text">Jenkins</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#配置"><span class="toc-text">配置</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#用户"><span class="toc-text">用户</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Server"><span class="toc-text">Server</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#插件"><span class="toc-text">插件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Item"><span class="toc-text">Item</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#创建"><span class="toc-text">创建</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#常规设置"><span class="toc-text">常规设置</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#源码设置"><span class="toc-text">源码设置</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#触发器设置"><span class="toc-text">触发器设置</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#环境设置"><span class="toc-text">环境设置</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#构建设置"><span class="toc-text">构建设置</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#构建后设置"><span class="toc-text">构建后设置</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#问题小结"><span class="toc-text">问题小结</span></a></li></ol></li></ol></li></ol>
+    
+<style>
+    .left-col .switch-btn,
+    .left-col .switch-area {
+        display: none;
+    }
+    .toc-level-3 i,
+    .toc-level-3 ol {
+        display: none !important;
+    }
+</style>
+</div>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>Jenkins是一种CI（Continuous integration，即可持续集成）系统工具。简单来说就是用于持续、自动地构建/测试软件项目和进行监控。具体来说的话，它可以实现</p>
+<ul>
+<li>软件构建自动化 ：配置完成后，CI系统会依照预先制定的时间表，或者针对某一特定事件，对目标软件进行构建。</li>
+<li>构建可持续的自动化检查 ：CI系统能持续地获取新增或修改后签入的源代码，也就是说，当软件开发团队需要周期性的检查新增或修改后的代码时，CI系统会不断确认这些新代码是否破坏了原有软件的成功构建。这减少了开发者们在检查彼此相互依存的代码中变化情况需要花费的时间和精力。</li>
+<li>构建可持续的自动化测试 ：构建检查的扩展部分，构建后执行预先制定的一套测试规则，完成后触发通知(Email,RSS等等)给相关的当事人。</li>
+<li>生成后后续过程的自动化 :当自动化检查和测试成功完成，软件构建的周期中可能也需要一些额外的任务，诸如生成文档、打包软件、部署构件到一个运行环境或者软件仓库。这样，构件才能更迅速地提供给用户使用。</li>
+</ul>
+<a id="more"></a>
+<p>Jenkins的主要目标是监控软件开发流程，快速显示问题，保证开发人员以及相关人员省时省力提高开发效率，其还有以下特性</p>
+<ul>
+<li>Jenkins一切配置都可以在web界面上完成。有些配置如MAVEN_HOME和Email，只需要配置一次，所有的项目就都能用。当然也可以通过修改XML进行配置。</li>
+<li>支持Maven的模块(Module)，Jenkins对Maven做了优化，因此它能自动识别Module，每个Module可以配置成一个job。相当灵活。</li>
+<li>测试报告聚合，所有模块的测试报告都被聚合在一起，结果一目了然，使用其他CI，这几乎是件不可能完成的任务。</li>
+<li>构件指纹(artifact fingerprint)，每次build的结果构件都被很好的自动管理，无需任何配置就可以方便的浏览下载。</li>
+<li>插件支持，支持扩展插件，你可以开发适合自己团队使用的工具。</li>
+</ul>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><h3 id="JDK"><a href="#JDK" class="headerlink" title="JDK"></a>JDK</h3><p>在安装2.74版本的Jenkins前，首先需要安装<a href="https://www.java.com/zh_CN/download/mac_download.jsp" target="_blank" rel="noopener">JDK8</a>。</p>
+<p>10.12的Mac系统自搭载的JDK版本是1.7.0_73（即是JDK7）。</p>
+<pre><code class="hljs undefined">java -version</code></pre>
+
+<p>在终端使用上面指令可查看JDK的具体版本信息。安装完JDK8后，再使用该指令查看，会发现仍然显示JDK7的版本信息，这里就需要做一点小的调整才能把JDK版本由当前系统搭载的版本切换到自定义下载的版本。</p>
+<pre><code class="hljs undefined">which java</code></pre>
+
+<p>首先，使用上面指令查看现在java软件包的来源是 <code>/usr/bin/java</code> ，在该路径下发现这java是一个替身，真正的位置是 <code>/System/Library/Frameworks/JavaVM.framework/Version/A/Commands/java</code> ，这个framework就是系统自搭载的JDK了。</p>
+<p>然后，输入以下指令进行当前使用版本的切换，用ln创建替身的源参数就是自定义下载的java所在位置，切换前也可以先验证替换的版本号。</p>
+<pre><code class="hljs undefined">/Library/Internet\ Plug-Ins/JavaAppletPlugin.plugin/Contents/Home/bin/java -version
+sudo rm /usr/bin/java
+sudo ln -s /Library/Internet\ Plug-Ins/JavaAppletPlugin.plugin/Contents/Home/bin/java /usr/bin</code></pre>
+
+<p>同时在~/.bashrc中添加下面一行。</p>
+<blockquote>
+<p>export PATH=/Library/Internet\ Plug-Ins/JavaAppletPlugin.plugin/Contents/Home/bin:$PATH</p>
+</blockquote>
+<p>并执行以下指令，重载bashrc文件。</p>
+<pre><code class="hljs bash"><span class="hljs-built_in">source</span> ~/.bashrc</code></pre>
+
+<p><a href="https://stackoverflow.com/questions/12757558/installed-java-7-on-mac-os-x-but-terminal-is-still-using-version-6" target="_blank" rel="noopener">各种解决方案</a>。</p>
+<p>但是，在10.12的MacOS上，你可能无法完成移除 <code>usr/bin/java</code> ，因为新版的Mac系统为了防止系统软件被篡改，禁止了直接对 <code>usr/bin</code> 的操作，甚至乎是root权限。需要将切换版本的指令改为</p>
+<pre><code class="hljs undefined">sudo ln -s /Library/Internet\ Plug-Ins/JavaAppletPlugin.plugin/Contents/Home/bin/java /usr/local/bin</code></pre>
+
+<p>这样就覆盖了系统原有的(/usr/bin/)java程序。</p>
+<p><code>/usr/bin</code> 是用于存放系统管理的用户程序，<code>/usr/local/bin</code> 是用于不受系统管理的普通用户程序，未来的系统更新可能会更改会没有警告地删除 <code>/usr/bin</code> 中的内容，这存放用户程序的方案叫<code>Package Management</code>。</p>
+<p>最后，再执行上面查看当前JDK版本信息的指令，就应该显示为1.8.0_144（macOS Sierra 10.12.4上）。</p>
+<h3 id="Jenkins"><a href="#Jenkins" class="headerlink" title="Jenkins"></a>Jenkins</h3><p><a href="https://jenkins.io/download/" target="_blank" rel="noopener">2.74版本的Jenkins</a>，下载好pkg包后，按提示逐步安装，这个过程非常简单，也可以通过下载<code>jenkins.war</code>，运行 <code>java -jar jenkins.war</code> 进行安装。</p>
+<p>安装完毕后，Safari会自动打开，或者自己在浏览器中输入 <code>http://localhost:8080</code> 即可进入Jenkins的配置页面。</p>
+<p>如果输入地址后报错“Safari can’t connect to server”，那可能是一些启动设置还没好，下面说一下遇到的问题点。</p>
+<ul>
+<li><p>启动配置文件的权限不足<br>这是问题是在一台搭建了Jenkins的服务器升级系统版本时遇到的，系统版本由10.11升到10.12后，Jenkins就无法启动了，<a href="https://stackoverflow.com/questions/39794811/jenkins-does-not-start-on-macos-10-12-sierra" target="_blank" rel="noopener">解决贴在这</a>。原因就是新的MacOS Sierra改变了Jenkins文件夹的权限，按以下步骤输入指令即可搞定。</p>
+<pre><code class="hljs undefined">sudo chmod u+x /Library/LaunchDaemons/org.jenkins-ci.plist
+sudo chown jenkins /var/log/jenkins
+sudo launchctl load /Library/LaunchDaemons/org.jenkins-ci.plist</code></pre>
+</li>
+<li><p>服务进程没有开启<br>通过以下两条指令可以控制服务进程的开关</p>
+<pre><code class="hljs undefined">sudo launchctl load /Library/LaunchDaemons/org.jenkins-ci.plist
+sudo launchctl unload /Library/LaunchDaemons/org.jenkins-ci.plist</code></pre>
+</li>
+<li><p>Jenkins使用的Java环境配置不对<br>首先需要系统支持Java并已经安装好Java8，其次需要在 <code>/Library/Application Support/Jenkins/jenkins-runner.sh</code> 中添加以下一行</p>
+</li>
+</ul>
+<blockquote>
+<p>export JAVA_HOME=”/Library/Internet Plug-Ins/JavaAppletPlugin.plugin/Contents/Home”</p>
+</blockquote>
+<p>和修改最后两行成</p>
+<blockquote>
+<p>echo “/Library/Internet Plug-Ins/JavaAppletPlugin.plugin/Contents/Home/bin/java” $javaArgs -jar “$war” $args<br>exec “/Library/Internet Plug-Ins/JavaAppletPlugin.plugin/Contents/Home/bin/java” $javaArgs -jar “$war” $args</p>
+</blockquote>
+<p><a href="https://wiki.jenkins.io/display/JENKINS/Thanks+for+using+OSX+Installer" target="_blank" rel="noopener">Jenkins官方的启动指引</a></p>
+<h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><p>谢天谢地，终于看见Jenkins的UI。</p>
+<h3 id="用户"><a href="#用户" class="headerlink" title="用户"></a>用户</h3><p>安装完Jenkins后，偏好设置中的用户会发现多了一个没有名字的用户，属性为普通成员。</p>
+<p>这个时候，将锁解除，重新设置该账号的信息（鼠标右键-高级选项-全名：设置用户名），这就是拥有Jenkins文件夹绝对权限的用户，之后在模拟器上Build项目都必须登录到该用户的账号下才能正常运行，因为在后台可以运行Jenkins、Xcode，但不能运行模拟器。</p>
+<h3 id="Server"><a href="#Server" class="headerlink" title="Server"></a>Server</h3><p>回到Jenkins Server上，配置的第一页让我们输入Admin的初始密码，页面上有提示密码所在的路径 <code>/Users/Shared/Jenkins/Home/secrets/initialAdminPassword</code> ，如果当前登入账号不是Jenkins，则修改一下该文件的权限，再打开获取密码填入即可。</p>
+<p>之后在创建Admin时或者进入到操作界面记得把密码改回来就是了，因为这初始密码不是给人记的。</p>
+<p>接下来一路就是</p>
+<ul>
+<li>安装默认插件</li>
+<li>创建Admin账号（用户名、密码、全名、邮箱）<br>如果有插件安装失败，先重试一下。</li>
+</ul>
+<p>最后来到主界面，有以下菜单项</p>
+<img src="/uncategorized/搭建Jenkins/jenkins_menu.png" title="menu">
+<p>常用的有以下几项</p>
+<ul>
+<li>新建：创建新的Item进行自动化的构建操作；</li>
+<li>用户：设置可在当前安全域中登录的用户；</li>
+<li>任务历史：列出构建过的所有记录，并有甘特图辅助观察；</li>
+<li>系统管理：系统的全局设置，插件管理，用户管理，系统日志等等都在这里找到；</li>
+<li>我的视图：可以将Item分配到不同的视图中进行相对分组；</li>
+<li>凭证中心：用于Item中管理操作时，需要用到的账号、token、证书等验证信息时，可以从该凭证中心直接获取。是一个统一配置各种凭证的地方，可以查看各个凭证所用于的Item。</li>
+</ul>
+<h3 id="插件"><a href="#插件" class="headerlink" title="插件"></a>插件</h3><p>在系统管理下，可以进行全局的设置、管理插件、管理日志等</p>
+<img src="/uncategorized/搭建Jenkins/jenkins_systemmanager.png" title="system manager">
+<p>选择<code>系统管理-&gt;管理插件-&gt;可选插件</code>，就可以安装一些辅助插件，当时安装了这些：</p>
+<ul>
+<li>GitLab Plugin</li>
+<li>GitLab Hook Plugin</li>
+<li>Xcode integration</li>
+<li>Email Extension Plugin</li>
+</ul>
+<h3 id="Item"><a href="#Item" class="headerlink" title="Item"></a>Item</h3><p>创建好的Item会在主界面上直接看到</p>
+<img src="/uncategorized/搭建Jenkins/jenkins_items.png" title="items">
+<p>包括</p>
+<ul>
+<li>S(tatus)：最后一次构建的状态，成功呈蓝色，失败呈红色状；</li>
+<li>W(eather)：如果一直失败就是狂风暴雨，大部分成功偶尔失败则是晴到多云，每次都成功则是晴天；</li>
+<li>Name：Item的名称；</li>
+<li>Last Success：最后一次构建成功的时间及编号；</li>
+<li>Last Failue：最后一次构建失败的时间及编号；</li>
+<li>Last Persistent Time：上次构建持续的时间。</li>
+</ul>
+<p>在Item里，有以下内容</p>
+<img src="/uncategorized/搭建Jenkins/jenkins_item.png" title="item">
+<ul>
+<li>状态：可查看工作区和最新修改记录，和历史构建记录的链接；</li>
+<li>修改记录：Git上新Push的版本；</li>
+<li>工作空间：即是工作区，可以查看Git上Check out下来的最新版本（相对于最后一次执行poll scm）的文件；</li>
+<li>立即构建：手动执行构建；</li>
+<li>删除Project：将Item移除；</li>
+<li>配置：内容包含构建前后的操作、构建的触发器和环境、源码管理等等；</li>
+<li>Git Polling Log：轮询Git的日志。</li>
+</ul>
+<p>配置Item是Jenkins里最重要的一个环节之一，它直接影响构建的执行，接下来就以Build Xcode Unit Test为例子，详细说一下如何配置一个Item。</p>
+<h4 id="创建"><a href="#创建" class="headerlink" title="创建"></a>创建</h4><img src="/uncategorized/搭建Jenkins/jenkins_new.png" title="create item">
+<p>首先创建一个freestyle的软件项目构建Item。 </p>
+<h4 id="常规设置"><a href="#常规设置" class="headerlink" title="常规设置"></a>常规设置</h4><img src="/uncategorized/搭建Jenkins/jenkins_setting1.png" title="General">
+<ul>
+<li><code>丢弃旧的构建</code>，勾选了就可以控制构建保留的天数和最大个数，除此之外还可以在<code>高级</code>里配置包的保留天数和个数；</li>
+<li><code>参数化构建过程</code>，第一种用法是相当于预设环境变量，第二种用法是指定文件；</li>
+<li><code>节制构建</code>，控制构建的频率，例如一个小时最多只能构建一次；</li>
+<li><code>关闭构建</code>，顾名思义，勾选了该Item下的Project就不会执行构建；</li>
+<li><code>必要时并发构建</code>，一般情况下只会有一个构建在执行，其它构建请求会在构建队列中排队，但这项勾选了，在资源足够的情况下就会采取并发构建。</li>
+</ul>
+<h4 id="源码设置"><a href="#源码设置" class="headerlink" title="源码设置"></a>源码设置</h4><img src="/uncategorized/搭建Jenkins/jenkins_setting2.png" title="源码管理">
+<ul>
+<li><code>None</code>：没有源码时勾选。</li>
+<li><code>Git</code>：使用Git管理版本的勾选。需要填写好Repository URL和Credentials。Branch Specifier默认是master，即是只构建master分支上的版本，留空则会构建所有分支。<br>由于当时使用的GitLab没有开启SSH功能，所以并没有在Credentials中配置SSH Username with private key的凭证，而采用原始的Username with password。<br>如果填写Repository URL后报错，说明没有连通Git或者SVN，要再检查一下SSH Key或者User name和password。</li>
+<li><code>Subversion</code>：使用SVN管理版本的勾选，和Git类似。</li>
+</ul>
+<h4 id="触发器设置"><a href="#触发器设置" class="headerlink" title="触发器设置"></a>触发器设置</h4><img src="/uncategorized/搭建Jenkins/jenkins_setting3.png" title="构建触发器">
+<ul>
+<li><code>触发远程构建</code>：当你想通过一个指定的远端来触发一个新的构建，就得使用这项实现。例如在Git远端配置hook，推送地址按格式 JENKINS_URL/job/utility/build?token=TOKEN_NAME 填写。<img src="/uncategorized/搭建Jenkins/jenkins_setting3.png" title="git hook">
+这样Jenkins就能获取repository的所有commit通知。</li>
+<li><code>Build after other projects are built</code>：等待其它Project构建完再构建。如果上面勾选了并行构建，同时勾选该选项的话，意味着该Item下的构建会按顺序执行，但和其它Item的构建则是并行关系。</li>
+<li><code>Build periodically</code>：定期构建，不管Git上是否有版本更新。时间格式如下<ul>
+<li>第一位代表分钟（0-59）</li>
+<li>第二位代表小时（0-23）</li>
+<li>第三位代表日期（1-31）</li>
+<li>第四位代表月份（1-12）</li>
+<li>第五位代表周（0-7，0和7代表周日）<br>如果你想每5分钟构建一次，则<code>*/5 * * * *</code>（注意空格，/代表每），如果你想每天8点构建，则<code>0 8 * * *</code>或者<code>H 8 * * *</code>。<code>H</code>和<code>0</code>的区别是，<code>H H * * *</code>代表每天构建一次且不与其它Item的构建时间点错开，即<code>H</code>代表一个随机值，而<code>0 0 * * *</code>则会扎堆在午夜0点爆发。</li>
+</ul>
+</li>
+<li><code>Build when a change is pushed to GitLab</code>：和第一项作用一样，不确定是否安装GitLab hook插件时生成的项。</li>
+<li><code>GitHub hook trigger for GITScm polling</code>：和上面一项一样，只是针对GitHub而已。</li>
+<li><code>Poll SCM</code>：定期检查新版本，有新版本则check out并执行构建，没有则等待下次检查。时间格式和<code>Build periodically</code>中介绍的一样。</li>
+</ul>
+<h4 id="环境设置"><a href="#环境设置" class="headerlink" title="环境设置"></a>环境设置</h4><img src="/uncategorized/搭建Jenkins/jenkins_setting4.png" title="构建环境">
+<p>这些看标题就能大概了解其作用，不多赘述。</p>
+<h4 id="构建设置"><a href="#构建设置" class="headerlink" title="构建设置"></a>构建设置</h4><img src="/uncategorized/搭建Jenkins/jenkins_setting5.png" title="构建">
+<p>构建中可以选择不同的操作方式，包括Xcode、Execute Shell等，如下图</p>
+<img src="/uncategorized/搭建Jenkins/jenkins_buildStep.png" title="构建步骤选项">
+<p>选择Xcode的话需要设置构建的Target、Code signing、Build options等。<br>这里简单演示了Execute Shell的构建方式。你可以在脚本中获取各种环境变量，点击Command框下的链接就有参考。因为该shell脚本所在的路径为 <code>/Users/Shared/Jenkins/Home/workspace/utility</code>，所以先<code>cd</code>到xcworkspace所在的路径再构建。下面构建的是一个Unit test的scheme</p>
+<pre><code class="hljs undefined">pwd
+cd Example
+xcodebuild test -workspace EfunUtilityModule.xcworkspace -scheme EfunUtilityModule_Tests -destination &apos;platform=iOS Simulator,OS=10.3.1,name=iPhone 7&apos;</code></pre>
+
+<p>额外说明，在Item里面，构建开始后，构建历史列表中会显示当前构建的进度，点击编号可进入构建记录。在构建记录中，最常查看的是<code>Console Output</code>，可以观察终端的所有log。</p>
+<h4 id="构建后设置"><a href="#构建后设置" class="headerlink" title="构建后设置"></a>构建后设置</h4><img src="/uncategorized/搭建Jenkins/jenkins_setting6.png" title="构建后操作">
+<p>构建后可以添加一些可选性的后续操作，如下图</p>
+<img src="/uncategorized/搭建Jenkins/jenkins_builtStep.png" title="构建后选项">
+<p>这里暂时只用到了发送通知邮件的功能</p>
+<blockquote>
+<p>Content type：    HTML (text/html)<br>Default content： ${SCRIPT, template=”groovy-html.template”}</p>
+</blockquote>
+<p>使用邮箱功能，先在全局设置那完成基本配置</p>
+<ul>
+<li>先登录到个人邮箱，“设置”-&gt;“POP3/SMTP/IMAP”设置授权码，然后将授权码填入密码项，因为有些邮箱不允许直接从第三方使用帐密操作；</li>
+<li>设置SMTP服务器，提醒一下，有些官方提供的服务器域名也不一定准确，如果没效就再多找找确认；</li>
+<li>设置用户默认邮件后缀，这个提示可选，但一般都填上；</li>
+<li>选择SSL协议的话一般对应465的SMTP端口。有些邮箱可能不支持SSL或者端口不一样。<br><a href="http://blog.csdn.net/houyefeng/article/details/50914582" target="_blank" rel="noopener">常见问题</a></li>
+</ul>
+<p>然后回到Item里面的构建后设置，添加“邮件通知（Mail Notifcation）”的操作后，设置好“接收人（Recipients）”，多个接收人时用英文空格分隔（这里设置了接收人可以用全局变量获取之前全局设置的接收人，也可以重新指定覆盖掉全局的），最后可设置发送的触发条件”总是发送“或者”失败时发送“，另外还有两个附加选项：</p>
+<ul>
+<li>“每次不稳定的构建都发送邮件通知”是默认选项，当构建后结果失败或不稳定时发邮件给<code>Recipients</code>；</li>
+<li>“单独发送邮件给对构建造成不良影响的责任人”，即是向最后提交Git版本的人发通知，Jenkins会根据设置的Recipients的默认邮箱后缀加上提交版本的用户名作为邮箱地址。</li>
+</ul>
+<h4 id="问题小结"><a href="#问题小结" class="headerlink" title="问题小结"></a>问题小结</h4><p>这里遇到了一些坑</p>
+<ul>
+<li>使用pod的一些工程，scheme默认是不在xcworkspace上的，而在xcproject上，需要在Xcode的Manage schemes中更改Scheme所在的位置和设置为share状态。</li>
+<li>workspace参数不能用绝对路径，<code>cd</code>到对应路径下使用相对路径就好了。</li>
+<li>电脑一定要在Jenkins账号下登录才能调出模拟器，否则构建失败。</li>
+<li>RSA加解密和获取Bundle Seed ID的测试用例上，同为Xcode8，不同的小版本却测试出不一样的结果。</li>
+</ul>
+<p>本文暂时只介绍了自动测试，分包的部分日后再补充吧。</p>
+<p>参考文章<br><a href="https://developer.apple.com/library/content/documentation/DeveloperTools/Conceptual/testing_with_xcode/chapters/08-automation.html" target="_blank" rel="noopener">Testing with Xcode</a><br><a href="http://www.jianshu.com/p/c69deb29720d" target="_blank" rel="noopener">一步一步构建iOS持续集成:Jenkins+GitLab+蒲公英+FTP</a><br><a href="https://medium.com/@dixitakansha15/continuous-integration-in-ios-using-jenkins-8e081753cc72" target="_blank" rel="noopener">Continuous Integration in iOS using JENKINS</a><br><a href="http://www.cnblogs.com/zz0412/p/jenkins01.html" target="_blank" rel="noopener">Jenkins入门系列</a></p>
+
+      
+       <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 mingfungliu@gmail.com </span>
+    </div>
+</article>
+
+
+<p>
+    <a href="javascript:void(0)" class="dashang" onclick="dashangToggle()">赏</a>
+</p>
+
+
+<div class="article_copyright">
+    <p><span class="copy-title">文章标题:</span>搭建Jenkins</p>
+    <p><span class="copy-title">文章字数:</span><span class="post-count">4k</span></p>
+    <p><span class="copy-title">本文作者:</span><a href="javascript:void(0)" title="Mingfung">Mingfung</a></p>
+    <p><span class="copy-title">发布时间:</span>2017-08-26, 22:59:36</p>
+    <p><span class="copy-title">最后更新:</span>2019-11-21, 11:06:23</p>
+    <span class="copy-title">原始链接:</span><a class="post-url" href="/uncategorized/搭建Jenkins/" title="搭建Jenkins">http://blog.ifungfay.com/uncategorized/搭建Jenkins/</a>
+    <p>
+        <span class="copy-title">版权声明:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+    </p>
+</div>
+
+
+
+    <script type="text/javascript">
+(function(d, s) {
+   var j, e = d.getElementsByTagName(s)[0];
+
+   if (typeof LivereTower === 'function') { return; }
+
+   j = d.createElement(s);
+   j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+   j.async = true;
+
+   e.parentNode.insertBefore(j, e);
+})(document, 'script');
+</script>
+<noscript> 为正常使用来必力评论功能请激活JavaScript</noscript>
+
+<iframe title="livere"   src="https://was.livere.me/comment/city?id=city&refer=http://blog.ifungfay.com/uncategorized/搭建Jenkins/&uid=MTAyMC80NzAyOC8yMzUyOA==&site=http://blog.ifungfay.com/uncategorized/搭建Jenkins/&title=搭建Jenkins" scrolling="" frameborder="0" id="lv-comment-399" style="min-width: 100%; width: 100px; min-height: 400px; overflow: auto; border: 0px; z-index: 124212; height: 800px;" ></iframe>
+
+
+
+    
+
+
+
+
+    </div>
+    <div class="copyright">
+        <p class="footer-entry">©2017-2019 Mingfung 
+  &nbsp&nbsp&nbsp<a target="_blank" href="http://www.miitbeian.gov.cn/">粤ICP备19026060号</a>
+</p>
+<p class="footer-entry">Built with <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/yelog/hexo-theme-3-hexo" target="_blank">3-hexo</a> theme</p>
+
+    </div>
+    <div class="full-toc">
+        <button class="full"><span class="min "></span></button>
+<button class="post-toc-menu"><span class="post-toc-menu-icons"></span></button>
+<div class="post-toc"><span class="post-toc-title">目录</span>
+    <div class="post-toc-content">
+
+    </div>
+</div>
+<a class="" id="rocket" href="javascript:void(0)"></a>
+    </div>
+</div>
+<div class="acParent"></div>
+
+<div class="hide_box" onclick="dashangToggle()"></div>
+<div class="shang_box">
+    <a class="shang_close" href="javascript:void(0)" onclick="dashangToggle()">×</a>
+    <div class="shang_tit">
+        <p>喜欢就点赞,疼爱就打赏</p>
+    </div>
+    <div class="shang_payimg">
+        <div class="pay_img">
+            <img src="/img/alipay.jpg" class="alipay" title="扫码支持">
+            <img src="/img/weixin.jpg" class="weixin" title="扫码支持">
+        </div>
+    </div>
+    <div class="shang_payselect">
+        <span><label><input type="radio" name="pay" checked value="alipay">支付宝</label></span><span><label><input type="radio" name="pay" value="weixin">微信</label></span>
+    </div>
+</div>
+
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/koharu.model.json"},"log":false});</script></body>
+<script src="/js/jquery.pjax.js?v=1.0.1" ></script>
+
+<script src="/js/script.js?v=1.0.1" ></script>
+<script>
+    var img_resize = 'default';
+    /*作者、标签的自动补全*/
+    $(function () {
+        $('.search').AutoComplete({
+            'data': ['#Ubuntu','#Nexus','#Maven','#Gitlab','#JSPatch','#JavaScriptCore','#property','#dynamic','#sythesize','#nonatomic','#iOS11','#Xcode9','#iPhoneX','#Java','#Android','#Gradle','#Module','#ProGuard','#Native','#JNI','#NDK','#AAR','#JAR','#TLS','#SSL','#HTTPS','#ATS','#AndroidStudio','#adb','#反编译','#html','#bootstrap','#css','#Python','#Django','#Flutter','#iOS','#Dart','#Git','#command','#Mac','#question','#PyCharm','#Anaconda','#Qgis','#vapor','#swift','#heroku','#cloud','#crypto','#console','#terminal','#database','#postgreSQL','#network','#http','#webSocket','#encoded','#leaf','#view','#session','#token','#verification','#越狱','#逆向','#工具','#安全','#育儿','#管理','#Manager','#Model','#Role','#Target','#JSON','#Objective-C','#CGI','#Servlet','#容器','#Docker','#jekyll','#github','#blog','#tool','#skill','#Jenkins','#CI','#Test','#设计模式','#服务器','#Web App','#nginx','#supervisor','#fabric','#python','#mysql','#面试','#MVP','#Adapter','#Activity','#Fragment','#Layout','#Res','#Realm','#AIDL','#AsyncTask','#Thread','#Handler','#link','#register','#assembly','#library','#static','#memory','#runtime','#interrupt',],
+            'itemHeight': 20,
+            'width': 418
+        }).AutoComplete('show');
+    })
+    function initArticle() {
+        /*渲染对应的表格样式*/
+        
+            $(".post .pjax table").addClass("green_title");
+        
+
+        /*渲染打赏样式*/
+        
+        $("input[name=pay]").on("click", function () {
+            if($("input[name=pay]:checked").val()=="weixin"){
+                $(".shang_box .shang_payimg .pay_img").addClass("weixin_img");
+            } else {
+                $(".shang_box .shang_payimg .pay_img").removeClass("weixin_img");
+            }
+        })
+        
+
+        /*高亮代码块行号*/
+        
+        $('pre code').each(function(){
+            var lines = $(this).text().split('\n').length, widther='';
+            if (lines>99) {
+                widther = 'widther'
+            }
+            var $numbering = $('<ul/>').addClass('pre-numbering ' + widther).attr("unselectable","on");
+            $(this).addClass('has-numbering ' + widther)
+                    .parent()
+                    .append($numbering);
+            for(var i=1;i<=lines;i++){
+                $numbering.append($('<li/>').text(i));
+            }
+        });
+        
+
+        /*访问数量*/
+        
+        $.getScript("//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js");
+        
+
+        /*代码高亮，行号对齐*/
+        $('.pre-numbering').css('line-height',$('.has-numbering').css('line-height'));
+
+        
+    }
+
+    /*打赏页面隐藏与展示*/
+    
+    function dashangToggle() {
+        $(".shang_box").fadeToggle();
+        $(".hide_box").fadeToggle();
+    }
+    
+
+</script>
+
+<!--加入行号的高亮代码块样式-->
+
+<style>
+    pre{
+        position: relative;
+        margin-bottom: 24px;
+        border-radius: 10px;
+        border: 1px solid #e2dede;
+        background: #FFF;
+        overflow: hidden;
+    }
+    code.has-numbering{
+        margin-left: 30px;
+    }
+    code.has-numbering.widther{
+        margin-left: 35px;
+    }
+    .pre-numbering{
+        margin: 0px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 20px;
+        padding: 0.5em 3px 0.7em 5px;
+        border-right: 1px solid #C3CCD0;
+        text-align: right;
+        color: #AAA;
+        background-color: ;
+    }
+    .pre-numbering.widther {
+        width: 35px;
+    }
+</style>
+
+<!--自定义样式设置-->
+<style>
+    
+    
+    .nav {
+        width: 542px;
+    }
+    .nav.fullscreen {
+        margin-left: -542px;
+    }
+    .nav-left {
+        width: 120px;
+    }
+    
+    
+    @media screen and (max-width: 1468px) {
+        .nav {
+            width: 492px;
+        }
+        .nav.fullscreen {
+            margin-left: -492px;
+        }
+        .nav-left {
+            width: 100px;
+        }
+    }
+    
+    
+    @media screen and (max-width: 1024px) {
+        .nav {
+            width: 492px;
+            margin-left: -492px
+        }
+        .nav.fullscreen {
+            margin-left: 0;
+        }
+        .nav .hide-list.fullscreen {
+            left: 492px
+        }
+    }
+    
+    @media screen and (max-width: 426px) {
+        .nav {
+            width: 100%;
+        }
+        .nav-left {
+            width: 100%;
+        }
+    }
+    
+    
+    .nav-right .title-list nav a .post-title, .nav-right .title-list #local-search-result a .post-title {
+        color: #383636;
+    }
+    
+    
+    .nav-right .title-list nav a .post-date, .nav-right .title-list #local-search-result a .post-date {
+        color: #5e5e5f;
+    }
+    
+    
+    .nav-right nav a.hover, #local-search-result a.hover{
+        background-color: #e2e0e0;
+    }
+    
+    
+
+    /*列表样式*/
+    
+    .post .pjax article .article-entry>ol, .post .pjax article .article-entry>ul, .post .pjax article>ol, .post .pjax article>ul{
+        border: #e2dede solid 1px;
+        border-radius: 10px;
+        padding: 10px 32px 10px 56px;
+    }
+    .post .pjax article .article-entry li>ol, .post .pjax article .article-entry li>ul,.post .pjax article li>ol, .post .pjax article li>ul{
+        padding-top: 5px;
+        padding-bottom: 5px;
+    }
+    .post .pjax article .article-entry>ol>li, .post .pjax article .article-entry>ul>li,.post .pjax article>ol>li, .post .pjax article>ul>li{
+        margin-bottom: auto;
+        margin-left: auto;
+    }
+    .post .pjax article .article-entry li>ol>li, .post .pjax article .article-entry li>ul>li,.post .pjax article li>ol>li, .post .pjax article li>ul>li{
+        margin-bottom: auto;
+        margin-left: auto;
+    }
+    
+
+    /* 背景图样式 */
+    
+    
+
+
+    /*引用块样式*/
+    
+
+    /*文章列表背景图*/
+    
+    .nav-right:before {
+        content: ' ';
+        display: block;
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0.3;
+        background: url("null");
+        background-repeat: no-repeat;
+        background-position: 50% 0;
+        -ms-background-size: cover;
+        -o-background-size: cover;
+        -moz-background-size: cover;
+        -webkit-background-size: cover;
+        background-size: cover;
+    }
+    
+
+    
+</style>
+
+
+
+
+
+
+<div class="mobile-menus-out" >
+
+</div>
+<div class="mobile-menus">
+    
+    
+    <a class="dynamic-menu site_url"   href="/404.html">宝贝回家</a>
+    
+    
+    
+</div>
+
+
+</html>
