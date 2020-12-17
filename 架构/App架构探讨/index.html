@@ -1,0 +1,2082 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  <title>App架构探讨 | Mingfung&#39;s Blog</title>
+  <meta name="keywords" content=" Swift , App , 架构 ">
+  <meta name="description" content="App架构探讨 | Mingfung&#39;s Blog">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="description" content="以铜为镜可正衣冠，以史为镜可知兴替，以人为镜可明得失">
+<meta property="og:type" content="website">
+<meta property="og:title" content="categories">
+<meta property="og:url" content="http://blog.ifungfay.com/categories/index.html">
+<meta property="og:site_name" content="Mingfung&#39;s Blog">
+<meta property="og:description" content="以铜为镜可正衣冠，以史为镜可知兴替，以人为镜可明得失">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2017-07-18T10:00:58.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="categories">
+<meta name="twitter:description" content="以铜为镜可正衣冠，以史为镜可知兴替，以人为镜可明得失">
+
+
+<link rel="icon" href="/img/avatar.jpg">
+
+<link href="/css/style.css?v=1.0.1" rel="stylesheet">
+
+<link href="/css/hl_theme/zenbum.css?v=1.0.1" rel="stylesheet">
+
+<link href="//cdn.bootcss.com/animate.css/3.5.2/animate.min.css" rel="stylesheet">
+<link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+<script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="/js/jquery.autocomplete.min.js?v=1.0.1"></script>
+
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
+
+<script src="//cdn.bootcss.com/nprogress/0.2.0/nprogress.min.js"></script>
+
+
+
+<script src="/js/iconfont.js?v=1.0.1"></script>
+<!--鼠标点击爱心动画-->
+<script type="text/javascript" src="/js/clicklove.js"></script>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-102751023-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', UA-102751023-1);
+</script>
+
+<!-- Tencent Analytics -->
+
+<script type="text/javascript" src="http://tajs.qq.com/stats?sId=66478371" charset="UTF-8"></script>
+
+</head>
+<div style="display: none">
+  <input class="theme_disqus_on" value="false">
+  <input class="theme_preload_comment" value="true">
+  <input class="theme_blog_path" value>
+</div>
+
+<body>
+<aside class="nav">
+    <div class="nav-left">
+        <a href="/" class="avatar_target">
+    <img class="avatar" src="/img/avatar.jpg" />
+</a>
+<div class="author">
+    <span>Mingfung</span>
+</div>
+
+<div class="icon">
+    
+        
+        <a title="rss" href="/atom.xml" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-rss"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+        <a title="github" href="https://github.com/ming-fung" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-github"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+        <a title="facebook" href="https://www.facebook.com/ming.fung.liu.nero" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-facebook"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+        <a title="twitter" href="https://twitter.com/Nero_Milk" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-twitter"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+    
+        
+        <a title="instagram" href="https://www.instagram.com/mingfungliu/" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-instagram"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+    
+        
+        <a title="weibo" href="https://weibo.com/neross" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-weibo"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+        <a title="jianshu" href="https://www.jianshu.com/u/007c5818ec78" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-jianshu"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+        <a title="zhihu" href="zhihu.com/people/mingfungliu" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-zhihu"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+    
+        
+    
+        
+        <a title="juejin" href="https://juejin.im/user/5b6b9b37f265da0f9f4e8df3" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-juejin"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+        <a title="email" href="mailto:mingfungliu@gmail.com" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-email"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+        <a title="qq" href="http://wpa.qq.com/msgrd?v=3&uin=52360086&site=qq&menu=yes" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-qq"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+    
+        
+    
+</div>
+
+
+
+<a class="more-menus">更多菜单</a>
+
+
+<ul>
+    <li><div class="all active">全部文章<small>(58)</small></div></li>
+    
+        
+            
+            <li><div data-rel="iOS">iOS<small>(6)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="Android">Android<small>(3)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="前端">前端<small>(4)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="工具">工具<small>(4)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="后端">后端<small>(13)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="书"><i class="fold iconfont icon-right"></i>书<small>(4)</small></div>
+                
+                    <ul class="sub hide">
+                        
+                        <li><div data-rel="听书后感">听书后感<small>(3)</small></div>
+                            
+                        </li>
+                            
+                        <li><div data-rel="书单">书单<small>(1)</small></div>
+                            
+                        </li>
+                            
+                    </ul>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="管理">管理<small>(4)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="设计模式">设计模式<small>(7)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+            <li><div data-rel="系统">系统<small>(1)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="架构">架构<small>(1)</small></div>
+                
+            </li>
+            
+        
+    
+</ul>
+<div class="left-bottom">
+    <div class="menus">
+    
+    
+    <a class="dynamic-menu site_url"   href="/404.html">宝贝回家</a>
+    
+    
+    
+    </div>
+    <div><a class="about  hasFriend  site_url"  href="/about">关于</a><a style="width: 50%"  class="friends">友链</a></div>
+</div>
+<input type="hidden" id="yelog_site_posts_number" value="58">
+<input type="hidden" id="yelog_site_word_count" value="180.8k">
+<div style="display: none">
+    <span id="busuanzi_value_site_uv"></span>
+    <span id="busuanzi_value_site_pv"></span>
+</div>
+
+    </div>
+    <div class="nav-right">
+        <div class="friends-area">
+    <div class="friends-title">
+        友情链接
+        <i class="back-title-list"></i>
+    </div>
+    <div class="friends-content">
+        <ul>
+            
+            <li><a target="_blank" href="http://www.ifungfay.com">雪月风飞</a></li>
+            
+        </ul>
+    </div>
+</div>
+        <div class="title-list">
+    <form onkeydown="if(event.keyCode==13){return false;}">
+        <input class="search" type="text" placeholder="Search..." autocomplete="off"id="local-search-input" >
+        <i class="cross"></i>
+        <span>
+            <label for="tagswitch">Tags:</label>
+            <input id="tagswitch" type="checkbox" style="display: none" />
+            <i id="tagsWitchIcon"></i>
+        </span>
+    </form>
+    <div class="tags-list">
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color2">Ubuntu</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color1">Nexus</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color1">Maven</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color2">Gitlab</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color3">JSPatch</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color5">JavaScriptCore</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color4">property</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color3">dynamic</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color5">sythesize</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color5">nonatomic</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color1">iOS11</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color2">Xcode9</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color3">iPhoneX</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color5">Java</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color3">Android</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color2">Gradle</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color2">Module</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color4">ProGuard</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color2">Native</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color4">JNI</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color4">NDK</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color4">AAR</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color4">JAR</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color4">TLS</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color4">SSL</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color1">HTTPS</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color4">ATS</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color4">AndroidStudio</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color4">adb</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color4">反编译</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color5">html</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color5">bootstrap</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color4">css</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color2">Python</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color2">Django</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color3">Flutter</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color4">iOS</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color5">Dart</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color4">Git</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color3">command</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color4">Mac</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color4">question</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color3">PyCharm</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color4">Anaconda</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color5">Qgis</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color1">vapor</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color1">swift</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color2">heroku</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color1">cloud</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color2">crypto</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color3">console</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color4">terminal</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color4">database</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color1">postgreSQL</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color3">network</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color5">http</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color5">webSocket</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color3">encoded</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color5">leaf</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color5">view</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color3">session</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color1">token</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color3">verification</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color3">越狱</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color3">逆向</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color3">工具</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color3">安全</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color3">育儿</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color3">管理</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color3">Manager</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color1">Model</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color5">Role</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color2">Target</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color5">JSON</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color2">Objective-C</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color4">CGI</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color3">Servlet</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color3">容器</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color2">Docker</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color2">jekyll</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color2">github</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color5">blog</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color5">tool</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color1">skill</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color3">Jenkins</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color3">CI</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color5">Test</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color5">设计模式</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color4">服务器</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color3">Web App</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color1">nginx</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color1">supervisor</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color2">fabric</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color2">python</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color1">mysql</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color3">面试</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color4">MVP</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color3">Adapter</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color4">Activity</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color4">Fragment</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color2">Layout</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color4">Res</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color1">Realm</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color5">AIDL</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color5">AsyncTask</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color2">Thread</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color3">Handler</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color5">link</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color4">register</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color4">assembly</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color3">library</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color2">static</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color2">memory</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color3">runtime</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color5">interrupt</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color1">Swift</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color4">NLP</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color5">分析问题</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color4">App</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color3">架构</a>
+    </li>
+    
+    <div class="clearfix"></div>
+</div>
+
+    
+    <nav id="title-list-nav">
+        
+
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+            <a id="top" class=""
+               href="/uncategorized/写博有道可循/"
+               data-tag=""
+               data-author="" >
+                <span class="post-title" title="写博有道可循">写博有道可循</span>
+                <span class="post-date" title="2019-10-17 22:04:00">2019/10/17</span>
+            </a>
+            
+        
+            
+        
+            
+        
+            
+            <a id="top" class="书 书单 "
+               href="/书/书单/书单/"
+               data-tag=""
+               data-author="" >
+                <span class="post-title" title="书单">书单</span>
+                <span class="post-date" title="2019-10-16 01:02:57">2019/10/16</span>
+            </a>
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+
+        
+            
+                <a class="架构 "
+                   href="/架构/App架构探讨/"
+                   data-tag="Swift,App,架构"
+                   data-author="" >
+                    <span class="post-title" title="App架构探讨">App架构探讨</span>
+                    <span class="post-date" title="2020-12-17 20:17:00">2020/12/17</span>
+                </a>
+            
+        
+            
+                <a class="管理 "
+                   href="/管理/管理知识小集/"
+                   data-tag="NLP,分析问题"
+                   data-author="" >
+                    <span class="post-title" title="管理知识小集">管理知识小集</span>
+                    <span class="post-date" title="2020-12-11 08:53:00">2020/12/11</span>
+                </a>
+            
+        
+            
+                <a class="管理 "
+                   href="/管理/《可复制的领导力》学习后感/"
+                   data-tag="管理"
+                   data-author="" >
+                    <span class="post-title" title="《可复制的领导力》学习后感">《可复制的领导力》学习后感</span>
+                    <span class="post-date" title="2020-10-29 12:35:00">2020/10/29</span>
+                </a>
+            
+        
+            
+                <a class=""
+                   href="/uncategorized/函数式编程之管道设计/"
+                   data-tag="设计模式,Swift"
+                   data-author="" >
+                    <span class="post-title" title="函数式编程之管道设计">函数式编程之管道设计</span>
+                    <span class="post-date" title="2020-10-29 12:35:00">2020/10/29</span>
+                </a>
+            
+        
+            
+                <a class="管理 "
+                   href="/管理/《做有益于孩子成长的父母》学习后感/"
+                   data-tag="育儿,管理"
+                   data-author="" >
+                    <span class="post-title" title="《做有益于孩子成长的父母》学习后感">《做有益于孩子成长的父母》学习后感</span>
+                    <span class="post-date" title="2020-10-27 08:24:00">2020/10/27</span>
+                </a>
+            
+        
+            
+                <a class=""
+                   href="/uncategorized/Android开发知识小集/"
+                   data-tag="Android"
+                   data-author="" >
+                    <span class="post-title" title="Android开发知识小集">Android开发知识小集</span>
+                    <span class="post-date" title="2019-12-18 10:29:00">2019/12/18</span>
+                </a>
+            
+        
+            
+                <a class="书 听书后感 "
+                   href="/书/听书后感/TED 管理系列/"
+                   data-tag=""
+                   data-author="" >
+                    <span class="post-title" title="TED 管理系列">TED 管理系列</span>
+                    <span class="post-date" title="2019-11-28 12:28:00">2019/11/28</span>
+                </a>
+            
+        
+            
+                <a class="书 听书后感 "
+                   href="/书/听书后感/media/管理知识小集/"
+                   data-tag=""
+                   data-author="" >
+                    <span class="post-title" title="TED 管理系列">TED 管理系列</span>
+                    <span class="post-date" title="2019-11-28 12:28:00">2019/11/28</span>
+                </a>
+            
+        
+            
+        
+            
+                <a class=""
+                   href="/uncategorized/面试之道/"
+                   data-tag="面试"
+                   data-author="" >
+                    <span class="post-title" title="招聘的面试之道">招聘的面试之道</span>
+                    <span class="post-date" title="2019-10-17 13:54:00">2019/10/17</span>
+                </a>
+            
+        
+            
+                <a class="书 听书后感 "
+                   href="/书/听书后感/《资治通鉴》听书后感/"
+                   data-tag=""
+                   data-author="" >
+                    <span class="post-title" title="《资治通鉴》听书后感">《资治通鉴》听书后感</span>
+                    <span class="post-date" title="2019-10-16 01:23:13">2019/10/16</span>
+                </a>
+            
+        
+            
+        
+            
+                <a class=""
+                   href="/uncategorized/前端开发知识小集/"
+                   data-tag=""
+                   data-author="" >
+                    <span class="post-title" title="前端开发知识小集">前端开发知识小集</span>
+                    <span class="post-date" title="2019-10-15 14:41:00">2019/10/15</span>
+                </a>
+            
+        
+            
+                <a class="Android "
+                   href="/Android/开发一个Android-App/"
+                   data-tag="MVP,Adapter,Activity,Fragment,Layout,Res,Realm,AIDL,AsyncTask,Thread,Handler"
+                   data-author="" >
+                    <span class="post-title" title="开发一个Android App">开发一个Android App</span>
+                    <span class="post-date" title="2019-10-05 16:11:04">2019/10/05</span>
+                </a>
+            
+        
+            
+                <a class=""
+                   href="/uncategorized/Android技巧入门/"
+                   data-tag="AndroidStudio,adb,反编译"
+                   data-author="" >
+                    <span class="post-title" title="Android技巧入门">Android技巧入门</span>
+                    <span class="post-date" title="2019-08-14 00:22:37">2019/08/14</span>
+                </a>
+            
+        
+            
+                <a class="Android "
+                   href="/Android/Android原理入门/"
+                   data-tag="Java,Android"
+                   data-author="" >
+                    <span class="post-title" title="Android原理入门">Android原理入门</span>
+                    <span class="post-date" title="2019-08-14 00:22:11">2019/08/14</span>
+                </a>
+            
+        
+            
+                <a class="系统 "
+                   href="/系统/链接、装载、库/"
+                   data-tag="dynamic,link,register,assembly,library,static,memory,runtime,interrupt"
+                   data-author="" >
+                    <span class="post-title" title="链接、装载、库">链接、装载、库</span>
+                    <span class="post-date" title="2019-06-05 08:53:00">2019/06/05</span>
+                </a>
+            
+        
+            
+                <a class=""
+                   href="/uncategorized/Django开发/"
+                   data-tag="Python,Django"
+                   data-author="" >
+                    <span class="post-title" title="Django开发">Django开发</span>
+                    <span class="post-date" title="2019-05-15 12:33:00">2019/05/15</span>
+                </a>
+            
+        
+            
+                <a class="后端 "
+                   href="/后端/搭建服务器/"
+                   data-tag="Ubuntu,服务器,Web App,nginx,supervisor,fabric,python,mysql"
+                   data-author="" >
+                    <span class="post-title" title="搭建服务器">搭建服务器</span>
+                    <span class="post-date" title="2019-04-06 00:00:00">2019/04/06</span>
+                </a>
+            
+        
+            
+                <a class="工具 "
+                   href="/工具/搭建博客图床/"
+                   data-tag="blog"
+                   data-author="" >
+                    <span class="post-title" title="搭建博客图床">搭建博客图床</span>
+                    <span class="post-date" title="2019-03-21 12:39:00">2019/03/21</span>
+                </a>
+            
+        
+            
+                <a class="Android "
+                   href="/Android/Android工程入门/"
+                   data-tag="Gradle,Module,ProGuard,Native,JNI,NDK,AAR,JAR"
+                   data-author="" >
+                    <span class="post-title" title="Android工程入门">Android工程入门</span>
+                    <span class="post-date" title="2019-02-24 13:44:00">2019/02/24</span>
+                </a>
+            
+        
+            
+                <a class="管理 "
+                   href="/管理/团队管理实践/"
+                   data-tag="Manager,Model,Role,Target"
+                   data-author="" >
+                    <span class="post-title" title="团队管理实践">团队管理实践</span>
+                    <span class="post-date" title="2019-02-23 23:50:00">2019/02/23</span>
+                </a>
+            
+        
+            
+                <a class="工具 "
+                   href="/工具/效率工具及技巧收录/"
+                   data-tag="tool,skill"
+                   data-author="" >
+                    <span class="post-title" title="效率工具及技巧收录">效率工具及技巧收录</span>
+                    <span class="post-date" title="2019-02-23 22:05:00">2019/02/23</span>
+                </a>
+            
+        
+            
+                <a class="后端 "
+                   href="/后端/后端服务器概念了解下/"
+                   data-tag="CGI,Servlet,容器,Docker"
+                   data-author="" >
+                    <span class="post-title" title="后端服务器概念了解下">后端服务器概念了解下</span>
+                    <span class="post-date" title="2019-02-21 20:30:00">2019/02/21</span>
+                </a>
+            
+        
+            
+                <a class="设计模式 "
+                   href="/设计模式/设计模式（七）小总结/"
+                   data-tag="设计模式"
+                   data-author="" >
+                    <span class="post-title" title="设计模式（七）小总结">设计模式（七）小总结</span>
+                    <span class="post-date" title="2019-02-12 14:45:00">2019/02/12</span>
+                </a>
+            
+        
+            
+                <a class="设计模式 "
+                   href="/设计模式/设计模式（六）命令模式 & 观察者模式/"
+                   data-tag="设计模式"
+                   data-author="" >
+                    <span class="post-title" title="设计模式（六）命令模式 &amp; 观察者模式">设计模式（六）命令模式 &amp; 观察者模式</span>
+                    <span class="post-date" title="2019-02-12 14:28:00">2019/02/12</span>
+                </a>
+            
+        
+            
+                <a class="设计模式 "
+                   href="/设计模式/设计模式（四）状态模式 & 代理模式/"
+                   data-tag="设计模式"
+                   data-author="" >
+                    <span class="post-title" title="设计模式（四）状态模式 &amp; 代理模式">设计模式（四）状态模式 &amp; 代理模式</span>
+                    <span class="post-date" title="2019-02-12 13:12:00">2019/02/12</span>
+                </a>
+            
+        
+            
+                <a class="设计模式 "
+                   href="/设计模式/设计模式（五）工厂模式 & 装饰者模式/"
+                   data-tag="设计模式"
+                   data-author="" >
+                    <span class="post-title" title="设计模式（五）工厂模式 &amp; 装饰者模式">设计模式（五）工厂模式 &amp; 装饰者模式</span>
+                    <span class="post-date" title="2019-02-12 11:54:00">2019/02/12</span>
+                </a>
+            
+        
+            
+                <a class="设计模式 "
+                   href="/设计模式/设计模式（三）适配器模式 & 外观模式/"
+                   data-tag="设计模式"
+                   data-author="" >
+                    <span class="post-title" title="设计模式（三）适配器模式 &amp; 外观模式">设计模式（三）适配器模式 &amp; 外观模式</span>
+                    <span class="post-date" title="2019-02-11 15:10:00">2019/02/11</span>
+                </a>
+            
+        
+            
+                <a class="设计模式 "
+                   href="/设计模式/设计模式（二）迭代器模式 & 组合模式/"
+                   data-tag="设计模式"
+                   data-author="" >
+                    <span class="post-title" title="设计模式（二）迭代器模式 &amp; 组合模式">设计模式（二）迭代器模式 &amp; 组合模式</span>
+                    <span class="post-date" title="2019-02-11 09:59:00">2019/02/11</span>
+                </a>
+            
+        
+            
+                <a class="工具 "
+                   href="/工具/Git手册/"
+                   data-tag="Git"
+                   data-author="" >
+                    <span class="post-title" title="Git手册">Git手册</span>
+                    <span class="post-date" title="2019-01-28 21:35:00">2019/01/28</span>
+                </a>
+            
+        
+            
+                <a class="设计模式 "
+                   href="/设计模式/设计模式（一）策略模式 & 模板方法模式/"
+                   data-tag="设计模式"
+                   data-author="" >
+                    <span class="post-title" title="设计模式（一）策略模式 &amp; 模板方法模式">设计模式（一）策略模式 &amp; 模板方法模式</span>
+                    <span class="post-date" title="2019-01-13 23:41:00">2019/01/13</span>
+                </a>
+            
+        
+            
+                <a class="前端 "
+                   href="/前端/Flutter开发（实践篇）/"
+                   data-tag="Android,Flutter,iOS,Dart"
+                   data-author="" >
+                    <span class="post-title" title="Flutter开发（实践篇）">Flutter开发（实践篇）</span>
+                    <span class="post-date" title="2019-01-09 23:06:00">2019/01/09</span>
+                </a>
+            
+        
+            
+                <a class="前端 "
+                   href="/前端/Flutter开发（介绍篇）/"
+                   data-tag="Android,Flutter,iOS,Dart"
+                   data-author="" >
+                    <span class="post-title" title="Flutter开发（介绍篇）">Flutter开发（介绍篇）</span>
+                    <span class="post-date" title="2019-01-09 21:24:00">2019/01/09</span>
+                </a>
+            
+        
+            
+                <a class="iOS "
+                   href="/iOS/iOS逆向（五）总结篇/"
+                   data-tag="iOS,逆向,安全"
+                   data-author="" >
+                    <span class="post-title" title="iOS逆向（五）总结篇">iOS逆向（五）总结篇</span>
+                    <span class="post-date" title="2018-09-13 22:39:05">2018/09/13</span>
+                </a>
+            
+        
+            
+                <a class="iOS "
+                   href="/iOS/iOS逆向（四）实战篇/"
+                   data-tag="iOS,逆向"
+                   data-author="" >
+                    <span class="post-title" title="iOS逆向（四）实战篇">iOS逆向（四）实战篇</span>
+                    <span class="post-date" title="2018-09-13 22:39:04">2018/09/13</span>
+                </a>
+            
+        
+            
+                <a class="iOS "
+                   href="/iOS/iOS逆向（三）分析篇/"
+                   data-tag="iOS,逆向"
+                   data-author="" >
+                    <span class="post-title" title="iOS逆向（三）分析篇">iOS逆向（三）分析篇</span>
+                    <span class="post-date" title="2018-09-13 22:39:03">2018/09/13</span>
+                </a>
+            
+        
+            
+                <a class="iOS "
+                   href="/iOS/iOS逆向（二）工具篇/"
+                   data-tag="iOS,逆向,工具"
+                   data-author="" >
+                    <span class="post-title" title="iOS逆向（二）工具篇">iOS逆向（二）工具篇</span>
+                    <span class="post-date" title="2018-09-13 22:39:02">2018/09/13</span>
+                </a>
+            
+        
+            
+                <a class="iOS "
+                   href="/iOS/iOS逆向（一）越狱篇/"
+                   data-tag="iOS,越狱"
+                   data-author="" >
+                    <span class="post-title" title="iOS逆向（一）越狱篇">iOS逆向（一）越狱篇</span>
+                    <span class="post-date" title="2018-09-13 22:39:01">2018/09/13</span>
+                </a>
+            
+        
+            
+                <a class="前端 "
+                   href="/前端/Bootstrap手册/"
+                   data-tag="html,bootstrap,css"
+                   data-author="" >
+                    <span class="post-title" title="Bootstrap手册">Bootstrap手册</span>
+                    <span class="post-date" title="2018-09-08 23:06:00">2018/09/08</span>
+                </a>
+            
+        
+            
+                <a class="后端 "
+                   href="/后端/Vapor（七）工具篇/"
+                   data-tag="command,vapor,swift,crypto,console,terminal"
+                   data-author="" >
+                    <span class="post-title" title="Vapor（七）工具篇">Vapor（七）工具篇</span>
+                    <span class="post-date" title="2018-08-21 23:02:00">2018/08/21</span>
+                </a>
+            
+        
+            
+                <a class="后端 "
+                   href="/后端/Vapor（六）视图篇/"
+                   data-tag="vapor,swift,leaf,view"
+                   data-author="" >
+                    <span class="post-title" title="Vapor（六）视图篇">Vapor（六）视图篇</span>
+                    <span class="post-date" title="2018-08-20 21:56:00">2018/08/20</span>
+                </a>
+            
+        
+            
+                <a class="后端 "
+                   href="/后端/Vapor（五）网络篇/"
+                   data-tag="vapor,swift,network,http,webSocket,encoded"
+                   data-author="" >
+                    <span class="post-title" title="Vapor（五）网络篇">Vapor（五）网络篇</span>
+                    <span class="post-date" title="2018-08-17 20:30:00">2018/08/17</span>
+                </a>
+            
+        
+            
+                <a class="后端 "
+                   href="/后端/Vapor（四）验证篇/"
+                   data-tag="vapor,swift,session,token,verification"
+                   data-author="" >
+                    <span class="post-title" title="Vapor（四）验证篇">Vapor（四）验证篇</span>
+                    <span class="post-date" title="2018-08-16 19:06:00">2018/08/16</span>
+                </a>
+            
+        
+            
+                <a class="后端 "
+                   href="/后端/Python知识小集/"
+                   data-tag="Python,PyCharm"
+                   data-author="" >
+                    <span class="post-title" title="Python 小问题收集">Python 小问题收集</span>
+                    <span class="post-date" title="2018-08-16 00:00:00">2018/08/16</span>
+                </a>
+            
+        
+            
+                <a class="后端 "
+                   href="/后端/Vapor（三）数据库篇/"
+                   data-tag="vapor,swift,database,postgreSQL"
+                   data-author="" >
+                    <span class="post-title" title="Vapor（三）数据库篇">Vapor（三）数据库篇</span>
+                    <span class="post-date" title="2018-08-15 21:33:00">2018/08/15</span>
+                </a>
+            
+        
+            
+                <a class="后端 "
+                   href="/后端/Vapor（二）进阶篇/"
+                   data-tag="vapor,swift"
+                   data-author="" >
+                    <span class="post-title" title="Vapor（二）进阶篇">Vapor（二）进阶篇</span>
+                    <span class="post-date" title="2018-08-14 21:20:00">2018/08/14</span>
+                </a>
+            
+        
+            
+                <a class="后端 "
+                   href="/后端/Vapor的部署/"
+                   data-tag="vapor,swift,heroku,cloud"
+                   data-author="" >
+                    <span class="post-title" title="Vapor的部署">Vapor的部署</span>
+                    <span class="post-date" title="2018-08-13 23:34:00">2018/08/13</span>
+                </a>
+            
+        
+            
+                <a class="后端 "
+                   href="/后端/Vapor（一）基础篇/"
+                   data-tag="vapor,swift"
+                   data-author="" >
+                    <span class="post-title" title="Vapor（一）基础篇">Vapor（一）基础篇</span>
+                    <span class="post-date" title="2018-08-13 23:34:00">2018/08/13</span>
+                </a>
+            
+        
+            
+                <a class="后端 "
+                   href="/后端/Python的使用环境配置/"
+                   data-tag="Python,Django,PyCharm,Anaconda,Qgis"
+                   data-author="" >
+                    <span class="post-title" title="Python的使用环境配置">Python的使用环境配置</span>
+                    <span class="post-date" title="2018-05-24 19:30:00">2018/05/24</span>
+                </a>
+            
+        
+            
+                <a class="工具 "
+                   href="/工具/Mac命令行工具及其问题收录/"
+                   data-tag="command,Mac,question"
+                   data-author="" >
+                    <span class="post-title" title="Mac命令行工具及其问题收录">Mac命令行工具及其问题收录</span>
+                    <span class="post-date" title="2018-02-22 17:10:00">2018/02/22</span>
+                </a>
+            
+        
+            
+                <a class=""
+                   href="/uncategorized/利用Firebase实现的推送功能系统/"
+                   data-tag=""
+                   data-author="" >
+                    <span class="post-title" title="利用Firebase实现的推送功能系统">利用Firebase实现的推送功能系统</span>
+                    <span class="post-date" title="2018-01-17 19:33:41">2018/01/17</span>
+                </a>
+            
+        
+            
+                <a class="iOS "
+                   href="/iOS/处理服务端API返回JSON的总结/"
+                   data-tag="iOS,JSON,Objective-C"
+                   data-author="" >
+                    <span class="post-title" title="处理服务端API返回JSON的总结">处理服务端API返回JSON的总结</span>
+                    <span class="post-date" title="2018-01-09 14:35:00">2018/01/09</span>
+                </a>
+            
+        
+            
+                <a class=""
+                   href="/uncategorized/hello-world/"
+                   data-tag=""
+                   data-author="" >
+                    <span class="post-title" title="Hello World">Hello World</span>
+                    <span class="post-date" title="2018-01-07 14:45:35">2018/01/07</span>
+                </a>
+            
+        
+            
+                <a class="后端 "
+                   href="/后端/Vapor之初体验/"
+                   data-tag="vapor,swift,heroku"
+                   data-author="" >
+                    <span class="post-title" title="Vapor之初体验">Vapor之初体验</span>
+                    <span class="post-date" title="2018-01-05 21:49:00">2018/01/05</span>
+                </a>
+            
+        
+            
+                <a class=""
+                   href="/uncategorized/搭建Jenkins/"
+                   data-tag="Jenkins,CI,Test"
+                   data-author="" >
+                    <span class="post-title" title="搭建Jenkins">搭建Jenkins</span>
+                    <span class="post-date" title="2017-08-26 22:59:36">2017/08/26</span>
+                </a>
+            
+        
+            
+                <a class=""
+                   href="/uncategorized/ATS详解/"
+                   data-tag="TLS,SSL,HTTPS,ATS"
+                   data-author="" >
+                    <span class="post-title" title="ATS详解">ATS详解</span>
+                    <span class="post-date" title="2017-07-22 15:57:55">2017/07/22</span>
+                </a>
+            
+        
+            
+                <a class="前端 "
+                   href="/前端/搭建Hexo博客/"
+                   data-tag="jekyll,github,blog"
+                   data-author="" >
+                    <span class="post-title" title="搭建Hexo博客">搭建Hexo博客</span>
+                    <span class="post-date" title="2017-07-18 21:50:14">2017/07/18</span>
+                </a>
+            
+        
+    </nav>
+</div>
+    </div>
+    <div class="hide-list">
+        <div class="semicircle">
+            <div class="brackets first"><</div>
+            <div class="brackets">&gt;</div>
+        </div>
+    </div>
+</aside>
+<div class="post">
+    <div class="pjax">
+        <article id="post-App架构探讨" class="article article-type-post" itemscope itemprop="blogPost">
+    
+        <h1 class="article-title">App架构探讨</h1>
+    
+    <div class="article-meta">
+        
+        
+        
+        <span class="book">
+            
+                <a href="javascript:" data-rel="架构">架构</a>
+            
+        </span>
+        
+        
+        <span class="tag">
+            
+            <a href="javascript:" class="color1">Swift</a>
+            
+            <a href="javascript:" class="color4">App</a>
+            
+            <a href="javascript:" class="color3">架构</a>
+            
+        </span>
+        
+    </div>
+    <div class="article-meta">
+        
+        创建时间:<time class="date" title='更新时间: 2020-12-17 21:05:30'>2020-12-17 20:17</time>
+        
+    </div>
+    <div class="article-meta">
+        
+        <span>字数:7.3k</span>
+        
+        
+        <span id="busuanzi_container_page_pv">
+            阅读:<span id="busuanzi_value_page_pv">
+                <span class="count-comment">
+                    <span class="spinner">
+                      <div class="cube1"></div>
+                      <div class="cube2"></div>
+                    </span>
+                </span>
+            </span>
+        </span>
+        
+        
+    </div>
+    
+    <div class="toc-ref">
+    
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#MVC"><span class="toc-text">MVC</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#MVP"><span class="toc-text">MVP</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#MVVM-C"><span class="toc-text">MVVM-C</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#MVC-VS"><span class="toc-text">MVC+VS</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#MAVB"><span class="toc-text">MAVB</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#TEA"><span class="toc-text">TEA</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#网络层设计"><span class="toc-text">网络层设计</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#数据连接小结"><span class="toc-text">数据连接小结</span></a></li></ol>
+    
+<style>
+    .left-col .switch-btn,
+    .left-col .switch-area {
+        display: none;
+    }
+    .toc-level-3 i,
+    .toc-level-3 ol {
+        display: none !important;
+    }
+</style>
+</div>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="MVC"><a href="#MVC" class="headerlink" title="MVC"></a>MVC</h1><p><img src="http://qiniu.ifungfay.com/mweb/MVC_2020_12_17.PNG" alt></p>
+<p>虚线部分代表运行时的引用，view 层和 model 层都不会直接在代码中引用 controller。实线部分代表编译期间的引用，controller 实例知道自己所连接的 view 和 model 对象的接口。</p>
+<p>App 对象负责创建最顶层的 view controller，这个 view controller 将加载 view，并且知道应该从 model 中获取哪些数据，然后把它们显示出来。</p>
+<p>View state 可以按需要被 store 在 view 或者 controller 的属性中。相对于影响 model 的 view action，那些只影响 view 或 controller 状态的 action 则不需要通过 model 进行传递。</p>
+<p>缺点，View controller 需要负责处理 view 层 (设置 view 属性，展示 view 等)，但是它同时也负责 controller 层的任务 (观察 model 以及更新 view)，最后，它还要负责 model 层 (获取数据，对其变形或者处理)。状态的数量，所有的可变状态都将被文件中的各个部分共享，每个函数需要精诚合作，来共同读取和维护这些状态，避免彼此矛盾。将这些对状态的维护分离到不同的接口中，往往可以带来对于数据依赖的更好的思考，并且可以限制那些为了稳定性而必须合作并遵守特定规则的代码的数量。</p>
+<p>订阅模型遗漏导致视图和模型不同步的问题，TEA 或者 MAVB 将初始读取和订阅合并为了一个语句，这样一来就确保了观察的错误不会发生。</p>
+<p>建议，其他部件都无法完成的它们自己的工作，而 view controller 总是被用来修补它们。其实，这些行为应当尽可能地集成到各自的部件中去。当我们无法更改一个部件的行为时，我们可以围绕这个部件写一个封装，而不是将这些逻辑放到 view controller 里去。</p>
+<p>将部分 view controller 中的代码抽离出来，在本质上并没有降低整个程序的复杂度。但是，这么做确实降低了 view controller 本身的复杂度。在优化一个 view controller 时，我们可以对照本章中 MVC 的行为框图，来逐一确认某项操作是否真的合适被放在 view controller 中。将非直接相关的部分移出去。</p>
+<p>如果 view controller 需要构建和更新非常多的 view，那么建议将这部分 view 配置的代码提取。</p>
+<p>一个协调 controller 是 app 特定的，而且一般来说是无法重用的 (比如，几乎所有的 view controller 都是协调 controller)。</p>
+<p>调解 controller 则是一个可重用的 controller 对象，通过配置，它可以被用来执行特定的任务。通常，用来遵守某个协议的代码 (比如文件夹 view controller 中遵守 UITableViewDataSource 的部分)，比较适合被提取为调解 controller。<br>两个完全不同的状态，我们也可以将它拆分为两个 view controller (每个 controller 管理一个状态)，并用一个容器 view controller 在这两个 child view controller 之间进行切换。如果我们将标题 (和其他一些属性) 写为可配置的话，这个空白的 view controller 就可以被重用。</p>
+<h1 id="MVP"><a href="#MVP" class="headerlink" title="MVP"></a>MVP</h1><p>顺带提一下和 MVC 十分接近的另一种模式 MVP。</p>
+<p>Model-View-Presenter 中的 presenter (展示器) 和 MVC 的 controller 很相似。不过，在现在 Model-View-Presenter 这个名字通常被用来指代那些通过协议从 controller 中将 view 抽象出来的类似 MVC 的模式。</p>
+<h1 id="MVVM-C"><a href="#MVVM-C" class="headerlink" title="MVVM-C"></a>MVVM-C</h1><p><img src="http://qiniu.ifungfay.com/mweb/MVVM_2020_12_17.PNG" alt></p>
+<p>MVVM 在每个场景中使用 view-model 来描述场景中的表现逻辑和交互逻辑。VM 的接口相当于提供交互逻辑，去更新 model，响应的回调部分就相当于表现逻辑，可在 controller 中对它实现上更新 view 的内容，以 block 的形式执行，这也是所谓的响应式编程绑定。</p>
+<p>View-model 在编译期间不包含对 view 或者 controller 的引用。它暴露出一系列属性，用来描述每个 view 在显示时应有的值。把一系列变换运用到底层的 model 对象后，就能得到这些最终可以直接设置到 view 上的值，这个设置是在响应式编程绑定中实现。为了实现单向数据流，view-model 总是应该将变更 model 的 view action 发送给 model，并且仅仅在 model 变化实际发生之后再通知相关的观察者。</p>
+<p>因为 view-model 不包含对 view 层的引用，所以它是独立于 app 框架的，这让对于 view-model 的测试也可以独立于 app 框架，实现接口测试，即是可脱离 view 部分仅对(交互和表现)逻辑测试， MVC 中因逻辑都耦合在 controller ，只能做集成测试，对 view 或者 controller 测试。</p>
+<p>在 MVVM-C 中，需要一个能够在场景间切换时提供逻辑的对象，这个对象叫做协调器 (coordinator)。协调器持有对 model 层的引用，并且了解 view controller 树的结构，这样，它能够为每个场景的 view-model 提供所需要的 model 对象。协调器是一个可选部分，不实现的话则继续由原来的 view controller 负责搞掂。</p>
+<p>view state 也被移动到了 view-model 中。不过 controller 无法区分 model 的通知和 view state 变更的通知。</p>
+<p>view controller 的双重角色 (既作为 view 层级的一部分，又负责协调 view 和 model 之间的交互) 减少到了单一角色 (view controller 仅仅只是 view 层级的一部分)。协调器模式的加入进一步减少了 view controller 所负责的部分：现在它不需要关心如何展示其他的 view controller 了。因此，这实际上是以添加了一层 controller 接口为代价，降低了 view controller 之间的耦合。</p>
+<p>MVVM 和我们在 MVC 历史中提到的 MVP 模式非常类似，不过，MVVM 中 view 和 view-model 的绑定需要明确的框架支持，但 presenter 是通过传统的手动方式来传递变化。</p>
+<p>响应式编程也是一种用来交流变更的工具，不过和通知或者 KVO 不同的是，它专注于在源（view）和目标(model)之间进行变形，让逻辑可以在部件之间传输信息(交互逻辑)的同时得以表达（表现逻辑）。</p>
+<p>响应式编程通过一系列的变形阶段来构建数据管道，这看上去和 Swift 基本的控制流语句 (循环，条件，方法调用等) 所构成的构建逻辑截然不同。</p>
+<ol>
+<li>每个 view controller 必须创建对应的 view-model。</li>
+<li>在 view controller 里必须建立起 view-model 和 view 之间的绑定。</li>
+<li>Model 由 view-model 拥有，而不是由 controller 所拥有。</li>
+</ol>
+<p>完整管道包括：</p>
+<ol>
+<li>协调器为每个 controller 的 view-model 设置初始的 model 对象。</li>
+<li>View-model 将设定值和其他 model 数据及观察量进行合并。</li>
+<li>View-model 将数据变形为 view 所需要的精确的格式。</li>
+<li>Controller 使用 bind(to:) 来将准备好的值绑定到各个 view 上去。</li>
+</ol>
+<p>精心设计的数据管道通常不容易产生错误，在长期来看维护也更容易一些。MVVM 通过将 model 观察的代码以及其他显示和交互逻辑移动到围绕着数据流构建的隔离的类中，解决了 MVC controller 里不规则的状态交互所和随之增大而恶化带来的有关问题，View-model 属性和 view 属性之间的响应式绑定也解决由于观察者模式没有被严格执行，所导致的 model 和 view 之间不同步的问题，绑定之所以能解决这个问题，是因为 view 上初始值的设定和它们接下来的更新都经由’统一的代码路径’完成。响应式编程框架依赖高度抽象的变形以及大量的类型，对它们的误用可能导致你的代码无法被人类理解，学习成本很高。</p>
+<p>关于测试：</p>
+<ol>
+<li>由于集成测试包含了关于框架 (比如 UIKit) 的全面的知识，所以它不是独立的，这在测试失败时导致我们很难确定其原因，集成测试更偏向功能，覆盖率更高，但是它们难以编写和维护。典型的集成测试会在单个测试用例中测试场景中的每一个属性，而不是将它们缩小为每个函数对应一个测试的形式。</li>
+<li>MVVM 通常要求 controller 必须非常简单 (甚至简单到无需考虑)。另外，controller 必须尽可能地使用库提供的绑定方法，这样只需针对 View-model 的每个接口函数测试即可，UI 测试则需要考虑用另外的框架实现。步骤一般为对初始值进行测试，然后执行操作，并测试后续的条件</li>
+</ol>
+<h1 id="MVC-VS"><a href="#MVC-VS" class="headerlink" title="MVC+VS"></a>MVC+VS</h1><p><img src="http://qiniu.ifungfay.com/mweb/MVC-VS_2020_12_17.PNG" alt></p>
+<p>Model-View-Controller+ViewState (模型-视图-控制器+视图状态，MVC+VS)<br>将 view state 视为 model 层的一部分。所有 view state 都由 model 层中一个独立的 store 明确表示，View controller 观察这个 view state 的 store，并且相应地更新 view 层级，从而为我们提供了一种一致的处理 view state 变更的方法。尽管 MVC+VS 提出将 view state 作为 model 层的一部分，但 view state model 还是与文档 model 保持分离，这是因为与文档 model 相比，view state 生命周期稍有不同(view state 使用 UIKit 的状态恢复进行持久化，并且可能会在发生崩溃时被清除)。</p>
+<p>在 MVC 中，view state 的 action 中的数据流没有特定的结构，通常它甚至没有明确的结构。为了正确传递 action，处于 action 中心的 controller 需要理解所有其他对象，包括其他 controller 的数据依赖。当所涉及的 view state 不多时，管理起来不是很困难，但是随着组件数量的增长，管理的难度会逐渐增加。而在 MVC+VS ，它实现单向数据流方式，数据明确地从顶部流至底部，而且中心的 controller 也不再需要知道次级 controller 中的数据依赖的信息 (它们可以独立地对 model 进行观察)。</p>
+<p>MVC+VS 明确地在一个新的 model 对象中，对所有的 view state 进行定义和表达，我们把这个对象叫做 view state model。任何一次导航变更，列表选择，文本框编辑，开关变更，model 展示或者滚动位置变更 (或者其他任意的 view state 变化)，都发送给 view state model，每个 view controller 负责监听 view state model。在MVC 中，view state 存放在 view controller，分离后现在 view controller 就需要多监听订阅一个 view state model 的更新通知。</p>
+<p>测试方面：</p>
+<ul>
+<li>所有的测试都从一个空的根 view controller 开始，然后通过设定文档 model 和 view state model，让这个根 view controller 可以构建出整个 view 层级和 view controller 层级。由于可以灵活控制 view state 了，MVC 的集成测试中最困难的部分 (设定所有的部件) 在 MVC+VS 中可以被自动完成。要测试另一个 view state 时，我们可以重新设置全局 view state，所有的 view controller 都会调整自身。</li>
+<li>在基本 MVC 项目中，我们构建了一个新窗口，并在它的顶部创建了一个完整的 view controller 树和 view 的树，然后将这些新的树作为单个集成单元进行测试，并与我们的预期进行对比。在 MVC+VS 中，我们只需要构建根 view controller，并将文档 model 和 view state model 作为 context 提供给它。View controller 和 view 的树将作为 view state 的响应被自行创建出来。</li>
+<li>在 MVC 中，我们需要等待动画和其他异步更改完成，然后才能检查 view controller 或 view 的树，使得测试难以编写。在 MVC+VS 中，我们可以将“对于特定 view action 的响应所造成的 view state 更改”的测试（无需等待动画和其他异步更改完成和检查 view controller 或 view 的树），与“view 层级中的更新”的测试分离开来。</li>
+</ul>
+<p>这个模式还有一个目标是，在传统的 Cocoa MVC app 上通过最小的改动，实现对 view 的状态在每个 action 发生时都可以进行快照。</p>
+<p>探讨方面，view state 建模为单个的结构体，而不依赖于各种 view 对象上的隐式 view state，是容易序列化，测试容易地监测整个 view state 的情况。好处：</p>
+<ol>
+<li>view state 被持久化</li>
+<li>从 model 抽象中受益。</li>
+</ol>
+<p>view state 的 action 中的数据流有了特定的结构，正确传递了 action，处于 action 中心的 controller 不需要理解所有其他对象，包括其他 controller 的数据依赖，好处：</p>
+<ul>
+<li>Model 的干净的接口可以让我们对实现进行替换，而不会影响到暴露给程序其余部分的接口。</li>
+<li>Model 为 action 提供了单一的事实来源，这样，重构和测试可以只关注单一的某个点。</li>
+<li>代码可以被不同的 action 重用，所以结构的扩展性会更好。</li>
+</ul>
+<p>结果所得到的模式和 TEA 在结构上有些相似，只不过它拥有一个单独的 view state 和 model，而且它不需要一个将 UIKit 完全抽象出去的框架。<br>MVC+VS 里都使用值类型来代表 model，因为值拷贝体现的单向数据流的精神，引用类型不能达到。</p>
+<p>实现细节</p>
+<ul>
+<li>每个 vc 需要首先构建 view state，然后在构建所触发的观察回调中，view state 属性必须在 view controller 的 viewDidLoad 函数被调用前进行设置（初始化 view controller 或 prepare(for:sender:) 和 application(_:didFinishLaunchingWithOptions) 中）</li>
+<li>在 MVC+VS 里，所有的 view controller 必须知道如何在 view state store 中定位自己。</li>
+<li>MVC+VS 中的标准模式：任何 model 对象的标识都应该存储在 view state 中，而不是传递给 context 对象中的 view controller。</li>
+</ul>
+<p>小结：</p>
+<ul>
+<li>view state store 不以单例形式直接对外提供访问入口，避免 view 与这些单例耦合而无法编写测试，可用上下文的形式传递；</li>
+<li>document store + view state store 组合，是整个 app 的权威表示</li>
+<li>在 view controller 之间进行 view state 通讯，view state store 是一种集中统一处理方式，另一种需共享的场景下，view state 可从 view state store 中抽出提升为一个全局共享类，订阅、接收动作和发送通知的处理与 view state store 基本一样</li>
+<li>在单个 view controller 中简化 view state 的本地逻辑，通过对一个 vc 中不同控件的 view state 整合为一个结构体，这样封装出一个统一的方法处理界面的更新逻辑，action 触发点涉及的控件状态设置就不会散落一地，但需要权衡统一方法中还对其它控件状态更新的额外操作开销与采用该方法带来减错和正确性效果。</li>
+</ul>
+<h1 id="MAVB"><a href="#MAVB" class="headerlink" title="MAVB"></a>MAVB</h1><p><img src="http://qiniu.ifungfay.com/mweb/MAVB_2020_12_17.PNG" alt></p>
+<p>MAVB 移除了对 controller 层的需求。创建逻辑通过 view 绑定器来表达，变换逻辑通过绑定来表达，而状态变更则通过 model 适配器来表达。</p>
+<p>View 绑定器是 view (或者 view controller) 的封装类：它构建 view，并且为它暴露出一个绑定列表。一些绑定为 view 提供数据，另一些从 view 中发出事件。</p>
+<p>Model 适配器是可变状态的封装，它是由所谓的 reducer 进行实现的。Model 适配器提供了一个 (用于发送事件的) 输入绑定，以及一个 (用于接收更新的) 输出绑定。</p>
+<p>View 绑定器使用普通的函数进行构建，这些函数接受必要的 model 适配器作为参数，当一个 view (或者 view controller) 可以发出 action 时，对应的 view 绑定允许我们指定一个 action 绑定。在这里，数据从 view 流向 action 绑定的输出端。典型情况下，输出端会与一个 model 适配器相连接，view 事件会通过绑定进行变形，成为 model 适配器可以理解的一条消息。这条消息随后被 model 适配器的 reducer 使用，并改变状态。</p>
+<p>测试方面，通过测试 view 绑定器来测试代码，在 MVVM 中，view controller 有可能会包含逻辑，这导致在 view-model 和 view 之间有可能会存在没有测试到的代码。而 MAVB 中不存在 view controller，绑定代码是 model 适配器和 view 绑定器之间的唯一的代码。因为对于 view-model 而言，这个潜在的接口测试间隙：在 view controller 中可能存在着与 view-model 和 view 之间有关的逻辑，接口测试避开了这部分逻辑。在 view controller 中的最终的绑定逻辑，或者在 delegate 里的实现，可能会影响行为，但这将无法被测试捕捉到。另外，view 的构建、布局和其他在 viewDidLoad 中可能进行的处理也会被排除在 view-model 之外，因为在这些时间点上，view-model 还没有被完全构建出来。使用 view 绑定器消耗绑定，可以确保在被测试的绑定和 view 之间，没有其他用户代码。View 绑定器将 view 中包括常量值和在构造时就确定的不变量在内的所有属性进行封装。因为除了绑定以外，view 的构建不再需要其他任何东西，所以我们可以把绑定看作是 view 的完整表示。或者可以将变形部分的代码从绑定中移动到 model 适配器里，或者移动到 model 适配器上方的一个单独的层中，这样一来，就可以在独立于 view 绑定器的前提下，测试这些变形逻辑。</p>
+<p>测试过程主要是对 view 绑定器消耗绑定，每个测试剩余的工作就是在绑定中向下遍历，直到找到想要的属性，然后测试它的当前值。而测试变更逻辑的话，可以去获取绑定参数的信号表现，观察信号并将未来目标值存起留作对比。</p>
+<p>用例：<br>Label(.text &lt;– signalEmittingStrings)<br>Label 为一个 View 的绑定器，它将 signalEmittingStrings 这个变量值（又称信号，与 MVVM 中的可观察量对应）绑定到了 UILabel 的 text 属性上，即变量更新 View。</p>
+<p>TextField(.textDidChange –&gt; inputThatAcceptsStrings)<br>信号输入的概念和 RxSwift 中的 “subject” 相似 (subject 是位于响应式管道的起始位置的类型，我们可以向其中发送值，即 View action 等改变变量的值。</p>
+<p>Label(.text &lt;– playState.mediaState.map { timeString($0.progress) } )<br>playState.mediaState 原本是一个信号量，是一个可观察量，但在信号到来时返回的值类型无法适配到要绑定的绑定名变量类型，所以经过一次 map 转换，得到一个当信号来时能返回目标类型结果的信号量绑定到指定的绑定名变量上（实质为信号量持有了能设置这个绑定名变量的回调函数，等信号来到时能调用该函数对绑定名变量进行设置），也所以 mediaState 能称模型适配器</p>
+<p>MA 就类似响应式程序中的可观察变量，既可接收输入信号，也可将变形后的信号发送通知出去。VB 如上所说，它构建 view，并且暴露出一个绑定列表，一些绑定为 view 提供数据，另一些从 view 中发出事件，接收必要的 MA 作为参数。</p>
+<p>为某个绑定名指定绑定，其实就是在将 View Action 转换为 Model Action。</p>
+<p>小结 MAVB 的特点：</p>
+<ul>
+<li>声明式语法</li>
+<li>统一通信机制</li>
+<li>集中描述 model 和 view 的关系（直观哪些数据被用在 view 中，view action 会对 model 造成什么影响）</li>
+<li>MAVB 框架非一对一完整包装系统框架</li>
+<li>学习曲线陡峭</li>
+<li>响应式编程调试困难</li>
+</ul>
+<h1 id="TEA"><a href="#TEA" class="headerlink" title="TEA"></a>TEA</h1><p><img src="http://qiniu.ifungfay.com/mweb/TEA_2020_12_17.PNG" alt></p>
+<p>The Elm Architecture，在 Web 端已经将 Elm 架构应用到生产环境，App 端还在验证阶段。它的 model 和所有的 view state 被集成为一个单个状态对象，所有 app 中的变化都通过向状态对象发送消息来发生，一个叫做 reducer 的状态更新函数负责处理这些消息。这个状态对象和状态更新函数组成了一个监督框架 (也就是 TEA 框架) ，对编写 app 的每一层代码都由它所拥有及管理，它们与 UIKit 的交互由框架进行处理，这建立了一道壁垒，来避免代码对这些功能负责，监督框架将通常的 UIKit 的命令式及面向对象编程模型隐藏起来，继而转换成声明式和函数式的风格来编写 app 代码。不管 app 中任何地方的任何状态发生改变，app 的整个状态和 model 数据将会被传递到一个函数中，它会构建一个新的、不可变的虚拟 view 层级，除了这条路径之外没有别的方法可以更新 view，从而使用户界面和状态可以时刻保持同步。</p>
+<p>每个状态改变而计算生成的新虚拟 view 层级，由轻量级的结构体组成，描述了 view 层级应该看上去的形式，虚拟 view 层级让我们能够使用纯函数的方式来写 view 部分的代码；当状态发生改变时，我们使用同样的函数重新计算 view 层级，而不是直接去改变 view 层级。</p>
+<p>其中的 Driver 类型 (负责持有 TEA 中其他层的引用) 将对虚拟 view 层级和 UIView 层级进行比较，并且对它进行必要的更改，让 view 和它们的虚拟版本相符合。driver 类似于原来controller 的角色，是联系 view 和 model 的出入口。Driver 持有 model，将虚拟 view 层级和 UIKit 的 view 层级进行同步，接受 view action，并且执行像是在 store 中持久化数据这样的副作用。</p>
+<p>在 TEA 中，底层 UIKit view 中的事件，会作为消息被 driver 接收到，Driver 接下来会将这些消息和 app 状态作为参数，传递给 update 函数。注意，update 函数不会直接去更改 store 中的数据，如果它想要改变 store，它会返回一个 command。Command 对需要执行的行为进行描述，这可以是一个特定的 store 更新，或者是像网络请求这样的其他任务，Driver 负责解释这些 command 并执行它们。TEA 框架提供了一些独立于 app 的 command，而我们可以在 Command 的扩展中添加一些与 app 相关的 command</p>
+<p>这里主要的关键概念包括：消息，app 状态，虚拟 view。触发消息会更新 app 状态，app 状态更新后会发出指令，drive 使用指令更新 model，然后接着获取更新了的虚拟 view，来更新出 UIView ，drive 负责协调这整个流程。</p>
+<p>所有的部件 (计算虚拟 view 层级，更新函数和订阅) 都是纯函数，我们可以对它们进行完全隔离的测试。任何框架部件的初始化都是不需要的，我们只用将参数传递进去，可以创建一个给定的状态，然后使用 update 方法和对应的消息来改变状态，通过对比之前和之后的状态来验证。</p>
+<p>TEA 是一种用函数式的方法表达 GUI 编程的尝试。view 层级用声明式定义，而不需要编写为了要响应某个特定 action，而从状态 A 转变为状态 B 的代码，避免了 view 进入无效状态的 bug，MVC-VS 的实现也想要达到类似的目标，使用观察者模式来进行 view state 的更新，然而这是通过约定来实现的，而作为 TEA 框架的用户是无法访问到 view 的层级的。</p>
+<p>关于 TEA 的性能，小改变都需要根据新的状态重新计算虚拟 view，支撑真正规模的 app 会有疑虑（但其实大部分的 app 不会达到展示成千上万个 cell 的 table view 量级）。TEA 在从虚拟 view 渲染真实的 UIView 时，使用了 view 重用的方式，这在一定程度上也可以减少 view 的创建 (这在很多时候是 UI 性能开销最大的部分)，而像是 React Native 这样的框架其实也使用了类似的做法，不过，现在的方式是无法支撑无限扩展的，性能上也会比传统的架构有所损失。</p>
+<p>测试方面，AppState 的三个接口已经能覆盖全所有情况，包括：</p>
+<ol>
+<li>渲染虚拟 view (由顶层的 viewController 计算属性提供)</li>
+<li>执行变更 (由 update 独自处理)</li>
+<li>观察外部影响 (由 subscriptions 计算属性进行描述)</li>
+</ol>
+<p>测试过程主要是针对每个接口，对 AppState 的 app 功能的每一小个切片进行测试。在 MVC+VS 中，我们必须要渲染 view 层级，才能更改状态，这是因为我们想要验证 view 层级和状态是相连接的，而在 TEA 中，因为 view 层级的变化由框架所保证的而无需自己构建测试。同样，订阅也不用保证是否有被订阅成功，直接比较结果即可。而 command 则通过更改 update 方法的类型来测试，否则直接运行测试会需要很多的配置，或者操作本身会很昂贵。</p>
+<h1 id="网络层设计"><a href="#网络层设计" class="headerlink" title="网络层设计"></a>网络层设计</h1><p>controller 拥有网络的方式让不同 view controller 之间进行数据共享变得困难，因为它们之间很大程度上是彼此独立的。新的数据必须要主动地传递给其他依赖它的 view controller，而在 model 拥有网络的情况下，这些 view controller 可以使用观察 model 中变更的方式来获取新数据，model 还负责触发和管理网络请求，并按照需要用请求的结果来更新 model，对网络获取到的数据进行离线缓存。</p>
+<p>由 view controller 所拥有的网络请求所得的数据，实际上是 view state。如果 app 中没有其他部分依赖它的话，这些本地管理的 view state 可以良好工作。一旦这些 view state 需要在不同 view controller 中进行共享的话，我们通常会 (在 view controller 层级之外) 创建一个对象来持有这个状态，并且让它可以被改变和观察。但随着 app 功能的增加和复杂度的增长，共享数据的需求通常很有可能出现，所以一开始选用 model 拥有网络的方式为即使是简单的app所用会更好，否则也应将网络部分重构出来，减少 view controller 的职责，形成某种网络服务，网络服务可以由简单的函数构成，或者也可以通过实现一个处理和服务器交互的操作的网络服务类来完成。</p>
+<p>model 拥有网络的版本，本地模型的更新会触发网络请求和界面刷新，网络请求的结果也会触发界面刷新。view controller 不负责处理网络返回的数据。这些数据被插入到 store 中，和处理本地变更的方式一样，view controller 通过监听 model 变更通知来接收这些变更，这在 app 中分享数据和进行通讯会非常简单，有时的核心思想在于把 view state 当作是 model 的一部分来处理也是基于这种目的。</p>
+<p>对于 model 拥有的网络的实现，model 层都可不变，添加到独立于 store 的网络服务。如果响应是一个错误，还须决定如何处理冲突。</p>
+<h1 id="数据连接小结"><a href="#数据连接小结" class="headerlink" title="数据连接小结"></a>数据连接小结</h1><p>每一个 view controller 和它的数据都有不同的方式来连接</p>
+<ul>
+<li>基本的 MVC 实现中，我们将一个 model 对象设置给了每个 view controller，但是这要求 view controller 能理解 view controller 层级，才能与某个 view controller 或者单例进行对话。</li>
+<li>MVVM 的实现使用了协调器来提供上下文。</li>
+<li>MAVB 在一个数据依赖图中，使用响应式编程绑定的方式，来将所有的 view 连接起来。</li>
+<li>TEA 则通过一个可以自动为函数提供所需数据的 driver，来让所有东西正常运行。</li>
+<li>MVC-VS 在每个 view controller 上都使用了一个 context 属性，并要求在 view controller 构建的时候传入这个上下文属性。虽然和基础 MVC 中设定一个 model 对象相比没有特别大的不同，但是它还是展示了一种避免单例的方式。</li>
+</ul>
+<p>来源：<br><a href="https://www.objc.io/books/app-architecture/" target="_blank" rel="noopener">App架构原文</a><br>App架构译文-onevcat<br><a href="https://github.com/objcio/app-architecture" target="_blank" rel="noopener">示例源码</a></p>
+
+      
+       <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 mingfungliu@gmail.com </span>
+    </div>
+</article>
+
+
+<p>
+    <a href="javascript:void(0)" class="dashang" onclick="dashangToggle()">赏</a>
+</p>
+
+
+<div class="article_copyright">
+    <p><span class="copy-title">文章标题:</span>App架构探讨</p>
+    <p><span class="copy-title">文章字数:</span><span class="post-count">7.3k</span></p>
+    <p><span class="copy-title">本文作者:</span><a href="javascript:void(0)" title="Mingfung">Mingfung</a></p>
+    <p><span class="copy-title">发布时间:</span>2020-12-17, 20:17:00</p>
+    <p><span class="copy-title">最后更新:</span>2020-12-17, 21:05:30</p>
+    <span class="copy-title">原始链接:</span><a class="post-url" href="/架构/App架构探讨/" title="App架构探讨">http://blog.ifungfay.com/架构/App架构探讨/</a>
+    <p>
+        <span class="copy-title">版权声明:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+    </p>
+</div>
+
+
+
+    <script type="text/javascript">
+(function(d, s) {
+   var j, e = d.getElementsByTagName(s)[0];
+
+   if (typeof LivereTower === 'function') { return; }
+
+   j = d.createElement(s);
+   j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+   j.async = true;
+
+   e.parentNode.insertBefore(j, e);
+})(document, 'script');
+</script>
+<noscript> 为正常使用来必力评论功能请激活JavaScript</noscript>
+
+<iframe title="livere"   src="https://was.livere.me/comment/city?id=city&refer=http://blog.ifungfay.com/架构/App架构探讨/&uid=MTAyMC80NzAyOC8yMzUyOA==&site=http://blog.ifungfay.com/架构/App架构探讨/&title=App架构探讨" scrolling="" frameborder="0" id="lv-comment-399" style="min-width: 100%; width: 100px; min-height: 400px; overflow: auto; border: 0px; z-index: 124212; height: 800px;" ></iframe>
+
+
+
+    
+
+
+
+
+    </div>
+    <div class="copyright">
+        <p class="footer-entry">©2017-2019 Mingfung 
+  &nbsp&nbsp&nbsp<a target="_blank" href="http://www.miitbeian.gov.cn/">粤ICP备19026060号</a>
+</p>
+<p class="footer-entry">Built with <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/yelog/hexo-theme-3-hexo" target="_blank">3-hexo</a> theme</p>
+
+    </div>
+    <div class="full-toc">
+        <button class="full"><span class="min "></span></button>
+<button class="post-toc-menu"><span class="post-toc-menu-icons"></span></button>
+<div class="post-toc"><span class="post-toc-title">目录</span>
+    <div class="post-toc-content">
+
+    </div>
+</div>
+<a class="" id="rocket" href="javascript:void(0)"></a>
+    </div>
+</div>
+<div class="acParent"></div>
+
+<div class="hide_box" onclick="dashangToggle()"></div>
+<div class="shang_box">
+    <a class="shang_close" href="javascript:void(0)" onclick="dashangToggle()">×</a>
+    <div class="shang_tit">
+        <p>喜欢就点赞,疼爱就打赏</p>
+    </div>
+    <div class="shang_payimg">
+        <div class="pay_img">
+            <img src="/img/alipay.jpg" class="alipay" title="扫码支持">
+            <img src="/img/weixin.jpg" class="weixin" title="扫码支持">
+        </div>
+    </div>
+    <div class="shang_payselect">
+        <span><label><input type="radio" name="pay" checked value="alipay">支付宝</label></span><span><label><input type="radio" name="pay" value="weixin">微信</label></span>
+    </div>
+</div>
+
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/koharu.model.json"},"log":false});</script></body>
+<script src="/js/jquery.pjax.js?v=1.0.1" ></script>
+
+<script src="/js/script.js?v=1.0.1" ></script>
+<script>
+    var img_resize = 'default';
+    /*作者、标签的自动补全*/
+    $(function () {
+        $('.search').AutoComplete({
+            'data': ['#Ubuntu','#Nexus','#Maven','#Gitlab','#JSPatch','#JavaScriptCore','#property','#dynamic','#sythesize','#nonatomic','#iOS11','#Xcode9','#iPhoneX','#Java','#Android','#Gradle','#Module','#ProGuard','#Native','#JNI','#NDK','#AAR','#JAR','#TLS','#SSL','#HTTPS','#ATS','#AndroidStudio','#adb','#反编译','#html','#bootstrap','#css','#Python','#Django','#Flutter','#iOS','#Dart','#Git','#command','#Mac','#question','#PyCharm','#Anaconda','#Qgis','#vapor','#swift','#heroku','#cloud','#crypto','#console','#terminal','#database','#postgreSQL','#network','#http','#webSocket','#encoded','#leaf','#view','#session','#token','#verification','#越狱','#逆向','#工具','#安全','#育儿','#管理','#Manager','#Model','#Role','#Target','#JSON','#Objective-C','#CGI','#Servlet','#容器','#Docker','#jekyll','#github','#blog','#tool','#skill','#Jenkins','#CI','#Test','#设计模式','#服务器','#Web App','#nginx','#supervisor','#fabric','#python','#mysql','#面试','#MVP','#Adapter','#Activity','#Fragment','#Layout','#Res','#Realm','#AIDL','#AsyncTask','#Thread','#Handler','#link','#register','#assembly','#library','#static','#memory','#runtime','#interrupt','#Swift','#NLP','#分析问题','#App','#架构',],
+            'itemHeight': 20,
+            'width': 418
+        }).AutoComplete('show');
+    })
+    function initArticle() {
+        /*渲染对应的表格样式*/
+        
+            $(".post .pjax table").addClass("green_title");
+        
+
+        /*渲染打赏样式*/
+        
+        $("input[name=pay]").on("click", function () {
+            if($("input[name=pay]:checked").val()=="weixin"){
+                $(".shang_box .shang_payimg .pay_img").addClass("weixin_img");
+            } else {
+                $(".shang_box .shang_payimg .pay_img").removeClass("weixin_img");
+            }
+        })
+        
+
+        /*高亮代码块行号*/
+        
+        $('pre code').each(function(){
+            var lines = $(this).text().split('\n').length, widther='';
+            if (lines>99) {
+                widther = 'widther'
+            }
+            var $numbering = $('<ul/>').addClass('pre-numbering ' + widther).attr("unselectable","on");
+            $(this).addClass('has-numbering ' + widther)
+                    .parent()
+                    .append($numbering);
+            for(var i=1;i<=lines;i++){
+                $numbering.append($('<li/>').text(i));
+            }
+        });
+        
+
+        /*访问数量*/
+        
+        $.getScript("//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js");
+        
+
+        /*代码高亮，行号对齐*/
+        $('.pre-numbering').css('line-height',$('.has-numbering').css('line-height'));
+
+        
+    }
+
+    /*打赏页面隐藏与展示*/
+    
+    function dashangToggle() {
+        $(".shang_box").fadeToggle();
+        $(".hide_box").fadeToggle();
+    }
+    
+
+</script>
+
+<!--加入行号的高亮代码块样式-->
+
+<style>
+    pre{
+        position: relative;
+        margin-bottom: 24px;
+        border-radius: 10px;
+        border: 1px solid #e2dede;
+        background: #FFF;
+        overflow: hidden;
+    }
+    code.has-numbering{
+        margin-left: 30px;
+    }
+    code.has-numbering.widther{
+        margin-left: 35px;
+    }
+    .pre-numbering{
+        margin: 0px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 20px;
+        padding: 0.5em 3px 0.7em 5px;
+        border-right: 1px solid #C3CCD0;
+        text-align: right;
+        color: #AAA;
+        background-color: ;
+    }
+    .pre-numbering.widther {
+        width: 35px;
+    }
+</style>
+
+<!--自定义样式设置-->
+<style>
+    
+    
+    .nav {
+        width: 542px;
+    }
+    .nav.fullscreen {
+        margin-left: -542px;
+    }
+    .nav-left {
+        width: 120px;
+    }
+    
+    
+    @media screen and (max-width: 1468px) {
+        .nav {
+            width: 492px;
+        }
+        .nav.fullscreen {
+            margin-left: -492px;
+        }
+        .nav-left {
+            width: 100px;
+        }
+    }
+    
+    
+    @media screen and (max-width: 1024px) {
+        .nav {
+            width: 492px;
+            margin-left: -492px
+        }
+        .nav.fullscreen {
+            margin-left: 0;
+        }
+        .nav .hide-list.fullscreen {
+            left: 492px
+        }
+    }
+    
+    @media screen and (max-width: 426px) {
+        .nav {
+            width: 100%;
+        }
+        .nav-left {
+            width: 100%;
+        }
+    }
+    
+    
+    .nav-right .title-list nav a .post-title, .nav-right .title-list #local-search-result a .post-title {
+        color: #383636;
+    }
+    
+    
+    .nav-right .title-list nav a .post-date, .nav-right .title-list #local-search-result a .post-date {
+        color: #5e5e5f;
+    }
+    
+    
+    .nav-right nav a.hover, #local-search-result a.hover{
+        background-color: #e2e0e0;
+    }
+    
+    
+
+    /*列表样式*/
+    
+    .post .pjax article .article-entry>ol, .post .pjax article .article-entry>ul, .post .pjax article>ol, .post .pjax article>ul{
+        border: #e2dede solid 1px;
+        border-radius: 10px;
+        padding: 10px 32px 10px 56px;
+    }
+    .post .pjax article .article-entry li>ol, .post .pjax article .article-entry li>ul,.post .pjax article li>ol, .post .pjax article li>ul{
+        padding-top: 5px;
+        padding-bottom: 5px;
+    }
+    .post .pjax article .article-entry>ol>li, .post .pjax article .article-entry>ul>li,.post .pjax article>ol>li, .post .pjax article>ul>li{
+        margin-bottom: auto;
+        margin-left: auto;
+    }
+    .post .pjax article .article-entry li>ol>li, .post .pjax article .article-entry li>ul>li,.post .pjax article li>ol>li, .post .pjax article li>ul>li{
+        margin-bottom: auto;
+        margin-left: auto;
+    }
+    
+
+    /* 背景图样式 */
+    
+    
+
+
+    /*引用块样式*/
+    
+
+    /*文章列表背景图*/
+    
+    .nav-right:before {
+        content: ' ';
+        display: block;
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0.3;
+        background: url("null");
+        background-repeat: no-repeat;
+        background-position: 50% 0;
+        -ms-background-size: cover;
+        -o-background-size: cover;
+        -moz-background-size: cover;
+        -webkit-background-size: cover;
+        background-size: cover;
+    }
+    
+
+    
+</style>
+
+
+
+
+
+
+<div class="mobile-menus-out" >
+
+</div>
+<div class="mobile-menus">
+    
+    
+    <a class="dynamic-menu site_url"   href="/404.html">宝贝回家</a>
+    
+    
+    
+</div>
+
+
+</html>

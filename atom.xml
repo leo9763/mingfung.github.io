@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://blog.ifungfay.com/"/>
-  <updated>2020-10-28T06:36:46.641Z</updated>
+  <updated>2020-12-17T13:05:30.873Z</updated>
   <id>http://blog.ifungfay.com/</id>
   
   <author>
@@ -15,6 +15,192 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>App架构探讨</title>
+    <link href="http://blog.ifungfay.com/%E6%9E%B6%E6%9E%84/App%E6%9E%B6%E6%9E%84%E6%8E%A2%E8%AE%A8/"/>
+    <id>http://blog.ifungfay.com/架构/App架构探讨/</id>
+    <published>2020-12-17T12:17:00.000Z</published>
+    <updated>2020-12-17T13:05:30.873Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;MVC&quot;&gt;&lt;a href=&quot;#MVC&quot; class=&quot;headerlink&quot; title=&quot;MVC&quot;&gt;&lt;/a&gt;MVC&lt;/h1&gt;&lt;p&gt;&lt;img src=&quot;http://qiniu.ifungfay.com/mweb/MVC_2020_12_17.PNG&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="架构" scheme="http://blog.ifungfay.com/categories/%E6%9E%B6%E6%9E%84/"/>
+    
+    
+      <category term="Swift" scheme="http://blog.ifungfay.com/tags/Swift/"/>
+    
+      <category term="App" scheme="http://blog.ifungfay.com/tags/App/"/>
+    
+      <category term="架构" scheme="http://blog.ifungfay.com/tags/%E6%9E%B6%E6%9E%84/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>管理知识小集</title>
+    <link href="http://blog.ifungfay.com/%E7%AE%A1%E7%90%86/%E7%AE%A1%E7%90%86%E7%9F%A5%E8%AF%86%E5%B0%8F%E9%9B%86/"/>
+    <id>http://blog.ifungfay.com/管理/管理知识小集/</id>
+    <published>2020-12-11T00:53:00.000Z</published>
+    <updated>2020-12-17T12:15:56.104Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;分析问题&quot;&gt;&lt;a href=&quot;#分析问题&quot; class=&quot;headerlink&quot; title=&quot;分析问题&quot;&gt;&lt;/a&gt;分析问题&lt;/h1&gt;&lt;p&gt;要了解问题是如何产生的，就要找到问题的本质。&lt;/p&gt;
+&lt;p&gt;&lt;img
+        
+      
+    
+    </summary>
+    
+    
+      <category term="管理" scheme="http://blog.ifungfay.com/categories/%E7%AE%A1%E7%90%86/"/>
+    
+    
+      <category term="NLP" scheme="http://blog.ifungfay.com/tags/NLP/"/>
+    
+      <category term="分析问题" scheme="http://blog.ifungfay.com/tags/%E5%88%86%E6%9E%90%E9%97%AE%E9%A2%98/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>《可复制的领导力》学习后感</title>
+    <link href="http://blog.ifungfay.com/%E7%AE%A1%E7%90%86/%E3%80%8A%E5%8F%AF%E5%A4%8D%E5%88%B6%E7%9A%84%E9%A2%86%E5%AF%BC%E5%8A%9B%E3%80%8B%E5%AD%A6%E4%B9%A0%E5%90%8E%E6%84%9F/"/>
+    <id>http://blog.ifungfay.com/管理/《可复制的领导力》学习后感/</id>
+    <published>2020-10-29T04:35:00.000Z</published>
+    <updated>2020-10-29T04:59:22.833Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+
+&lt;h1 id=&quot;从个人方面&quot;&gt;&lt;a href=&quot;#从个人方面&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="管理" scheme="http://blog.ifungfay.com/categories/%E7%AE%A1%E7%90%86/"/>
+    
+    
+      <category term="管理" scheme="http://blog.ifungfay.com/tags/%E7%AE%A1%E7%90%86/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>函数式编程之管道设计</title>
+    <link href="http://blog.ifungfay.com/uncategorized/%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B%E4%B9%8B%E7%AE%A1%E9%81%93%E8%AE%BE%E8%AE%A1/"/>
+    <id>http://blog.ifungfay.com/uncategorized/函数式编程之管道设计/</id>
+    <published>2020-10-29T04:35:00.000Z</published>
+    <updated>2020-11-06T07:25:26.487Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;函数式编程三大猛将&lt;/p&gt;
+&lt;p&gt;声明式&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;不用将具体处理过程自己重复实现&lt;/li&gt;
+&lt;li&gt;只暴露出一个传入可变规则的入口&lt;/li&gt;
+&lt;li&gt;减少代码量，简洁易理解&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code class=&quot;hljs undefined&quot;&gt;let objectOfCondition = objects.filter &amp;#123; object in
+    return object.value == condition
+&amp;#125;&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;First-Class&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;闭包赋值给变量，传递给函数或作为返回值&lt;/li&gt;
+&lt;li&gt;这个闭包就是 First-Class&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code class=&quot;hljs undefined&quot;&gt;func filterCondition(object:Object) -&amp;gt; Bool &amp;#123;
+    return object.value == condition
+&amp;#125;
+object = objects.filter(filterCondition)&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Curry&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;用函数生成另一个函数&lt;/li&gt;
+&lt;li&gt;对闭包作进一步抽象&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code class=&quot;hljs undefined&quot;&gt;func filterGenerator(condition: String) -&amp;gt; (Object) -&amp;gt; (Bool) &amp;#123;
+
+    return &amp;#123;object in
+        return object.value == condition
+    &amp;#125;
+
+&amp;#125;
+let filterCondition = filterGenerator(condition)
+object = objects.filter(filterCondition)&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;返回一个 (Staff) -&amp;gt; (Bool) 这样签名格式的闭包，即入参为 Staff，输出为 Bool 的一个函数&lt;/p&gt;
+&lt;p&gt;其它应用&lt;br&gt;map&lt;br&gt;转换为另一种格式的结果&lt;/p&gt;
+&lt;p&gt;连环 map 示例：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;hljs undefined&quot;&gt;let arr : [Int] = [1, 2, 4]
+let brr : [String] = arr.map &amp;#123;
+    &amp;quot;N&amp;quot; + String($0)
+&amp;#125;.map &amp;#123;
+    &amp;quot;o&amp;quot; + String($0)
+&amp;#125;.map &amp;#123;
+    &amp;quot;.&amp;quot; + String($0)
+&amp;#125;
+// brr = [&amp;quot;No.1&amp;quot;, &amp;quot;No.2&amp;quot;, &amp;quot;No.4&amp;quot;]&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;reduce&lt;br&gt;先给出初始值传入闭包，然后再将每次闭包的结果传入到下一次的闭包调用中，用于需要将每次结果或叠加或累计或关联的场景&lt;/p&gt;
+&lt;p&gt;函数式语言和逻辑式语言擅长基于数理逻辑的应用，命令式语言擅长基于业务逻辑的、尤其是交互式或事件驱动型的应用。&lt;/p&gt;
+&lt;p&gt;Swift 的 Curry 举例&lt;/p&gt;
+&lt;p&gt;传入一个函数到一个函数生成另一个函数：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;hljs undefined&quot;&gt;func checkForError&amp;lt;A&amp;gt;(_ transform: @escaping ([String:String]) -&amp;gt; Result&amp;lt;A&amp;gt;) -&amp;gt; (Any) -&amp;gt; Result&amp;lt;A&amp;gt; &amp;#123;
+
+	return &amp;#123; response in
+		guard let json = response as? [String:String] else &amp;#123; return .error() &amp;#125;
+		
+		return transform(json)
+		
+	&amp;#125;
+&amp;#125;&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Swift 的管道&lt;/p&gt;
+&lt;p&gt;关于 JavaScript 的管道操作符&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;hljs undefined&quot;&gt;let url = &amp;quot;%21&amp;quot; |&amp;gt; decodeURI;&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;等价于&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;hljs undefined&quot;&gt;let url = decodeURI(&amp;quot;%21&amp;quot;);&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;（和KVO有点类似，KVO是新建一个类来包装需要被观察的对象，然后通过在新对象的didSet中向注册监听的对象发送变更消息，同时用新对象的didSet去hook掉原来对象的didSet方法而已，内部再调回原对象的didSet，而RxSwift就是通过一个Observable来包装要被观察的对象，然后也是向这个Observable去注册监听，）&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;http://swiftcafe.io/2015/12/26/functional/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;最通俗易懂的方式让你理解 Swift 的函数式编程 - SwiftCafe 享受代码的乐趣&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://iweiyun.github.io/2018/11/19/swift-functional/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Swift函数式编程探索 | 微云iOS团队&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/%E7%AE%A1%E9%81%93%E6%93%8D%E4%BD%9C%E7%AC%A6&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;管道操作符 - JavaScript | MDN&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+    
+    </summary>
+    
+    
+    
+      <category term="设计模式" scheme="http://blog.ifungfay.com/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+    
+      <category term="Swift" scheme="http://blog.ifungfay.com/tags/Swift/"/>
+    
+  </entry>
   
   <entry>
     <title>《做有益于孩子成长的父母》学习后感</title>
@@ -46,7 +232,7 @@
     <link href="http://blog.ifungfay.com/uncategorized/Android%E5%BC%80%E5%8F%91%E7%9F%A5%E8%AF%86%E5%B0%8F%E9%9B%86/"/>
     <id>http://blog.ifungfay.com/uncategorized/Android开发知识小集/</id>
     <published>2019-12-18T02:29:00.000Z</published>
-    <updated>2020-10-28T06:39:30.402Z</updated>
+    <updated>2020-12-02T02:26:53.378Z</updated>
     
     <summary type="html">
     
@@ -70,6 +256,34 @@
     <title>TED 管理系列</title>
     <link href="http://blog.ifungfay.com/%E4%B9%A6/%E5%90%AC%E4%B9%A6%E5%90%8E%E6%84%9F/TED%20%E7%AE%A1%E7%90%86%E7%B3%BB%E5%88%97/"/>
     <id>http://blog.ifungfay.com/书/听书后感/TED 管理系列/</id>
+    <published>2019-11-28T04:28:00.000Z</published>
+    <updated>2020-01-09T02:04:43.652Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;《为什么好领导能给你带来安全感》&lt;br&gt;什么塑造出一个杰出的领袖？管理理论学家西蒙西·内克说，好的领袖是一个让他的员工有安全感，并让员工进入一个充满信任的圈子的人。但是创造信任与安全，尤其是在不平等的经济环境中，意味着承担巨大的责任。&lt;/p&gt;
+&lt;p&gt;领袖是选择而不是等级，是
+        
+      
+    
+    </summary>
+    
+    
+      <category term="书" scheme="http://blog.ifungfay.com/categories/%E4%B9%A6/"/>
+    
+      <category term="听书后感" scheme="http://blog.ifungfay.com/categories/%E4%B9%A6/%E5%90%AC%E4%B9%A6%E5%90%8E%E6%84%9F/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>TED 管理系列</title>
+    <link href="http://blog.ifungfay.com/%E4%B9%A6/%E5%90%AC%E4%B9%A6%E5%90%8E%E6%84%9F/media/%E7%AE%A1%E7%90%86%E7%9F%A5%E8%AF%86%E5%B0%8F%E9%9B%86/"/>
+    <id>http://blog.ifungfay.com/书/听书后感/media/管理知识小集/</id>
     <published>2019-11-28T04:28:00.000Z</published>
     <updated>2020-01-09T02:04:43.652Z</updated>
     
@@ -373,7 +587,7 @@
     <link href="http://blog.ifungfay.com/uncategorized/Django%E5%BC%80%E5%8F%91/"/>
     <id>http://blog.ifungfay.com/uncategorized/Django开发/</id>
     <published>2019-05-15T04:33:00.000Z</published>
-    <updated>2020-10-28T06:58:50.285Z</updated>
+    <updated>2020-12-07T01:23:04.500Z</updated>
     
     <summary type="html">
     
