@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://blog.ifungfay.com/"/>
-  <updated>2020-12-17T13:05:30.873Z</updated>
+  <updated>2021-06-24T08:43:02.914Z</updated>
   <id>http://blog.ifungfay.com/</id>
   
   <author>
@@ -15,6 +15,61 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>思维模式</title>
+    <link href="http://blog.ifungfay.com/uncategorized/%E6%80%9D%E7%BB%B4%E6%A8%A1%E5%BC%8F/"/>
+    <id>http://blog.ifungfay.com/uncategorized/思维模式/</id>
+    <published>2021-06-24T08:43:02.000Z</published>
+    <updated>2021-06-24T08:43:02.914Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;分解思维&quot;&gt;&lt;a href=&quot;#分解思维&quot; class=&quot;headerlink&quot; title=&quot;分解思维&quot;&gt;&lt;/a&gt;分解思维&lt;/h1&gt;&lt;p&gt;** 试题 **&lt;br&gt;有三个连续的，大于六的整数，已知其中两个是质数，求证第三个数能被6整除。&lt;/p&gt;
+&lt;p&gt;** 思路
+        
+      
+    
+    </summary>
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Ubuntu 下搭建带鉴权机制的 SDK 仓库</title>
+    <link href="http://blog.ifungfay.com/uncategorized/Ubuntu-%E4%B8%8B%E6%90%AD%E5%BB%BA%E5%B8%A6%E9%89%B4%E6%9D%83%E6%9C%BA%E5%88%B6%E7%9A%84-Nexus3-x-Maven-%E7%A7%81%E6%9C%8D/"/>
+    <id>http://blog.ifungfay.com/uncategorized/Ubuntu-下搭建带鉴权机制的-Nexus3-x-Maven-私服/</id>
+    <published>2021-06-24T08:42:28.000Z</published>
+    <updated>2021-06-24T08:42:28.456Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;搭建-Nexus3-x-Maven&quot;&gt;&lt;a href=&quot;#搭建-Nexus3-x-Maven&quot; class=&quot;headerlink&quot; title=&quot;搭建 Nexus3.x Maven&quot;&gt;&lt;/a&gt;搭建 Nexus3.x Maven&lt;/h1&gt;&lt;h2
+        
+      
+    
+    </summary>
+    
+    
+    
+      <category term="Ubuntu" scheme="http://blog.ifungfay.com/tags/Ubuntu/"/>
+    
+      <category term="Nexus" scheme="http://blog.ifungfay.com/tags/Nexus/"/>
+    
+      <category term="Maven" scheme="http://blog.ifungfay.com/tags/Maven/"/>
+    
+      <category term="Gitlab" scheme="http://blog.ifungfay.com/tags/Gitlab/"/>
+    
+  </entry>
   
   <entry>
     <title>App架构探讨</title>
@@ -52,7 +107,7 @@
     <link href="http://blog.ifungfay.com/%E7%AE%A1%E7%90%86/%E7%AE%A1%E7%90%86%E7%9F%A5%E8%AF%86%E5%B0%8F%E9%9B%86/"/>
     <id>http://blog.ifungfay.com/管理/管理知识小集/</id>
     <published>2020-12-11T00:53:00.000Z</published>
-    <updated>2020-12-17T12:15:56.104Z</updated>
+    <updated>2021-01-16T02:04:07.357Z</updated>
     
     <summary type="html">
     
@@ -196,9 +251,9 @@ let brr : [String] = arr.map &amp;#123;
     
     
     
-      <category term="设计模式" scheme="http://blog.ifungfay.com/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
-    
       <category term="Swift" scheme="http://blog.ifungfay.com/tags/Swift/"/>
+    
+      <category term="设计模式" scheme="http://blog.ifungfay.com/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
     
   </entry>
   
@@ -221,9 +276,9 @@ let brr : [String] = arr.map &amp;#123;
       <category term="管理" scheme="http://blog.ifungfay.com/categories/%E7%AE%A1%E7%90%86/"/>
     
     
-      <category term="育儿" scheme="http://blog.ifungfay.com/tags/%E8%82%B2%E5%84%BF/"/>
-    
       <category term="管理" scheme="http://blog.ifungfay.com/tags/%E7%AE%A1%E7%90%86/"/>
+    
+      <category term="育儿" scheme="http://blog.ifungfay.com/tags/%E8%82%B2%E5%84%BF/"/>
     
   </entry>
   
@@ -232,7 +287,7 @@ let brr : [String] = arr.map &amp;#123;
     <link href="http://blog.ifungfay.com/uncategorized/Android%E5%BC%80%E5%8F%91%E7%9F%A5%E8%AF%86%E5%B0%8F%E9%9B%86/"/>
     <id>http://blog.ifungfay.com/uncategorized/Android开发知识小集/</id>
     <published>2019-12-18T02:29:00.000Z</published>
-    <updated>2020-12-02T02:26:53.378Z</updated>
+    <updated>2021-01-18T07:06:27.968Z</updated>
     
     <summary type="html">
     
@@ -257,7 +312,7 @@ let brr : [String] = arr.map &amp;#123;
     <link href="http://blog.ifungfay.com/%E4%B9%A6/%E5%90%AC%E4%B9%A6%E5%90%8E%E6%84%9F/TED%20%E7%AE%A1%E7%90%86%E7%B3%BB%E5%88%97/"/>
     <id>http://blog.ifungfay.com/书/听书后感/TED 管理系列/</id>
     <published>2019-11-28T04:28:00.000Z</published>
-    <updated>2020-01-09T02:04:43.652Z</updated>
+    <updated>2020-12-11T00:53:10.973Z</updated>
     
     <summary type="html">
     
@@ -489,7 +544,7 @@ let brr : [String] = arr.map &amp;#123;
     <link href="http://blog.ifungfay.com/uncategorized/Android%E6%8A%80%E5%B7%A7%E5%85%A5%E9%97%A8/"/>
     <id>http://blog.ifungfay.com/uncategorized/Android技巧入门/</id>
     <published>2019-08-13T16:22:37.000Z</published>
-    <updated>2020-09-30T06:23:03.686Z</updated>
+    <updated>2021-06-03T08:53:52.758Z</updated>
     
     <summary type="html">
     
@@ -519,7 +574,7 @@ let brr : [String] = arr.map &amp;#123;
     <link href="http://blog.ifungfay.com/Android/Android%E5%8E%9F%E7%90%86%E5%85%A5%E9%97%A8/"/>
     <id>http://blog.ifungfay.com/Android/Android原理入门/</id>
     <published>2019-08-13T16:22:11.000Z</published>
-    <updated>2019-10-11T05:48:10.239Z</updated>
+    <updated>2021-06-24T08:36:01.563Z</updated>
     
     <summary type="html">
     
@@ -615,7 +670,7 @@ let brr : [String] = arr.map &amp;#123;
     <link href="http://blog.ifungfay.com/%E5%90%8E%E7%AB%AF/%E6%90%AD%E5%BB%BA%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
     <id>http://blog.ifungfay.com/后端/搭建服务器/</id>
     <published>2019-04-05T16:00:00.000Z</published>
-    <updated>2020-10-28T06:04:12.884Z</updated>
+    <updated>2021-03-29T08:39:20.217Z</updated>
     
     <summary type="html">
     
@@ -671,7 +726,7 @@ let brr : [String] = arr.map &amp;#123;
     <link href="http://blog.ifungfay.com/Android/Android%E5%B7%A5%E7%A8%8B%E5%85%A5%E9%97%A8/"/>
     <id>http://blog.ifungfay.com/Android/Android工程入门/</id>
     <published>2019-02-24T05:44:00.000Z</published>
-    <updated>2019-10-11T04:44:21.468Z</updated>
+    <updated>2021-06-24T08:40:59.599Z</updated>
     
     <summary type="html">
     
@@ -690,6 +745,8 @@ let brr : [String] = arr.map &amp;#123;
       <category term="ProGuard" scheme="http://blog.ifungfay.com/tags/ProGuard/"/>
     
       <category term="Native" scheme="http://blog.ifungfay.com/tags/Native/"/>
+    
+      <category term="SQLite" scheme="http://blog.ifungfay.com/tags/SQLite/"/>
     
       <category term="JNI" scheme="http://blog.ifungfay.com/tags/JNI/"/>
     
@@ -1195,8 +1252,6 @@ let brr : [String] = arr.map &amp;#123;
       <category term="后端" scheme="http://blog.ifungfay.com/categories/%E5%90%8E%E7%AB%AF/"/>
     
     
-      <category term="command" scheme="http://blog.ifungfay.com/tags/command/"/>
-    
       <category term="vapor" scheme="http://blog.ifungfay.com/tags/vapor/"/>
     
       <category term="swift" scheme="http://blog.ifungfay.com/tags/swift/"/>
@@ -1204,6 +1259,8 @@ let brr : [String] = arr.map &amp;#123;
       <category term="crypto" scheme="http://blog.ifungfay.com/tags/crypto/"/>
     
       <category term="console" scheme="http://blog.ifungfay.com/tags/console/"/>
+    
+      <category term="command" scheme="http://blog.ifungfay.com/tags/command/"/>
     
       <category term="terminal" scheme="http://blog.ifungfay.com/tags/terminal/"/>
     
@@ -1308,7 +1365,7 @@ let brr : [String] = arr.map &amp;#123;
     <link href="http://blog.ifungfay.com/%E5%90%8E%E7%AB%AF/Python%E7%9F%A5%E8%AF%86%E5%B0%8F%E9%9B%86/"/>
     <id>http://blog.ifungfay.com/后端/Python知识小集/</id>
     <published>2018-08-15T16:00:00.000Z</published>
-    <updated>2020-10-28T06:00:19.879Z</updated>
+    <updated>2021-01-26T03:40:34.305Z</updated>
     
     <summary type="html">
     
@@ -1384,6 +1441,30 @@ let brr : [String] = arr.map &amp;#123;
   </entry>
   
   <entry>
+    <title>Vapor（一）基础篇</title>
+    <link href="http://blog.ifungfay.com/%E5%90%8E%E7%AB%AF/Vapor%EF%BC%88%E4%B8%80%EF%BC%89%E5%9F%BA%E7%A1%80%E7%AF%87/"/>
+    <id>http://blog.ifungfay.com/后端/Vapor（一）基础篇/</id>
+    <published>2018-08-13T15:34:00.000Z</published>
+    <updated>2018-08-28T13:59:23.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;其实这个Vapor系列的文章和官网介绍的差不多，但为了加深个人理解和方便日后查阅，还是逐点再撸一遍，并且将知识点做了一下归类。过程中会有类比到其它系统、语言，又或者是旧版本的Vapor，分析它们的特性、设计模式等，使学习起来更加融会贯通。&lt;/p&gt;
+&lt;p&gt;第一篇，先介绍一下Vapor的一些基础概念，像文件结构、服务、路由、异步等等。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="后端" scheme="http://blog.ifungfay.com/categories/%E5%90%8E%E7%AB%AF/"/>
+    
+    
+      <category term="vapor" scheme="http://blog.ifungfay.com/tags/vapor/"/>
+    
+      <category term="swift" scheme="http://blog.ifungfay.com/tags/swift/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Vapor的部署</title>
     <link href="http://blog.ifungfay.com/%E5%90%8E%E7%AB%AF/Vapor%E7%9A%84%E9%83%A8%E7%BD%B2/"/>
     <id>http://blog.ifungfay.com/后端/Vapor的部署/</id>
@@ -1409,30 +1490,6 @@ let brr : [String] = arr.map &amp;#123;
       <category term="heroku" scheme="http://blog.ifungfay.com/tags/heroku/"/>
     
       <category term="cloud" scheme="http://blog.ifungfay.com/tags/cloud/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Vapor（一）基础篇</title>
-    <link href="http://blog.ifungfay.com/%E5%90%8E%E7%AB%AF/Vapor%EF%BC%88%E4%B8%80%EF%BC%89%E5%9F%BA%E7%A1%80%E7%AF%87/"/>
-    <id>http://blog.ifungfay.com/后端/Vapor（一）基础篇/</id>
-    <published>2018-08-13T15:34:00.000Z</published>
-    <updated>2018-08-28T13:59:23.000Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;其实这个Vapor系列的文章和官网介绍的差不多，但为了加深个人理解和方便日后查阅，还是逐点再撸一遍，并且将知识点做了一下归类。过程中会有类比到其它系统、语言，又或者是旧版本的Vapor，分析它们的特性、设计模式等，使学习起来更加融会贯通。&lt;/p&gt;
-&lt;p&gt;第一篇，先介绍一下Vapor的一些基础概念，像文件结构、服务、路由、异步等等。&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="后端" scheme="http://blog.ifungfay.com/categories/%E5%90%8E%E7%AB%AF/"/>
-    
-    
-      <category term="vapor" scheme="http://blog.ifungfay.com/tags/vapor/"/>
-    
-      <category term="swift" scheme="http://blog.ifungfay.com/tags/swift/"/>
     
   </entry>
   
@@ -1478,7 +1535,7 @@ let brr : [String] = arr.map &amp;#123;
     <link href="http://blog.ifungfay.com/%E5%B7%A5%E5%85%B7/Mac%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%B7%A5%E5%85%B7%E5%8F%8A%E5%85%B6%E9%97%AE%E9%A2%98%E6%94%B6%E5%BD%95/"/>
     <id>http://blog.ifungfay.com/工具/Mac命令行工具及其问题收录/</id>
     <published>2018-02-22T09:10:00.000Z</published>
-    <updated>2020-01-09T02:04:51.336Z</updated>
+    <updated>2021-03-29T08:31:37.490Z</updated>
     
     <summary type="html">
     
