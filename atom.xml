@@ -276,9 +276,9 @@ let brr : [String] = arr.map &amp;#123;
       <category term="管理" scheme="http://blog.ifungfay.com/categories/%E7%AE%A1%E7%90%86/"/>
     
     
-      <category term="管理" scheme="http://blog.ifungfay.com/tags/%E7%AE%A1%E7%90%86/"/>
-    
       <category term="育儿" scheme="http://blog.ifungfay.com/tags/%E8%82%B2%E5%84%BF/"/>
+    
+      <category term="管理" scheme="http://blog.ifungfay.com/tags/%E7%AE%A1%E7%90%86/"/>
     
   </entry>
   
@@ -592,9 +592,9 @@ let brr : [String] = arr.map &amp;#123;
       <category term="Android" scheme="http://blog.ifungfay.com/categories/Android/"/>
     
     
-      <category term="Java" scheme="http://blog.ifungfay.com/tags/Java/"/>
-    
       <category term="Android" scheme="http://blog.ifungfay.com/tags/Android/"/>
+    
+      <category term="Java" scheme="http://blog.ifungfay.com/tags/Java/"/>
     
   </entry>
   
@@ -726,7 +726,7 @@ let brr : [String] = arr.map &amp;#123;
     <link href="http://blog.ifungfay.com/Android/Android%E5%B7%A5%E7%A8%8B%E5%85%A5%E9%97%A8/"/>
     <id>http://blog.ifungfay.com/Android/Android工程入门/</id>
     <published>2019-02-24T05:44:00.000Z</published>
-    <updated>2021-06-24T08:40:59.599Z</updated>
+    <updated>2021-06-24T10:27:55.780Z</updated>
     
     <summary type="html">
     
@@ -1045,11 +1045,11 @@ let brr : [String] = arr.map &amp;#123;
       <category term="前端" scheme="http://blog.ifungfay.com/categories/%E5%89%8D%E7%AB%AF/"/>
     
     
-      <category term="Android" scheme="http://blog.ifungfay.com/tags/Android/"/>
-    
       <category term="Flutter" scheme="http://blog.ifungfay.com/tags/Flutter/"/>
     
       <category term="iOS" scheme="http://blog.ifungfay.com/tags/iOS/"/>
+    
+      <category term="Android" scheme="http://blog.ifungfay.com/tags/Android/"/>
     
       <category term="Dart" scheme="http://blog.ifungfay.com/tags/Dart/"/>
     
@@ -1074,11 +1074,11 @@ let brr : [String] = arr.map &amp;#123;
       <category term="前端" scheme="http://blog.ifungfay.com/categories/%E5%89%8D%E7%AB%AF/"/>
     
     
-      <category term="Android" scheme="http://blog.ifungfay.com/tags/Android/"/>
-    
       <category term="Flutter" scheme="http://blog.ifungfay.com/tags/Flutter/"/>
     
       <category term="iOS" scheme="http://blog.ifungfay.com/tags/iOS/"/>
+    
+      <category term="Android" scheme="http://blog.ifungfay.com/tags/Android/"/>
     
       <category term="Dart" scheme="http://blog.ifungfay.com/tags/Dart/"/>
     
@@ -1252,6 +1252,8 @@ let brr : [String] = arr.map &amp;#123;
       <category term="后端" scheme="http://blog.ifungfay.com/categories/%E5%90%8E%E7%AB%AF/"/>
     
     
+      <category term="command" scheme="http://blog.ifungfay.com/tags/command/"/>
+    
       <category term="vapor" scheme="http://blog.ifungfay.com/tags/vapor/"/>
     
       <category term="swift" scheme="http://blog.ifungfay.com/tags/swift/"/>
@@ -1259,8 +1261,6 @@ let brr : [String] = arr.map &amp;#123;
       <category term="crypto" scheme="http://blog.ifungfay.com/tags/crypto/"/>
     
       <category term="console" scheme="http://blog.ifungfay.com/tags/console/"/>
-    
-      <category term="command" scheme="http://blog.ifungfay.com/tags/command/"/>
     
       <category term="terminal" scheme="http://blog.ifungfay.com/tags/terminal/"/>
     
@@ -1729,11 +1729,11 @@ let brr : [String] = arr.map &amp;#123;
       <category term="前端" scheme="http://blog.ifungfay.com/categories/%E5%89%8D%E7%AB%AF/"/>
     
     
+      <category term="blog" scheme="http://blog.ifungfay.com/tags/blog/"/>
+    
       <category term="jekyll" scheme="http://blog.ifungfay.com/tags/jekyll/"/>
     
       <category term="github" scheme="http://blog.ifungfay.com/tags/github/"/>
-    
-      <category term="blog" scheme="http://blog.ifungfay.com/tags/blog/"/>
     
   </entry>
   
