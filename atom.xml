@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://blog.ifungfay.com/"/>
-  <updated>2021-06-24T08:43:02.914Z</updated>
+  <updated>2022-01-13T08:56:03.231Z</updated>
   <id>http://blog.ifungfay.com/</id>
   
   <author>
@@ -15,6 +15,108 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>《团队协作的五大障碍》读后感</title>
+    <link href="http://blog.ifungfay.com/%E7%AE%A1%E7%90%86/%E3%80%8A%E5%9B%A2%E9%98%9F%E5%8D%8F%E4%BD%9C%E7%9A%84%E4%BA%94%E5%A4%A7%E9%9A%9C%E7%A2%8D%E3%80%8B/"/>
+    <id>http://blog.ifungfay.com/管理/《团队协作的五大障碍》/</id>
+    <published>2022-01-04T00:21:00.000Z</published>
+    <updated>2022-01-13T08:56:03.231Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;《团队协作的五大障碍》讲述的是一位新晋CEO如何通过重新建设公司管理层团队，加强团队合作，让公司扭亏为盈的故事。重建过程中，主要围绕五大团队协作障碍进行分析，逐个击破，并重复训练，最终达到预设目标。这个方面对&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="管理" scheme="http://blog.ifungfay.com/categories/%E7%AE%A1%E7%90%86/"/>
+    
+    
+      <category term="管理" scheme="http://blog.ifungfay.com/tags/%E7%AE%A1%E7%90%86/"/>
+    
+      <category term="团队" scheme="http://blog.ifungfay.com/tags/%E5%9B%A2%E9%98%9F/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>《凤凰项目》读后感</title>
+    <link href="http://blog.ifungfay.com/%E7%AE%A1%E7%90%86/%E3%80%8A%E5%87%A4%E5%87%B0%E9%A1%B9%E7%9B%AE%E3%80%8B/"/>
+    <id>http://blog.ifungfay.com/管理/《凤凰项目》/</id>
+    <published>2021-12-31T12:44:00.000Z</published>
+    <updated>2022-01-04T00:10:04.312Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;《凤凰项目》讲述的是一位运维总裁，在短短几个月里，如何利用高人指点的方法，逐步改善运维部的工作效率，乃至最终对开发部和其它部门产生积极的影响，将公司从生死边缘挽救回来的小说。没错是小说，这样的形式大大加强了代入感，没经验的能获得更形象的意境，有经验的则能产生共鸣。里面主要围绕的是一个称为“三步工作法”来探索最优的流程设计、工作应遵循的原则。同时，在人物之间的对话，还学到很多为人处事的技巧，对提高工作情商有一定裨益。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="管理" scheme="http://blog.ifungfay.com/categories/%E7%AE%A1%E7%90%86/"/>
+    
+    
+      <category term="管理" scheme="http://blog.ifungfay.com/tags/%E7%AE%A1%E7%90%86/"/>
+    
+      <category term="DevOps" scheme="http://blog.ifungfay.com/tags/DevOps/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Android权限作用汇总</title>
+    <link href="http://blog.ifungfay.com/uncategorized/Android%E6%9D%83%E9%99%90%E4%BD%9C%E7%94%A8%E6%B1%87%E6%80%BB/"/>
+    <id>http://blog.ifungfay.com/uncategorized/Android权限作用汇总/</id>
+    <published>2021-10-14T06:01:00.000Z</published>
+    <updated>2022-01-13T08:56:14.078Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;android.permission.EXPAND_STATUS_BAR&lt;br&gt;允许一个程序扩展收缩在状态栏,android开发网提示应该是一个类似Windows Mobile中的托盘程序   
+        
+      
+    
+    </summary>
+    
+    
+    
+      <category term="Android" scheme="http://blog.ifungfay.com/tags/Android/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>电脑问题收录</title>
+    <link href="http://blog.ifungfay.com/%E5%B7%A5%E5%85%B7/%E7%94%B5%E8%84%91%E9%97%AE%E9%A2%98%E6%94%B6%E5%BD%95/"/>
+    <id>http://blog.ifungfay.com/工具/电脑问题收录/</id>
+    <published>2021-10-13T15:24:00.000Z</published>
+    <updated>2021-10-14T03:37:16.961Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+
+&lt;h2 id=&quot;chrome-浏览器报-NET-ERR-CERT-COMMON-NAME-INVALID&quot;&gt;&lt;a href=&quot;#chrome-浏览器报-NET-ERR-CERT-COMMON-NAME-INVALID&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="工具" scheme="http://blog.ifungfay.com/categories/%E5%B7%A5%E5%85%B7/"/>
+    
+    
+      <category term="tool" scheme="http://blog.ifungfay.com/tags/tool/"/>
+    
+      <category term="skill" scheme="http://blog.ifungfay.com/tags/skill/"/>
+    
+  </entry>
   
   <entry>
     <title>思维模式</title>
@@ -45,7 +147,7 @@
     <link href="http://blog.ifungfay.com/uncategorized/Ubuntu-%E4%B8%8B%E6%90%AD%E5%BB%BA%E5%B8%A6%E9%89%B4%E6%9D%83%E6%9C%BA%E5%88%B6%E7%9A%84-Nexus3-x-Maven-%E7%A7%81%E6%9C%8D/"/>
     <id>http://blog.ifungfay.com/uncategorized/Ubuntu-下搭建带鉴权机制的-Nexus3-x-Maven-私服/</id>
     <published>2021-06-24T08:42:28.000Z</published>
-    <updated>2021-06-24T08:42:28.456Z</updated>
+    <updated>2022-01-13T09:32:03.831Z</updated>
     
     <summary type="html">
     
@@ -76,7 +178,7 @@
     <link href="http://blog.ifungfay.com/%E6%9E%B6%E6%9E%84/App%E6%9E%B6%E6%9E%84%E6%8E%A2%E8%AE%A8/"/>
     <id>http://blog.ifungfay.com/架构/App架构探讨/</id>
     <published>2020-12-17T12:17:00.000Z</published>
-    <updated>2020-12-17T13:05:30.873Z</updated>
+    <updated>2022-01-13T09:11:35.215Z</updated>
     
     <summary type="html">
     
@@ -84,7 +186,7 @@
       
         
         
-          &lt;h1 id=&quot;MVC&quot;&gt;&lt;a href=&quot;#MVC&quot; class=&quot;headerlink&quot; title=&quot;MVC&quot;&gt;&lt;/a&gt;MVC&lt;/h1&gt;&lt;p&gt;&lt;img src=&quot;http://qiniu.ifungfay.com/mweb/MVC_2020_12_17.PNG&quot;
+          &lt;h1 id=&quot;MVC&quot;&gt;&lt;a href=&quot;#MVC&quot; class=&quot;headerlink&quot; title=&quot;MVC&quot;&gt;&lt;/a&gt;MVC&lt;/h1&gt;&lt;p&gt;&lt;img
         
       
     
@@ -107,7 +209,7 @@
     <link href="http://blog.ifungfay.com/%E7%AE%A1%E7%90%86/%E7%AE%A1%E7%90%86%E7%9F%A5%E8%AF%86%E5%B0%8F%E9%9B%86/"/>
     <id>http://blog.ifungfay.com/管理/管理知识小集/</id>
     <published>2020-12-11T00:53:00.000Z</published>
-    <updated>2021-01-16T02:04:07.357Z</updated>
+    <updated>2022-01-13T09:11:48.177Z</updated>
     
     <summary type="html">
     
@@ -262,11 +364,11 @@ let brr : [String] = arr.map &amp;#123;
     <link href="http://blog.ifungfay.com/%E7%AE%A1%E7%90%86/%E3%80%8A%E5%81%9A%E6%9C%89%E7%9B%8A%E4%BA%8E%E5%AD%A9%E5%AD%90%E6%88%90%E9%95%BF%E7%9A%84%E7%88%B6%E6%AF%8D%E3%80%8B%E5%AD%A6%E4%B9%A0%E5%90%8E%E6%84%9F/"/>
     <id>http://blog.ifungfay.com/管理/《做有益于孩子成长的父母》学习后感/</id>
     <published>2020-10-27T00:24:00.000Z</published>
-    <updated>2020-10-28T06:36:46.641Z</updated>
+    <updated>2022-01-13T09:11:37.793Z</updated>
     
     <summary type="html">
     
-      &lt;p&gt;&lt;img src=&quot;http://qiniu.ifungfay.com/mweb/IMG_1285_2020_10_28.JPG&quot; alt=&quot;qq pig&quot;&gt;&lt;/p&gt;
+      &lt;p&gt;&lt;img src=&quot;https://github.com/ming-fung/BlogImages/blob/master/IMG_1285_2020_10_28.JPG?raw=true&quot; alt=&quot;qq pig&quot;&gt;&lt;/p&gt;
 &lt;p&gt;随着孩子不断成长，（由于我家那位从小就属于特扭型）越来越感觉对她的劝导力不从心，平时关注育儿的方法又参差不齐、零星可数，担心无法教好她而导致她日后行差踏错的情绪日渐变浓，于是乎搜了很久，发现讲《可复制的领导力》的樊登老师有一个课程，叫《做有益于孩子成长的父母》，比较系统地讲述育儿的方方面面，当然不包括生活起居的部分，都是从精神意识、行为举止、心理学脑科学等原理的方面来塑造孩子，其实在《可复制的领导力》一课里就时不时听到樊老师提起育儿的比喻，这块和工作上的管理工作还真是有很多贴近之处。&lt;/p&gt;
 &lt;p&gt;下面我总结一下自学到的内容。&lt;/p&gt;
     
@@ -503,7 +605,7 @@ let brr : [String] = arr.map &amp;#123;
     <link href="http://blog.ifungfay.com/Android/%E5%BC%80%E5%8F%91%E4%B8%80%E4%B8%AAAndroid-App/"/>
     <id>http://blog.ifungfay.com/Android/开发一个Android-App/</id>
     <published>2019-10-05T08:11:04.000Z</published>
-    <updated>2020-01-09T02:04:48.257Z</updated>
+    <updated>2022-01-13T09:30:49.107Z</updated>
     
     <summary type="html">
     
@@ -544,7 +646,7 @@ let brr : [String] = arr.map &amp;#123;
     <link href="http://blog.ifungfay.com/uncategorized/Android%E6%8A%80%E5%B7%A7%E5%85%A5%E9%97%A8/"/>
     <id>http://blog.ifungfay.com/uncategorized/Android技巧入门/</id>
     <published>2019-08-13T16:22:37.000Z</published>
-    <updated>2021-06-03T08:53:52.758Z</updated>
+    <updated>2022-01-13T08:47:48.320Z</updated>
     
     <summary type="html">
     
@@ -603,7 +705,7 @@ let brr : [String] = arr.map &amp;#123;
     <link href="http://blog.ifungfay.com/%E7%B3%BB%E7%BB%9F/%E9%93%BE%E6%8E%A5%E3%80%81%E8%A3%85%E8%BD%BD%E3%80%81%E5%BA%93/"/>
     <id>http://blog.ifungfay.com/系统/链接、装载、库/</id>
     <published>2019-06-05T00:53:00.000Z</published>
-    <updated>2019-10-11T00:51:07.783Z</updated>
+    <updated>2022-01-13T09:28:53.532Z</updated>
     
     <summary type="html">
     
@@ -670,7 +772,7 @@ let brr : [String] = arr.map &amp;#123;
     <link href="http://blog.ifungfay.com/%E5%90%8E%E7%AB%AF/%E6%90%AD%E5%BB%BA%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
     <id>http://blog.ifungfay.com/后端/搭建服务器/</id>
     <published>2019-04-05T16:00:00.000Z</published>
-    <updated>2021-03-29T08:39:20.217Z</updated>
+    <updated>2022-01-13T09:29:04.318Z</updated>
     
     <summary type="html">
     
@@ -705,7 +807,7 @@ let brr : [String] = arr.map &amp;#123;
     <link href="http://blog.ifungfay.com/%E5%B7%A5%E5%85%B7/%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E5%9B%BE%E5%BA%8A/"/>
     <id>http://blog.ifungfay.com/工具/搭建博客图床/</id>
     <published>2019-03-21T04:39:00.000Z</published>
-    <updated>2019-04-04T16:46:12.000Z</updated>
+    <updated>2022-01-13T09:31:55.065Z</updated>
     
     <summary type="html">
     
@@ -726,7 +828,7 @@ let brr : [String] = arr.map &amp;#123;
     <link href="http://blog.ifungfay.com/Android/Android%E5%B7%A5%E7%A8%8B%E5%85%A5%E9%97%A8/"/>
     <id>http://blog.ifungfay.com/Android/Android工程入门/</id>
     <published>2019-02-24T05:44:00.000Z</published>
-    <updated>2021-06-24T10:27:55.780Z</updated>
+    <updated>2022-01-13T09:31:27.968Z</updated>
     
     <summary type="html">
     
@@ -1535,7 +1637,7 @@ let brr : [String] = arr.map &amp;#123;
     <link href="http://blog.ifungfay.com/%E5%B7%A5%E5%85%B7/Mac%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%B7%A5%E5%85%B7%E5%8F%8A%E5%85%B6%E9%97%AE%E9%A2%98%E6%94%B6%E5%BD%95/"/>
     <id>http://blog.ifungfay.com/工具/Mac命令行工具及其问题收录/</id>
     <published>2018-02-22T09:10:00.000Z</published>
-    <updated>2021-03-29T08:31:37.490Z</updated>
+    <updated>2021-11-05T05:09:24.314Z</updated>
     
     <summary type="html">
     

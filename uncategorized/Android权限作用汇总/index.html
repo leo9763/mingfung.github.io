@@ -1,0 +1,2244 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  <title>Android权限作用汇总 | Mingfung&#39;s Blog</title>
+  <meta name="keywords" content=" Android ">
+  <meta name="description" content="Android权限作用汇总 | Mingfung&#39;s Blog">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="description" content="以铜为镜可正衣冠，以史为镜可知兴替，以人为镜可明得失">
+<meta property="og:type" content="website">
+<meta property="og:title" content="categories">
+<meta property="og:url" content="http://blog.ifungfay.com/categories/index.html">
+<meta property="og:site_name" content="Mingfung&#39;s Blog">
+<meta property="og:description" content="以铜为镜可正衣冠，以史为镜可知兴替，以人为镜可明得失">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2017-07-18T10:00:58.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="categories">
+<meta name="twitter:description" content="以铜为镜可正衣冠，以史为镜可知兴替，以人为镜可明得失">
+
+
+<link rel="icon" href="/img/avatar.jpg">
+
+<link href="/css/style.css?v=1.0.1" rel="stylesheet">
+
+<link href="/css/hl_theme/zenbum.css?v=1.0.1" rel="stylesheet">
+
+<link href="//cdn.bootcss.com/animate.css/3.5.2/animate.min.css" rel="stylesheet">
+<link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+<script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="/js/jquery.autocomplete.min.js?v=1.0.1"></script>
+
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
+
+<script src="//cdn.bootcss.com/nprogress/0.2.0/nprogress.min.js"></script>
+
+
+
+<script src="/js/iconfont.js?v=1.0.1"></script>
+<!--鼠标点击爱心动画-->
+<script type="text/javascript" src="/js/clicklove.js"></script>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-102751023-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', UA-102751023-1);
+</script>
+
+<!-- Tencent Analytics -->
+
+<script type="text/javascript" src="http://tajs.qq.com/stats?sId=66478371" charset="UTF-8"></script>
+
+</head>
+<div style="display: none">
+  <input class="theme_disqus_on" value="false">
+  <input class="theme_preload_comment" value="true">
+  <input class="theme_blog_path" value>
+</div>
+
+<body>
+<aside class="nav">
+    <div class="nav-left">
+        <a href="/" class="avatar_target">
+    <img class="avatar" src="/img/avatar.jpg" />
+</a>
+<div class="author">
+    <span>Mingfung</span>
+</div>
+
+<div class="icon">
+    
+        
+        <a title="rss" href="/atom.xml" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-rss"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+        <a title="github" href="https://github.com/ming-fung" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-github"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+        <a title="facebook" href="https://www.facebook.com/ming.fung.liu.nero" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-facebook"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+        <a title="twitter" href="https://twitter.com/Nero_Milk" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-twitter"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+    
+        
+        <a title="instagram" href="https://www.instagram.com/mingfungliu/" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-instagram"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+    
+        
+        <a title="weibo" href="https://weibo.com/neross" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-weibo"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+        <a title="jianshu" href="https://www.jianshu.com/u/007c5818ec78" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-jianshu"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+        <a title="zhihu" href="zhihu.com/people/mingfungliu" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-zhihu"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+    
+        
+    
+        
+        <a title="juejin" href="https://juejin.im/user/5b6b9b37f265da0f9f4e8df3" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-juejin"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+        <a title="email" href="mailto:mingfungliu@gmail.com" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-email"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+        <a title="qq" href="http://wpa.qq.com/msgrd?v=3&uin=52360086&site=qq&menu=yes" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-qq"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+    
+        
+    
+</div>
+
+
+
+<a class="more-menus">更多菜单</a>
+
+
+<ul>
+    <li><div class="all active">全部文章<small>(64)</small></div></li>
+    
+        
+            
+            <li><div data-rel="iOS">iOS<small>(6)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="前端">前端<small>(4)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="架构">架构<small>(1)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="Android">Android<small>(3)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="工具">工具<small>(5)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="后端">后端<small>(13)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="书"><i class="fold iconfont icon-right"></i>书<small>(4)</small></div>
+                
+                    <ul class="sub hide">
+                        
+                        <li><div data-rel="听书后感">听书后感<small>(3)</small></div>
+                            
+                        </li>
+                            
+                        <li><div data-rel="书单">书单<small>(1)</small></div>
+                            
+                        </li>
+                            
+                    </ul>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="管理">管理<small>(6)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="设计模式">设计模式<small>(7)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+            <li><div data-rel="系统">系统<small>(1)</small></div>
+                
+            </li>
+            
+        
+    
+</ul>
+<div class="left-bottom">
+    <div class="menus">
+    
+    
+    <a class="dynamic-menu site_url"   href="/404.html">宝贝回家</a>
+    
+    
+    
+    </div>
+    <div><a class="about  hasFriend  site_url"  href="/about">关于</a><a style="width: 50%"  class="friends">友链</a></div>
+</div>
+<input type="hidden" id="yelog_site_posts_number" value="64">
+<input type="hidden" id="yelog_site_word_count" value="210.8k">
+<div style="display: none">
+    <span id="busuanzi_value_site_uv"></span>
+    <span id="busuanzi_value_site_pv"></span>
+</div>
+
+    </div>
+    <div class="nav-right">
+        <div class="friends-area">
+    <div class="friends-title">
+        友情链接
+        <i class="back-title-list"></i>
+    </div>
+    <div class="friends-content">
+        <ul>
+            
+            <li><a target="_blank" href="http://www.ifungfay.com">雪月风飞</a></li>
+            
+        </ul>
+    </div>
+</div>
+        <div class="title-list">
+    <form onkeydown="if(event.keyCode==13){return false;}">
+        <input class="search" type="text" placeholder="Search..." autocomplete="off"id="local-search-input" >
+        <i class="cross"></i>
+        <span>
+            <label for="tagswitch">Tags:</label>
+            <input id="tagswitch" type="checkbox" style="display: none" />
+            <i id="tagsWitchIcon"></i>
+        </span>
+    </form>
+    <div class="tags-list">
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color3">JSPatch</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color5">JavaScriptCore</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color1">iOS11</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color2">Xcode9</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color3">iPhoneX</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color4">property</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color3">dynamic</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color5">sythesize</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color5">nonatomic</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color4">TLS</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color4">SSL</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color1">HTTPS</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color4">ATS</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color4">AndroidStudio</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color4">adb</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color4">反编译</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color3">Flutter</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color4">iOS</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color3">Android</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color5">Dart</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color5">html</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color5">bootstrap</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color4">css</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color1">Swift</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color4">App</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color3">架构</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color5">Java</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color2">Python</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color2">Django</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color4">Git</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color2">Ubuntu</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color1">Nexus</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color1">Maven</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color2">Gitlab</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color3">command</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color4">Mac</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color4">question</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color3">PyCharm</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color4">Anaconda</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color5">Qgis</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color1">vapor</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color1">swift</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color2">heroku</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color1">cloud</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color2">crypto</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color3">console</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color4">terminal</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color5">leaf</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color5">view</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color3">network</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color5">http</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color5">webSocket</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color3">encoded</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color4">database</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color1">postgreSQL</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color3">逆向</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color3">工具</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color3">安全</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color3">session</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color1">token</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color3">verification</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color3">育儿</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color3">管理</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color3">越狱</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color5">JSON</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color2">Objective-C</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color3">Manager</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color1">Model</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color5">Role</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color2">Target</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color5">blog</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color4">CGI</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color3">Servlet</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color3">容器</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color2">Docker</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color5">设计模式</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color5">tool</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color1">skill</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color2">jekyll</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color2">github</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color4">服务器</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color3">Web App</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color1">nginx</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color1">supervisor</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color2">fabric</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color2">python</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color1">mysql</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color3">Jenkins</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color3">CI</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color5">Test</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color4">NLP</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color5">分析问题</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color3">面试</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color2">Gradle</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color2">Module</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color4">ProGuard</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color2">Native</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color2">SQLite</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color4">JNI</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color4">NDK</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color4">AAR</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color4">JAR</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color4">MVP</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color3">Adapter</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color4">Activity</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color4">Fragment</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color2">Layout</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color4">Res</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color1">Realm</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color5">AIDL</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color5">AsyncTask</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color2">Thread</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color3">Handler</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color5">link</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color4">register</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color4">assembly</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color3">library</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color2">static</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color2">memory</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color3">runtime</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color5">interrupt</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color2">DevOps</a>
+    </li>
+    
+    <li class="article-tag-list-item" style="list-style-position : inside">
+        <a href="javascript:" class="color3">团队</a>
+    </li>
+    
+    <div class="clearfix"></div>
+</div>
+
+    
+    <nav id="title-list-nav">
+        
+
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+            <a id="top" class=""
+               href="/uncategorized/写博有道可循/"
+               data-tag=""
+               data-author="" >
+                <span class="post-title" title="写博有道可循">写博有道可循</span>
+                <span class="post-date" title="2019-10-17 22:04:00">2019/10/17</span>
+            </a>
+            
+        
+            
+        
+            
+        
+            
+            <a id="top" class="书 书单 "
+               href="/书/书单/书单/"
+               data-tag=""
+               data-author="" >
+                <span class="post-title" title="书单">书单</span>
+                <span class="post-date" title="2019-10-16 01:02:57">2019/10/16</span>
+            </a>
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+
+        
+            
+                <a class="管理 "
+                   href="/管理/《团队协作的五大障碍》/"
+                   data-tag="管理,团队"
+                   data-author="" >
+                    <span class="post-title" title="《团队协作的五大障碍》读后感">《团队协作的五大障碍》读后感</span>
+                    <span class="post-date" title="2022-01-04 08:21:00">2022/01/04</span>
+                </a>
+            
+        
+            
+                <a class="管理 "
+                   href="/管理/《凤凰项目》/"
+                   data-tag="管理,DevOps"
+                   data-author="" >
+                    <span class="post-title" title="《凤凰项目》读后感">《凤凰项目》读后感</span>
+                    <span class="post-date" title="2021-12-31 20:44:00">2021/12/31</span>
+                </a>
+            
+        
+            
+                <a class=""
+                   href="/uncategorized/Android权限作用汇总/"
+                   data-tag="Android"
+                   data-author="" >
+                    <span class="post-title" title="Android权限作用汇总">Android权限作用汇总</span>
+                    <span class="post-date" title="2021-10-14 14:01:00">2021/10/14</span>
+                </a>
+            
+        
+            
+                <a class="工具 "
+                   href="/工具/电脑问题收录/"
+                   data-tag="tool,skill"
+                   data-author="" >
+                    <span class="post-title" title="电脑问题收录">电脑问题收录</span>
+                    <span class="post-date" title="2021-10-13 23:24:00">2021/10/13</span>
+                </a>
+            
+        
+            
+                <a class=""
+                   href="/uncategorized/思维模式/"
+                   data-tag=""
+                   data-author="" >
+                    <span class="post-title" title="思维模式">思维模式</span>
+                    <span class="post-date" title="2021-06-24 16:43:02">2021/06/24</span>
+                </a>
+            
+        
+            
+                <a class=""
+                   href="/uncategorized/Ubuntu-下搭建带鉴权机制的-Nexus3-x-Maven-私服/"
+                   data-tag="Ubuntu,Nexus,Maven,Gitlab"
+                   data-author="" >
+                    <span class="post-title" title="Ubuntu 下搭建带鉴权机制的 SDK 仓库">Ubuntu 下搭建带鉴权机制的 SDK 仓库</span>
+                    <span class="post-date" title="2021-06-24 16:42:28">2021/06/24</span>
+                </a>
+            
+        
+            
+                <a class="架构 "
+                   href="/架构/App架构探讨/"
+                   data-tag="Swift,App,架构"
+                   data-author="" >
+                    <span class="post-title" title="App架构探讨">App架构探讨</span>
+                    <span class="post-date" title="2020-12-17 20:17:00">2020/12/17</span>
+                </a>
+            
+        
+            
+                <a class="管理 "
+                   href="/管理/管理知识小集/"
+                   data-tag="NLP,分析问题"
+                   data-author="" >
+                    <span class="post-title" title="管理知识小集">管理知识小集</span>
+                    <span class="post-date" title="2020-12-11 08:53:00">2020/12/11</span>
+                </a>
+            
+        
+            
+                <a class="管理 "
+                   href="/管理/《可复制的领导力》学习后感/"
+                   data-tag="管理"
+                   data-author="" >
+                    <span class="post-title" title="《可复制的领导力》学习后感">《可复制的领导力》学习后感</span>
+                    <span class="post-date" title="2020-10-29 12:35:00">2020/10/29</span>
+                </a>
+            
+        
+            
+                <a class=""
+                   href="/uncategorized/函数式编程之管道设计/"
+                   data-tag="Swift,设计模式"
+                   data-author="" >
+                    <span class="post-title" title="函数式编程之管道设计">函数式编程之管道设计</span>
+                    <span class="post-date" title="2020-10-29 12:35:00">2020/10/29</span>
+                </a>
+            
+        
+            
+                <a class="管理 "
+                   href="/管理/《做有益于孩子成长的父母》学习后感/"
+                   data-tag="育儿,管理"
+                   data-author="" >
+                    <span class="post-title" title="《做有益于孩子成长的父母》学习后感">《做有益于孩子成长的父母》学习后感</span>
+                    <span class="post-date" title="2020-10-27 08:24:00">2020/10/27</span>
+                </a>
+            
+        
+            
+                <a class=""
+                   href="/uncategorized/Android开发知识小集/"
+                   data-tag="Android"
+                   data-author="" >
+                    <span class="post-title" title="Android开发知识小集">Android开发知识小集</span>
+                    <span class="post-date" title="2019-12-18 10:29:00">2019/12/18</span>
+                </a>
+            
+        
+            
+                <a class="书 听书后感 "
+                   href="/书/听书后感/TED 管理系列/"
+                   data-tag=""
+                   data-author="" >
+                    <span class="post-title" title="TED 管理系列">TED 管理系列</span>
+                    <span class="post-date" title="2019-11-28 12:28:00">2019/11/28</span>
+                </a>
+            
+        
+            
+                <a class="书 听书后感 "
+                   href="/书/听书后感/media/管理知识小集/"
+                   data-tag=""
+                   data-author="" >
+                    <span class="post-title" title="TED 管理系列">TED 管理系列</span>
+                    <span class="post-date" title="2019-11-28 12:28:00">2019/11/28</span>
+                </a>
+            
+        
+            
+        
+            
+                <a class=""
+                   href="/uncategorized/面试之道/"
+                   data-tag="面试"
+                   data-author="" >
+                    <span class="post-title" title="招聘的面试之道">招聘的面试之道</span>
+                    <span class="post-date" title="2019-10-17 13:54:00">2019/10/17</span>
+                </a>
+            
+        
+            
+                <a class="书 听书后感 "
+                   href="/书/听书后感/《资治通鉴》听书后感/"
+                   data-tag=""
+                   data-author="" >
+                    <span class="post-title" title="《资治通鉴》听书后感">《资治通鉴》听书后感</span>
+                    <span class="post-date" title="2019-10-16 01:23:13">2019/10/16</span>
+                </a>
+            
+        
+            
+        
+            
+                <a class=""
+                   href="/uncategorized/前端开发知识小集/"
+                   data-tag=""
+                   data-author="" >
+                    <span class="post-title" title="前端开发知识小集">前端开发知识小集</span>
+                    <span class="post-date" title="2019-10-15 14:41:00">2019/10/15</span>
+                </a>
+            
+        
+            
+                <a class="Android "
+                   href="/Android/开发一个Android-App/"
+                   data-tag="MVP,Adapter,Activity,Fragment,Layout,Res,Realm,AIDL,AsyncTask,Thread,Handler"
+                   data-author="" >
+                    <span class="post-title" title="开发一个Android App">开发一个Android App</span>
+                    <span class="post-date" title="2019-10-05 16:11:04">2019/10/05</span>
+                </a>
+            
+        
+            
+                <a class=""
+                   href="/uncategorized/Android技巧入门/"
+                   data-tag="AndroidStudio,adb,反编译"
+                   data-author="" >
+                    <span class="post-title" title="Android技巧入门">Android技巧入门</span>
+                    <span class="post-date" title="2019-08-14 00:22:37">2019/08/14</span>
+                </a>
+            
+        
+            
+                <a class="Android "
+                   href="/Android/Android原理入门/"
+                   data-tag="Android,Java"
+                   data-author="" >
+                    <span class="post-title" title="Android原理入门">Android原理入门</span>
+                    <span class="post-date" title="2019-08-14 00:22:11">2019/08/14</span>
+                </a>
+            
+        
+            
+                <a class="系统 "
+                   href="/系统/链接、装载、库/"
+                   data-tag="dynamic,link,register,assembly,library,static,memory,runtime,interrupt"
+                   data-author="" >
+                    <span class="post-title" title="链接、装载、库">链接、装载、库</span>
+                    <span class="post-date" title="2019-06-05 08:53:00">2019/06/05</span>
+                </a>
+            
+        
+            
+                <a class=""
+                   href="/uncategorized/Django开发/"
+                   data-tag="Python,Django"
+                   data-author="" >
+                    <span class="post-title" title="Django开发">Django开发</span>
+                    <span class="post-date" title="2019-05-15 12:33:00">2019/05/15</span>
+                </a>
+            
+        
+            
+                <a class="后端 "
+                   href="/后端/搭建服务器/"
+                   data-tag="Ubuntu,服务器,Web App,nginx,supervisor,fabric,python,mysql"
+                   data-author="" >
+                    <span class="post-title" title="搭建服务器">搭建服务器</span>
+                    <span class="post-date" title="2019-04-06 00:00:00">2019/04/06</span>
+                </a>
+            
+        
+            
+                <a class="工具 "
+                   href="/工具/搭建博客图床/"
+                   data-tag="blog"
+                   data-author="" >
+                    <span class="post-title" title="搭建博客图床">搭建博客图床</span>
+                    <span class="post-date" title="2019-03-21 12:39:00">2019/03/21</span>
+                </a>
+            
+        
+            
+                <a class="Android "
+                   href="/Android/Android工程入门/"
+                   data-tag="Gradle,Module,ProGuard,Native,SQLite,JNI,NDK,AAR,JAR"
+                   data-author="" >
+                    <span class="post-title" title="Android工程入门">Android工程入门</span>
+                    <span class="post-date" title="2019-02-24 13:44:00">2019/02/24</span>
+                </a>
+            
+        
+            
+                <a class="管理 "
+                   href="/管理/团队管理实践/"
+                   data-tag="Manager,Model,Role,Target"
+                   data-author="" >
+                    <span class="post-title" title="团队管理实践">团队管理实践</span>
+                    <span class="post-date" title="2019-02-23 23:50:00">2019/02/23</span>
+                </a>
+            
+        
+            
+                <a class="工具 "
+                   href="/工具/效率工具及技巧收录/"
+                   data-tag="tool,skill"
+                   data-author="" >
+                    <span class="post-title" title="效率工具及技巧收录">效率工具及技巧收录</span>
+                    <span class="post-date" title="2019-02-23 22:05:00">2019/02/23</span>
+                </a>
+            
+        
+            
+                <a class="后端 "
+                   href="/后端/后端服务器概念了解下/"
+                   data-tag="CGI,Servlet,容器,Docker"
+                   data-author="" >
+                    <span class="post-title" title="后端服务器概念了解下">后端服务器概念了解下</span>
+                    <span class="post-date" title="2019-02-21 20:30:00">2019/02/21</span>
+                </a>
+            
+        
+            
+                <a class="设计模式 "
+                   href="/设计模式/设计模式（七）小总结/"
+                   data-tag="设计模式"
+                   data-author="" >
+                    <span class="post-title" title="设计模式（七）小总结">设计模式（七）小总结</span>
+                    <span class="post-date" title="2019-02-12 14:45:00">2019/02/12</span>
+                </a>
+            
+        
+            
+                <a class="设计模式 "
+                   href="/设计模式/设计模式（六）命令模式 & 观察者模式/"
+                   data-tag="设计模式"
+                   data-author="" >
+                    <span class="post-title" title="设计模式（六）命令模式 &amp; 观察者模式">设计模式（六）命令模式 &amp; 观察者模式</span>
+                    <span class="post-date" title="2019-02-12 14:28:00">2019/02/12</span>
+                </a>
+            
+        
+            
+                <a class="设计模式 "
+                   href="/设计模式/设计模式（四）状态模式 & 代理模式/"
+                   data-tag="设计模式"
+                   data-author="" >
+                    <span class="post-title" title="设计模式（四）状态模式 &amp; 代理模式">设计模式（四）状态模式 &amp; 代理模式</span>
+                    <span class="post-date" title="2019-02-12 13:12:00">2019/02/12</span>
+                </a>
+            
+        
+            
+                <a class="设计模式 "
+                   href="/设计模式/设计模式（五）工厂模式 & 装饰者模式/"
+                   data-tag="设计模式"
+                   data-author="" >
+                    <span class="post-title" title="设计模式（五）工厂模式 &amp; 装饰者模式">设计模式（五）工厂模式 &amp; 装饰者模式</span>
+                    <span class="post-date" title="2019-02-12 11:54:00">2019/02/12</span>
+                </a>
+            
+        
+            
+                <a class="设计模式 "
+                   href="/设计模式/设计模式（三）适配器模式 & 外观模式/"
+                   data-tag="设计模式"
+                   data-author="" >
+                    <span class="post-title" title="设计模式（三）适配器模式 &amp; 外观模式">设计模式（三）适配器模式 &amp; 外观模式</span>
+                    <span class="post-date" title="2019-02-11 15:10:00">2019/02/11</span>
+                </a>
+            
+        
+            
+                <a class="设计模式 "
+                   href="/设计模式/设计模式（二）迭代器模式 & 组合模式/"
+                   data-tag="设计模式"
+                   data-author="" >
+                    <span class="post-title" title="设计模式（二）迭代器模式 &amp; 组合模式">设计模式（二）迭代器模式 &amp; 组合模式</span>
+                    <span class="post-date" title="2019-02-11 09:59:00">2019/02/11</span>
+                </a>
+            
+        
+            
+                <a class="工具 "
+                   href="/工具/Git手册/"
+                   data-tag="Git"
+                   data-author="" >
+                    <span class="post-title" title="Git手册">Git手册</span>
+                    <span class="post-date" title="2019-01-28 21:35:00">2019/01/28</span>
+                </a>
+            
+        
+            
+                <a class="设计模式 "
+                   href="/设计模式/设计模式（一）策略模式 & 模板方法模式/"
+                   data-tag="设计模式"
+                   data-author="" >
+                    <span class="post-title" title="设计模式（一）策略模式 &amp; 模板方法模式">设计模式（一）策略模式 &amp; 模板方法模式</span>
+                    <span class="post-date" title="2019-01-13 23:41:00">2019/01/13</span>
+                </a>
+            
+        
+            
+                <a class="前端 "
+                   href="/前端/Flutter开发（实践篇）/"
+                   data-tag="Flutter,iOS,Android,Dart"
+                   data-author="" >
+                    <span class="post-title" title="Flutter开发（实践篇）">Flutter开发（实践篇）</span>
+                    <span class="post-date" title="2019-01-09 23:06:00">2019/01/09</span>
+                </a>
+            
+        
+            
+                <a class="前端 "
+                   href="/前端/Flutter开发（介绍篇）/"
+                   data-tag="Flutter,iOS,Android,Dart"
+                   data-author="" >
+                    <span class="post-title" title="Flutter开发（介绍篇）">Flutter开发（介绍篇）</span>
+                    <span class="post-date" title="2019-01-09 21:24:00">2019/01/09</span>
+                </a>
+            
+        
+            
+                <a class="iOS "
+                   href="/iOS/iOS逆向（五）总结篇/"
+                   data-tag="iOS,逆向,安全"
+                   data-author="" >
+                    <span class="post-title" title="iOS逆向（五）总结篇">iOS逆向（五）总结篇</span>
+                    <span class="post-date" title="2018-09-13 22:39:05">2018/09/13</span>
+                </a>
+            
+        
+            
+                <a class="iOS "
+                   href="/iOS/iOS逆向（四）实战篇/"
+                   data-tag="iOS,逆向"
+                   data-author="" >
+                    <span class="post-title" title="iOS逆向（四）实战篇">iOS逆向（四）实战篇</span>
+                    <span class="post-date" title="2018-09-13 22:39:04">2018/09/13</span>
+                </a>
+            
+        
+            
+                <a class="iOS "
+                   href="/iOS/iOS逆向（三）分析篇/"
+                   data-tag="iOS,逆向"
+                   data-author="" >
+                    <span class="post-title" title="iOS逆向（三）分析篇">iOS逆向（三）分析篇</span>
+                    <span class="post-date" title="2018-09-13 22:39:03">2018/09/13</span>
+                </a>
+            
+        
+            
+                <a class="iOS "
+                   href="/iOS/iOS逆向（二）工具篇/"
+                   data-tag="iOS,逆向,工具"
+                   data-author="" >
+                    <span class="post-title" title="iOS逆向（二）工具篇">iOS逆向（二）工具篇</span>
+                    <span class="post-date" title="2018-09-13 22:39:02">2018/09/13</span>
+                </a>
+            
+        
+            
+                <a class="iOS "
+                   href="/iOS/iOS逆向（一）越狱篇/"
+                   data-tag="iOS,越狱"
+                   data-author="" >
+                    <span class="post-title" title="iOS逆向（一）越狱篇">iOS逆向（一）越狱篇</span>
+                    <span class="post-date" title="2018-09-13 22:39:01">2018/09/13</span>
+                </a>
+            
+        
+            
+                <a class="前端 "
+                   href="/前端/Bootstrap手册/"
+                   data-tag="html,bootstrap,css"
+                   data-author="" >
+                    <span class="post-title" title="Bootstrap手册">Bootstrap手册</span>
+                    <span class="post-date" title="2018-09-08 23:06:00">2018/09/08</span>
+                </a>
+            
+        
+            
+                <a class="后端 "
+                   href="/后端/Vapor（七）工具篇/"
+                   data-tag="command,vapor,swift,crypto,console,terminal"
+                   data-author="" >
+                    <span class="post-title" title="Vapor（七）工具篇">Vapor（七）工具篇</span>
+                    <span class="post-date" title="2018-08-21 23:02:00">2018/08/21</span>
+                </a>
+            
+        
+            
+                <a class="后端 "
+                   href="/后端/Vapor（六）视图篇/"
+                   data-tag="vapor,swift,leaf,view"
+                   data-author="" >
+                    <span class="post-title" title="Vapor（六）视图篇">Vapor（六）视图篇</span>
+                    <span class="post-date" title="2018-08-20 21:56:00">2018/08/20</span>
+                </a>
+            
+        
+            
+                <a class="后端 "
+                   href="/后端/Vapor（五）网络篇/"
+                   data-tag="vapor,swift,network,http,webSocket,encoded"
+                   data-author="" >
+                    <span class="post-title" title="Vapor（五）网络篇">Vapor（五）网络篇</span>
+                    <span class="post-date" title="2018-08-17 20:30:00">2018/08/17</span>
+                </a>
+            
+        
+            
+                <a class="后端 "
+                   href="/后端/Vapor（四）验证篇/"
+                   data-tag="vapor,swift,session,token,verification"
+                   data-author="" >
+                    <span class="post-title" title="Vapor（四）验证篇">Vapor（四）验证篇</span>
+                    <span class="post-date" title="2018-08-16 19:06:00">2018/08/16</span>
+                </a>
+            
+        
+            
+                <a class="后端 "
+                   href="/后端/Python知识小集/"
+                   data-tag="Python,PyCharm"
+                   data-author="" >
+                    <span class="post-title" title="Python 小问题收集">Python 小问题收集</span>
+                    <span class="post-date" title="2018-08-16 00:00:00">2018/08/16</span>
+                </a>
+            
+        
+            
+                <a class="后端 "
+                   href="/后端/Vapor（三）数据库篇/"
+                   data-tag="vapor,swift,database,postgreSQL"
+                   data-author="" >
+                    <span class="post-title" title="Vapor（三）数据库篇">Vapor（三）数据库篇</span>
+                    <span class="post-date" title="2018-08-15 21:33:00">2018/08/15</span>
+                </a>
+            
+        
+            
+                <a class="后端 "
+                   href="/后端/Vapor（二）进阶篇/"
+                   data-tag="vapor,swift"
+                   data-author="" >
+                    <span class="post-title" title="Vapor（二）进阶篇">Vapor（二）进阶篇</span>
+                    <span class="post-date" title="2018-08-14 21:20:00">2018/08/14</span>
+                </a>
+            
+        
+            
+                <a class="后端 "
+                   href="/后端/Vapor（一）基础篇/"
+                   data-tag="vapor,swift"
+                   data-author="" >
+                    <span class="post-title" title="Vapor（一）基础篇">Vapor（一）基础篇</span>
+                    <span class="post-date" title="2018-08-13 23:34:00">2018/08/13</span>
+                </a>
+            
+        
+            
+                <a class="后端 "
+                   href="/后端/Vapor的部署/"
+                   data-tag="vapor,swift,heroku,cloud"
+                   data-author="" >
+                    <span class="post-title" title="Vapor的部署">Vapor的部署</span>
+                    <span class="post-date" title="2018-08-13 23:34:00">2018/08/13</span>
+                </a>
+            
+        
+            
+                <a class="后端 "
+                   href="/后端/Python的使用环境配置/"
+                   data-tag="Python,Django,PyCharm,Anaconda,Qgis"
+                   data-author="" >
+                    <span class="post-title" title="Python的使用环境配置">Python的使用环境配置</span>
+                    <span class="post-date" title="2018-05-24 19:30:00">2018/05/24</span>
+                </a>
+            
+        
+            
+                <a class="工具 "
+                   href="/工具/Mac命令行工具及其问题收录/"
+                   data-tag="command,Mac,question"
+                   data-author="" >
+                    <span class="post-title" title="Mac命令行工具及其问题收录">Mac命令行工具及其问题收录</span>
+                    <span class="post-date" title="2018-02-22 17:10:00">2018/02/22</span>
+                </a>
+            
+        
+            
+                <a class=""
+                   href="/uncategorized/利用Firebase实现的推送功能系统/"
+                   data-tag=""
+                   data-author="" >
+                    <span class="post-title" title="利用Firebase实现的推送功能系统">利用Firebase实现的推送功能系统</span>
+                    <span class="post-date" title="2018-01-17 19:33:41">2018/01/17</span>
+                </a>
+            
+        
+            
+                <a class="iOS "
+                   href="/iOS/处理服务端API返回JSON的总结/"
+                   data-tag="iOS,JSON,Objective-C"
+                   data-author="" >
+                    <span class="post-title" title="处理服务端API返回JSON的总结">处理服务端API返回JSON的总结</span>
+                    <span class="post-date" title="2018-01-09 14:35:00">2018/01/09</span>
+                </a>
+            
+        
+            
+                <a class=""
+                   href="/uncategorized/hello-world/"
+                   data-tag=""
+                   data-author="" >
+                    <span class="post-title" title="Hello World">Hello World</span>
+                    <span class="post-date" title="2018-01-07 14:45:35">2018/01/07</span>
+                </a>
+            
+        
+            
+                <a class="后端 "
+                   href="/后端/Vapor之初体验/"
+                   data-tag="vapor,swift,heroku"
+                   data-author="" >
+                    <span class="post-title" title="Vapor之初体验">Vapor之初体验</span>
+                    <span class="post-date" title="2018-01-05 21:49:00">2018/01/05</span>
+                </a>
+            
+        
+            
+                <a class=""
+                   href="/uncategorized/搭建Jenkins/"
+                   data-tag="Jenkins,CI,Test"
+                   data-author="" >
+                    <span class="post-title" title="搭建Jenkins">搭建Jenkins</span>
+                    <span class="post-date" title="2017-08-26 22:59:36">2017/08/26</span>
+                </a>
+            
+        
+            
+                <a class=""
+                   href="/uncategorized/ATS详解/"
+                   data-tag="TLS,SSL,HTTPS,ATS"
+                   data-author="" >
+                    <span class="post-title" title="ATS详解">ATS详解</span>
+                    <span class="post-date" title="2017-07-22 15:57:55">2017/07/22</span>
+                </a>
+            
+        
+            
+                <a class="前端 "
+                   href="/前端/搭建Hexo博客/"
+                   data-tag="blog,jekyll,github"
+                   data-author="" >
+                    <span class="post-title" title="搭建Hexo博客">搭建Hexo博客</span>
+                    <span class="post-date" title="2017-07-18 21:50:14">2017/07/18</span>
+                </a>
+            
+        
+    </nav>
+</div>
+    </div>
+    <div class="hide-list">
+        <div class="semicircle">
+            <div class="brackets first"><</div>
+            <div class="brackets">&gt;</div>
+        </div>
+    </div>
+</aside>
+<div class="post">
+    <div class="pjax">
+        <article id="post-Android权限作用汇总" class="article article-type-post" itemscope itemprop="blogPost">
+    
+        <h1 class="article-title">Android权限作用汇总</h1>
+    
+    <div class="article-meta">
+        
+        
+        
+        
+        <span class="tag">
+            
+            <a href="javascript:" class="color3">Android</a>
+            
+        </span>
+        
+    </div>
+    <div class="article-meta">
+        
+        创建时间:<time class="date" title='更新时间: 2022-01-13 16:56:14'>2021-10-14 14:01</time>
+        
+    </div>
+    <div class="article-meta">
+        
+        <span>字数:4.3k</span>
+        
+        
+        <span id="busuanzi_container_page_pv">
+            阅读:<span id="busuanzi_value_page_pv">
+                <span class="count-comment">
+                    <span class="spinner">
+                      <div class="cube1"></div>
+                      <div class="cube2"></div>
+                    </span>
+                </span>
+            </span>
+        </span>
+        
+        
+    </div>
+    
+    <div class="toc-ref">
+    
+        
+    
+<style>
+    .left-col .switch-btn,
+    .left-col .switch-area {
+        display: none;
+    }
+    .toc-level-3 i,
+    .toc-level-3 ol {
+        display: none !important;
+    }
+</style>
+</div>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>android.permission.EXPAND_STATUS_BAR<br>允许一个程序扩展收缩在状态栏,android开发网提示应该是一个类似Windows Mobile中的托盘程序    </p>
+<p>android.permission.FACTORY_TEST<br>作为一个工厂测试程序，运行在root用户    </p>
+<p>android.permission.FLASHLIGHT<br>访问闪光灯,android开发网提示HTC Dream不包含闪光灯    </p>
+<p>android.permission.FORCE_BACK<br>允许程序强行一个后退操作是否在顶层activities</p>
+<p>android.permission.FOTA_UPDATE<br>暂时不了解这是做什么使用的，android开发网分析可能是一个预留权限.    </p>
+<p>android.permission.GET_ACCOUNTS<br>访问一个帐户列表在Accounts Service中    </p>
+<p>android.permission.GET_PACKAGE_SIZE<br>允许一个程序获取任何package占用空间容量    </p>
+<p>android.permission.GET_TASKS<br>允许一个程序获取信息有关当前或最近运行的任务，一个缩略的任务状态，是否活动等等    </p>
+<p>android.permission.HARDWARE_TEST<br>允许访问硬件    </p>
+<p>android.permission.INJECT_EVENTS<br>允许一个程序截获用户事件如按键、触摸、轨迹球等等到一个时间流，android 开发网提醒算是hook技术吧    </p>
+<p>android.permission.INSTALL_PACKAGES<br>允许一个程序安装packages    </p>
+<p>android.permission.INTERNAL_SYSTEM_WINDOW<br>允许打开窗口使用系统用户界面    </p>
+<p>android.permission.ACCESS_CHECKIN_PROPERTIES<br>允许读写访问“properties”表在checkin数据库中，改值可以修改上传。    </p>
+<p>android.permission.ACCESS_COARSE_LOCATION<br>允许一个程序访问CellID或WiFi热点来获取粗略的位置    </p>
+<p>android.permission.ACCESS_FINE_LOCATION<br>允许一个程序访问精良位置(如GPS)    </p>
+<p>android.permission.WRITE_CONTACTS<br>允许程序写入但不读取用户联系人数据    </p>
+<p>android.permission.WRITE_GSERVICES<br>允许程序修改Google服务地图    </p>
+<p>android.permission.WRITE_OWNER_DATA<br>允许一个程序写入但不读取所有者数据    </p>
+<p>android.permission.WRITE_SETTINGS<br>允许程序读取或写入系统设置    </p>
+<p>android.permission.WRITE_SMS<br>允许程序写短信    </p>
+<p>android.permission.WRITE_SYNC_SETTINGS<br>允许程序写入同步设置    </p>
+<p>android.permission.ACCESS_LOCATION_EXTRA_COMMANDS<br>允许应用程序访问额外的位置提供命令    </p>
+<p>android.permission.ACCESS_MOCK_LOCATION<br>允许程序创建模拟位置提供用于测试    </p>
+<p>android.permission.ACCESS_NETWORK_STATE<br>允许程序访问有关GSM网络信息    </p>
+<p>android.permission.ACCESS_SURFACE_FLINGER<br>允许程序使用SurfaceFlinger底层特性    </p>
+<p>android.permission.ACCESS_WIFI_STATE<br>允许程序访问Wi-Fi网络状态信息    </p>
+<p>android.permission.ADD_SYSTEM_SERVICE<br>允许程序发布系统级服务    </p>
+<p>android.permission.BATTERY_STATS<br>允许程序更新手机电池统计信息    </p>
+<p>android.permission.BLUETOOTH<br>允许程序连接到已配对的蓝牙设备    </p>
+<p>android.permission.BLUETOOTH_ADMIN<br>允许程序发现和配对蓝牙设备    </p>
+<p>android.permission.BROADCAST_PACKAGE_REMOVED<br>允许程序广播一个提示消息在一个应用程序包已经移除后    </p>
+<p>android.permission.BROADCAST_STICKY<br>允许一个程序广播常用intents    </p>
+<p>android.permission.CALL_PHONE<br>允许一个程序初始化一个电话拨号不需通过拨号用户界面需要用户确认    </p>
+<p>android.permission.DELETE_CACHE_FILES<br>允许程序删除缓存文件    </p>
+<p>android.permission.DELETE_PACKAGES<br>允许一个程序删除包    </p>
+<p>android.permission.DEVICE_POWER<br>允许访问底层电源管理    </p>
+<p>android.permission.DIAGNOSTIC<br>允许程序RW诊断资源    </p>
+<p>android.permission.DISABLE_KEYGUARD<br>允许程序禁用键盘锁    </p>
+<p>android.permission.DUMP<br>允许程序返回状态抓取信息从系统服务    </p>
+<p>android.permission.CALL_PRIVILEGED<br>允许一个程序拨打任何号码，包含紧急号码无需通过拨号用户界面需要用户确认    </p>
+<p>android.permission.CAMERA<br>请求访问使用照相设备    </p>
+<p>android.permission.CHANGE_COMPONENT_ENABLED_STATE<br>允许一个程序是否改变一个组件或其他的启用或禁用    </p>
+<p>android.permission.CHANGE_CONFIGURATION<br>允许一个程序修改当前设置，如本地化    </p>
+<p>android.permission.CHANGE_NETWORK_STATE<br>允许程序改变网络连接状态    </p>
+<p>android.permission.CHANGE_WIFI_STATE<br>允许程序改变Wi-Fi连接状态    </p>
+<p>android.permission.CLEAR_APP_CACHE<br>允许一个程序清楚缓存从所有安装的程序在设备中    </p>
+<p>android.permission.CLEAR_APP_USER_DATA<br>允许一个程序清除用户设置    </p>
+<p>android.permission.CONTROL_LOCATION_UPDATES<br>允许启用禁止位置更新提示从无线模块    </p>
+<p>android.permission.REBOOT<br>请求能够重新启动设备    </p>
+<p>android.permission.RECEIVE_BOOT_COMPLETED<br>允许一个程序接收到 </p>
+<p>android.permission.ACTION_BOOT_COMPLETED<br>广播在系统完成启动    </p>
+<p>android.permission.RECEIVE_MMS<br>允许一个程序监控将收到MMS彩信,记录或处理    </p>
+<p>android.permission.RECEIVE_SMS<br>允许程序监控一个将收到短信息，记录或处理    </p>
+<p>android.permission.RECEIVE_WAP_PUSH<br>允许程序监控将收到WAP PUSH信息    </p>
+<p>android.permission.RECORD_AUDIO<br>允许程序录制音频    </p>
+<p>android.permission.REORDER_TASKS<br>允许程序改变Z轴排列任务    </p>
+<p>android.permission.RESTART_PACKAGES<br>允许程序重新启动其他程序    </p>
+<p>android.permission.SEND_SMS<br>允许程序发送SMS短信    </p>
+<p>android.permission.INTERNET<br>允许程序打开网络套接字    </p>
+<p>android.permission.MANAGE_APP_TOKENS<br>允许程序管理(创建、催后、 z- order默认向z轴推移)程序引用在窗口管理器中    </p>
+<p>android.permission.MASTER_CLEAR<br>目前还没有明确的解释，android开发网分析可能是清除一切数据，类似硬格机    </p>
+<p>android.permission.MODIFY_AUDIO_SETTINGS<br>允许程序修改全局音频设置    </p>
+<p>android.permission.MODIFY_PHONE_STATE<br>允许修改话机状态，如电源，人机接口等    </p>
+<p>android.permission.MOUNT_UNMOUNT_FILESYSTEMS<br>允许挂载和反挂载文件系统可移动存储    </p>
+<p>android.permission.PERSISTENT_ACTIVITY<br>允许一个程序设置他的activities显示    </p>
+<p>android.permission.PROCESS_OUTGOING_CALLS<br>允许程序监视、修改有关播出电话    </p>
+<p>android.permission.READ_CALENDAR<br>允许程序读取用户日历数据    </p>
+<p>android.permission.READ_CONTACTS<br>允许程序读取用户联系人数据    </p>
+<p>android.permission.READ_FRAME_BUFFER<br>允许程序屏幕波或和更多常规的访问帧缓冲数据    </p>
+<p>android.permission.READ_INPUT_STATE<br>允许程序返回当前按键状态    </p>
+<p>android.permission.READ_LOGS<br>允许程序读取底层系统日志文件    </p>
+<p>android.permission.READ_OWNER_DATA<br>允许程序读取所有者数据    </p>
+<p>android.permission.READ_SMS<br>允许程序读取短信息    </p>
+<p>android.permission.READ_SYNC_SETTINGS<br>允许程序读取同步设置    </p>
+<p>android.permission.READ_SYNC_STATS<br>允许程序读取同步状态    </p>
+<p>android.permission.SET_ACTIVITY_WATCHER<br>允许程序监控或控制activities已经启动全局系统中    </p>
+<p>android.permission.SET_ALWAYS_FINISH<br>允许程序控制是否活动间接完成在处于后台时    </p>
+<p>android.permission.SET_ANIMATION_SCALE<br>修改全局信息比例    </p>
+<p>android.permission.SET_DEBUG_APP<br>配置一个程序用于调试    </p>
+<p>android.permission.SET_ORIENTATION<br>允许底层访问设置屏幕方向和实际旋转    </p>
+<p>android.permission.SET_PREFERRED_APPLICATIONS<br>允许一个程序修改列表参数PackageManager.addPackageToPreferred() 和PackageManager.removePackageFromPreferred()方法    </p>
+<p>android.permission.SET_PROCESS_FOREGROUND<br>允许程序当前运行程序强行到前台    </p>
+<p>android.permission.SET_PROCESS_LIMIT<br>允许设置最大的运行进程数量    </p>
+<p>android.permission.SET_TIME_ZONE<br>允许程序设置时间区域    </p>
+<p>android.permission.SET_WALLPAPER<br>允许程序设置壁纸    </p>
+<p>android.permission.SET_WALLPAPER_HINTS<br>允许程序设置壁纸hits    </p>
+<p>android.permission.SIGNAL_PERSISTENT_PROCESSES<br>允许程序请求发送信号到所有显示的进程中    </p>
+<p>android.permission.STATUS_BAR<br>允许程序打开、关闭或禁用状态栏及图标    </p>
+<p>android.permission.SUBSCRIBED_FEEDS_READ<br>允许一个程序访问订阅RSS Feed内容提供    </p>
+<p>android.permission.SUBSCRIBED_FEEDS_WRITE<br>系统暂时保留改设置,android开发网认为未来版本会加入该功能。    </p>
+<p>android.permission.SYSTEM_ALERT_WINDOW<br>允许一个程序打开窗口使用 TYPE_SYSTEM_ALERT，显示在其他所有程序的顶层    </p>
+<p>android.permission.VIBRATE<br>允许访问振动设备    </p>
+<p>android.permission.WAKE_LOCK<br>允许使用PowerManager的 WakeLocks保持进程在休眠时从屏幕消失    </p>
+<p>android.permission.WRITE_APN_SETTINGS<br>允许程序写入API设置    </p>
+<p>android.permission.WRITE_CALENDAR<br>允许一个程序写入但不读取用户日历数据                               </p>
+<p>android.permission.ACCESS_CHECKIN_PROPERTIES<br>访问登记属性，读取或写入登记check-in数据库属性表的权限获取错略位置 </p>
+<p>android.permission.ACCESS_COARSE_LOCATION<br>通过WiFi或移动基站的方式获取用户错略的经纬度信息，定位精度大概误差在30~1500米获取精确位置 </p>
+<p>android.permission.ACCESS_FINE_LOCATION<br>通过GPS芯片接收卫星的定位信息，定位精度达10米以内访问定位额外命 </p>
+<p>android.permission.ACCESS_LOCATION_EXTRA_COMMANDS<br>允许程序访问额外的定位提供者指令获取模拟定位信息 </p>
+<p>android.permission.ACCESS_MOCK_LOCATION<br>获取模拟定位信息，一般用于帮助开发者调试应用获取网络状态</p>
+<p>android.permission.ACCESS_NETWORK_STATE<br>获取网络信息状态，如当前的网络连接是否有效访问Surface Flinger</p>
+<p>android.permission.ACCESS_SURFACE_FLINGER<br>Android平台上底层的图形显示支持，一般用于游戏或照相机预览界面和底层模式的屏幕截图获取WiFi状态 </p>
+<p>android.permission.ACCESS_WIFI_STATE<br>获取当前WiFi接入的状态以及WLAN热点的信息账户管理 </p>
+<p>android.permission.ACCOUNT_MANAGER<br>获取账户验证信息，主要为GMail账户信息，只有系统级进程才能访问的权限验证账户 </p>
+<p>android.permission.AUTHENTICATE_ACCOUNTS<br>允许一个程序通过账户验证方式访问账户管理ACCOUNT_MANAGER相关信息电量统计 </p>
+<p>android.permission.BATTERY_STATS<br>获取电池电量统计信息绑定小插件</p>
+<p>android.permission.BIND_APPWIDGET<br>允许一个程序告诉appWidget服务需要访问小插件的数据库，只有非常少的应用才用到此权限绑定设备管理</p>
+<p>android.permission.BIND_DEVICE_ADMIN<br>请求系统管理员接收者receiver，只有系统才能使用绑定输入法</p>
+<p>android.permission.BIND_INPUT_METHOD<br>请求InputMethodService服务，只有系统才能使用绑定RemoteView</p>
+<p>android.permission.BIND_REMOTEVIEWS<br>必须通过RemoteViewsService服务来请求，只有系统才能用绑定壁纸</p>
+<p>android.permission.BIND_WALLPAPER<br>必须通过WallpaperService服务来请求，只有系统才能用使用蓝牙</p>
+<p>android.permission.BLUETOOTH<br>允许程序连接配对过的蓝牙设备蓝牙管理</p>
+<p>android.permission.BLUETOOTH_ADMIN<br>允许程序进行发现和配对新的蓝牙设备变成砖头</p>
+<p>android.permission.BRICK<br>能够禁用手机，非常危险，顾名思义就是让手机变成砖头应用删除时广播</p>
+<p>android.permission.BROADCAST_PACKAGE_REMOVED<br>当一个应用在删除时触发一个广播收到短信时广播</p>
+<p>android.permission.BROADCAST_SMS<br>当收到短信时触发一个广播连续广播</p>
+<p>android.permission.BROADCAST_STICKY<br>允许一个程序收到广播后快速收到下一个广播WAP PUSH广播</p>
+<p>android.permission.BROADCAST_WAP_PUSH<br>WAP PUSH服务收到后触发一个广播拨打电话</p>
+<p>android.permission.CALL_PHONE<br>允许程序从非系统拨号器里输入电话号码通话权限</p>
+<p>android.permission.CALL_PRIVILEGED<br>允许程序拨打电话，替换系统的拨号器界面拍照权限</p>
+<p>android.permission.CAMERA<br>允许访问摄像头进行拍照改变组件状态</p>
+<p>android.permission.CHANGE_COMPONENT_ENABLED_STATE<br>改变组件是否启用状态改变配置</p>
+<p>android.permission.CHANGE_CONFIGURATION<br>允许当前应用改变配置，如定位改变网络状态</p>
+<p>android.permission.CHANGE_NETWORK_STATE<br>改变网络状态如是否能联网改变WiFi多播状态</p>
+<p>android.permission.CHANGE_WIFI_MULTICAST_STATE<br>改变WiFi多播状态改变WiFi状态</p>
+<p>android.permission.CHANGE_WIFI_STATE<br>改变WiFi状态清除应用缓存</p>
+<p>android.permission.CLEAR_APP_CACHE<br>清除应用缓存清除用户数据</p>
+<p>android.permission.CLEAR_APP_USER_DATA<br>清除应用的用户数据底层访问权限</p>
+<p>android.permission.CWJ_GROUP<br>允许CWJ账户组访问底层信息手机优化大师扩展权限</p>
+<p>android.permission.CELL_PHONE_MASTER_EX<br>手机优化大师扩展权限控制定位更新</p>
+<p>android.permission.CONTROL_LOCATION_UPDATES<br>允许获得移动网络定位信息改变删除缓存文件</p>
+<p>android.permission.DELETE_CACHE_FILES<br>允许应用删除缓存文件删除应用</p>
+<p>android.permission.DELETE_PACKAGES<br>允许程序删除应用电源管理</p>
+<p>android.permission.DEVICE_POWER<br>允许访问底层电源管理应用诊断</p>
+<p>android.permission.DIAGNOSTIC<br>允许程序到RW到诊断资源禁用键盘锁</p>
+<p>android.permission.DISABLE_KEYGUARD<br>允许程序禁用键盘锁转存系统信息</p>
+<p>android.permission.DUMP<br>允许程序获取系统dump信息从系统服务状态栏控制</p>
+<p>android.permission.EXPAND_STATUS_BAR<br>允许程序扩展或收缩状态栏工厂测试模式</p>
+<p>android.permission.FACTORY_TEST<br>允许程序运行工厂测试模式使用闪光灯</p>
+<p>android.permission.FLASHLIGHT<br>允许访问闪光灯强制后退</p>
+<p>android.permission.FORCE_BACK<br>允许程序强制使用back后退按键，无论Activity是否在顶层访问账户Gmail列表</p>
+<p>android.permission.GET_ACCOUNTS<br>访问GMail账户列表获取应用大小</p>
+<p>android.permission.GET_PACKAGE_SIZE<br>获取应用的文件大小获取任务信息</p>
+<p>android.permission.GET_TASKS<br>允许程序获取当前或最近运行的应用允许全局搜索</p>
+<p>android.permission.GLOBAL_SEARCH<br>允许程序使用全局搜索功能硬件测试</p>
+<p>android.permission.HARDWARE_TEST<br>访问硬件辅助设备，用于硬件测试注射事件</p>
+<p>android.permission.INJECT_EVENTS<br>允许访问本程序的底层事件，获取按键、轨迹球的事件流安装定位提供</p>
+<p>android.permission.INSTALL_LOCATION_PROVIDER<br>安装定位提供安装应用程序</p>
+<p>android.permission.INSTALL_PACKAGES<br>允许程序安装应用内部系统窗口</p>
+<p>android.permission.INTERNAL_SYSTEM_WINDOW<br>允许程序打开内部窗口，不对第三方应用程序开放此权限访问网络</p>
+<p>android.permission.INTERNET<br>访问网络连接，可能产生GPRS流量结束后台进程</p>
+<p>android.permission.KILL_BACKGROUND_PROCESSES<br>允许程序调用killBackgroundProcesses(String).方法结束后台进程管理账户</p>
+<p>android.permission.MANAGE_ACCOUNTS<br>允许程序管理AccountManager中的账户列表管理程序引用</p>
+<p>android.permission.MANAGE_APP_TOKENS<br>管理创建、摧毁、Z轴顺序，仅用于系统高级权限</p>
+<p>android.permission.MTWEAK_USER<br>允许mTweak用户访问高级系统权限社区权限</p>
+<p>android.permission.MTWEAK_FORUM<br>允许使用mTweak社区权限软格式化</p>
+<p>android.permission.MASTER_CLEAR<br>允许程序执行软格式化，删除系统配置信息修改声音设置</p>
+<p>android.permission.MODIFY_AUDIO_SETTINGS<br>修改声音设置信息修改电话状态</p>
+<p>android.permission.MODIFY_PHONE_STATE<br>修改电话状态，如飞行模式，但不包含替换系统拨号器界面格式化文件系统</p>
+<p>android.permission.MOUNT_FORMAT_FILESYSTEMS<br>格式化可移动文件系统，比如格式化清空SD卡挂载文件系统</p>
+<p>android.permission.MOUNT_UNMOUNT_FILESYSTEMS<br>挂载、反挂载外部文件系统允许NFC通讯</p>
+<p>android.permission.NFC<br>允许程序执行NFC近距离通讯操作，用于移动支持永久Activity</p>
+<p>android.permission.PERSISTENT_ACTIVITY<br>创建一个永久的Activity，该功能标记为将来将被移除处理拨出电话</p>
+<p>android.permission.PROCESS_OUTGOING_CALLS<br>允许程序监视，修改或放弃播出电话读取日程提醒</p>
+<p>android.permission.READ_CALENDAR<br>允许程序读取用户的日程信息读取联系人</p>
+<p>android.permission.READ_CONTACTS<br>允许应用访问联系人通讯录信息屏幕截图</p>
+<p>android.permission.READ_FRAME_BUFFER<br>读取帧缓存用于屏幕截图读取收藏夹和历史记录</p>
+<p>com.android.browser.permission.READ_HISTORY_BOOKMARKS<br>读取浏览器收藏夹和历史记录读取输入状态</p>
+<p>android.permission.READ_INPUT_STATE<br>读取当前键的输入状态，仅用于系统读取系统日志</p>
+<p>android.permission.READ_LOGS<br>读取系统底层日志读取电话状态</p>
+<p>android.permission.READ_PHONE_STATE<br>访问电话状态读取短信内容</p>
+<p>android.permission.READ_SMS<br>读取短信内容读取同步设置</p>
+<p>android.permission.READ_SYNC_SETTINGS<br>读取同步设置，读取Google在线同步设置读取同步状态</p>
+<p>android.permission.READ_SYNC_STATS<br>读取同步状态，获得Google在线同步状态重启设备</p>
+<p>android.permission.REBOOT<br>允许程序重新启动设备开机自动允许</p>
+<p>android.permission.RECEIVE_BOOT_COMPLETED<br>允许程序开机自动运行接收彩信</p>
+<p>android.permission.RECEIVE_MMS<br>接收彩信接收短信</p>
+<p>android.permission.RECEIVE_SMS<br>接收短信接收Wap Push</p>
+<p>android.permission.RECEIVE_WAP_PUSH<br>接收WAP PUSH信息录音</p>
+<p>android.permission.RECORD_AUDIO<br>录制声音通过手机或耳机的麦克排序系统任务</p>
+<p>android.permission.REORDER_TASKS<br>重新排序系统Z轴运行中的任务结束系统任务</p>
+<p>android.permission.RESTART_PACKAGES<br>结束任务通过restartPackage(String)方法，该方式将在外来放弃发送短信</p>
+<p>android.permission.SEND_SMS<br>发送短信设置Activity观察其</p>
+<p>android.permission.SET_ACTIVITY_WATCHER<br>设置Activity观察器一般用于monkey测试设置闹铃提醒</p>
+<p>com.android.alarm.permission.SET_ALARM<br>设置闹铃提醒设置总是退出</p>
+<p>android.permission.SET_ALWAYS_FINISH<br>设置程序在后台是否总是退出设置动画缩放</p>
+<p>android.permission.SET_ANIMATION_SCALE<br>设置全局动画缩放设置调试程序</p>
+<p>android.permission.SET_DEBUG_APP<br>设置调试程序，一般用于开发设置屏幕方向</p>
+<p>android.permission.SET_ORIENTATION<br>设置屏幕方向为横屏或标准方式显示，不用于普通应用设置应用参数</p>
+<p>android.permission.SET_PREFERRED_APPLICATIONS<br>设置应用的参数，已不再工作具体查看addPackageToPreferred(String) 介绍设置进程限制</p>
+<p>android.permission.SET_PROCESS_LIMIT<br>允许程序设置最大的进程数量的限制设置系统时间</p>
+<p>android.permission.SET_TIME<br>设置系统时间设置系统时区</p>
+<p>android.permission.SET_TIME_ZONE<br>设置系统时区设置桌面壁纸</p>
+<p>android.permission.SET_WALLPAPER<br>设置桌面壁纸设置壁纸建议</p>
+<p>android.permission.SET_WALLPAPER_HINTS<br>设置壁纸建议发送永久进程信号</p>
+<p>android.permission.SIGNAL_PERSISTENT_PROCESSES<br>发送一个永久的进程信号状态栏控制</p>
+<p>android.permission.STATUS_BAR<br>允许程序打开、关闭、禁用状态栏访问订阅内容</p>
+<p>android.permission.SUBSCRIBED_FEEDS_READ<br>访问订阅信息的数据库写入订阅内容</p>
+<p>android.permission.SUBSCRIBED_FEEDS_WRITE<br>写入或修改订阅内容的数据库显示系统窗口</p>
+<p>android.permission.SYSTEM_ALERT_WINDOW<br>显示系统窗口更新设备状态</p>
+<p>android.permission.UPDATE_DEVICE_STATS<br>更新设备状态使用证书</p>
+<p>android.permission.USE_CREDENTIALS<br>允许程序请求验证从AccountManager使用SIP视频</p>
+<p>android.permission.USE_SIP<br>允许程序使用SIP视频服务使用振动</p>
+<p>android.permission.VIBRATE<br>允许振动唤醒锁定</p>
+<p>android.permission.WAKE_LOCK<br>允许程序在手机屏幕关闭后后台进程仍然运行写入GPRS接入点设置</p>
+<p>android.permission.WRITE_APN_SETTINGS<br>写入网络GPRS接入点设置写入日程提醒</p>
+<p>android.permission.WRITE_CALENDAR<br>写入日程，但不可读取写入联系人</p>
+<p>android.permission.WRITE_CONTACTS<br>写入联系人，但不可读取写入外部存储</p>
+<p>android.permission.WRITE_EXTERNAL_STORAGE<br>允许程序写入外部存储，如SD卡上写文件写入Google地图数据</p>
+<p>android.permission.WRITE_GSERVICES<br>允许程序写入Google Map服务数据写入收藏夹和历史记录</p>
+<p>com.android.browser.permission.WRITE_HISTORY_BOOKMARKS<br>写入浏览器历史记录或收藏夹，但不可读取读写系统敏感设置</p>
+<p>android.permission.WRITE_SECURE_SETTINGS<br>允许程序读写系统安全敏感的设置项读写系统设置</p>
+<p>android.permission.WRITE_SETTINGS<br>允许读写系统设置项编写短信</p>
+<p>android.permission.WRITE_SMS<br>允许编写短信写入在线同步设置</p>
+<p>android.permission.WRITE_SYNC_SETTINGS<br>写入Google在线同步设置</p>
+
+      
+       <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 mingfungliu@gmail.com </span>
+    </div>
+</article>
+
+
+<p>
+    <a href="javascript:void(0)" class="dashang" onclick="dashangToggle()">赏</a>
+</p>
+
+
+<div class="article_copyright">
+    <p><span class="copy-title">文章标题:</span>Android权限作用汇总</p>
+    <p><span class="copy-title">文章字数:</span><span class="post-count">4.3k</span></p>
+    <p><span class="copy-title">本文作者:</span><a href="javascript:void(0)" title="Mingfung">Mingfung</a></p>
+    <p><span class="copy-title">发布时间:</span>2021-10-14, 14:01:00</p>
+    <p><span class="copy-title">最后更新:</span>2022-01-13, 16:56:14</p>
+    <span class="copy-title">原始链接:</span><a class="post-url" href="/uncategorized/Android权限作用汇总/" title="Android权限作用汇总">http://blog.ifungfay.com/uncategorized/Android权限作用汇总/</a>
+    <p>
+        <span class="copy-title">版权声明:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+    </p>
+</div>
+
+
+
+    <script type="text/javascript">
+(function(d, s) {
+   var j, e = d.getElementsByTagName(s)[0];
+
+   if (typeof LivereTower === 'function') { return; }
+
+   j = d.createElement(s);
+   j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+   j.async = true;
+
+   e.parentNode.insertBefore(j, e);
+})(document, 'script');
+</script>
+<noscript> 为正常使用来必力评论功能请激活JavaScript</noscript>
+
+<iframe title="livere"   src="https://was.livere.me/comment/city?id=city&refer=http://blog.ifungfay.com/uncategorized/Android权限作用汇总/&uid=MTAyMC80NzAyOC8yMzUyOA==&site=http://blog.ifungfay.com/uncategorized/Android权限作用汇总/&title=Android权限作用汇总" scrolling="" frameborder="0" id="lv-comment-399" style="min-width: 100%; width: 100px; min-height: 400px; overflow: auto; border: 0px; z-index: 124212; height: 800px;" ></iframe>
+
+
+
+    
+
+
+
+
+    </div>
+    <div class="copyright">
+        <p class="footer-entry">©2017-2019 Mingfung 
+  &nbsp&nbsp&nbsp<a target="_blank" href="http://www.miitbeian.gov.cn/">粤ICP备19026060号</a>
+</p>
+<p class="footer-entry">Built with <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/yelog/hexo-theme-3-hexo" target="_blank">3-hexo</a> theme</p>
+
+    </div>
+    <div class="full-toc">
+        <button class="full"><span class="min "></span></button>
+<button class="post-toc-menu"><span class="post-toc-menu-icons"></span></button>
+<div class="post-toc"><span class="post-toc-title">目录</span>
+    <div class="post-toc-content">
+
+    </div>
+</div>
+<a class="" id="rocket" href="javascript:void(0)"></a>
+    </div>
+</div>
+<div class="acParent"></div>
+
+<div class="hide_box" onclick="dashangToggle()"></div>
+<div class="shang_box">
+    <a class="shang_close" href="javascript:void(0)" onclick="dashangToggle()">×</a>
+    <div class="shang_tit">
+        <p>喜欢就点赞,疼爱就打赏</p>
+    </div>
+    <div class="shang_payimg">
+        <div class="pay_img">
+            <img src="/img/alipay.jpg" class="alipay" title="扫码支持">
+            <img src="/img/weixin.jpg" class="weixin" title="扫码支持">
+        </div>
+    </div>
+    <div class="shang_payselect">
+        <span><label><input type="radio" name="pay" checked value="alipay">支付宝</label></span><span><label><input type="radio" name="pay" value="weixin">微信</label></span>
+    </div>
+</div>
+
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/koharu.model.json"},"log":false});</script></body>
+<script src="/js/jquery.pjax.js?v=1.0.1" ></script>
+
+<script src="/js/script.js?v=1.0.1" ></script>
+<script>
+    var img_resize = 'default';
+    /*作者、标签的自动补全*/
+    $(function () {
+        $('.search').AutoComplete({
+            'data': ['#JSPatch','#JavaScriptCore','#iOS11','#Xcode9','#iPhoneX','#property','#dynamic','#sythesize','#nonatomic','#TLS','#SSL','#HTTPS','#ATS','#AndroidStudio','#adb','#反编译','#Flutter','#iOS','#Android','#Dart','#html','#bootstrap','#css','#Swift','#App','#架构','#Java','#Python','#Django','#Git','#Ubuntu','#Nexus','#Maven','#Gitlab','#command','#Mac','#question','#PyCharm','#Anaconda','#Qgis','#vapor','#swift','#heroku','#cloud','#crypto','#console','#terminal','#leaf','#view','#network','#http','#webSocket','#encoded','#database','#postgreSQL','#逆向','#工具','#安全','#session','#token','#verification','#育儿','#管理','#越狱','#JSON','#Objective-C','#Manager','#Model','#Role','#Target','#blog','#CGI','#Servlet','#容器','#Docker','#设计模式','#tool','#skill','#jekyll','#github','#服务器','#Web App','#nginx','#supervisor','#fabric','#python','#mysql','#Jenkins','#CI','#Test','#NLP','#分析问题','#面试','#Gradle','#Module','#ProGuard','#Native','#SQLite','#JNI','#NDK','#AAR','#JAR','#MVP','#Adapter','#Activity','#Fragment','#Layout','#Res','#Realm','#AIDL','#AsyncTask','#Thread','#Handler','#link','#register','#assembly','#library','#static','#memory','#runtime','#interrupt','#DevOps','#团队',],
+            'itemHeight': 20,
+            'width': 418
+        }).AutoComplete('show');
+    })
+    function initArticle() {
+        /*渲染对应的表格样式*/
+        
+            $(".post .pjax table").addClass("green_title");
+        
+
+        /*渲染打赏样式*/
+        
+        $("input[name=pay]").on("click", function () {
+            if($("input[name=pay]:checked").val()=="weixin"){
+                $(".shang_box .shang_payimg .pay_img").addClass("weixin_img");
+            } else {
+                $(".shang_box .shang_payimg .pay_img").removeClass("weixin_img");
+            }
+        })
+        
+
+        /*高亮代码块行号*/
+        
+        $('pre code').each(function(){
+            var lines = $(this).text().split('\n').length, widther='';
+            if (lines>99) {
+                widther = 'widther'
+            }
+            var $numbering = $('<ul/>').addClass('pre-numbering ' + widther).attr("unselectable","on");
+            $(this).addClass('has-numbering ' + widther)
+                    .parent()
+                    .append($numbering);
+            for(var i=1;i<=lines;i++){
+                $numbering.append($('<li/>').text(i));
+            }
+        });
+        
+
+        /*访问数量*/
+        
+        $.getScript("//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js");
+        
+
+        /*代码高亮，行号对齐*/
+        $('.pre-numbering').css('line-height',$('.has-numbering').css('line-height'));
+
+        
+    }
+
+    /*打赏页面隐藏与展示*/
+    
+    function dashangToggle() {
+        $(".shang_box").fadeToggle();
+        $(".hide_box").fadeToggle();
+    }
+    
+
+</script>
+
+<!--加入行号的高亮代码块样式-->
+
+<style>
+    pre{
+        position: relative;
+        margin-bottom: 24px;
+        border-radius: 10px;
+        border: 1px solid #e2dede;
+        background: #FFF;
+        overflow: hidden;
+    }
+    code.has-numbering{
+        margin-left: 30px;
+    }
+    code.has-numbering.widther{
+        margin-left: 35px;
+    }
+    .pre-numbering{
+        margin: 0px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 20px;
+        padding: 0.5em 3px 0.7em 5px;
+        border-right: 1px solid #C3CCD0;
+        text-align: right;
+        color: #AAA;
+        background-color: ;
+    }
+    .pre-numbering.widther {
+        width: 35px;
+    }
+</style>
+
+<!--自定义样式设置-->
+<style>
+    
+    
+    .nav {
+        width: 542px;
+    }
+    .nav.fullscreen {
+        margin-left: -542px;
+    }
+    .nav-left {
+        width: 120px;
+    }
+    
+    
+    @media screen and (max-width: 1468px) {
+        .nav {
+            width: 492px;
+        }
+        .nav.fullscreen {
+            margin-left: -492px;
+        }
+        .nav-left {
+            width: 100px;
+        }
+    }
+    
+    
+    @media screen and (max-width: 1024px) {
+        .nav {
+            width: 492px;
+            margin-left: -492px
+        }
+        .nav.fullscreen {
+            margin-left: 0;
+        }
+        .nav .hide-list.fullscreen {
+            left: 492px
+        }
+    }
+    
+    @media screen and (max-width: 426px) {
+        .nav {
+            width: 100%;
+        }
+        .nav-left {
+            width: 100%;
+        }
+    }
+    
+    
+    .nav-right .title-list nav a .post-title, .nav-right .title-list #local-search-result a .post-title {
+        color: #383636;
+    }
+    
+    
+    .nav-right .title-list nav a .post-date, .nav-right .title-list #local-search-result a .post-date {
+        color: #5e5e5f;
+    }
+    
+    
+    .nav-right nav a.hover, #local-search-result a.hover{
+        background-color: #e2e0e0;
+    }
+    
+    
+
+    /*列表样式*/
+    
+    .post .pjax article .article-entry>ol, .post .pjax article .article-entry>ul, .post .pjax article>ol, .post .pjax article>ul{
+        border: #e2dede solid 1px;
+        border-radius: 10px;
+        padding: 10px 32px 10px 56px;
+    }
+    .post .pjax article .article-entry li>ol, .post .pjax article .article-entry li>ul,.post .pjax article li>ol, .post .pjax article li>ul{
+        padding-top: 5px;
+        padding-bottom: 5px;
+    }
+    .post .pjax article .article-entry>ol>li, .post .pjax article .article-entry>ul>li,.post .pjax article>ol>li, .post .pjax article>ul>li{
+        margin-bottom: auto;
+        margin-left: auto;
+    }
+    .post .pjax article .article-entry li>ol>li, .post .pjax article .article-entry li>ul>li,.post .pjax article li>ol>li, .post .pjax article li>ul>li{
+        margin-bottom: auto;
+        margin-left: auto;
+    }
+    
+
+    /* 背景图样式 */
+    
+    
+
+
+    /*引用块样式*/
+    
+
+    /*文章列表背景图*/
+    
+    .nav-right:before {
+        content: ' ';
+        display: block;
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0.3;
+        background: url("null");
+        background-repeat: no-repeat;
+        background-position: 50% 0;
+        -ms-background-size: cover;
+        -o-background-size: cover;
+        -moz-background-size: cover;
+        -webkit-background-size: cover;
+        background-size: cover;
+    }
+    
+
+    
+</style>
+
+
+
+
+
+
+<div class="mobile-menus-out" >
+
+</div>
+<div class="mobile-menus">
+    
+    
+    <a class="dynamic-menu site_url"   href="/404.html">宝贝回家</a>
+    
+    
+    
+</div>
+
+
+</html>
